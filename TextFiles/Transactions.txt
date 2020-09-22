@@ -1,0 +1,16 @@
+- 
+Apsipirkimas iki
+123,5
+
+-
+remontas
+999
+
+- 
+bariukas
+10
+
++ 
+Skola
+25
+

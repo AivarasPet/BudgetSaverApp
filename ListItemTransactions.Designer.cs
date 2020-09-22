@@ -1,0 +1,96 @@
+﻿namespace BudgetSaverApp
+{
+    partial class ListItemTransactions
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.LabelTitleTag = new System.Windows.Forms.Label();
+            this.LabelAmountTag = new System.Windows.Forms.Label();
+            this.LabelTitleVal = new System.Windows.Forms.Label();
+            this.LabelAmountVal = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // LabelTitleTag
+            // 
+            this.LabelTitleTag.AutoSize = true;
+            this.LabelTitleTag.Location = new System.Drawing.Point(131, 11);
+            this.LabelTitleTag.Name = "LabelTitleTag";
+            this.LabelTitleTag.Size = new System.Drawing.Size(113, 17);
+            this.LabelTitleTag.TabIndex = 0;
+            this.LabelTitleTag.Text = "Transaction title:";
+            // 
+            // LabelAmountTag
+            // 
+            this.LabelAmountTag.AutoSize = true;
+            this.LabelAmountTag.Location = new System.Drawing.Point(131, 41);
+            this.LabelAmountTag.Name = "LabelAmountTag";
+            this.LabelAmountTag.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountTag.TabIndex = 1;
+            this.LabelAmountTag.Text = "Amount:";
+            // 
+            // LabelTitleVal
+            // 
+            this.LabelTitleVal.AutoSize = true;
+            this.LabelTitleVal.Location = new System.Drawing.Point(290, 11);
+            this.LabelTitleVal.Name = "LabelTitleVal";
+            this.LabelTitleVal.Size = new System.Drawing.Size(22, 17);
+            this.LabelTitleVal.TabIndex = 2;
+            this.LabelTitleVal.Text = "- -";
+            // 
+            // LabelAmountVal
+            // 
+            this.LabelAmountVal.AutoSize = true;
+            this.LabelAmountVal.Location = new System.Drawing.Point(290, 41);
+            this.LabelAmountVal.Name = "LabelAmountVal";
+            this.LabelAmountVal.Size = new System.Drawing.Size(22, 17);
+            this.LabelAmountVal.TabIndex = 3;
+            this.LabelAmountVal.Text = "- -";
+            // 
+            // ListItemTransactions
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.Controls.Add(this.LabelAmountVal);
+            this.Controls.Add(this.LabelTitleVal);
+            this.Controls.Add(this.LabelAmountTag);
+            this.Controls.Add(this.LabelTitleTag);
+            this.Name = "ListItemTransactions";
+            this.Size = new System.Drawing.Size(483, 70);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label LabelTitleTag;
+        private System.Windows.Forms.Label LabelAmountTag;
+        private System.Windows.Forms.Label LabelTitleVal;
+        private System.Windows.Forms.Label LabelAmountVal;
+    }
+}
