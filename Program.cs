@@ -19,4 +19,5 @@ namespace BudgetSaverApp
             Application.Run(new FormMain());
         }
     }
+
 }
