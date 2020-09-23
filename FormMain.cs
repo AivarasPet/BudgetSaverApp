@@ -26,14 +26,17 @@ namespace BudgetSaverApp
         {
             ListItemTransactions[] listItems = new ListItemTransactions[20];
             TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation("/TextFiles/Transactions.txt");
-           // System.Diagnostics.Debug.WriteLine(data[0]);
+            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"\TextFiles\Transactions.txt");
             if (data == null) return;
             for (int x = 0; x < data.Length/4; x++)
             {
-                listItems[x] = new ListItemTransactions();
-                listItems[x].Title = data[x*4+1];
-                listItems[x].Amount = data[x * 4 + 2];
+                Console.WriteLine(data[4*x] + x);
+                listItems[x] = new ListItemTransactions
+                {
+                    TransactionType = data[4 * x],
+                    Title = data[x * 4 + 1],
+                    Amount = data[x * 4 + 2]
+                };
                 FlowLayoutTransactions.Controls.Add(listItems[x]);
             }
            
