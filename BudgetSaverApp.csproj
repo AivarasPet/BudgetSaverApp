@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonthlyIncome.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
