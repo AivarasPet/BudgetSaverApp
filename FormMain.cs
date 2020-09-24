@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,18 @@ namespace BudgetSaverApp
         public FormMain()
         {
             InitializeComponent();
+            StreamReader reader = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
+            String line = reader.ReadLine();
+            if (line != null)
+            {
+                CurrentSavingsLabel.Text = "Current savings: " + line;
+            }
+            line = reader.ReadLine();
+            if (line != null)
+            {
+                MonthlySalaryLabel.Text = "Monthly salary: " + line;
+            }
+            reader.Close();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -40,6 +53,30 @@ namespace BudgetSaverApp
                 FlowLayoutTransactions.Controls.Add(listItems[x]);
             }
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var EnterInfoBoxInstance = new EnterInfoBox();
+            EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
+            EnterInfoBoxInstance.Show();
+        }
+
+        private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            StreamReader reader = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
+            String line = reader.ReadLine();
+            if(line != null)
+            {
+                CurrentSavingsLabel.Text = "Current savings: " + line;
+            }
+            line = reader.ReadLine();
+            if(line != null)
+            {
+                MonthlySalaryLabel.Text = "Monthly salary: " + line;
+            }
+
+            reader.Close();
         }
     }
 }
