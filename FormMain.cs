@@ -26,7 +26,7 @@ namespace BudgetSaverApp
         {
             ListItemTransactions[] listItems = new ListItemTransactions[20];
             TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"\TextFiles\Transactions.txt");
+            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
             if (data == null) return;
             for (int x = 0; x < data.Length/4; x++)
             {
