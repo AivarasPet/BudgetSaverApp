@@ -33,15 +33,32 @@ namespace BudgetSaverApp
                 e.Handled = true;
             }
         }
-
+        private void TextBoxGoalItemName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void TextBoxGoalItemPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void InfoBoxConfirm_Click(object sender, EventArgs e)
         {
             Double currentSavings = Convert.ToDouble(TextBoxSavingsEnter.Text);
             Double monthlySalary = Convert.ToDouble(TextBoxMonthlySalary.Text);
+            String goalItemName = Convert.ToString(textBoxGoalItemName.Text);
+            Double goalItemPrice = Convert.ToDouble(textBoxGoalItemPrice.Text);
             StreamWriter writer = new StreamWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
             writer.WriteLine(currentSavings);
             writer.WriteLine(monthlySalary);
+            writer.WriteLine(goalItemName);
+            writer.WriteLine(goalItemPrice);
             writer.Close();
             Close();
         }
