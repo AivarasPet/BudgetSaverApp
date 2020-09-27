@@ -38,6 +38,7 @@
             // LabelTitleTag
             // 
             this.LabelTitleTag.AutoSize = true;
+            this.LabelTitleTag.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LabelTitleTag.Location = new System.Drawing.Point(80, 11);
             this.LabelTitleTag.Name = "LabelTitleTag";
             this.LabelTitleTag.Size = new System.Drawing.Size(113, 17);
@@ -47,6 +48,7 @@
             // LabelAmountTag
             // 
             this.LabelAmountTag.AutoSize = true;
+            this.LabelAmountTag.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LabelAmountTag.Location = new System.Drawing.Point(133, 41);
             this.LabelAmountTag.Name = "LabelAmountTag";
             this.LabelAmountTag.Size = new System.Drawing.Size(60, 17);
@@ -56,6 +58,7 @@
             // LabelTitleVal
             // 
             this.LabelTitleVal.AutoSize = true;
+            this.LabelTitleVal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LabelTitleVal.Location = new System.Drawing.Point(250, 11);
             this.LabelTitleVal.Name = "LabelTitleVal";
             this.LabelTitleVal.Size = new System.Drawing.Size(22, 17);
@@ -65,6 +68,7 @@
             // LabelAmountVal
             // 
             this.LabelAmountVal.AutoSize = true;
+            this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LabelAmountVal.Location = new System.Drawing.Point(250, 41);
             this.LabelAmountVal.Name = "LabelAmountVal";
             this.LabelAmountVal.Size = new System.Drawing.Size(22, 17);
@@ -86,12 +90,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.LabelTransactionType);
             this.Controls.Add(this.LabelAmountVal);
             this.Controls.Add(this.LabelTitleVal);
             this.Controls.Add(this.LabelAmountTag);
             this.Controls.Add(this.LabelTitleTag);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(48)))), ((int)(((byte)(77)))));
             this.Name = "ListItemTransactions";
             this.Size = new System.Drawing.Size(431, 65);
             this.Load += new System.EventHandler(this.ListItemTransactions_Load);

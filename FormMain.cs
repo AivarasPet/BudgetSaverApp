@@ -27,6 +27,16 @@ namespace BudgetSaverApp
             {
                 MonthlySalaryLabel.Text = "Monthly salary: " + line;
             }
+            line = reader.ReadLine();
+            if (line != null)
+            {
+                goalLabel.Text = "Goal: " + line;
+            }
+            line = reader.ReadLine();
+            if (line != null)
+            {
+                goalPriceLabel.Text = "Goal Price: " + line;
+            }
             reader.Close();
         }
 
@@ -75,8 +85,23 @@ namespace BudgetSaverApp
             {
                 MonthlySalaryLabel.Text = "Monthly salary: " + line;
             }
+            line = reader.ReadLine();
+            if (line != null)
+            {
+                goalLabel.Text = "Goal: " + line;
+            }
+            line = reader.ReadLine();
+            if (line != null)
+            {
+                goalPriceLabel.Text = "Goal Price: " + line;
+            }
 
             reader.Close();
+        }
+
+        private void FlowLayoutTransactions_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

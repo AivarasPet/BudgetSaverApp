@@ -28,7 +28,7 @@ namespace BudgetSaverApp
             if(_transactionType.Contains("+"))
             {
                 LabelTransactionType.Text = _transactionType;
-                LabelTransactionType.ForeColor = Color.Green;
+                LabelTransactionType.ForeColor = Color.Green;;
             }
             else if(_transactionType.Contains("-"))
             {
@@ -44,7 +44,6 @@ namespace BudgetSaverApp
             get { return _title; }
             set { _title = value; }
         }
-
 
         [Category("Custom Props")]
         public string Amount  
