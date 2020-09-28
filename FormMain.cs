@@ -47,6 +47,7 @@ namespace BudgetSaverApp
 
         void LoadTransactionsList()
         {
+            FlowLayoutTransactions.Controls.Clear();
             ListItemTransactions[] listItems = new ListItemTransactions[20];
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
@@ -102,6 +103,22 @@ namespace BudgetSaverApp
         private void FlowLayoutTransactions_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void AddTransactionButton_Click(object sender, EventArgs e)
+        {
+            StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
+            if (AddTransactionType.Text != "" &&
+                AddTransactionName.Text != "" && 
+                AddTransactionAmount.Text != "")
+            {
+                w.WriteLine(AddTransactionType.Text);
+                w.WriteLine(AddTransactionName.Text);
+                w.WriteLine(AddTransactionAmount.Text);
+                w.WriteLine();
+                w.Close();
+                LoadTransactionsList();
+            }
         }
     }
 }
