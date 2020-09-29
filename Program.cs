@@ -16,7 +16,7 @@ namespace BudgetSaverApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new MainUI());
         }
     }
 }

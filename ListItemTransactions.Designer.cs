@@ -38,42 +38,46 @@
             // LabelTitleTag
             // 
             this.LabelTitleTag.AutoSize = true;
-            this.LabelTitleTag.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelTitleTag.ForeColor = System.Drawing.SystemColors.Control;
             this.LabelTitleTag.Location = new System.Drawing.Point(80, 11);
             this.LabelTitleTag.Name = "LabelTitleTag";
             this.LabelTitleTag.Size = new System.Drawing.Size(113, 17);
             this.LabelTitleTag.TabIndex = 0;
             this.LabelTitleTag.Text = "Transaction title:";
+            this.LabelTitleTag.Click += new System.EventHandler(this.LabelTitleTag_Click);
             // 
             // LabelAmountTag
             // 
             this.LabelAmountTag.AutoSize = true;
-            this.LabelAmountTag.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelAmountTag.ForeColor = System.Drawing.SystemColors.Control;
             this.LabelAmountTag.Location = new System.Drawing.Point(133, 41);
             this.LabelAmountTag.Name = "LabelAmountTag";
             this.LabelAmountTag.Size = new System.Drawing.Size(60, 17);
             this.LabelAmountTag.TabIndex = 1;
             this.LabelAmountTag.Text = "Amount:";
+            this.LabelAmountTag.Click += new System.EventHandler(this.LabelAmountTag_Click);
             // 
             // LabelTitleVal
             // 
             this.LabelTitleVal.AutoSize = true;
-            this.LabelTitleVal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelTitleVal.ForeColor = System.Drawing.SystemColors.Control;
             this.LabelTitleVal.Location = new System.Drawing.Point(250, 11);
             this.LabelTitleVal.Name = "LabelTitleVal";
             this.LabelTitleVal.Size = new System.Drawing.Size(22, 17);
             this.LabelTitleVal.TabIndex = 2;
             this.LabelTitleVal.Text = "- -";
+            this.LabelTitleVal.Click += new System.EventHandler(this.LabelTitleVal_Click);
             // 
             // LabelAmountVal
             // 
             this.LabelAmountVal.AutoSize = true;
-            this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.Control;
             this.LabelAmountVal.Location = new System.Drawing.Point(250, 41);
             this.LabelAmountVal.Name = "LabelAmountVal";
             this.LabelAmountVal.Size = new System.Drawing.Size(22, 17);
             this.LabelAmountVal.TabIndex = 3;
             this.LabelAmountVal.Text = "- -";
+            this.LabelAmountVal.Click += new System.EventHandler(this.LabelAmountVal_Click);
             // 
             // LabelTransactionType
             // 
@@ -90,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Controls.Add(this.LabelTransactionType);
             this.Controls.Add(this.LabelAmountVal);
             this.Controls.Add(this.LabelTitleVal);

@@ -28,12 +28,12 @@ namespace BudgetSaverApp
             if(_transactionType.Contains("+"))
             {
                 LabelTransactionType.Text = _transactionType;
-                LabelTransactionType.ForeColor = Color.Green;;
+                LabelTransactionType.ForeColor = Color.LimeGreen;
             }
             else if(_transactionType.Contains("-"))
             {
                 LabelTransactionType.Text = _transactionType;
-                LabelTransactionType.ForeColor = Color.Red;
+                LabelTransactionType.ForeColor = Color.Crimson;
             }
            
         }
@@ -43,6 +43,26 @@ namespace BudgetSaverApp
         {
             get { return _title; }
             set { _title = value; }
+        }
+
+        private void LabelTitleTag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelTitleVal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelAmountVal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelAmountTag_Click(object sender, EventArgs e)
+        {
+
         }
 
         [Category("Custom Props")]

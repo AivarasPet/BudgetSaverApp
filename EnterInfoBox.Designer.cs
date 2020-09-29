@@ -42,7 +42,10 @@
             // 
             // TextBoxSavingsEnter
             // 
-            this.TextBoxSavingsEnter.Location = new System.Drawing.Point(45, 31);
+            this.TextBoxSavingsEnter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxSavingsEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.TextBoxSavingsEnter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSavingsEnter.Location = new System.Drawing.Point(143, 65);
             this.TextBoxSavingsEnter.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSavingsEnter.Name = "TextBoxSavingsEnter";
             this.TextBoxSavingsEnter.Size = new System.Drawing.Size(315, 22);
@@ -50,8 +53,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(114, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 17);
@@ -60,8 +65,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 87);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(114, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
@@ -70,16 +77,55 @@
             // 
             // TextBoxMonthlySalary
             // 
-            this.TextBoxMonthlySalary.Location = new System.Drawing.Point(45, 107);
+            this.TextBoxMonthlySalary.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxMonthlySalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.TextBoxMonthlySalary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxMonthlySalary.Location = new System.Drawing.Point(143, 141);
             this.TextBoxMonthlySalary.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxMonthlySalary.Name = "TextBoxMonthlySalary";
             this.TextBoxMonthlySalary.Size = new System.Drawing.Size(315, 22);
             this.TextBoxMonthlySalary.TabIndex = 2;
             // 
+            // InfoBoxConfirm
+            // 
+            this.InfoBoxConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.InfoBoxConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.InfoBoxConfirm.FlatAppearance.BorderSize = 0;
+            this.InfoBoxConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InfoBoxConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoBoxConfirm.ForeColor = System.Drawing.SystemColors.Control;
+            this.InfoBoxConfirm.Location = new System.Drawing.Point(34, 359);
+            this.InfoBoxConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.InfoBoxConfirm.Name = "InfoBoxConfirm";
+            this.InfoBoxConfirm.Size = new System.Drawing.Size(109, 34);
+            this.InfoBoxConfirm.TabIndex = 4;
+            this.InfoBoxConfirm.Text = "Confirm";
+            this.InfoBoxConfirm.UseVisualStyleBackColor = false;
+            this.InfoBoxConfirm.Click += new System.EventHandler(this.InfoBoxConfirm_Click);
+            // 
+            // InfoBoxCancel
+            // 
+            this.InfoBoxCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoBoxCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.InfoBoxCancel.FlatAppearance.BorderSize = 0;
+            this.InfoBoxCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InfoBoxCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoBoxCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.InfoBoxCancel.Location = new System.Drawing.Point(413, 359);
+            this.InfoBoxCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.InfoBoxCancel.Name = "InfoBoxCancel";
+            this.InfoBoxCancel.Size = new System.Drawing.Size(114, 34);
+            this.InfoBoxCancel.TabIndex = 5;
+            this.InfoBoxCancel.Text = "Cancel";
+            this.InfoBoxCancel.UseVisualStyleBackColor = false;
+            this.InfoBoxCancel.Click += new System.EventHandler(this.InfoBoxCancel_Click);
+            // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 157);
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(119, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 6;
@@ -87,15 +133,20 @@
             // 
             // textBoxGoalItemName
             // 
-            this.textBoxGoalItemName.Location = new System.Drawing.Point(46, 185);
+            this.textBoxGoalItemName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxGoalItemName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.textBoxGoalItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxGoalItemName.Location = new System.Drawing.Point(144, 219);
             this.textBoxGoalItemName.Name = "textBoxGoalItemName";
             this.textBoxGoalItemName.Size = new System.Drawing.Size(314, 22);
             this.textBoxGoalItemName.TabIndex = 7;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 224);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(119, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 17);
             this.label4.TabIndex = 8;
@@ -103,38 +154,20 @@
             // 
             // textBoxGoalItemPrice
             // 
-            this.textBoxGoalItemPrice.Location = new System.Drawing.Point(45, 255);
+            this.textBoxGoalItemPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxGoalItemPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
+            this.textBoxGoalItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxGoalItemPrice.Location = new System.Drawing.Point(143, 289);
             this.textBoxGoalItemPrice.Name = "textBoxGoalItemPrice";
             this.textBoxGoalItemPrice.Size = new System.Drawing.Size(315, 22);
             this.textBoxGoalItemPrice.TabIndex = 9;
-            // 
-            // InfoBoxConfirm
-            // 
-            this.InfoBoxConfirm.Location = new System.Drawing.Point(46, 299);
-            this.InfoBoxConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.InfoBoxConfirm.Name = "InfoBoxConfirm";
-            this.InfoBoxConfirm.Size = new System.Drawing.Size(100, 28);
-            this.InfoBoxConfirm.TabIndex = 4;
-            this.InfoBoxConfirm.Text = "Confirm";
-            this.InfoBoxConfirm.UseVisualStyleBackColor = true;
-            this.InfoBoxConfirm.Click += new System.EventHandler(this.InfoBoxConfirm_Click);
-            // 
-            // InfoBoxCancel
-            // 
-            this.InfoBoxCancel.Location = new System.Drawing.Point(259, 299);
-            this.InfoBoxCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.InfoBoxCancel.Name = "InfoBoxCancel";
-            this.InfoBoxCancel.Size = new System.Drawing.Size(100, 28);
-            this.InfoBoxCancel.TabIndex = 5;
-            this.InfoBoxCancel.Text = "Cancel";
-            this.InfoBoxCancel.UseVisualStyleBackColor = true;
-            this.InfoBoxCancel.Click += new System.EventHandler(this.InfoBoxCancel_Click);
             // 
             // EnterInfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 353);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(593, 416);
             this.Controls.Add(this.textBoxGoalItemPrice);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxGoalItemName);
