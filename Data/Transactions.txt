@@ -1,6 +1,14 @@
 - 
 Apsipirkimas iki
-123,5
+123.5
+
++ 
+Darbas
+500
+
++
+Mociute
+100
 
 -
 remontas
@@ -14,3 +22,10 @@ bariukas
 Skola
 25
 
+-
+Mokesciai
+100
+
++
+Loterija
+15

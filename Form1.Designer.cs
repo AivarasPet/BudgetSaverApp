@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
             this.FlowLayoutTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.goalPriceLabel = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.textBoxTransactionSearchBar);
             this.panel1.Controls.Add(this.FlowLayoutTransactions);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -62,15 +64,24 @@
             this.panel1.Size = new System.Drawing.Size(461, 450);
             this.panel1.TabIndex = 1;
             // 
+            // textBoxTransactionSearchBar
+            // 
+            this.textBoxTransactionSearchBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(0, 0);
+            this.textBoxTransactionSearchBar.Name = "textBoxTransactionSearchBar";
+            this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(461, 22);
+            this.textBoxTransactionSearchBar.TabIndex = 1;
+            this.textBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.textBoxTransactionSearchBar_TextChanged);
+            // 
             // FlowLayoutTransactions
             // 
             this.FlowLayoutTransactions.AutoScroll = true;
             this.FlowLayoutTransactions.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.FlowLayoutTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowLayoutTransactions.Location = new System.Drawing.Point(0, 0);
+            this.FlowLayoutTransactions.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FlowLayoutTransactions.Location = new System.Drawing.Point(0, 27);
             this.FlowLayoutTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FlowLayoutTransactions.Name = "FlowLayoutTransactions";
-            this.FlowLayoutTransactions.Size = new System.Drawing.Size(461, 450);
+            this.FlowLayoutTransactions.Size = new System.Drawing.Size(461, 423);
             this.FlowLayoutTransactions.TabIndex = 0;
             this.FlowLayoutTransactions.Paint += new System.Windows.Forms.PaintEventHandler(this.FlowLayoutTransactions_Paint);
             // 
@@ -102,7 +113,6 @@
             // 
             // goalLabel
             // 
-            this.goalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.goalLabel.AutoSize = true;
             this.goalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goalLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -136,6 +146,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.SystemColors.Control;
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -158,10 +169,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "FormMain";
             this.Text = "Budget Saver App";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -179,6 +192,7 @@
         private System.Windows.Forms.Label MonthlySalaryLabel;
         private System.Windows.Forms.Label goalPriceLabel;
         private System.Windows.Forms.Label goalLabel;
+        private System.Windows.Forms.TextBox textBoxTransactionSearchBar;
     }
 }
 
