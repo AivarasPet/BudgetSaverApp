@@ -48,6 +48,7 @@
             this.AddTransactionType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.AddTransactionName = new System.Windows.Forms.TextBox();
+            this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
             this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMainMenu.SuspendLayout();
             this.panelStartingValues.SuspendLayout();
@@ -318,14 +319,22 @@
             this.AddTransactionName.Size = new System.Drawing.Size(132, 22);
             this.AddTransactionName.TabIndex = 12;
             // 
+            // textBoxTransactionSearchBar
+            // 
+            this.textBoxTransactionSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(242, 104);
+            this.textBoxTransactionSearchBar.Name = "textBoxTransactionSearchBar";
+            this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(619, 22);
+            this.textBoxTransactionSearchBar.TabIndex = 16;
+            this.textBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.textBoxTransactionSearchBar_TextChanged);
+            // 
             // flowLayoutPanelTransactions
             // 
-            this.flowLayoutPanelTransactions.AutoScroll = true;
             this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(242, 104);
+            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(242, 126);
             this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
-            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(619, 357);
-            this.flowLayoutPanelTransactions.TabIndex = 15;
+            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(619, 335);
+            this.flowLayoutPanelTransactions.TabIndex = 17;
             // 
             // MainUI
             // 
@@ -334,6 +343,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(861, 565);
             this.Controls.Add(this.flowLayoutPanelTransactions);
+            this.Controls.Add(this.textBoxTransactionSearchBar);
             this.Controls.Add(this.panelTransactions);
             this.Controls.Add(this.panelStartingValuesScreen);
             this.Controls.Add(this.panelMainMenu);
@@ -347,6 +357,7 @@
             this.panelTransactions.ResumeLayout(false);
             this.panelTransactions.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -372,6 +383,7 @@
         private System.Windows.Forms.ComboBox AddTransactionType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox AddTransactionName;
+        private System.Windows.Forms.TextBox textBoxTransactionSearchBar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
     }
 }

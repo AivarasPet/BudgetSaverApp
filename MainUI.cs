@@ -109,10 +109,14 @@ namespace BudgetSaverApp
                 LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
             }
         }
-        #endregion
+        private void textBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
+        {
+             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
+        }
+            #endregion
 
-        #region Starting values
-        private void buttonStartingValues_Click(object sender, EventArgs e)
+            #region Starting values
+            private void buttonStartingValues_Click(object sender, EventArgs e)
         {
             showSubMenu(panelStartingValues);
         }
@@ -185,5 +189,6 @@ namespace BudgetSaverApp
         }
         #endregion
 
+        
     }
 }
