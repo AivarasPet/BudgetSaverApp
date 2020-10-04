@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Linq.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -48,9 +49,36 @@ namespace BudgetSaverApp.Transactions
 
         }
 
+        public void LoadTransactionsListFromTextFile()
+        {
+            ListItemTransactions[] listItems = new ListItemTransactions[20];
+            TextFileReader reader = new TextFileReader();
+            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
+
+            this.InitListByStringArray(data);
+
+        }
         public List<Transaction> GetTransactionsList()
         {
             return list;
         }
+
+        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount)
+        {
+            StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
+            if (transactionType   != "" &&
+                transactionName   != "" &&
+                transactionAmount != "")
+            {
+                w.WriteLine(transactionType);
+                w.WriteLine(transactionName);
+                w.WriteLine(transactionAmount);
+                w.WriteLine();
+                w.Close();
+                LoadTransactionsListFromTextFile();
+            }
+        }
+
+  
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp
@@ -17,6 +18,7 @@ namespace BudgetSaverApp
         public MainUI()
         {
             InitializeComponent();
+            Main main = new Main();
             customDesign();
         }
         private void customDesign()
@@ -48,20 +50,10 @@ namespace BudgetSaverApp
         #region Transactions
         private void MainUI_Load(object sender, EventArgs e)
         {
-            LoadTransactionsList();
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
         }
 
-        void LoadTransactionsList()
-        {
-            ListItemTransactions[] listItems = new ListItemTransactions[20];
-            TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
-
-            TransactionService instance = TransactionService.GetTransactionService();
-            instance.InitListByStringArray(data);
-
-        }
+    
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
             flowLayoutPanelTransactions.Controls.Clear();
@@ -95,18 +87,7 @@ namespace BudgetSaverApp
         }
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
-            if (AddTransactionType.Text != "" &&
-                AddTransactionName.Text != "" &&
-                AddTransactionAmount.Text != "")
-            {
-                w.WriteLine(AddTransactionType.Text);
-                w.WriteLine(AddTransactionName.Text);
-                w.WriteLine(AddTransactionAmount.Text);
-                w.WriteLine();
-                w.Close();
-                LoadTransactionsList();
-            }
+            TransactionService.GetTransactionService().AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text);
         }
         #endregion
 
@@ -117,38 +98,7 @@ namespace BudgetSaverApp
         }
         private void buttonShowStartingValues_Click(object sender, EventArgs e)
         {
-            if (panelStartingValuesScreen.Visible == false)
-            {
-                panelStartingValuesScreen.Visible = true;
-                buttonShowStartingValues.Text = "Hide values";
-                StreamReader reader = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
-                String line = reader.ReadLine();
-                if (line != null)
-                {
-                    labelCurrentSavings.Text = "Current savings: " + line;
-                }
-                line = reader.ReadLine();
-                if (line != null)
-                {
-                    labelMonthlySalary.Text = "Monthly salary: " + line;
-                }
-                line = reader.ReadLine();
-                if (line != null)
-                {
-                    labelGoalName.Text = "Goal: " + line;
-                }
-                line = reader.ReadLine();
-                if (line != null)
-                {
-                    labelGoalPrice.Text = "Goal Price: " + line;
-                }
-                reader.Close();
-            }
-            else
-            {
-                panelStartingValuesScreen.Visible = false;
-                buttonShowStartingValues.Text = "Show values";
-            }
+            SetPortfolioInfo();
         }
         private void buttonAddStartingValues_Click(object sender, EventArgs e)
         {
@@ -158,29 +108,29 @@ namespace BudgetSaverApp
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
-            StreamReader reader = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
-            String line = reader.ReadLine();
-            if (line != null)
-            {
-                labelCurrentSavings.Text = "Current savings: " + line;
-            }
-            line = reader.ReadLine();
-            if (line != null)
-            {
-                labelMonthlySalary.Text = "Monthly salary: " + line;
-            }
-            line = reader.ReadLine();
-            if (line != null)
-            {
-                labelGoalName.Text = "Goal: " + line;
-            }
-            line = reader.ReadLine();
-            if (line != null)
-            {
-                labelGoalPrice.Text = "Goal Price: " + line;
-            }
+            SetPortfolioInfo();
+        }
 
-            reader.Close();
+        private void SetPortfolioInfo()
+        {
+            if (panelStartingValuesScreen.Visible == false)
+            {
+                panelStartingValuesScreen.Visible = true;
+                buttonShowStartingValues.Text = "Hide values";
+
+                labelCurrentSavings.Text = "Current savings: " + PortfolioService.currentSavings.ToString();
+
+                labelMonthlySalary.Text = "Monthly salary: " + PortfolioService.salaryMonthly.ToString();
+
+                labelGoalName.Text = "Goal: " + PortfolioService.mainGoalName;
+
+                labelGoalPrice.Text = "Goal Price: " + PortfolioService.mainGoalPrice.ToString();
+            }
+            else
+            {
+                panelStartingValuesScreen.Visible = false;
+                buttonShowStartingValues.Text = "Show values";
+            }
         }
         #endregion
 
