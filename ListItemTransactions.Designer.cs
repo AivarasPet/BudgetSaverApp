@@ -83,7 +83,7 @@
             // 
             this.LabelTransactionType.AutoSize = true;
             this.LabelTransactionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.LabelTransactionType.ForeColor = System.Drawing.Color.Green;
+            this.LabelTransactionType.ForeColor = System.Drawing.Color.LimeGreen;
             this.LabelTransactionType.Location = new System.Drawing.Point(27, 11);
             this.LabelTransactionType.Name = "LabelTransactionType";
             this.LabelTransactionType.Size = new System.Drawing.Size(40, 42);

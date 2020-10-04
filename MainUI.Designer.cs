@@ -30,25 +30,25 @@
         {
             this.buttonAddTransactions = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.AddTransactionButton = new System.Windows.Forms.Button();
             this.panelStartingValues = new System.Windows.Forms.Panel();
             this.buttonAddStartingValues = new System.Windows.Forms.Button();
             this.buttonShowStartingValues = new System.Windows.Forms.Button();
-            this.AddTransactionAmount = new System.Windows.Forms.TextBox();
-            this.AddTransactionType = new System.Windows.Forms.ComboBox();
-            this.AddTransactionName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonStartingValues = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelStartingValuesScreen = new System.Windows.Forms.Panel();
             this.labelGoalPrice = new System.Windows.Forms.Label();
             this.labelGoalName = new System.Windows.Forms.Label();
             this.labelMonthlySalary = new System.Windows.Forms.Label();
             this.labelCurrentSavings = new System.Windows.Forms.Label();
-            this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTransactions = new System.Windows.Forms.Panel();
+            this.AddTransactionButton = new System.Windows.Forms.Button();
+            this.AddTransactionAmount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.AddTransactionType = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AddTransactionName = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMainMenu.SuspendLayout();
             this.panelStartingValues.SuspendLayout();
             this.panelStartingValuesScreen.SuspendLayout();
@@ -86,22 +86,6 @@
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(242, 565);
             this.panelMainMenu.TabIndex = 2;
-            // 
-            // AddTransactionButton
-            // 
-            this.AddTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.AddTransactionButton.FlatAppearance.BorderSize = 0;
-            this.AddTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddTransactionButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddTransactionButton.Location = new System.Drawing.Point(431, 30);
-            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(4);
-            this.AddTransactionButton.Name = "AddTransactionButton";
-            this.AddTransactionButton.Size = new System.Drawing.Size(175, 47);
-            this.AddTransactionButton.TabIndex = 18;
-            this.AddTransactionButton.Text = "Add transaction";
-            this.AddTransactionButton.UseVisualStyleBackColor = false;
-            this.AddTransactionButton.Click += new System.EventHandler(this.AddTransactionButton_Click);
             // 
             // panelStartingValues
             // 
@@ -150,48 +134,6 @@
             this.buttonShowStartingValues.UseVisualStyleBackColor = false;
             this.buttonShowStartingValues.Click += new System.EventHandler(this.buttonShowStartingValues_Click);
             // 
-            // AddTransactionAmount
-            // 
-            this.AddTransactionAmount.Location = new System.Drawing.Point(324, 48);
-            this.AddTransactionAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.AddTransactionAmount.Name = "AddTransactionAmount";
-            this.AddTransactionAmount.Size = new System.Drawing.Size(81, 22);
-            this.AddTransactionAmount.TabIndex = 13;
-            // 
-            // AddTransactionType
-            // 
-            this.AddTransactionType.BackColor = System.Drawing.Color.DarkGray;
-            this.AddTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AddTransactionType.FormattingEnabled = true;
-            this.AddTransactionType.Items.AddRange(new object[] {
-            "+",
-            "-"});
-            this.AddTransactionType.Location = new System.Drawing.Point(57, 48);
-            this.AddTransactionType.Margin = new System.Windows.Forms.Padding(4);
-            this.AddTransactionType.Name = "AddTransactionType";
-            this.AddTransactionType.Size = new System.Drawing.Size(58, 24);
-            this.AddTransactionType.TabIndex = 14;
-            // 
-            // AddTransactionName
-            // 
-            this.AddTransactionName.Location = new System.Drawing.Point(158, 50);
-            this.AddTransactionName.Margin = new System.Windows.Forms.Padding(4);
-            this.AddTransactionName.Name = "AddTransactionName";
-            this.AddTransactionName.Size = new System.Drawing.Size(132, 22);
-            this.AddTransactionName.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(319, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Amount:";
-            // 
             // buttonStartingValues
             // 
             this.buttonStartingValues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -210,30 +152,6 @@
             this.buttonStartingValues.UseVisualStyleBackColor = false;
             this.buttonStartingValues.Click += new System.EventHandler(this.buttonStartingValues_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(153, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 25);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Title:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(52, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Type:";
-            // 
             // panelLogo
             // 
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -245,7 +163,6 @@
             // panelStartingValuesScreen
             // 
             this.panelStartingValuesScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.panelStartingValuesScreen.Controls.Add(this.panelTransactions);
             this.panelStartingValuesScreen.Controls.Add(this.labelGoalPrice);
             this.panelStartingValuesScreen.Controls.Add(this.labelGoalName);
             this.panelStartingValuesScreen.Controls.Add(this.labelMonthlySalary);
@@ -303,16 +220,9 @@
             this.labelCurrentSavings.TabIndex = 9;
             this.labelCurrentSavings.Text = "Current savings: 0";
             // 
-            // flowLayoutPanelTransactions
-            // 
-            this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(242, 0);
-            this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
-            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(619, 461);
-            this.flowLayoutPanelTransactions.TabIndex = 4;
-            // 
             // panelTransactions
             // 
+            this.panelTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panelTransactions.Controls.Add(this.AddTransactionButton);
             this.panelTransactions.Controls.Add(this.AddTransactionAmount);
             this.panelTransactions.Controls.Add(this.label1);
@@ -320,11 +230,102 @@
             this.panelTransactions.Controls.Add(this.AddTransactionType);
             this.panelTransactions.Controls.Add(this.label3);
             this.panelTransactions.Controls.Add(this.AddTransactionName);
-            this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTransactions.Location = new System.Drawing.Point(0, 0);
+            this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTransactions.Location = new System.Drawing.Point(242, 0);
             this.panelTransactions.Name = "panelTransactions";
             this.panelTransactions.Size = new System.Drawing.Size(619, 104);
-            this.panelTransactions.TabIndex = 13;
+            this.panelTransactions.TabIndex = 14;
+            // 
+            // AddTransactionButton
+            // 
+            this.AddTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.AddTransactionButton.FlatAppearance.BorderSize = 0;
+            this.AddTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTransactionButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddTransactionButton.Location = new System.Drawing.Point(431, 30);
+            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionButton.Name = "AddTransactionButton";
+            this.AddTransactionButton.Size = new System.Drawing.Size(175, 47);
+            this.AddTransactionButton.TabIndex = 18;
+            this.AddTransactionButton.Text = "Add transaction";
+            this.AddTransactionButton.UseVisualStyleBackColor = false;
+            this.AddTransactionButton.Click += new System.EventHandler(this.AddTransactionButton_Click);
+            // 
+            // AddTransactionAmount
+            // 
+            this.AddTransactionAmount.Location = new System.Drawing.Point(324, 48);
+            this.AddTransactionAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionAmount.Name = "AddTransactionAmount";
+            this.AddTransactionAmount.Size = new System.Drawing.Size(81, 22);
+            this.AddTransactionAmount.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(52, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Type:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(153, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 25);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Title:";
+            // 
+            // AddTransactionType
+            // 
+            this.AddTransactionType.BackColor = System.Drawing.Color.DarkGray;
+            this.AddTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddTransactionType.FormattingEnabled = true;
+            this.AddTransactionType.Items.AddRange(new object[] {
+            "+",
+            "-"});
+            this.AddTransactionType.Location = new System.Drawing.Point(57, 48);
+            this.AddTransactionType.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionType.Name = "AddTransactionType";
+            this.AddTransactionType.Size = new System.Drawing.Size(58, 24);
+            this.AddTransactionType.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(319, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Amount:";
+            // 
+            // AddTransactionName
+            // 
+            this.AddTransactionName.Location = new System.Drawing.Point(158, 50);
+            this.AddTransactionName.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionName.Name = "AddTransactionName";
+            this.AddTransactionName.Size = new System.Drawing.Size(132, 22);
+            this.AddTransactionName.TabIndex = 12;
+            // 
+            // flowLayoutPanelTransactions
+            // 
+            this.flowLayoutPanelTransactions.AutoScroll = true;
+            this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(242, 104);
+            this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
+            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(619, 357);
+            this.flowLayoutPanelTransactions.TabIndex = 15;
             // 
             // MainUI
             // 
@@ -333,6 +334,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(861, 565);
             this.Controls.Add(this.flowLayoutPanelTransactions);
+            this.Controls.Add(this.panelTransactions);
             this.Controls.Add(this.panelStartingValuesScreen);
             this.Controls.Add(this.panelMainMenu);
             this.Name = "MainUI";
@@ -362,14 +364,14 @@
         private System.Windows.Forms.Label labelGoalName;
         private System.Windows.Forms.Label labelMonthlySalary;
         private System.Windows.Forms.Label labelCurrentSavings;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
-        private System.Windows.Forms.Button AddTransactionButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox AddTransactionType;
-        private System.Windows.Forms.TextBox AddTransactionAmount;
-        private System.Windows.Forms.TextBox AddTransactionName;
         private System.Windows.Forms.Panel panelTransactions;
+        private System.Windows.Forms.Button AddTransactionButton;
+        private System.Windows.Forms.TextBox AddTransactionAmount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox AddTransactionType;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox AddTransactionName;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
     }
 }

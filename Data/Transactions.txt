@@ -13,3 +13,8 @@ bariukas
 + 
 Skola
 25
+
+-
+Parduotuve
+10
+
