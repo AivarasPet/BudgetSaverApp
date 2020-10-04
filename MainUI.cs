@@ -106,6 +106,7 @@ namespace BudgetSaverApp
                 w.WriteLine();
                 w.Close();
                 LoadTransactionsList();
+                LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
             }
         }
         #endregion
