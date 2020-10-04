@@ -1,14 +1,6 @@
 - 
 Apsipirkimas iki
-123.5
-
-+ 
-Darbas
-500
-
-+
-Mociute
-100
+123,5
 
 -
 remontas
@@ -23,9 +15,6 @@ Skola
 25
 
 -
-Mokesciai
-100
+Parduotuve
+10
 
-+
-Loterija
-15
