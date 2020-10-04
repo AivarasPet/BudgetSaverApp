@@ -75,6 +75,7 @@
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
     <Compile Include="MonthlyIncome.cs" />
+    <Compile Include="OldMAin.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="ListItemTransactions.cs">
       <SubType>UserControl</SubType>
