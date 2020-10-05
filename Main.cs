@@ -1,5 +1,6 @@
 ﻿using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Transactions;
+using BudgetSaverApp.Pricing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace BudgetSaverApp
 
             PortfolioService portfolioService = new PortfolioService();
             portfolioService.LoadDataFromTextFile();
+
+            PricingFetcher pricingFetcher = new PricingFetcher();
+
         }
     }
 }

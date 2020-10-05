@@ -68,6 +68,7 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="HttpRequest.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
@@ -78,6 +79,7 @@
     <Compile Include="MonthlyIncome.cs" />
     <Compile Include="OldMAin.cs" />
     <Compile Include="Portfolio\PortfolioService.cs" />
+    <Compile Include="Pricing\PricingFetcher.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="ListItemTransactions.cs">
       <SubType>UserControl</SubType>
