@@ -20,7 +20,7 @@ namespace BudgetSaverApp
         {
             userData = new UserData();
             InitializeComponent();
-            //Main main = new Main();
+            Main main = new Main();//Don't comment, it's actually doing something
             customDesign();
         }
         private void customDesign()
