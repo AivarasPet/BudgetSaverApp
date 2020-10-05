@@ -13,10 +13,12 @@ namespace BudgetSaverApp
 {
     public partial class EnterInfoBox : Form
     {
-        public EnterInfoBox()
-        {
-            InitializeComponent();
 
+        UserData userData;
+        public EnterInfoBox(UserData userData)
+        {
+            this.userData = userData;
+            InitializeComponent();
         }
 
         private void TextBoxSavingsEnter_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,16 +52,11 @@ namespace BudgetSaverApp
 
         private void InfoBoxConfirm_Click(object sender, EventArgs e)
         {
-            Double currentSavings = Convert.ToDouble(TextBoxSavingsEnter.Text);
-            Double monthlySalary = Convert.ToDouble(TextBoxMonthlySalary.Text);
-            String goalItemName = Convert.ToString(textBoxGoalItemName.Text);
-            Double goalItemPrice = Convert.ToDouble(textBoxGoalItemPrice.Text);
-            StreamWriter writer = new StreamWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
-            writer.WriteLine(currentSavings);
-            writer.WriteLine(monthlySalary);
-            writer.WriteLine(goalItemName);
-            writer.WriteLine(goalItemPrice);
-            writer.Close();
+            userData.SetAll(Convert.ToString(textBoxGoalItemName.Text),
+                            float.Parse(TextBoxSavingsEnter.Text),
+                            float.Parse(TextBoxMonthlySalary.Text),
+                            float.Parse(textBoxGoalItemPrice.Text));
+            userData.SaveToFile();
             Close();
         }
 

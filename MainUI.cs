@@ -15,10 +15,12 @@ namespace BudgetSaverApp
 {
     public partial class MainUI : Form
     {
+        UserData userData;
         public MainUI()
         {
+            userData = new UserData();
             InitializeComponent();
-            Main main = new Main();
+            //Main main = new Main();
             customDesign();
         }
         private void customDesign()
@@ -95,8 +97,8 @@ namespace BudgetSaverApp
         }
             #endregion
 
-            #region Starting values
-            private void buttonStartingValues_Click(object sender, EventArgs e)
+        #region Starting values
+        private void buttonStartingValues_Click(object sender, EventArgs e)
         {
             showSubMenu(panelStartingValues);
         }
@@ -106,7 +108,7 @@ namespace BudgetSaverApp
         }
         private void buttonAddStartingValues_Click(object sender, EventArgs e)
         {
-            var EnterInfoBoxInstance = new EnterInfoBox();
+            var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
             EnterInfoBoxInstance.Show();
         }
@@ -121,14 +123,10 @@ namespace BudgetSaverApp
             {
                 panelStartingValuesScreen.Visible = true;
                 buttonShowStartingValues.Text = "Hide values";
-
-                labelCurrentSavings.Text = "Current savings: " + PortfolioService.currentSavings.ToString();
-
-                labelMonthlySalary.Text = "Monthly salary: " + PortfolioService.salaryMonthly.ToString();
-
-                labelGoalName.Text = "Goal: " + PortfolioService.mainGoalName;
-
-                labelGoalPrice.Text = "Goal Price: " + PortfolioService.mainGoalPrice.ToString();
+                labelCurrentSavings.Text = "Current savings: " + userData.GetSavings();
+                labelMonthlySalary.Text = "Monthly salary: " + userData.GetMonthlySalary();
+                labelGoalName.Text = "Goal: " + userData.GetGoalName();
+                labelGoalPrice.Text = "Goal Price: " + userData.GetGoalPrice();
             }
             else
             {
