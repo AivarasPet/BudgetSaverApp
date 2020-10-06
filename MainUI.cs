@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq.Mapping;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -60,16 +61,25 @@ namespace BudgetSaverApp
         {
             flowLayoutPanelTransactions.Controls.Clear();
             Console.WriteLine("search " + list.Count);
-            foreach (Transaction t in list)
+            if((list != null) && (list.First() != null))
             {
-                ListItemTransactions item = new ListItemTransactions
+                foreach (Transaction t in list)
                 {
-                    TransactionType = t.TransactionType,
-                    Title = t.Title,
-                    Amount = t.Amount.ToString()
-                };
-                flowLayoutPanelTransactions.Controls.Add(item);
+                    if (t == null)
+                    {
+                        continue;
+                    }
+                    ListItemTransactions item = new ListItemTransactions
+                    {
+                        TransactionType = t.TransactionType,
+                        Title = t.Title,
+                        Amount = t.Amount.ToString(),
+                        Category = t.Category
+                    };
+                    flowLayoutPanelTransactions.Controls.Add(item);
+                }
             }
+            
         }
         private void buttonAddTransactions_Click(object sender, EventArgs e)
         {
@@ -89,7 +99,8 @@ namespace BudgetSaverApp
         }
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            TransactionService.GetTransactionService().AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text);
+            TransactionService.GetTransactionService().AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
+            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
         }
         private void textBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
@@ -123,10 +134,10 @@ namespace BudgetSaverApp
             {
                 panelStartingValuesScreen.Visible = true;
                 buttonShowStartingValues.Text = "Hide values";
-                labelCurrentSavings.Text = "Current savings: " + userData.GetSavings();
-                labelMonthlySalary.Text = "Monthly salary: " + userData.GetMonthlySalary();
-                labelGoalName.Text = "Goal: " + userData.GetGoalName();
-                labelGoalPrice.Text = "Goal Price: " + userData.GetGoalPrice();
+                labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
+                labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
+                labelGoalName.Text = "Goal: " + userData.GoalItemName;
+                labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
             }
             else
             {
@@ -134,8 +145,7 @@ namespace BudgetSaverApp
                 buttonShowStartingValues.Text = "Show values";
             }
         }
-        #endregion
 
-        
+        #endregion
     }
 }
