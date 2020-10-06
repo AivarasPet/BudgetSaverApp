@@ -50,6 +50,8 @@
             this.AddTransactionName = new System.Windows.Forms.TextBox();
             this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
             this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.AddTransactionCategory = new System.Windows.Forms.ComboBox();
             this.panelMainMenu.SuspendLayout();
             this.panelStartingValues.SuspendLayout();
             this.panelStartingValuesScreen.SuspendLayout();
@@ -64,10 +66,11 @@
             this.buttonAddTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddTransactions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(48)))), ((int)(((byte)(77)))));
-            this.buttonAddTransactions.Location = new System.Drawing.Point(0, 101);
+            this.buttonAddTransactions.Location = new System.Drawing.Point(0, 82);
+            this.buttonAddTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddTransactions.Name = "buttonAddTransactions";
-            this.buttonAddTransactions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonAddTransactions.Size = new System.Drawing.Size(242, 40);
+            this.buttonAddTransactions.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.buttonAddTransactions.Size = new System.Drawing.Size(182, 32);
             this.buttonAddTransactions.TabIndex = 1;
             this.buttonAddTransactions.Text = "Add transaction";
             this.buttonAddTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -84,8 +87,9 @@
             this.panelMainMenu.Controls.Add(this.panelLogo);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMainMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(242, 565);
+            this.panelMainMenu.Size = new System.Drawing.Size(182, 459);
             this.panelMainMenu.TabIndex = 2;
             // 
             // panelStartingValues
@@ -94,9 +98,10 @@
             this.panelStartingValues.Controls.Add(this.buttonAddStartingValues);
             this.panelStartingValues.Controls.Add(this.buttonShowStartingValues);
             this.panelStartingValues.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStartingValues.Location = new System.Drawing.Point(0, 181);
+            this.panelStartingValues.Location = new System.Drawing.Point(0, 146);
+            this.panelStartingValues.Margin = new System.Windows.Forms.Padding(2);
             this.panelStartingValues.Name = "panelStartingValues";
-            this.panelStartingValues.Size = new System.Drawing.Size(242, 82);
+            this.panelStartingValues.Size = new System.Drawing.Size(182, 67);
             this.panelStartingValues.TabIndex = 5;
             // 
             // buttonAddStartingValues
@@ -107,10 +112,11 @@
             this.buttonAddStartingValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddStartingValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddStartingValues.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddStartingValues.Location = new System.Drawing.Point(0, 40);
+            this.buttonAddStartingValues.Location = new System.Drawing.Point(0, 32);
+            this.buttonAddStartingValues.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddStartingValues.Name = "buttonAddStartingValues";
-            this.buttonAddStartingValues.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonAddStartingValues.Size = new System.Drawing.Size(242, 39);
+            this.buttonAddStartingValues.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.buttonAddStartingValues.Size = new System.Drawing.Size(182, 32);
             this.buttonAddStartingValues.TabIndex = 1;
             this.buttonAddStartingValues.Text = "Add starting values";
             this.buttonAddStartingValues.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,9 +132,10 @@
             this.buttonShowStartingValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonShowStartingValues.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonShowStartingValues.Location = new System.Drawing.Point(0, 0);
+            this.buttonShowStartingValues.Margin = new System.Windows.Forms.Padding(2);
             this.buttonShowStartingValues.Name = "buttonShowStartingValues";
-            this.buttonShowStartingValues.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonShowStartingValues.Size = new System.Drawing.Size(242, 40);
+            this.buttonShowStartingValues.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.buttonShowStartingValues.Size = new System.Drawing.Size(182, 32);
             this.buttonShowStartingValues.TabIndex = 0;
             this.buttonShowStartingValues.Text = "Show values";
             this.buttonShowStartingValues.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,10 +150,11 @@
             this.buttonStartingValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStartingValues.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStartingValues.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(48)))), ((int)(((byte)(77)))));
-            this.buttonStartingValues.Location = new System.Drawing.Point(0, 141);
+            this.buttonStartingValues.Location = new System.Drawing.Point(0, 114);
+            this.buttonStartingValues.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStartingValues.Name = "buttonStartingValues";
-            this.buttonStartingValues.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonStartingValues.Size = new System.Drawing.Size(242, 40);
+            this.buttonStartingValues.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.buttonStartingValues.Size = new System.Drawing.Size(182, 32);
             this.buttonStartingValues.TabIndex = 4;
             this.buttonStartingValues.Text = "Starting values";
             this.buttonStartingValues.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,8 +165,9 @@
             // 
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(242, 101);
+            this.panelLogo.Size = new System.Drawing.Size(182, 82);
             this.panelLogo.TabIndex = 0;
             // 
             // panelStartingValuesScreen
@@ -169,9 +178,10 @@
             this.panelStartingValuesScreen.Controls.Add(this.labelMonthlySalary);
             this.panelStartingValuesScreen.Controls.Add(this.labelCurrentSavings);
             this.panelStartingValuesScreen.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelStartingValuesScreen.Location = new System.Drawing.Point(242, 461);
+            this.panelStartingValuesScreen.Location = new System.Drawing.Point(182, 375);
+            this.panelStartingValuesScreen.Margin = new System.Windows.Forms.Padding(2);
             this.panelStartingValuesScreen.Name = "panelStartingValuesScreen";
-            this.panelStartingValuesScreen.Size = new System.Drawing.Size(619, 104);
+            this.panelStartingValuesScreen.Size = new System.Drawing.Size(587, 84);
             this.panelStartingValuesScreen.TabIndex = 3;
             // 
             // labelGoalPrice
@@ -179,9 +189,10 @@
             this.labelGoalPrice.AutoSize = true;
             this.labelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoalPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGoalPrice.Location = new System.Drawing.Point(81, 41);
+            this.labelGoalPrice.Location = new System.Drawing.Point(61, 33);
+            this.labelGoalPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelGoalPrice.Name = "labelGoalPrice";
-            this.labelGoalPrice.Size = new System.Drawing.Size(122, 25);
+            this.labelGoalPrice.Size = new System.Drawing.Size(98, 20);
             this.labelGoalPrice.TabIndex = 12;
             this.labelGoalPrice.Text = "Goal price: 0";
             // 
@@ -191,9 +202,10 @@
             this.labelGoalName.AutoSize = true;
             this.labelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoalName.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGoalName.Location = new System.Drawing.Point(81, 18);
+            this.labelGoalName.Location = new System.Drawing.Point(61, 15);
+            this.labelGoalName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelGoalName.Name = "labelGoalName";
-            this.labelGoalName.Size = new System.Drawing.Size(59, 25);
+            this.labelGoalName.Size = new System.Drawing.Size(47, 20);
             this.labelGoalName.TabIndex = 11;
             this.labelGoalName.Text = "Goal:";
             // 
@@ -202,10 +214,9 @@
             this.labelMonthlySalary.AutoSize = true;
             this.labelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonthlySalary.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelMonthlySalary.Location = new System.Drawing.Point(378, 61);
-            this.labelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMonthlySalary.Location = new System.Drawing.Point(284, 50);
             this.labelMonthlySalary.Name = "labelMonthlySalary";
-            this.labelMonthlySalary.Size = new System.Drawing.Size(160, 25);
+            this.labelMonthlySalary.Size = new System.Drawing.Size(126, 20);
             this.labelMonthlySalary.TabIndex = 10;
             this.labelMonthlySalary.Text = "Monthly salary: 0";
             // 
@@ -214,16 +225,17 @@
             this.labelCurrentSavings.AutoSize = true;
             this.labelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCurrentSavings.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCurrentSavings.Location = new System.Drawing.Point(81, 61);
-            this.labelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCurrentSavings.Location = new System.Drawing.Point(61, 50);
             this.labelCurrentSavings.Name = "labelCurrentSavings";
-            this.labelCurrentSavings.Size = new System.Drawing.Size(171, 25);
+            this.labelCurrentSavings.Size = new System.Drawing.Size(136, 20);
             this.labelCurrentSavings.TabIndex = 9;
             this.labelCurrentSavings.Text = "Current savings: 0";
             // 
             // panelTransactions
             // 
             this.panelTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panelTransactions.Controls.Add(this.AddTransactionCategory);
+            this.panelTransactions.Controls.Add(this.label4);
             this.panelTransactions.Controls.Add(this.AddTransactionButton);
             this.panelTransactions.Controls.Add(this.AddTransactionAmount);
             this.panelTransactions.Controls.Add(this.label1);
@@ -232,9 +244,10 @@
             this.panelTransactions.Controls.Add(this.label3);
             this.panelTransactions.Controls.Add(this.AddTransactionName);
             this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTransactions.Location = new System.Drawing.Point(242, 0);
+            this.panelTransactions.Location = new System.Drawing.Point(182, 0);
+            this.panelTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.panelTransactions.Name = "panelTransactions";
-            this.panelTransactions.Size = new System.Drawing.Size(619, 104);
+            this.panelTransactions.Size = new System.Drawing.Size(587, 84);
             this.panelTransactions.TabIndex = 14;
             // 
             // AddTransactionButton
@@ -244,10 +257,9 @@
             this.AddTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddTransactionButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddTransactionButton.Location = new System.Drawing.Point(431, 30);
-            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionButton.Location = new System.Drawing.Point(444, 22);
             this.AddTransactionButton.Name = "AddTransactionButton";
-            this.AddTransactionButton.Size = new System.Drawing.Size(175, 47);
+            this.AddTransactionButton.Size = new System.Drawing.Size(131, 38);
             this.AddTransactionButton.TabIndex = 18;
             this.AddTransactionButton.Text = "Add transaction";
             this.AddTransactionButton.UseVisualStyleBackColor = false;
@@ -255,10 +267,9 @@
             // 
             // AddTransactionAmount
             // 
-            this.AddTransactionAmount.Location = new System.Drawing.Point(324, 48);
-            this.AddTransactionAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionAmount.Location = new System.Drawing.Point(182, 41);
             this.AddTransactionAmount.Name = "AddTransactionAmount";
-            this.AddTransactionAmount.Size = new System.Drawing.Size(81, 22);
+            this.AddTransactionAmount.Size = new System.Drawing.Size(62, 20);
             this.AddTransactionAmount.TabIndex = 13;
             // 
             // label1
@@ -266,10 +277,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(52, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 15;
             this.label1.Text = "Type:";
             // 
@@ -278,10 +288,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(153, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(72, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 25);
+            this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 16;
             this.label2.Text = "Title:";
             // 
@@ -293,10 +302,9 @@
             this.AddTransactionType.Items.AddRange(new object[] {
             "+",
             "-"});
-            this.AddTransactionType.Location = new System.Drawing.Point(57, 48);
-            this.AddTransactionType.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionType.Location = new System.Drawing.Point(23, 40);
             this.AddTransactionType.Name = "AddTransactionType";
-            this.AddTransactionType.Size = new System.Drawing.Size(58, 24);
+            this.AddTransactionType.Size = new System.Drawing.Size(44, 21);
             this.AddTransactionType.TabIndex = 14;
             // 
             // label3
@@ -304,49 +312,77 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(319, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(178, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 17;
             this.label3.Text = "Amount:";
             // 
             // AddTransactionName
             // 
-            this.AddTransactionName.Location = new System.Drawing.Point(158, 50);
-            this.AddTransactionName.Margin = new System.Windows.Forms.Padding(4);
+            this.AddTransactionName.Location = new System.Drawing.Point(76, 41);
             this.AddTransactionName.Name = "AddTransactionName";
-            this.AddTransactionName.Size = new System.Drawing.Size(132, 22);
+            this.AddTransactionName.Size = new System.Drawing.Size(100, 20);
             this.AddTransactionName.TabIndex = 12;
             // 
             // textBoxTransactionSearchBar
             // 
             this.textBoxTransactionSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(242, 104);
+            this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(182, 84);
+            this.textBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTransactionSearchBar.Name = "textBoxTransactionSearchBar";
-            this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(619, 22);
+            this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(587, 20);
             this.textBoxTransactionSearchBar.TabIndex = 16;
             this.textBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.textBoxTransactionSearchBar_TextChanged);
             // 
             // flowLayoutPanelTransactions
             // 
+            this.flowLayoutPanelTransactions.AutoScroll = true;
             this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(242, 126);
+            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(182, 104);
+            this.flowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
-            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(619, 335);
+            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(587, 271);
             this.flowLayoutPanelTransactions.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(284, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Category:";
+            // 
+            // AddTransactionCategory
+            // 
+            this.AddTransactionCategory.BackColor = System.Drawing.Color.DarkGray;
+            this.AddTransactionCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddTransactionCategory.FormattingEnabled = true;
+            this.AddTransactionCategory.Items.AddRange(new object[] {
+            "Food",
+            "Living",
+            "Healthcare",
+            "Transport"});
+            this.AddTransactionCategory.Location = new System.Drawing.Point(288, 39);
+            this.AddTransactionCategory.Name = "AddTransactionCategory";
+            this.AddTransactionCategory.Size = new System.Drawing.Size(122, 21);
+            this.AddTransactionCategory.TabIndex = 20;
             // 
             // MainUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(861, 565);
+            this.ClientSize = new System.Drawing.Size(769, 459);
             this.Controls.Add(this.flowLayoutPanelTransactions);
             this.Controls.Add(this.textBoxTransactionSearchBar);
             this.Controls.Add(this.panelTransactions);
             this.Controls.Add(this.panelStartingValuesScreen);
             this.Controls.Add(this.panelMainMenu);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainUI";
             this.Text = "MainUI";
             this.Load += new System.EventHandler(this.MainUI_Load);
@@ -385,5 +421,7 @@
         private System.Windows.Forms.TextBox AddTransactionName;
         private System.Windows.Forms.TextBox textBoxTransactionSearchBar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
+        private System.Windows.Forms.ComboBox AddTransactionCategory;
+        private System.Windows.Forms.Label label4;
     }
 }

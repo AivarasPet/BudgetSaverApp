@@ -18,13 +18,14 @@ namespace BudgetSaverApp
             InitializeComponent();
         }
 
-        private string _title = "", _amount = "", _transactionType = "";
+        private string _title = "", _amount = "", _category = "", _transactionType = "";
 
 
         private void ListItemTransactions_Load(object sender, EventArgs e)
         {
             LabelAmountVal.Text = _amount;
             LabelTitleVal.Text = _title;
+            LabelCategoryVal.Text = _category;
             if(_transactionType.Contains("+"))
             {
                 LabelTransactionType.Text = _transactionType;
@@ -43,6 +44,13 @@ namespace BudgetSaverApp
         {
             get { return _title; }
             set { _title = value; }
+        }
+
+        [Category("Custom Props")]
+        public string Category
+        {
+            get { return _category; }
+            set { _category = value; }
         }
 
         private void LabelTitleTag_Click(object sender, EventArgs e)
