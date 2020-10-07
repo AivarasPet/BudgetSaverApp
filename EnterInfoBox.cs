@@ -53,9 +53,9 @@ namespace BudgetSaverApp
         private void InfoBoxConfirm_Click(object sender, EventArgs e)
         {
             userData.SetAll(Convert.ToString(textBoxGoalItemName.Text),
-                            float.Parse(TextBoxSavingsEnter.Text),
-                            float.Parse(TextBoxMonthlySalary.Text),
-                            float.Parse(textBoxGoalItemPrice.Text));
+                float.Parse(textBoxGoalItemPrice.Text),
+                float.Parse(TextBoxSavingsEnter.Text),
+                float.Parse(TextBoxMonthlySalary.Text));                
             userData.SaveToFile();
             Close();
         }
