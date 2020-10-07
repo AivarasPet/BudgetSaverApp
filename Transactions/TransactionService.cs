@@ -69,15 +69,8 @@ namespace BudgetSaverApp.Transactions
         }
         public List<Transaction> GetTransactionsList()
         {
-            if(list == null)
-            {
-                return null;
-            }
-            else
-            {
-                return list;
-            }
-            
+            return list == null ? null : list;
+            //return list ?? null;
         }
 
         public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category)
