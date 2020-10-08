@@ -45,7 +45,7 @@
             this.TextBoxSavingsEnter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxSavingsEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.TextBoxSavingsEnter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxSavingsEnter.Location = new System.Drawing.Point(143, 65);
+            this.TextBoxSavingsEnter.Location = new System.Drawing.Point(125, 199);
             this.TextBoxSavingsEnter.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSavingsEnter.Name = "TextBoxSavingsEnter";
             this.TextBoxSavingsEnter.Size = new System.Drawing.Size(315, 22);
@@ -56,7 +56,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(114, 45);
+            this.label1.Location = new System.Drawing.Point(96, 179);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 17);
@@ -68,7 +68,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(114, 121);
+            this.label2.Location = new System.Drawing.Point(96, 255);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 17);
@@ -80,7 +80,7 @@
             this.TextBoxMonthlySalary.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxMonthlySalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.TextBoxMonthlySalary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxMonthlySalary.Location = new System.Drawing.Point(143, 141);
+            this.TextBoxMonthlySalary.Location = new System.Drawing.Point(125, 275);
             this.TextBoxMonthlySalary.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxMonthlySalary.Name = "TextBoxMonthlySalary";
             this.TextBoxMonthlySalary.Size = new System.Drawing.Size(315, 22);
@@ -125,7 +125,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(119, 191);
+            this.label3.Location = new System.Drawing.Point(100, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 6;
@@ -136,7 +136,7 @@
             this.textBoxGoalItemName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxGoalItemName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.textBoxGoalItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxGoalItemName.Location = new System.Drawing.Point(144, 219);
+            this.textBoxGoalItemName.Location = new System.Drawing.Point(125, 59);
             this.textBoxGoalItemName.Name = "textBoxGoalItemName";
             this.textBoxGoalItemName.Size = new System.Drawing.Size(314, 22);
             this.textBoxGoalItemName.TabIndex = 7;
@@ -146,7 +146,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(119, 258);
+            this.label4.Location = new System.Drawing.Point(100, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 17);
             this.label4.TabIndex = 8;
@@ -157,7 +157,7 @@
             this.textBoxGoalItemPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxGoalItemPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.textBoxGoalItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxGoalItemPrice.Location = new System.Drawing.Point(143, 289);
+            this.textBoxGoalItemPrice.Location = new System.Drawing.Point(124, 129);
             this.textBoxGoalItemPrice.Name = "textBoxGoalItemPrice";
             this.textBoxGoalItemPrice.Size = new System.Drawing.Size(315, 22);
             this.textBoxGoalItemPrice.TabIndex = 9;

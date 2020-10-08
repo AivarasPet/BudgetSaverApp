@@ -65,22 +65,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTransaction.Designer.cs">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnterInfoBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="HttpRequest.cs" />
-    <Compile Include="Main.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainUI.Designer.cs">
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="HttpRequest.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="MonthlyIncome.cs" />
-    <Compile Include="OldMAin.cs" />
     <Compile Include="Portfolio\PortfolioService.cs" />
     <Compile Include="Pricing\PricingFetcher.cs" />
     <Compile Include="TextFileReader.cs" />
@@ -95,14 +100,17 @@
     <Compile Include="Transactions\Transaction.cs" />
     <Compile Include="Transactions\TransactionService.cs" />
     <Compile Include="UserData.cs" />
+    <EmbeddedResource Include="AddTransaction.resx">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnterInfoBox.resx">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListItemTransactions.resx">
-      <DependentUpon>ListItemTransactions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListItemTransactions.resx">
+      <DependentUpon>ListItemTransactions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
