@@ -77,6 +77,12 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListSavings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListSavings.Designer.cs">
+      <DependentUpon>ListSavings.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnterInfoBox.resx">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListSavings.resx">
+      <DependentUpon>ListSavings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
@@ -152,27 +161,13 @@
     <Content Include="Data\Transactions - Old.txt" />
     <Content Include="Data\Transactions.txt" />
     <Content Include="Data\UserData.txt" />
-    <None Include="Resources\Webp.net-resizeimage %2814%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %2823%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %2821%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2813%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2812%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %2811%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %287%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %285%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %284%291.png" />
-    <None Include="Resources\Webp.net-resizeimage %283%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %282%291.png" />
-    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2816%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2815%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2810%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %289%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %288%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %286%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %284%29.png" />
-    <None Include="Resources\Webp.net-resizeimage.jpg" />
-    <None Include="Resources\Webp.net-resizeimage.png" />
-    <None Include="Resources\Webp.net-resizeimage %282%29.png" />
-    <None Include="Resources\download1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
