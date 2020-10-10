@@ -13,17 +13,13 @@ namespace BudgetSaverApp.Pricing
 
         public PricingFetcher() 
         {
-            DownloadCryptoPrices();
+            DownloadCryptoPricesAsync();
         }
-        void DownloadCryptoPrices()
+        async Task DownloadCryptoPricesAsync()
         {
-             
             HttpRequest request = new HttpRequest();
-            new Thread(() => {
-                Console.WriteLine("start");
-                request.HttpRequestCompleted += this.OnCryptoPricingDownloaded;
-                request.StartHttpRequest("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=15&tsym=USD");
-             }).Start();
+            request.HttpRequestCompleted += this.OnCryptoPricingDownloaded;
+            string data = await request.StartHttpRequest("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=15&tsym=USD");
         }
 
         public void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
