@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Transactions;
 
@@ -85,5 +86,40 @@ namespace BudgetSaverApp
             labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
         }
         #endregion
+        #region Savings
+        private void buttonSelectAll_Click(object sender, EventArgs e)
+        {
+            ChangeColor(buttonSelectAll);
+        }
+        private void buttonSelectStocks_Click(object sender, EventArgs e)
+        {
+            ChangeColor(buttonSelectStocks);
+        }
+        private void buttonSelectCrypto_Click(object sender, EventArgs e)
+        {
+            ChangeColor(buttonSelectCrypto);
+        }
+        private void buttonSelectCommodities_Click(object sender, EventArgs e)
+        {
+            ChangeColor(buttonSelectCommodities);
+        }
+        private void buttonSelectMoney_Click(object sender, EventArgs e)
+        {
+            ChangeColor(buttonSelectMoney);
+        }
+        private void ChangeColor(Button button)
+        {
+            if (button.BackColor == Color.White)
+            {
+                button.BackColor = Color.Khaki;
+                button.FlatAppearance.BorderColor = Color.DarkGoldenrod;
+            }
+            else
+            {
+                button.BackColor = Color.White;
+                button.FlatAppearance.BorderColor = Color.Black;
+            }
+        }
     }
+        #endregion
 }

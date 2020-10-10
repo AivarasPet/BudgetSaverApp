@@ -53,26 +53,6 @@ namespace BudgetSaverApp
             set { _category = value; }
         }
 
-        private void LabelTitleTag_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelTitleVal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelAmountVal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelAmountTag_Click(object sender, EventArgs e)
-        {
-
-        }
-
         [Category("Custom Props")]
         public string Amount  
         {
