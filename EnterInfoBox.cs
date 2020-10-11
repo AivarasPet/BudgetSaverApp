@@ -52,10 +52,15 @@ namespace BudgetSaverApp
 
         private void InfoBoxConfirm_Click(object sender, EventArgs e)
         {
-            userData.SetAll(Convert.ToString(textBoxGoalItemName.Text),
-                float.Parse(textBoxGoalItemPrice.Text),
-                float.Parse(TextBoxSavingsEnter.Text),
-                float.Parse(TextBoxMonthlySalary.Text));                
+            // Checks whether input values are numbers
+            float price, savings, salary;
+            bool valuesAreNumbers = float.TryParse(textBoxGoalItemPrice.Text, out price) &
+                                    float.TryParse(TextBoxSavingsEnter.Text, out savings) &
+                                    float.TryParse(TextBoxMonthlySalary.Text, out salary);
+            if (!valuesAreNumbers)
+                return;
+            // Writes input values into UserData.txt
+            userData.SetAll(textBoxGoalItemName.Text, price, savings, salary);                
             userData.SaveToFile();
             Close();
         }
