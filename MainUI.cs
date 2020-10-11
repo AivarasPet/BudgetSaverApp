@@ -71,10 +71,10 @@ namespace BudgetSaverApp
         #region Portfolio
         private void SetPortfolioInfo()
         {
-            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
-            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
             labelGoalName.Text = "Goal: " + userData.GoalItemName;
             labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
+            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
+            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
         }
         private void buttonAddPortfolioValues_Click(object sender, EventArgs e)
         {
