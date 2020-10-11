@@ -79,7 +79,13 @@ namespace BudgetSaverApp.Transactions
             if (transactionType != "" && transactionName != "" && transactionAmount != "")
             {
                 if (category == "") { category = "Default"; }
-                Transaction newTransaction = new Transaction(transactionType, float.Parse(transactionAmount), transactionName, category); 
+
+                // Checks whether transaction amount is a number
+                float transAmount;
+                if (!float.TryParse(transactionAmount, out transAmount))
+                    return;
+
+                Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category); 
                 list.Add(newTransaction);
                 StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
                 w.WriteLine(JsonConvert.SerializeObject(newTransaction));
