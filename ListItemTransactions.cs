@@ -30,11 +30,13 @@ namespace BudgetSaverApp
             {
                 LabelTransactionType.Text = _transactionType;
                 LabelTransactionType.ForeColor = Color.LimeGreen;
+                PanelTransactionType.BackColor = Color.LimeGreen;
             }
             else if(_transactionType.Contains("-"))
             {
                 LabelTransactionType.Text = _transactionType;
                 LabelTransactionType.ForeColor = Color.Crimson;
+                PanelTransactionType.BackColor = Color.Crimson;
             }
            
         }
