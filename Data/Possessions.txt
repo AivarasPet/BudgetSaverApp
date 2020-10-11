@@ -1,0 +1,2 @@
+﻿Crypto:{"Name":"Bitcoin","Amount":10.0,"Title":"Bitcoin","APIkey":"BTC","marketCap":"0"}
+Crypto:{"Name":"Ethereum","Amount":10.0,"Title":"Ethereum","APIkey":"ETH"}

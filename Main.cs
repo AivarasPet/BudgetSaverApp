@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BudgetSaverApp.Possessions;
 
 namespace BudgetSaverApp
 {
@@ -19,6 +20,10 @@ namespace BudgetSaverApp
             portfolioService.LoadDataFromTextFile();
 
             PricingFetcher pricingFetcher = new PricingFetcher();
+
+            PossessionsService possessionsService = new PossessionsService();
+
+            
 
         }
     }

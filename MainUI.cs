@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using BudgetSaverApp.Portfolio;
+using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp

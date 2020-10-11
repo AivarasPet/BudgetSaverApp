@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -87,6 +89,11 @@
     <Compile Include="Main.cs" />
     <Compile Include="MonthlyIncome.cs" />
     <Compile Include="Portfolio\PortfolioService.cs" />
+    <Compile Include="Possessions\Commodity.cs" />
+    <Compile Include="Possessions\Crypto.cs" />
+    <Compile Include="Possessions\Possession.cs" />
+    <Compile Include="Possessions\PossessionsService.cs" />
+    <Compile Include="Possessions\Stock.cs" />
     <Compile Include="Pricing\PricingFetcher.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="ListItemTransactions.cs">
@@ -149,6 +156,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Possessions.txt" />
     <Content Include="Data\Transactions - Old.txt" />
     <Content Include="Data\Transactions.txt" />
     <Content Include="Data\UserData.txt" />
