@@ -13,7 +13,7 @@ namespace BudgetSaverApp.Possessions
         public float amount {get; set;}
         public float valueInDollars { get; set; }
         public string linkOfAPI { get; set; }
-        public string imageKey { get; set; } //by this key, a picture for UI will be fetched from ImageFetcher
+        public string linkOfImage { get; set; } //by this key, a picture for UI will be fetched from ImageFetcher
         public DateTime lastEdited { get; set; }
 
         public void AddAmount(float toAdd) {

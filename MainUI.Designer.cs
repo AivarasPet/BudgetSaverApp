@@ -35,11 +35,6 @@
             this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
             this.tabControlPortfolio = new System.Windows.Forms.TabControl();
             this.tabPageSavings = new System.Windows.Forms.TabPage();
-            this.buttonSelectMoney = new System.Windows.Forms.Button();
-            this.buttonSelectAll = new System.Windows.Forms.Button();
-            this.buttonSelectCommodities = new System.Windows.Forms.Button();
-            this.buttonSelectCrypto = new System.Windows.Forms.Button();
-            this.buttonSelectStocks = new System.Windows.Forms.Button();
             this.flowLayoutPanelSavings = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPagePortfolio = new System.Windows.Forms.TabPage();
             this.labelGoalPrice = new System.Windows.Forms.Label();
@@ -109,15 +104,6 @@
             this.buttonAddTransactions.UseVisualStyleBackColor = false;
             this.buttonAddTransactions.Click += new System.EventHandler(this.buttonAddTransactions_Click);
             // 
-            // flowLayoutPanelTransactions
-            // 
-            this.flowLayoutPanelTransactions.AutoScroll = true;
-            this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 22);
-            this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
-            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(352, 441);
-            this.flowLayoutPanelTransactions.TabIndex = 4;
-            // 
             // textBoxTransactionSearchBar
             // 
             this.textBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -126,15 +112,6 @@
             this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(325, 15);
             this.textBoxTransactionSearchBar.TabIndex = 0;
             this.textBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.textBoxTransactionSearchBar_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tabControlPortfolio);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(358, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(578, 463);
-            this.panel1.TabIndex = 5;
             // 
             // tabControlPortfolio
             // 
@@ -151,11 +128,8 @@
             // 
             this.tabPageSavings.AutoScroll = true;
             this.tabPageSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageSavings.Controls.Add(this.buttonSelectMoney);
-            this.tabPageSavings.Controls.Add(this.buttonSelectAll);
-            this.tabPageSavings.Controls.Add(this.buttonSelectCommodities);
-            this.tabPageSavings.Controls.Add(this.buttonSelectCrypto);
-            this.tabPageSavings.Controls.Add(this.buttonSelectStocks);
+            this.tabPageSavings.Controls.Add(this.panelPortfolioButtons);
+            this.tabPageSavings.Controls.Add(this.flowLayoutPanelSavings);
             this.tabPageSavings.Location = new System.Drawing.Point(4, 25);
             this.tabPageSavings.Name = "tabPageSavings";
             this.tabPageSavings.Padding = new System.Windows.Forms.Padding(3);
@@ -163,76 +137,14 @@
             this.tabPageSavings.TabIndex = 0;
             this.tabPageSavings.Text = "Savings";
             // 
-            // buttonSelectMoney
+            // flowLayoutPanelSavings
             // 
-            this.buttonSelectMoney.BackColor = System.Drawing.Color.White;
-            this.buttonSelectMoney.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectMoney.FlatAppearance.BorderSize = 2;
-            this.buttonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectMoney.Image")));
-            this.buttonSelectMoney.Location = new System.Drawing.Point(521, 388);
-            this.buttonSelectMoney.Name = "buttonSelectMoney";
-            this.buttonSelectMoney.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectMoney.TabIndex = 4;
-            this.buttonSelectMoney.UseVisualStyleBackColor = false;
-            this.buttonSelectMoney.Click += new System.EventHandler(this.buttonSelectMoney_Click);
-            // 
-            // buttonSelectAll
-            // 
-            this.buttonSelectAll.BackColor = System.Drawing.Color.White;
-            this.buttonSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectAll.FlatAppearance.BorderSize = 2;
-            this.buttonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectAll.Image")));
-            this.buttonSelectAll.Location = new System.Drawing.Point(521, 167);
-            this.buttonSelectAll.Name = "buttonSelectAll";
-            this.buttonSelectAll.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectAll.TabIndex = 3;
-            this.buttonSelectAll.UseVisualStyleBackColor = false;
-            this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
-            // 
-            // buttonSelectCommodities
-            // 
-            this.buttonSelectCommodities.BackColor = System.Drawing.Color.White;
-            this.buttonSelectCommodities.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectCommodities.FlatAppearance.BorderSize = 2;
-            this.buttonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
-            this.buttonSelectCommodities.Location = new System.Drawing.Point(521, 332);
-            this.buttonSelectCommodities.Name = "buttonSelectCommodities";
-            this.buttonSelectCommodities.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectCommodities.TabIndex = 2;
-            this.buttonSelectCommodities.UseVisualStyleBackColor = false;
-            this.buttonSelectCommodities.Click += new System.EventHandler(this.buttonSelectCommodities_Click);
-            // 
-            // buttonSelectCrypto
-            // 
-            this.buttonSelectCrypto.BackColor = System.Drawing.Color.White;
-            this.buttonSelectCrypto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectCrypto.FlatAppearance.BorderSize = 2;
-            this.buttonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectCrypto.Image")));
-            this.buttonSelectCrypto.Location = new System.Drawing.Point(521, 278);
-            this.buttonSelectCrypto.Name = "buttonSelectCrypto";
-            this.buttonSelectCrypto.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectCrypto.TabIndex = 1;
-            this.buttonSelectCrypto.UseVisualStyleBackColor = false;
-            this.buttonSelectCrypto.Click += new System.EventHandler(this.buttonSelectCrypto_Click);
-            // 
-            // buttonSelectStocks
-            // 
-            this.buttonSelectStocks.BackColor = System.Drawing.Color.White;
-            this.buttonSelectStocks.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectStocks.FlatAppearance.BorderSize = 2;
-            this.buttonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
-            this.buttonSelectStocks.Location = new System.Drawing.Point(521, 222);
-            this.buttonSelectStocks.Name = "buttonSelectStocks";
-            this.buttonSelectStocks.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectStocks.TabIndex = 0;
-            this.buttonSelectStocks.UseVisualStyleBackColor = false;
-            this.buttonSelectStocks.Click += new System.EventHandler(this.buttonSelectStocks_Click);
+            this.flowLayoutPanelSavings.AutoScroll = true;
+            this.flowLayoutPanelSavings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelSavings.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelSavings.Name = "flowLayoutPanelSavings";
+            this.flowLayoutPanelSavings.Size = new System.Drawing.Size(572, 428);
+            this.flowLayoutPanelSavings.TabIndex = 5;
             // 
             // tabPagePortfolio
             // 

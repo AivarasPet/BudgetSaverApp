@@ -11,6 +11,8 @@ namespace BudgetSaverApp.Pricing
 {
     public class APIFetcher
     {
+
+
         class TaskEntity
         {
             public string url { set; get; }
@@ -19,7 +21,6 @@ namespace BudgetSaverApp.Pricing
 
         private static List<TaskEntity> taskEntities = new List<TaskEntity>();
         private static List<Task> tasks = new List<Task>();
-
 
         private static async Task<string> DownloadAPIAsync(string url)
         {
@@ -47,7 +48,9 @@ namespace BudgetSaverApp.Pricing
             });
         }
 
-
+        public static void AttachActionOnObserver()
+        {
+        }
 
         private static void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
         {

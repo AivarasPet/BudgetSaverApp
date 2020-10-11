@@ -15,15 +15,26 @@ namespace BudgetSaverApp.Possessions
     {
         List<Possession> list = new List<Possession>();
 
-        public PossessionsService()
+        private static PossessionsService _singleton;
+
+
+        private PossessionsService()
         {
-            InitList();
-            foreach (Possession p in list) { Console.WriteLine(p); }
+
         }
 
+        public List<Possession> GetPossessionsList()
+        {
+            return list;
+        }
 
+        public static PossessionsService GetPossessionsService()
+        {
+            if (_singleton == null) _singleton = new PossessionsService();
+            return _singleton;
+        }
 
-        private void InitList() {
+        public void LoadPossessionsListFromTextFile() {
             list.Clear();
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");

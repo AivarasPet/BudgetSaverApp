@@ -6,13 +6,16 @@ using System.Data.Linq.Mapping;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
+using BudgetSaverApp.Pricing;
 using BudgetSaverApp.Transactions;
+using static BudgetSaverApp.Pricing.APIFetcher;
 
 namespace BudgetSaverApp
 {
@@ -28,7 +31,7 @@ namespace BudgetSaverApp
         private void MainUI_Load(object sender, EventArgs e)
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
-            LoadSavingsOnUI();
+            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
             SetPortfolioInfo();
         }
         #region Transactions
@@ -90,22 +93,17 @@ namespace BudgetSaverApp
         #endregion
 
         #region Savings
-        private void LoadSavingsOnUI()
+        private void LoadSavingsOnUI(List<Possession> possessions)
         {
             flowLayoutPanelSavings.Controls.Clear();
-            //Console.WriteLine("search " + list.Count);
-            //foreach (Transaction t in list)
-            for (int i = 0; i < 2; i++)
+            foreach(Possession p in possessions)
             {
-                //if (t == null)
-                //{
-                //    continue;
-                //}
                 ListSavings item = new ListSavings
                 {
-                    Title = "i",
-                    Amount = "50",
-                    Value = "5000" + " $"
+                    Title = p.name,
+                    Amount = p.amount.ToString(),
+                    Value = p.valueInDollars + " $",
+                    ImageUrl = p.linkOfImage
                 };
                 flowLayoutPanelSavings.Controls.Add(item);
             }
@@ -143,6 +141,7 @@ namespace BudgetSaverApp
                 button.FlatAppearance.BorderColor = Color.Black;
             }
         }
-    }
+
         #endregion
+    }
 }

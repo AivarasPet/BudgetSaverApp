@@ -15,13 +15,13 @@ namespace BudgetSaverApp
         public Main()
         {
             TransactionService.GetTransactionService().LoadTransactionsListFromTextFile();
+            PossessionsService.GetPossessionsService().LoadPossessionsListFromTextFile();
 
             PortfolioService portfolioService = new PortfolioService();
             portfolioService.LoadDataFromTextFile();
 
             APIFetcher pricingFetcher = new APIFetcher();
 
-            PossessionsService possessionsService = new PossessionsService();
 
             
 

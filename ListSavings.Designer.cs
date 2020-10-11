@@ -31,8 +31,8 @@
             this.LabelValueInput = new System.Windows.Forms.Label();
             this.LabelTitleInput = new System.Windows.Forms.Label();
             this.LabelAmountInput = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelValueInput
@@ -65,30 +65,30 @@
             this.LabelAmountInput.TabIndex = 15;
             this.LabelAmountInput.Text = "- -";
             // 
-            // pictureBox1
+            // pictureBoxLogo
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBox1.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(23, 3);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(37, 40);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogo.TabIndex = 16;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // ListSavings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.LabelAmountInput);
             this.Controls.Add(this.LabelValueInput);
             this.Controls.Add(this.LabelTitleInput);
             this.Name = "ListSavings";
             this.Size = new System.Drawing.Size(453, 46);
             this.Load += new System.EventHandler(this.ListSavings_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,6 +98,6 @@
         private System.Windows.Forms.Label LabelValueInput;
         private System.Windows.Forms.Label LabelTitleInput;
         private System.Windows.Forms.Label LabelAmountInput;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }

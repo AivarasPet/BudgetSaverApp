@@ -16,13 +16,15 @@ namespace BudgetSaverApp
         {
             InitializeComponent();
         }
-        private string _title = "", _amount = "", _value = "";
+        private string _title = "", _amount = "", _value = "", _imageUrl = "";
         
         private void ListSavings_Load(object sender, EventArgs e)
         {
             LabelTitleInput.Text = _title;
             LabelAmountInput.Text = _amount;            
             LabelValueInput.Text = _value;
+            pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLogo.LoadAsync(_imageUrl);
         }
 
         [Category("Custom Props")]
@@ -45,5 +47,13 @@ namespace BudgetSaverApp
             get { return _value; }
             set { _value = value; }
         }
+
+        [Category("Custom Props")]
+        public string ImageUrl
+        {
+            get { return _imageUrl; }
+            set { _imageUrl = value; }
+        }
+
     }
 }
