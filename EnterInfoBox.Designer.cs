@@ -102,6 +102,7 @@
             // 
             this.InfoBoxCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoBoxCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.InfoBoxCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.InfoBoxCancel.FlatAppearance.BorderSize = 0;
             this.InfoBoxCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InfoBoxCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,7 +133,7 @@
             this.textBoxGoalItemName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.textBoxGoalItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxGoalItemName.Location = new System.Drawing.Point(94, 48);
-            this.textBoxGoalItemName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGoalItemName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGoalItemName.Name = "textBoxGoalItemName";
             this.textBoxGoalItemName.Size = new System.Drawing.Size(236, 20);
             this.textBoxGoalItemName.TabIndex = 7;
@@ -155,16 +156,18 @@
             this.textBoxGoalItemPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(182)))), ((int)(((byte)(182)))));
             this.textBoxGoalItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxGoalItemPrice.Location = new System.Drawing.Point(93, 105);
-            this.textBoxGoalItemPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGoalItemPrice.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGoalItemPrice.Name = "textBoxGoalItemPrice";
             this.textBoxGoalItemPrice.Size = new System.Drawing.Size(237, 20);
             this.textBoxGoalItemPrice.TabIndex = 9;
             // 
             // EnterInfoBox
             // 
+            this.AcceptButton = this.InfoBoxConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.CancelButton = this.InfoBoxCancel;
             this.ClientSize = new System.Drawing.Size(445, 338);
             this.Controls.Add(this.textBoxGoalItemPrice);
             this.Controls.Add(this.label4);
