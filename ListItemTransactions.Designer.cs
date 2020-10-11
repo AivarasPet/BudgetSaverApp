@@ -35,13 +35,14 @@
             this.LabelTransactionType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LabelCategoryVal = new System.Windows.Forms.Label();
+            this.PanelTransactionType = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // LabelTitleTag
             // 
             this.LabelTitleTag.AutoSize = true;
             this.LabelTitleTag.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelTitleTag.Location = new System.Drawing.Point(49, 11);
+            this.LabelTitleTag.Location = new System.Drawing.Point(62, 11);
             this.LabelTitleTag.Name = "LabelTitleTag";
             this.LabelTitleTag.Size = new System.Drawing.Size(113, 17);
             this.LabelTitleTag.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             this.LabelAmountTag.AutoSize = true;
             this.LabelAmountTag.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountTag.Location = new System.Drawing.Point(49, 41);
+            this.LabelAmountTag.Location = new System.Drawing.Point(62, 41);
             this.LabelAmountTag.Name = "LabelAmountTag";
             this.LabelAmountTag.Size = new System.Drawing.Size(60, 17);
             this.LabelAmountTag.TabIndex = 1;
@@ -71,7 +72,7 @@
             // 
             this.LabelAmountVal.AutoSize = true;
             this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountVal.Location = new System.Drawing.Point(141, 41);
+            this.LabelAmountVal.Location = new System.Drawing.Point(154, 41);
             this.LabelAmountVal.Name = "LabelAmountVal";
             this.LabelAmountVal.Size = new System.Drawing.Size(22, 17);
             this.LabelAmountVal.TabIndex = 3;
@@ -82,7 +83,7 @@
             this.LabelTransactionType.AutoSize = true;
             this.LabelTransactionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.LabelTransactionType.ForeColor = System.Drawing.Color.LimeGreen;
-            this.LabelTransactionType.Location = new System.Drawing.Point(3, 11);
+            this.LabelTransactionType.Location = new System.Drawing.Point(16, 11);
             this.LabelTransactionType.Name = "LabelTransactionType";
             this.LabelTransactionType.Size = new System.Drawing.Size(40, 42);
             this.LabelTransactionType.TabIndex = 5;
@@ -92,7 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(180, 41);
+            this.label1.Location = new System.Drawing.Point(195, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 6;
@@ -102,17 +103,27 @@
             // 
             this.LabelCategoryVal.AutoSize = true;
             this.LabelCategoryVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelCategoryVal.Location = new System.Drawing.Point(254, 41);
+            this.LabelCategoryVal.Location = new System.Drawing.Point(269, 41);
             this.LabelCategoryVal.Name = "LabelCategoryVal";
             this.LabelCategoryVal.Size = new System.Drawing.Size(22, 17);
             this.LabelCategoryVal.TabIndex = 7;
             this.LabelCategoryVal.Text = "- -";
+            // 
+            // PanelTransactionType
+            // 
+            this.PanelTransactionType.BackColor = System.Drawing.Color.LimeGreen;
+            this.PanelTransactionType.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelTransactionType.Location = new System.Drawing.Point(0, 0);
+            this.PanelTransactionType.Name = "PanelTransactionType";
+            this.PanelTransactionType.Size = new System.Drawing.Size(5, 65);
+            this.PanelTransactionType.TabIndex = 18;
             // 
             // ListItemTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.PanelTransactionType);
             this.Controls.Add(this.LabelCategoryVal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LabelTransactionType);
@@ -139,5 +150,6 @@
         private System.Windows.Forms.Label LabelTransactionType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LabelCategoryVal;
+        private System.Windows.Forms.Panel PanelTransactionType;
     }
 }

@@ -27,6 +27,7 @@ namespace BudgetSaverApp
         private void MainUI_Load(object sender, EventArgs e)
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
+            LoadSavingsOnUI();
             SetPortfolioInfo();
         }
         #region Transactions
@@ -68,6 +69,13 @@ namespace BudgetSaverApp
         #endregion
 
         #region Portfolio
+        private void SetPortfolioInfo()
+        {
+            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
+            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
+            labelGoalName.Text = "Goal: " + userData.GoalItemName;
+            labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
+        }
         private void buttonAddPortfolioValues_Click(object sender, EventArgs e)
         {
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
@@ -78,15 +86,29 @@ namespace BudgetSaverApp
         {
             SetPortfolioInfo();
         }
-        private void SetPortfolioInfo()
-        {
-            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
-            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
-            labelGoalName.Text = "Goal: " + userData.GoalItemName;
-            labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
-        }
         #endregion
+
         #region Savings
+        private void LoadSavingsOnUI()
+        {
+            flowLayoutPanelSavings.Controls.Clear();
+            //Console.WriteLine("search " + list.Count);
+            //foreach (Transaction t in list)
+            for (int i = 0; i < 2; i++)
+            {
+                //if (t == null)
+                //{
+                //    continue;
+                //}
+                ListSavings item = new ListSavings
+                {
+                    Title = "i",
+                    Amount = "50",
+                    Value = "5000" + " $"
+                };
+                flowLayoutPanelSavings.Controls.Add(item);
+            }
+        }
         private void buttonSelectAll_Click(object sender, EventArgs e)
         {
             ChangeColor(buttonSelectAll);
@@ -120,6 +142,7 @@ namespace BudgetSaverApp
                 button.FlatAppearance.BorderColor = Color.Black;
             }
         }
-    }
+
         #endregion
+    }
 }
