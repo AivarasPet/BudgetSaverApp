@@ -25,12 +25,6 @@ namespace BudgetSaverApp.Transactions
             Console.WriteLine(this.Amount);
         }
 
-        public void changeCategory(string category)
-        {
-            this.Category = category;
-        }
-
-
         //public abstract void AbstractMethod();   // Abstract method
     
         //public abstract int Y { get; }
