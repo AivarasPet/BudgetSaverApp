@@ -51,6 +51,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.panelTabControl = new System.Windows.Forms.Panel();
+            this.panelPortfolioButtons = new System.Windows.Forms.Panel();
             this.panelMainMenu.SuspendLayout();
             this.tabControlPortfolio.SuspendLayout();
             this.tabPageSavings.SuspendLayout();
