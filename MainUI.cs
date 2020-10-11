@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml;
-using BudgetSaverApp.Portfolio;
-using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp
