@@ -15,10 +15,10 @@ namespace BudgetSaverApp.Pricing
         {
              
             HttpRequest request = new HttpRequest();
-            new Thread(() => {
+            new Thread(async () => {
                 Console.WriteLine("start");
                 request.HttpRequestCompleted += this.OnCryptoPricingDownloaded;
-                request.StartHttpRequest("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=15&tsym=USD");
+                await request.StartHttpRequest("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=15&tsym=USD");
              }).Start();
         }
 
