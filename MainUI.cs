@@ -145,5 +145,4 @@ namespace BudgetSaverApp
         }
     }
         #endregion
-    }
 }

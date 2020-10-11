@@ -72,7 +72,6 @@
             // 
             this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panelMainMenu.Controls.Add(this.button1);
             this.panelMainMenu.Controls.Add(this.buttonAddPortfolioValues);
             this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
