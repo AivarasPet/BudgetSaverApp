@@ -1,0 +1,2 @@
+﻿Crypto:{"Name":"Bitcoin","Amount":10.0,"Title":"Bitcoin","linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10","marketCap":"0"}
+Crypto:{"Name":"Ethereum","Amount":10.0,"Title":"Ethereum","linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10"}

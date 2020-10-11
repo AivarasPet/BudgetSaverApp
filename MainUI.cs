@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml;
+using BudgetSaverApp.Portfolio;
+using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp
@@ -133,7 +136,6 @@ namespace BudgetSaverApp
                 button.FlatAppearance.BorderColor = Color.Black;
             }
         }
-
-        #endregion
     }
+        #endregion
 }

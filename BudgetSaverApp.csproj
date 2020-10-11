@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -83,6 +85,8 @@
     <Compile Include="ListSavings.Designer.cs">
       <DependentUpon>ListSavings.cs</DependentUpon>
     </Compile>
+    <Compile Include="IHasAPI.cs" />
+    <Compile Include="ImageFetcher.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,7 +97,12 @@
     <Compile Include="Main.cs" />
     <Compile Include="MonthlyIncome.cs" />
     <Compile Include="Portfolio\PortfolioService.cs" />
-    <Compile Include="Pricing\PricingFetcher.cs" />
+    <Compile Include="Possessions\Commodity.cs" />
+    <Compile Include="Possessions\Crypto.cs" />
+    <Compile Include="Possessions\Possession.cs" />
+    <Compile Include="Possessions\PossessionsService.cs" />
+    <Compile Include="Possessions\Stock.cs" />
+    <Compile Include="Pricing\APIFetcher.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="ListItemTransactions.cs">
       <SubType>UserControl</SubType>
@@ -158,6 +167,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\ImageLinks.txt" />
+    <Content Include="Data\Possessions.txt" />
     <Content Include="Data\Transactions - Old.txt" />
     <Content Include="Data\Transactions.txt" />
     <Content Include="Data\UserData.txt" />
@@ -165,9 +176,24 @@
     <None Include="Resources\Webp.net-resizeimage %2821%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2813%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2812%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %2811%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %287%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %285%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %284%291.png" />
+    <None Include="Resources\Webp.net-resizeimage %283%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %282%291.png" />
+    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2816%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2815%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2810%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %289%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %288%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %286%29.png" />
+    <None Include="Resources\Webp.net-resizeimage %284%29.png" />
+    <None Include="Resources\Webp.net-resizeimage.jpg" />
+    <None Include="Resources\Webp.net-resizeimage.png" />
+    <None Include="Resources\Webp.net-resizeimage %282%29.png" />
+    <None Include="Resources\download1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

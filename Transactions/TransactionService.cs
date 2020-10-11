@@ -21,13 +21,13 @@ namespace BudgetSaverApp.Transactions
         {
             var query = list.Where(oh => oh.Title.ToLower().Contains(filter)).ToList();
             Console.WriteLine("Query count:" + query.Count);
+
             return query;
         }
 
         public void LoadTransactionsListFromTextFile()
         {
             list.Clear();
-            ListItemTransactions[] listItems = new ListItemTransactions[20];
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
             if (data == null) return;
