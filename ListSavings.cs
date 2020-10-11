@@ -35,7 +35,7 @@ namespace BudgetSaverApp
         [Category("Custom Props")]
         public string Amount
         {
-            get { return _title; }
+            get { return _amount; }
             set { _amount = value; }
         }
 
