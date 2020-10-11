@@ -79,6 +79,8 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="IHasAPI.cs" />
+    <Compile Include="ImageFetcher.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +96,7 @@
     <Compile Include="Possessions\Possession.cs" />
     <Compile Include="Possessions\PossessionsService.cs" />
     <Compile Include="Possessions\Stock.cs" />
-    <Compile Include="Pricing\PricingFetcher.cs" />
+    <Compile Include="Pricing\APIFetcher.cs" />
     <Compile Include="TextFileReader.cs" />
     <Compile Include="ListItemTransactions.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +158,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\ImageLinks.txt" />
     <Content Include="Data\Possessions.txt" />
     <Content Include="Data\Transactions - Old.txt" />
     <Content Include="Data\Transactions.txt" />

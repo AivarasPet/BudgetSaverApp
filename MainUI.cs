@@ -121,6 +121,11 @@ namespace BudgetSaverApp
                 button.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
         #endregion
 }

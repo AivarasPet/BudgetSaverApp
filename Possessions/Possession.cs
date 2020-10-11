@@ -11,10 +11,9 @@ namespace BudgetSaverApp.Possessions
     {
         public string name { get; set; }
         public float amount {get; set;}
-        public float valueInDollar { get; set; }
-        public string linkOfPicture { get; set; } 
+        public float valueInDollars { get; set; }
         public string linkOfAPI { get; set; }
-        public string pictureKey { get; set; } //by this key, a picture for UI will be fetched from pictureHolder
+        public string imageKey { get; set; } //by this key, a picture for UI will be fetched from ImageFetcher
         public DateTime lastEdited { get; set; }
 
         public void AddAmount(float toAdd) {
@@ -27,6 +26,8 @@ namespace BudgetSaverApp.Possessions
             if (amount < 0) { }//delete
         }
 
-        public abstract void InitValues();
+        //public abstract void InitValues(string apiData);
+
+   
     }
 }

@@ -37,17 +37,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlPortfolio = new System.Windows.Forms.TabControl();
             this.tabPageSavings = new System.Windows.Forms.TabPage();
+            this.buttonSelectMoney = new System.Windows.Forms.Button();
+            this.buttonSelectAll = new System.Windows.Forms.Button();
+            this.buttonSelectCommodities = new System.Windows.Forms.Button();
+            this.buttonSelectCrypto = new System.Windows.Forms.Button();
+            this.buttonSelectStocks = new System.Windows.Forms.Button();
             this.tabPagePortfolio = new System.Windows.Forms.TabPage();
             this.labelGoalPrice = new System.Windows.Forms.Label();
             this.labelGoalName = new System.Windows.Forms.Label();
             this.labelMonthlySalary = new System.Windows.Forms.Label();
             this.labelCurrentSavings = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonSelectMoney = new System.Windows.Forms.Button();
-            this.buttonSelectAll = new System.Windows.Forms.Button();
-            this.buttonSelectCommodities = new System.Windows.Forms.Button();
-            this.buttonSelectCrypto = new System.Windows.Forms.Button();
-            this.buttonSelectStocks = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelMainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControlPortfolio.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panelMainMenu.Controls.Add(this.button1);
             this.panelMainMenu.Controls.Add(this.buttonAddPortfolioValues);
             this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -150,77 +152,6 @@
             this.tabPageSavings.TabIndex = 0;
             this.tabPageSavings.Text = "Savings";
             // 
-            // tabPagePortfolio
-            // 
-            this.tabPagePortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPagePortfolio.Controls.Add(this.labelGoalPrice);
-            this.tabPagePortfolio.Controls.Add(this.labelGoalName);
-            this.tabPagePortfolio.Controls.Add(this.labelMonthlySalary);
-            this.tabPagePortfolio.Controls.Add(this.labelCurrentSavings);
-            this.tabPagePortfolio.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePortfolio.Name = "tabPagePortfolio";
-            this.tabPagePortfolio.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePortfolio.Size = new System.Drawing.Size(570, 435);
-            this.tabPagePortfolio.TabIndex = 1;
-            this.tabPagePortfolio.Text = "Portfolio";
-            // 
-            // labelGoalPrice
-            // 
-            this.labelGoalPrice.AutoSize = true;
-            this.labelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoalPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGoalPrice.Location = new System.Drawing.Point(25, 94);
-            this.labelGoalPrice.Name = "labelGoalPrice";
-            this.labelGoalPrice.Size = new System.Drawing.Size(122, 25);
-            this.labelGoalPrice.TabIndex = 16;
-            this.labelGoalPrice.Text = "Goal price: 0";
-            // 
-            // labelGoalName
-            // 
-            this.labelGoalName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelGoalName.AutoSize = true;
-            this.labelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoalName.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGoalName.Location = new System.Drawing.Point(25, 38);
-            this.labelGoalName.Name = "labelGoalName";
-            this.labelGoalName.Size = new System.Drawing.Size(59, 25);
-            this.labelGoalName.TabIndex = 15;
-            this.labelGoalName.Text = "Goal:";
-            // 
-            // labelMonthlySalary
-            // 
-            this.labelMonthlySalary.AutoSize = true;
-            this.labelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonthlySalary.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelMonthlySalary.Location = new System.Drawing.Point(25, 221);
-            this.labelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelMonthlySalary.Name = "labelMonthlySalary";
-            this.labelMonthlySalary.Size = new System.Drawing.Size(160, 25);
-            this.labelMonthlySalary.TabIndex = 14;
-            this.labelMonthlySalary.Text = "Monthly salary: 0";
-            // 
-            // labelCurrentSavings
-            // 
-            this.labelCurrentSavings.AutoSize = true;
-            this.labelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrentSavings.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCurrentSavings.Location = new System.Drawing.Point(25, 156);
-            this.labelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelCurrentSavings.Name = "labelCurrentSavings";
-            this.labelCurrentSavings.Size = new System.Drawing.Size(171, 25);
-            this.labelCurrentSavings.TabIndex = 13;
-            this.labelCurrentSavings.Text = "Current savings: 0";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.flowLayoutPanelTransactions);
-            this.panel2.Controls.Add(this.textBoxTransactionSearchBar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 463);
-            this.panel2.TabIndex = 6;
-            // 
             // buttonSelectMoney
             // 
             this.buttonSelectMoney.BackColor = System.Drawing.Color.White;
@@ -292,6 +223,91 @@
             this.buttonSelectStocks.UseVisualStyleBackColor = false;
             this.buttonSelectStocks.Click += new System.EventHandler(this.buttonSelectStocks_Click);
             // 
+            // tabPagePortfolio
+            // 
+            this.tabPagePortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.tabPagePortfolio.Controls.Add(this.labelGoalPrice);
+            this.tabPagePortfolio.Controls.Add(this.labelGoalName);
+            this.tabPagePortfolio.Controls.Add(this.labelMonthlySalary);
+            this.tabPagePortfolio.Controls.Add(this.labelCurrentSavings);
+            this.tabPagePortfolio.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePortfolio.Name = "tabPagePortfolio";
+            this.tabPagePortfolio.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePortfolio.Size = new System.Drawing.Size(570, 434);
+            this.tabPagePortfolio.TabIndex = 1;
+            this.tabPagePortfolio.Text = "Portfolio";
+            // 
+            // labelGoalPrice
+            // 
+            this.labelGoalPrice.AutoSize = true;
+            this.labelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGoalPrice.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelGoalPrice.Location = new System.Drawing.Point(25, 94);
+            this.labelGoalPrice.Name = "labelGoalPrice";
+            this.labelGoalPrice.Size = new System.Drawing.Size(122, 25);
+            this.labelGoalPrice.TabIndex = 16;
+            this.labelGoalPrice.Text = "Goal price: 0";
+            // 
+            // labelGoalName
+            // 
+            this.labelGoalName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelGoalName.AutoSize = true;
+            this.labelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGoalName.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelGoalName.Location = new System.Drawing.Point(25, 38);
+            this.labelGoalName.Name = "labelGoalName";
+            this.labelGoalName.Size = new System.Drawing.Size(59, 25);
+            this.labelGoalName.TabIndex = 15;
+            this.labelGoalName.Text = "Goal:";
+            // 
+            // labelMonthlySalary
+            // 
+            this.labelMonthlySalary.AutoSize = true;
+            this.labelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMonthlySalary.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelMonthlySalary.Location = new System.Drawing.Point(25, 221);
+            this.labelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMonthlySalary.Name = "labelMonthlySalary";
+            this.labelMonthlySalary.Size = new System.Drawing.Size(160, 25);
+            this.labelMonthlySalary.TabIndex = 14;
+            this.labelMonthlySalary.Text = "Monthly salary: 0";
+            // 
+            // labelCurrentSavings
+            // 
+            this.labelCurrentSavings.AutoSize = true;
+            this.labelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentSavings.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCurrentSavings.Location = new System.Drawing.Point(25, 156);
+            this.labelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCurrentSavings.Name = "labelCurrentSavings";
+            this.labelCurrentSavings.Size = new System.Drawing.Size(171, 25);
+            this.labelCurrentSavings.TabIndex = 13;
+            this.labelCurrentSavings.Text = "Current savings: 0";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.flowLayoutPanelTransactions);
+            this.panel2.Controls.Add(this.textBoxTransactionSearchBar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(352, 463);
+            this.panel2.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(397, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 26);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -337,5 +353,6 @@
         private System.Windows.Forms.Button buttonSelectAll;
         private System.Windows.Forms.Button buttonSelectCommodities;
         private System.Windows.Forms.Button buttonSelectCrypto;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
+using BudgetSaverApp.Pricing;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -24,7 +25,6 @@ namespace BudgetSaverApp.Possessions
 
         private void InitList() {
             list.Clear();
-            ListItemTransactions[] listItems = new ListItemTransactions[20];
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");
             if (data == null) return;
@@ -32,7 +32,6 @@ namespace BudgetSaverApp.Possessions
             for (int x = 0; x < data.Length; x++)
             {
                 if (data[x] == "") continue;
-                Console.WriteLine("write " + data[x]);
 
                 int posOfSepperator = data[x].IndexOf(':');
                 string possessionType = data[x].Substring(0, posOfSepperator);
@@ -54,16 +53,13 @@ namespace BudgetSaverApp.Possessions
                     JsonConvert.PopulateObject(jsonObjStr, possession);
                     Console.WriteLine(possession.name);
                     list.Add(possession);
-                }
-                else
-                {
-                    Console.WriteLine("NONONONONO");
+                    APIFetcher.AddDownloadEntity(possession.linkOfAPI, (IHasAPI) possession); //downloads its api
                 }
             }
-            Console.WriteLine("count: " + list.Count);
-                foreach(Possession i in list) { Console.Write(i.name + "amount : " + i.amount+ " XDDD "); }
+
+            APIFetcher.RunAllDownloadsAsync();
         }
 
-
+            
     }
 }

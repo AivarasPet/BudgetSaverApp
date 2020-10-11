@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Possessions
 {
-    class Commodity : Possession
+    class Commodity : Possession, IHasAPI
     {
-        public override void InitValues()
+        public void OnAPIDownload(string APIData)
         {
             throw new NotImplementedException();
         }
