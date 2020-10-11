@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Linq.Mapping;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using BudgetSaverApp.Portfolio;
-using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp
@@ -61,7 +51,7 @@ namespace BudgetSaverApp
         {
             var AddTransaction = new AddTransaction(userData);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
-            AddTransaction.Show();
+            AddTransaction.ShowDialog(this);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -72,16 +62,16 @@ namespace BudgetSaverApp
         #region Portfolio
         private void SetPortfolioInfo()
         {
-            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
-            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
             labelGoalName.Text = "Goal: " + userData.GoalItemName;
             labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
+            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
+            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
         }
         private void buttonAddPortfolioValues_Click(object sender, EventArgs e)
         {
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
-            EnterInfoBoxInstance.Show();
+            EnterInfoBoxInstance.ShowDialog(this);
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
