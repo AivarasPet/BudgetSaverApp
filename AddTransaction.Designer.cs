@@ -175,8 +175,9 @@
             this.Controls.Add(this.AddTransactionType);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.AddTransactionName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddTransaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add new transaction";
             this.ResumeLayout(false);
             this.PerformLayout();

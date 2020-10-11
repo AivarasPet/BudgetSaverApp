@@ -51,7 +51,7 @@ namespace BudgetSaverApp
         {
             var AddTransaction = new AddTransaction(userData);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
-            AddTransaction.Show();
+            AddTransaction.ShowDialog(this);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -71,7 +71,7 @@ namespace BudgetSaverApp
         {
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
-            EnterInfoBoxInstance.Show();
+            EnterInfoBoxInstance.ShowDialog(this);
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {

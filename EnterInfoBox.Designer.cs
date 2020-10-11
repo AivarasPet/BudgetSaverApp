@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxSavingsEnter);
             this.Name = "EnterInfoBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add starting values";
             this.ResumeLayout(false);
             this.PerformLayout();
