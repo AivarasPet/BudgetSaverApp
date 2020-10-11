@@ -87,6 +87,7 @@
             this.buttonAddPortfolioValues.Name = "buttonAddPortfolioValues";
             this.buttonAddPortfolioValues.Size = new System.Drawing.Size(106, 21);
             this.buttonAddPortfolioValues.TabIndex = 3;
+            this.buttonAddPortfolioValues.TabStop = false;
             this.buttonAddPortfolioValues.Text = "Add starting values";
             this.buttonAddPortfolioValues.UseVisualStyleBackColor = false;
             this.buttonAddPortfolioValues.Click += new System.EventHandler(this.buttonAddPortfolioValues_Click);
@@ -103,6 +104,7 @@
             this.buttonAddTransactions.Name = "buttonAddTransactions";
             this.buttonAddTransactions.Size = new System.Drawing.Size(90, 22);
             this.buttonAddTransactions.TabIndex = 1;
+            this.buttonAddTransactions.TabStop = false;
             this.buttonAddTransactions.Text = "Add transaction";
             this.buttonAddTransactions.UseVisualStyleBackColor = false;
             this.buttonAddTransactions.Click += new System.EventHandler(this.buttonAddTransactions_Click);
