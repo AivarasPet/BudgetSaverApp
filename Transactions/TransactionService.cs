@@ -11,37 +11,17 @@ namespace BudgetSaverApp.Transactions
         private List<Transaction> list = new List<Transaction>();
         private static TransactionService _singleton;
 
-
-        private TransactionService()
-        {
-
-        }
-
         public static TransactionService GetTransactionService()
         {
             if (_singleton == null) _singleton = new TransactionService();
             return _singleton;
         }
 
-        /*public void InitListByStringArray(string[] data)
-        {
-            if (data == null) return;
-           
-            for (int x = 0; x < data.Length / 4; x++)
-            {
-                Transaction transaction = new Transaction(data[4 * x], data[x * 4 + 1], data[x * 4 + 2], data[x * 4 + 3]); //transactionType, amount, transactionTitle
-                list.Add(transaction);
-                //Console.WriteLine(transaction.Title);
-                //Console.WriteLine(data[4 * x] + x);
-            }
-        }*/
-
         public List<Transaction> GetListWithTitleFiltered(string filter)
         {
             var query = list.Where(oh => oh.Title.ToLower().Contains(filter)).ToList();
             Console.WriteLine("Query count:" + query.Count);
             return query;
-
         }
 
         public void LoadTransactionsListFromTextFile()
@@ -58,18 +38,15 @@ namespace BudgetSaverApp.Transactions
                 {
                     list.Add(transaction);
                 }
-                
             }
         }
         public List<Transaction> GetTransactionsList()
         {
-            return list == null ? null : list;
-            //return list ?? null;
+            return list ?? null;
         }
 
         public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category)
         {
-            
             if (transactionType != "" && transactionName != "" && transactionAmount != "")
             {
                 if (category == "") { category = "Default"; }
@@ -85,14 +62,7 @@ namespace BudgetSaverApp.Transactions
                 w.WriteLine(JsonConvert.SerializeObject(newTransaction));
                 w.Close();
             }
-            
-            
-
-            //LoadTransactionsListFromTextFile();
-
         }
-
-
     }
 }
 

@@ -5,7 +5,7 @@ namespace BudgetSaverApp.Pricing
 {
     public class PricingFetcher
     {
-        //crypto, commodeties, stocks
+        // Crypto, commodities, stocks
 
         public PricingFetcher() 
         {
