@@ -9,7 +9,7 @@
 
         public PortfolioService()
         {
-            //LoadDataFromTextFile();
+            LoadDataFromTextFile();
         }
 
         public void LoadDataFromTextFile()

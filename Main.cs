@@ -11,7 +11,6 @@ namespace BudgetSaverApp
             TransactionService.GetTransactionService().LoadTransactionsListFromTextFile();
 
             PortfolioService portfolioService = new PortfolioService();
-            portfolioService.LoadDataFromTextFile();
 
             PricingFetcher pricingFetcher = new PricingFetcher();
 
