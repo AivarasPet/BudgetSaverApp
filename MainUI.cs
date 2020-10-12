@@ -162,11 +162,11 @@ namespace BudgetSaverApp
         private void SetStatsInfo()
         {
             Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
-            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction:" + stats.TransactionAmount;
-            labelStatsWeeklyIncome.Text = "Weekly Income:" + stats.Income;
-            labelStatsWeeklyExpenses.Text = "Weekly Spent:" + stats.Expenses;
-            labelStatsFrequentCategory.Text = "Most frequent category:" + stats.FrequentCategory;
-            labelStatsWeeklyBalance.Text = "Weekly balance:" + (stats.Income - stats.Expenses);
+            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
+            labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
+            labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
 
         }
 
