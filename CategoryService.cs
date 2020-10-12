@@ -12,7 +12,7 @@ namespace BudgetSaverApp
 
         private static CategoryService _singleton;
 
-        public static CategoryService GetTransactionService()
+        public static CategoryService GetCategoryService()
         {
             if (_singleton == null) _singleton = new CategoryService();
             return _singleton;
@@ -31,7 +31,12 @@ namespace BudgetSaverApp
             return categories;
         }
 
-        
-
+        public void AddCategory(string categoryName)
+        {
+            if (categoryName == null) return;
+            StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Categories.txt");
+            w.WriteLine(categoryName);
+            w.Close();
+        }
     }
 }

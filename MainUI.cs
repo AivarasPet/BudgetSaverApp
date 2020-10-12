@@ -63,6 +63,12 @@ namespace BudgetSaverApp
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             AddTransaction.ShowDialog(this);
         }
+
+        private void buttonAddCategories_Click(object sender, EventArgs e)
+        {
+            var AddCategory = new AddCategory();
+            AddCategory.ShowDialog(this);
+        }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
@@ -140,5 +146,7 @@ namespace BudgetSaverApp
         }
 
         #endregion
+
+        
     }
 }

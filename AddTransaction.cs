@@ -12,7 +12,7 @@ namespace BudgetSaverApp
         {
             this.userData = userData;
             InitializeComponent();
-            AddTransactionCategory.Items.AddRange(CategoryService.GetTransactionService().GetCategories());
+            AddTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
         }
 
         private void AddTransactionButton_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
             this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.buttonAddCategory = new System.Windows.Forms.Button();
             this.buttonAddPortfolioValues = new System.Windows.Forms.Button();
             this.buttonAddTransactions = new System.Windows.Forms.Button();
             this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@
             // 
             this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panelMainMenu.Controls.Add(this.buttonAddCategory);
             this.panelMainMenu.Controls.Add(this.buttonAddPortfolioValues);
             this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -75,6 +77,22 @@
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(704, 29);
             this.panelMainMenu.TabIndex = 0;
+            // 
+            // buttonAddCategory
+            // 
+            this.buttonAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.buttonAddCategory.FlatAppearance.BorderSize = 0;
+            this.buttonAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddCategory.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAddCategory.Location = new System.Drawing.Point(204, 3);
+            this.buttonAddCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAddCategory.Name = "buttonAddCategory";
+            this.buttonAddCategory.Size = new System.Drawing.Size(106, 21);
+            this.buttonAddCategory.TabIndex = 4;
+            this.buttonAddCategory.TabStop = false;
+            this.buttonAddCategory.Text = "Add category";
+            this.buttonAddCategory.UseVisualStyleBackColor = false;
+            this.buttonAddCategory.Click += new System.EventHandler(this.buttonAddCategories_Click);
             // 
             // buttonAddPortfolioValues
             // 
@@ -423,5 +441,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
         private System.Windows.Forms.PictureBox pictureBoxSearchIcon;
+        private System.Windows.Forms.Button buttonAddCategory;
     }
 }
