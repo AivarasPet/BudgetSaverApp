@@ -175,24 +175,9 @@
     <None Include="Resources\Webp.net-resizeimage %2821%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2813%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2812%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %2811%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %287%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %285%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %284%291.png" />
-    <None Include="Resources\Webp.net-resizeimage %283%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %282%291.png" />
-    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2816%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2815%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2810%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %289%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %288%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %286%29.png" />
-    <None Include="Resources\Webp.net-resizeimage %284%29.png" />
-    <None Include="Resources\Webp.net-resizeimage.jpg" />
-    <None Include="Resources\Webp.net-resizeimage.png" />
-    <None Include="Resources\Webp.net-resizeimage %282%29.png" />
-    <None Include="Resources\download1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
