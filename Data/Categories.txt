@@ -1,0 +1,5 @@
+﻿Food
+Living
+Healthcare
+Transport
+Kebabai

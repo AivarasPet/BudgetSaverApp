@@ -45,11 +45,6 @@
             this.AddTransactionCategory.BackColor = System.Drawing.Color.DarkGray;
             this.AddTransactionCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTransactionCategory.FormattingEnabled = true;
-            this.AddTransactionCategory.Items.AddRange(new object[] {
-            "Food",
-            "Living",
-            "Healthcare",
-            "Transport"});
             this.AddTransactionCategory.Location = new System.Drawing.Point(292, 65);
             this.AddTransactionCategory.Name = "AddTransactionCategory";
             this.AddTransactionCategory.Size = new System.Drawing.Size(122, 21);

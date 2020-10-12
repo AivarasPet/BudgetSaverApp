@@ -71,7 +71,7 @@
             this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMainMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMainMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(704, 29);
             this.panelMainMenu.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.buttonAddPortfolioValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddPortfolioValues.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAddPortfolioValues.Location = new System.Drawing.Point(94, 3);
-            this.buttonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddPortfolioValues.Name = "buttonAddPortfolioValues";
             this.buttonAddPortfolioValues.Size = new System.Drawing.Size(106, 21);
             this.buttonAddPortfolioValues.TabIndex = 3;
@@ -100,7 +100,7 @@
             this.buttonAddTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddTransactions.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAddTransactions.Location = new System.Drawing.Point(0, 2);
-            this.buttonAddTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddTransactions.Name = "buttonAddTransactions";
             this.buttonAddTransactions.Size = new System.Drawing.Size(90, 22);
             this.buttonAddTransactions.TabIndex = 1;
@@ -113,7 +113,7 @@
             // 
             this.textBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(19, 3);
-            this.textBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTransactionSearchBar.Name = "textBoxTransactionSearchBar";
             this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(244, 13);
             this.textBoxTransactionSearchBar.TabIndex = 0;
@@ -125,7 +125,7 @@
             this.tabControlPortfolio.Controls.Add(this.tabPagePortfolio);
             this.tabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPortfolio.Location = new System.Drawing.Point(0, 0);
-            this.tabControlPortfolio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControlPortfolio.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlPortfolio.Name = "tabControlPortfolio";
             this.tabControlPortfolio.SelectedIndex = 0;
             this.tabControlPortfolio.Size = new System.Drawing.Size(442, 383);
@@ -138,9 +138,9 @@
             this.tabPageSavings.Controls.Add(this.panelPortfolioButtons);
             this.tabPageSavings.Controls.Add(this.flowLayoutPanelSavings);
             this.tabPageSavings.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSavings.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageSavings.Name = "tabPageSavings";
-            this.tabPageSavings.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSavings.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageSavings.Size = new System.Drawing.Size(434, 357);
             this.tabPageSavings.TabIndex = 0;
             this.tabPageSavings.Text = "Savings";
@@ -154,7 +154,7 @@
             this.panelPortfolioButtons.Controls.Add(this.buttonSelectMoney);
             this.panelPortfolioButtons.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelPortfolioButtons.Location = new System.Drawing.Point(379, 2);
-            this.panelPortfolioButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPortfolioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.panelPortfolioButtons.Name = "panelPortfolioButtons";
             this.panelPortfolioButtons.Size = new System.Drawing.Size(53, 353);
             this.panelPortfolioButtons.TabIndex = 0;
@@ -168,7 +168,7 @@
             this.buttonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectAll.Image")));
             this.buttonSelectAll.Location = new System.Drawing.Point(18, 171);
-            this.buttonSelectAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(31, 32);
             this.buttonSelectAll.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.buttonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
             this.buttonSelectCommodities.Location = new System.Drawing.Point(18, 207);
-            this.buttonSelectCommodities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectCommodities.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectCommodities.Name = "buttonSelectCommodities";
             this.buttonSelectCommodities.Size = new System.Drawing.Size(31, 32);
             this.buttonSelectCommodities.TabIndex = 2;
@@ -200,7 +200,7 @@
             this.buttonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectCrypto.Image")));
             this.buttonSelectCrypto.Location = new System.Drawing.Point(18, 244);
-            this.buttonSelectCrypto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectCrypto.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectCrypto.Name = "buttonSelectCrypto";
             this.buttonSelectCrypto.Size = new System.Drawing.Size(31, 32);
             this.buttonSelectCrypto.TabIndex = 1;
@@ -216,7 +216,7 @@
             this.buttonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
             this.buttonSelectStocks.Location = new System.Drawing.Point(18, 280);
-            this.buttonSelectStocks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectStocks.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectStocks.Name = "buttonSelectStocks";
             this.buttonSelectStocks.Size = new System.Drawing.Size(31, 32);
             this.buttonSelectStocks.TabIndex = 0;
@@ -233,7 +233,7 @@
             this.buttonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectMoney.Image")));
             this.buttonSelectMoney.Location = new System.Drawing.Point(18, 317);
-            this.buttonSelectMoney.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectMoney.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectMoney.Name = "buttonSelectMoney";
             this.buttonSelectMoney.Size = new System.Drawing.Size(31, 32);
             this.buttonSelectMoney.TabIndex = 4;
@@ -245,7 +245,7 @@
             this.flowLayoutPanelSavings.AutoScroll = true;
             this.flowLayoutPanelSavings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelSavings.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelSavings.Name = "flowLayoutPanelSavings";
             this.flowLayoutPanelSavings.Size = new System.Drawing.Size(430, 353);
             this.flowLayoutPanelSavings.TabIndex = 5;
@@ -258,9 +258,9 @@
             this.tabPagePortfolio.Controls.Add(this.labelMonthlySalary);
             this.tabPagePortfolio.Controls.Add(this.labelCurrentSavings);
             this.tabPagePortfolio.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePortfolio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPagePortfolio.Margin = new System.Windows.Forms.Padding(2);
             this.tabPagePortfolio.Name = "tabPagePortfolio";
-            this.tabPagePortfolio.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPagePortfolio.Padding = new System.Windows.Forms.Padding(2);
             this.tabPagePortfolio.Size = new System.Drawing.Size(434, 357);
             this.tabPagePortfolio.TabIndex = 1;
             this.tabPagePortfolio.Text = "Portfolio";
@@ -318,7 +318,7 @@
             this.panelTransactions.Controls.Add(this.panel1);
             this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTransactions.Location = new System.Drawing.Point(0, 29);
-            this.panelTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.panelTransactions.Name = "panelTransactions";
             this.panelTransactions.Size = new System.Drawing.Size(262, 383);
             this.panelTransactions.TabIndex = 6;
@@ -328,7 +328,7 @@
             this.flowLayoutPanelTransactions.AutoScroll = true;
             this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 18);
-            this.flowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
             this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(285, 365);
             this.flowLayoutPanelTransactions.TabIndex = 5;
@@ -340,7 +340,7 @@
             this.panel1.Controls.Add(this.textBoxTransactionSearchBar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(262, 18);
             this.panel1.TabIndex = 5;
@@ -351,7 +351,7 @@
             this.pictureBoxSearchIcon.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__21_;
             this.pictureBoxSearchIcon.ImageLocation = "";
             this.pictureBoxSearchIcon.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxSearchIcon.Name = "pictureBoxSearchIcon";
             this.pictureBoxSearchIcon.Size = new System.Drawing.Size(19, 18);
             this.pictureBoxSearchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -363,7 +363,7 @@
             this.panelTabControl.Controls.Add(this.tabControlPortfolio);
             this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTabControl.Location = new System.Drawing.Point(262, 29);
-            this.panelTabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTabControl.Margin = new System.Windows.Forms.Padding(2);
             this.panelTabControl.Name = "panelTabControl";
             this.panelTabControl.Size = new System.Drawing.Size(442, 383);
             this.panelTabControl.TabIndex = 8;
@@ -377,7 +377,7 @@
             this.Controls.Add(this.panelTabControl);
             this.Controls.Add(this.panelTransactions);
             this.Controls.Add(this.panelMainMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(720, 451);
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

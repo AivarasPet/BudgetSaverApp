@@ -1,3 +1,4 @@
 {"TransactionType":"+","Amount":5000.0,"Title":"Alga","Category":"Living"}
 {"TransactionType":"+","Amount":50.0,"Title":"Skola","Category":"Living"}
 {"TransactionType":"-","Amount":10.0,"Title":"Parduotuve","Category":"Food"}
+{"TransactionType":"-","Amount":100.0,"Title":"ssasd","Category":"Food"}
