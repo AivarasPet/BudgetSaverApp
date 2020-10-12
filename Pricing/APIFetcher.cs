@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Pricing
 {
     public class APIFetcher
     {
-
+        //public delegate void APIFetcherEventHandler(object source, EventArgs args);
+        public static event EventHandler AllAPIsDownloaded = delegate { };
 
         class TaskEntity
         {
@@ -31,6 +33,7 @@ namespace BudgetSaverApp.Pricing
             }
 
             await Task.WhenAll(tasks);
+            AllAPIsDownloaded(null, EventArgs.Empty);
         }
 
         public static void AddDownloadEntity(string url, IHasAPI obj)
@@ -42,9 +45,6 @@ namespace BudgetSaverApp.Pricing
             });
         }
 
-        public static void AttachActionOnObserver()
-        {
-        }
 
         private static void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
         {
