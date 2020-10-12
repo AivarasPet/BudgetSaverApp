@@ -29,8 +29,15 @@ namespace BudgetSaverApp
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
             LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
         }
+
+        public void ReloadSavings(object sender, System.EventArgs e)
+        {
+            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+        }
+
         #region Transactions
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
