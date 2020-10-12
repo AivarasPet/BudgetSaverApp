@@ -62,7 +62,7 @@
             // 
             this.LabelTitleVal.AutoSize = true;
             this.LabelTitleVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelTitleVal.Location = new System.Drawing.Point(220, 11);
+            this.LabelTitleVal.Location = new System.Drawing.Point(181, 11);
             this.LabelTitleVal.Name = "LabelTitleVal";
             this.LabelTitleVal.Size = new System.Drawing.Size(22, 17);
             this.LabelTitleVal.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             this.LabelAmountVal.AutoSize = true;
             this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountVal.Location = new System.Drawing.Point(154, 41);
+            this.LabelAmountVal.Location = new System.Drawing.Point(128, 41);
             this.LabelAmountVal.Name = "LabelAmountVal";
             this.LabelAmountVal.Size = new System.Drawing.Size(22, 17);
             this.LabelAmountVal.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             this.LabelCategoryVal.AutoSize = true;
             this.LabelCategoryVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelCategoryVal.Location = new System.Drawing.Point(269, 41);
+            this.LabelCategoryVal.Location = new System.Drawing.Point(270, 41);
             this.LabelCategoryVal.Name = "LabelCategoryVal";
             this.LabelCategoryVal.Size = new System.Drawing.Size(22, 17);
             this.LabelCategoryVal.TabIndex = 7;
