@@ -29,7 +29,7 @@ namespace BudgetSaverApp.Possessions
             return _singleton;
         }
 
-        public void LoadPossessionsListFromTextFile() {
+        public async void LoadPossessionsListFromTextFile() {
             list.Clear();
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");
@@ -63,7 +63,7 @@ namespace BudgetSaverApp.Possessions
                 }
             }
 
-            APIFetcher.RunAllDownloadsAsync();
+            await APIFetcher.RunAllDownloadsAsync();
         }
 
             
