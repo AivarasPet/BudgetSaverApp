@@ -1,3 +1,7 @@
-{"TransactionType":"+","Amount":5000.0,"Title":"Alga","Category":"Living"}
-{"TransactionType":"+","Amount":50.0,"Title":"Skola","Category":"Living"}
-{"TransactionType":"-","Amount":10.0,"Title":"Parduotuve","Category":"Food"}
+{"TransactionType":"+","Amount":2000.0,"Title":"Alga","Category":"Kebabai\r","date":"2020-10-12T15:25:42.2038334+03:00"}
+{"TransactionType":"-","Amount":20000.0,"Title":"Hehe","Category":"Kebabai\r","date":"2020-10-12T15:58:37.6347808+03:00"}
+{"TransactionType":"+","Amount":1000.0,"Title":"Mociutes pensija","Category":"Household\r","date":"2020-10-12T16:26:23.6846254+03:00"}
+{"TransactionType":"+","Amount":4570.0,"Title":"Teleloto","Category":"Loterija\r","date":"2020-10-12T16:27:32.5401146+03:00"}
+{"TransactionType":"+","Amount":5000.0,"Title":"sasadsda","Category":"Household\r","date":"2020-10-12T16:29:18.7798163+03:00"}
+{"TransactionType":"+","Amount":10000.0,"Title":"sadasd","Category":"Household\r","date":"2020-10-12T16:29:31.7886235+03:00"}
+{"TransactionType":"-","Amount":200.0,"Title":"sdsd","Category":"Loterija\r","date":"2020-10-12T16:30:00.3950945+03:00"}

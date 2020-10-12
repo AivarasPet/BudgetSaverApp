@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using BudgetSaverApp.Transactions;
 
@@ -11,6 +12,7 @@ namespace BudgetSaverApp
         {
             this.userData = userData;
             InitializeComponent();
+            AddTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
         }
 
         private void AddTransactionButton_Click(object sender, EventArgs e)

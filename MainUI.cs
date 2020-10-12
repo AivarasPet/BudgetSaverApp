@@ -11,6 +11,7 @@ using System.Xml;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Pricing;
+using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
 using static BudgetSaverApp.Pricing.APIFetcher;
 
@@ -31,6 +32,7 @@ namespace BudgetSaverApp
             LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
+            SetStatsInfo();
         }
 
         public void ReloadSavings(object sender, System.EventArgs e)
@@ -70,9 +72,16 @@ namespace BudgetSaverApp
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             AddTransaction.ShowDialog(this);
         }
+
+        private void buttonAddCategory_Click(object sender, EventArgs e)
+        {
+            var AddCategory = new AddCategory();
+            AddCategory.ShowDialog(this);
+        }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
+            SetStatsInfo();
         }
         #endregion
 
@@ -144,6 +153,21 @@ namespace BudgetSaverApp
                 button.BackColor = Color.White;
                 button.FlatAppearance.BorderColor = Color.Black;
             }
+        }
+
+
+        #endregion
+
+        #region Stats
+        private void SetStatsInfo()
+        {
+            Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
+            labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
+            labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
+
         }
 
         #endregion
