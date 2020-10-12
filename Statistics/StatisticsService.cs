@@ -29,41 +29,22 @@ namespace BudgetSaverApp.Statistics
             var result = new Dictionary<string, int>();
 
             List<Transaction> list = TransactionService.GetTransactionService().GetTransactionsList();
-
             
             foreach (Transaction t in list)
             {
-                if (t == null)
-                {
-                    continue;
-                }
+                if (t == null) continue;
 
                 if (t.date >= startDate && t.date <= endDate)
                 {
                     amount++;
 
-                    if (t.TransactionType == "+")
-                    {
-                        income += t.Amount;
-                    }
-                    else
-                    {
-                        expenses += t.Amount;
-                    }
+                    if (t.TransactionType == "+") income += t.Amount;
+                    else expenses += t.Amount;
 
-                    
-                    if (result.TryGetValue(t.Category, out int count))
-                    {
-                        result[t.Category] = count + 1;
-                    }
-                    else
-                    {
-                        result.Add(t.Category, 1);
-                    }
+                    if (result.TryGetValue(t.Category, out int count)) result[t.Category] = count + 1;
+                    else result.Add(t.Category, 1);
                 }
             }
-
-
 
             stats.TransactionAmount = amount;
             stats.Income = income;

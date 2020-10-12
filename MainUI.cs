@@ -73,7 +73,7 @@ namespace BudgetSaverApp
             AddTransaction.ShowDialog(this);
         }
 
-        private void buttonAddCategories_Click(object sender, EventArgs e)
+        private void buttonAddCategory_Click(object sender, EventArgs e)
         {
             var AddCategory = new AddCategory();
             AddCategory.ShowDialog(this);

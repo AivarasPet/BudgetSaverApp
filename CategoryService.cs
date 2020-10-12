@@ -26,10 +26,8 @@ namespace BudgetSaverApp
             string[] categories = new string[data.Length-1];
             for (int x = 0; x < data.Length; x++)
             {
-                if (data[x] == "")
-                {
-                    continue;
-                }
+                if (data[x] == "") continue;
+
                 categories[x] = data[x].ToString();
             }
             return categories;
