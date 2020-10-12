@@ -56,7 +56,7 @@ namespace BudgetSaverApp.Transactions
                 if (!float.TryParse(transactionAmount, out transAmount))
                     return;
 
-                Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category); 
+                Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category, DateTime.Now); 
                 list.Add(newTransaction);
                 StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
                 w.WriteLine(JsonConvert.SerializeObject(newTransaction));

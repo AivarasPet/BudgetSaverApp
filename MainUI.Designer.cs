@@ -48,16 +48,23 @@
             this.labelGoalName = new System.Windows.Forms.Label();
             this.labelMonthlySalary = new System.Windows.Forms.Label();
             this.labelCurrentSavings = new System.Windows.Forms.Label();
+            this.tabPageStats = new System.Windows.Forms.TabPage();
+            this.labelStatsWeeklyTransactionAmount = new System.Windows.Forms.Label();
+            this.labelStatsWeeklyIncome = new System.Windows.Forms.Label();
+            this.labelStatsWeeklyExpenses = new System.Windows.Forms.Label();
             this.panelTransactions = new System.Windows.Forms.Panel();
             this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.panelTabControl = new System.Windows.Forms.Panel();
+            this.labelStatsFrequentCategory = new System.Windows.Forms.Label();
+            this.labelStatsWeeklyBalance = new System.Windows.Forms.Label();
             this.panelMainMenu.SuspendLayout();
             this.tabControlPortfolio.SuspendLayout();
             this.tabPageSavings.SuspendLayout();
             this.panelPortfolioButtons.SuspendLayout();
             this.tabPagePortfolio.SuspendLayout();
+            this.tabPageStats.SuspendLayout();
             this.panelTransactions.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchIcon)).BeginInit();
@@ -141,6 +148,7 @@
             // 
             this.tabControlPortfolio.Controls.Add(this.tabPageSavings);
             this.tabControlPortfolio.Controls.Add(this.tabPagePortfolio);
+            this.tabControlPortfolio.Controls.Add(this.tabPageStats);
             this.tabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPortfolio.Location = new System.Drawing.Point(0, 0);
             this.tabControlPortfolio.Margin = new System.Windows.Forms.Padding(2);
@@ -330,6 +338,48 @@
             this.labelCurrentSavings.TabIndex = 13;
             this.labelCurrentSavings.Text = "Current savings: 0";
             // 
+            // tabPageStats
+            // 
+            this.tabPageStats.Controls.Add(this.labelStatsWeeklyBalance);
+            this.tabPageStats.Controls.Add(this.labelStatsFrequentCategory);
+            this.tabPageStats.Controls.Add(this.labelStatsWeeklyTransactionAmount);
+            this.tabPageStats.Controls.Add(this.labelStatsWeeklyIncome);
+            this.tabPageStats.Controls.Add(this.labelStatsWeeklyExpenses);
+            this.tabPageStats.Location = new System.Drawing.Point(4, 22);
+            this.tabPageStats.Name = "tabPageStats";
+            this.tabPageStats.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStats.Size = new System.Drawing.Size(434, 357);
+            this.tabPageStats.TabIndex = 2;
+            this.tabPageStats.Text = "Stats";
+            this.tabPageStats.UseVisualStyleBackColor = true;
+            // 
+            // labelStatsWeeklyTransactionAmount
+            // 
+            this.labelStatsWeeklyTransactionAmount.AutoSize = true;
+            this.labelStatsWeeklyTransactionAmount.Location = new System.Drawing.Point(44, 28);
+            this.labelStatsWeeklyTransactionAmount.Name = "labelStatsWeeklyTransactionAmount";
+            this.labelStatsWeeklyTransactionAmount.Size = new System.Drawing.Size(144, 13);
+            this.labelStatsWeeklyTransactionAmount.TabIndex = 2;
+            this.labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction:";
+            // 
+            // labelStatsWeeklyIncome
+            // 
+            this.labelStatsWeeklyIncome.AutoSize = true;
+            this.labelStatsWeeklyIncome.Location = new System.Drawing.Point(44, 90);
+            this.labelStatsWeeklyIncome.Name = "labelStatsWeeklyIncome";
+            this.labelStatsWeeklyIncome.Size = new System.Drawing.Size(84, 13);
+            this.labelStatsWeeklyIncome.TabIndex = 1;
+            this.labelStatsWeeklyIncome.Text = "Weekly Income:";
+            // 
+            // labelStatsWeeklyExpenses
+            // 
+            this.labelStatsWeeklyExpenses.AutoSize = true;
+            this.labelStatsWeeklyExpenses.Location = new System.Drawing.Point(44, 59);
+            this.labelStatsWeeklyExpenses.Name = "labelStatsWeeklyExpenses";
+            this.labelStatsWeeklyExpenses.Size = new System.Drawing.Size(95, 13);
+            this.labelStatsWeeklyExpenses.TabIndex = 0;
+            this.labelStatsWeeklyExpenses.Text = "Weekly Expenses:";
+            // 
             // panelTransactions
             // 
             this.panelTransactions.Controls.Add(this.flowLayoutPanelTransactions);
@@ -386,6 +436,24 @@
             this.panelTabControl.Size = new System.Drawing.Size(442, 383);
             this.panelTabControl.TabIndex = 8;
             // 
+            // labelStatsFrequentCategory
+            // 
+            this.labelStatsFrequentCategory.AutoSize = true;
+            this.labelStatsFrequentCategory.Location = new System.Drawing.Point(44, 118);
+            this.labelStatsFrequentCategory.Name = "labelStatsFrequentCategory";
+            this.labelStatsFrequentCategory.Size = new System.Drawing.Size(119, 13);
+            this.labelStatsFrequentCategory.TabIndex = 3;
+            this.labelStatsFrequentCategory.Text = "Most frequent category:";
+            // 
+            // labelStatsWeeklyBalance
+            // 
+            this.labelStatsWeeklyBalance.AutoSize = true;
+            this.labelStatsWeeklyBalance.Location = new System.Drawing.Point(44, 141);
+            this.labelStatsWeeklyBalance.Name = "labelStatsWeeklyBalance";
+            this.labelStatsWeeklyBalance.Size = new System.Drawing.Size(87, 13);
+            this.labelStatsWeeklyBalance.TabIndex = 4;
+            this.labelStatsWeeklyBalance.Text = "Weekly balance:";
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +475,8 @@
             this.panelPortfolioButtons.ResumeLayout(false);
             this.tabPagePortfolio.ResumeLayout(false);
             this.tabPagePortfolio.PerformLayout();
+            this.tabPageStats.ResumeLayout(false);
+            this.tabPageStats.PerformLayout();
             this.panelTransactions.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -442,5 +512,11 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
         private System.Windows.Forms.PictureBox pictureBoxSearchIcon;
         private System.Windows.Forms.Button buttonAddCategory;
+        private System.Windows.Forms.TabPage tabPageStats;
+        private System.Windows.Forms.Label labelStatsWeeklyIncome;
+        private System.Windows.Forms.Label labelStatsWeeklyExpenses;
+        private System.Windows.Forms.Label labelStatsWeeklyTransactionAmount;
+        private System.Windows.Forms.Label labelStatsFrequentCategory;
+        private System.Windows.Forms.Label labelStatsWeeklyBalance;
     }
 }

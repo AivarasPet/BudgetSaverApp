@@ -11,6 +11,7 @@ using System.Xml;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Pricing;
+using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
 using static BudgetSaverApp.Pricing.APIFetcher;
 
@@ -30,6 +31,7 @@ namespace BudgetSaverApp
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
             LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
             SetPortfolioInfo();
+            SetStatsInfo();
         }
         #region Transactions
         private void LoadTransactionsOnUI(List<Transaction> list)
@@ -72,6 +74,7 @@ namespace BudgetSaverApp
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
+            SetStatsInfo();
         }
         #endregion
 
@@ -145,8 +148,21 @@ namespace BudgetSaverApp
             }
         }
 
+
         #endregion
 
-        
+        #region Stats
+        private void SetStatsInfo()
+        {
+            Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction:" + stats.TransactionAmount;
+            labelStatsWeeklyIncome.Text = "Weekly Income:" + stats.Income;
+            labelStatsWeeklyExpenses.Text = "Weekly Spent:" + stats.Expenses;
+            labelStatsFrequentCategory.Text = "Most frequent category:" + stats.FrequentCategory;
+            labelStatsWeeklyBalance.Text = "Weekly balance:" + (stats.Income - stats.Expenses);
+
+        }
+
+        #endregion
     }
 }
