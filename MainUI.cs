@@ -55,7 +55,7 @@ namespace BudgetSaverApp
                 {
                     TransactionType = t.TransactionType,
                     Title = t.Title,
-                    Amount = t.Amount.ToString(),
+                    Amount = t.Amount.ToString() + " €",
                     Category = t.Category
                 };
                 flowLayoutPanelTransactions.Controls.Add(item);
@@ -70,13 +70,15 @@ namespace BudgetSaverApp
         {
             var AddTransaction = new AddTransaction(userData);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
-            AddTransaction.ShowDialog(this);
+            openChildForm(AddTransaction);
+            //AddTransaction.ShowDialog(this);
         }
 
         private void buttonAddCategory_Click(object sender, EventArgs e)
         {
             var AddCategory = new AddCategory();
-            AddCategory.ShowDialog(this);
+            openChildForm(AddCategory);
+            //AddCategory.ShowDialog(this);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -97,7 +99,8 @@ namespace BudgetSaverApp
         {
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
-            EnterInfoBoxInstance.ShowDialog(this);
+            openChildForm(EnterInfoBoxInstance);
+            //EnterInfoBoxInstance.ShowDialog(this);
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -171,5 +174,40 @@ namespace BudgetSaverApp
         }
 
         #endregion
+
+        private void flowLayoutPanelTransactions_MouseDown(object sender, MouseEventArgs e)
+        {
+            bool match = false;
+            Point transaction = new Point(e.X, e.Y);
+            if(e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                foreach (Control c in flowLayoutPanelTransactions.Controls)
+                {
+                    if(c.Bounds.Contains(transaction))
+                    {
+                        match = true;
+                    }
+                }
+                if(match)
+                {
+                    //delete
+                }
+            }
+        }
+
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if(activeForm != null) { activeForm.Close(); }
+            activeForm = childForm;
+            tabControlPortfolio.SelectTab(3);
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelFunctions.Controls.Add(childForm);
+            panelFunctions.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
     }
 }

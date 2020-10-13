@@ -31,15 +31,15 @@
             this.AddCategoryName = new System.Windows.Forms.TextBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.AddCategoryButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddCategoryName
             // 
-            this.AddCategoryName.Location = new System.Drawing.Point(13, 48);
-            this.AddCategoryName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddCategoryName.Location = new System.Drawing.Point(34, 65);
+            this.AddCategoryName.Margin = new System.Windows.Forms.Padding(4);
             this.AddCategoryName.Name = "AddCategoryName";
-            this.AddCategoryName.Size = new System.Drawing.Size(237, 22);
+            this.AddCategoryName.Size = new System.Drawing.Size(491, 22);
             this.AddCategoryName.TabIndex = 0;
             // 
             // buttonClose
@@ -50,8 +50,8 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonClose.Location = new System.Drawing.Point(292, 58);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClose.Location = new System.Drawing.Point(350, 112);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(175, 47);
             this.buttonClose.TabIndex = 31;
@@ -65,8 +65,8 @@
             this.AddCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddCategoryButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddCategoryButton.Location = new System.Drawing.Point(292, 4);
-            this.AddCategoryButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddCategoryButton.Location = new System.Drawing.Point(34, 112);
+            this.AddCategoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddCategoryButton.Name = "AddCategoryButton";
             this.AddCategoryButton.Size = new System.Drawing.Size(175, 47);
             this.AddCategoryButton.TabIndex = 32;
@@ -74,25 +74,25 @@
             this.AddCategoryButton.UseVisualStyleBackColor = false;
             this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
             // 
-            // label2
+            // labelTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(8, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 25);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Title:";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelTitle.Location = new System.Drawing.Point(29, 23);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(152, 25);
+            this.labelTitle.TabIndex = 33;
+            this.labelTitle.Text = "Category name:";
             // 
             // AddCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(488, 111);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(561, 395);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.AddCategoryButton);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.AddCategoryName);
@@ -110,6 +110,6 @@
         private System.Windows.Forms.TextBox AddCategoryName;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button AddCategoryButton;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelTitle;
     }
 }

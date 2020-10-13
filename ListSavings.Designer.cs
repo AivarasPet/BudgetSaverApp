@@ -37,19 +37,19 @@
             // 
             // LabelValueInput
             // 
-            this.LabelValueInput.AutoSize = true;
             this.LabelValueInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelValueInput.Location = new System.Drawing.Point(365, 12);
+            this.LabelValueInput.Location = new System.Drawing.Point(317, 14);
             this.LabelValueInput.Name = "LabelValueInput";
-            this.LabelValueInput.Size = new System.Drawing.Size(22, 17);
+            this.LabelValueInput.Size = new System.Drawing.Size(121, 17);
             this.LabelValueInput.TabIndex = 11;
             this.LabelValueInput.Text = "- -";
+            this.LabelValueInput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LabelTitleInput
             // 
             this.LabelTitleInput.AutoSize = true;
             this.LabelTitleInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelTitleInput.Location = new System.Drawing.Point(95, 12);
+            this.LabelTitleInput.Location = new System.Drawing.Point(91, 14);
             this.LabelTitleInput.Name = "LabelTitleInput";
             this.LabelTitleInput.Size = new System.Drawing.Size(22, 17);
             this.LabelTitleInput.TabIndex = 10;
@@ -59,7 +59,7 @@
             // 
             this.LabelAmountInput.AutoSize = true;
             this.LabelAmountInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountInput.Location = new System.Drawing.Point(302, 12);
+            this.LabelAmountInput.Location = new System.Drawing.Point(268, 14);
             this.LabelAmountInput.Name = "LabelAmountInput";
             this.LabelAmountInput.Size = new System.Drawing.Size(22, 17);
             this.LabelAmountInput.TabIndex = 15;

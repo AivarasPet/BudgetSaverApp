@@ -52,7 +52,7 @@ namespace BudgetSaverApp
             if (!valuesAreNumbers)
                 return;
             // Writes input values into UserData.txt
-            userData.SetAll(textBoxGoalItemName.Text, price, savings, salary);                
+            userData.SetAll(TextBoxGoalItemName.Text, price, savings, salary);                
             userData.SaveToFile();
             Close();
         }

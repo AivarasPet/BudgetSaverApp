@@ -42,11 +42,11 @@
             // 
             // AddTransactionCategory
             // 
-            this.AddTransactionCategory.BackColor = System.Drawing.Color.DarkGray;
+            this.AddTransactionCategory.BackColor = System.Drawing.Color.White;
             this.AddTransactionCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTransactionCategory.FormattingEnabled = true;
-            this.AddTransactionCategory.Location = new System.Drawing.Point(389, 80);
-            this.AddTransactionCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTransactionCategory.Location = new System.Drawing.Point(342, 82);
+            this.AddTransactionCategory.Margin = new System.Windows.Forms.Padding(4);
             this.AddTransactionCategory.Name = "AddTransactionCategory";
             this.AddTransactionCategory.Size = new System.Drawing.Size(161, 24);
             this.AddTransactionCategory.TabIndex = 29;
@@ -55,8 +55,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(384, 48);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(337, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 25);
@@ -70,9 +70,9 @@
             this.AddTransactionButton.FlatAppearance.BorderSize = 0;
             this.AddTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddTransactionButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddTransactionButton.Location = new System.Drawing.Point(600, 14);
-            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTransactionButton.ForeColor = System.Drawing.Color.White;
+            this.AddTransactionButton.Location = new System.Drawing.Point(34, 170);
+            this.AddTransactionButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddTransactionButton.Name = "AddTransactionButton";
             this.AddTransactionButton.Size = new System.Drawing.Size(175, 47);
             this.AddTransactionButton.TabIndex = 27;
@@ -82,8 +82,10 @@
             // 
             // AddTransactionAmount
             // 
+            this.AddTransactionAmount.BackColor = System.Drawing.Color.White;
+            this.AddTransactionAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AddTransactionAmount.Location = new System.Drawing.Point(248, 82);
-            this.AddTransactionAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTransactionAmount.Margin = new System.Windows.Forms.Padding(4);
             this.AddTransactionAmount.Name = "AddTransactionAmount";
             this.AddTransactionAmount.Size = new System.Drawing.Size(81, 22);
             this.AddTransactionAmount.TabIndex = 22;
@@ -92,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(29, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -104,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(101, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -114,14 +116,14 @@
             // 
             // AddTransactionType
             // 
-            this.AddTransactionType.BackColor = System.Drawing.Color.DarkGray;
+            this.AddTransactionType.BackColor = System.Drawing.Color.White;
             this.AddTransactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTransactionType.FormattingEnabled = true;
             this.AddTransactionType.Items.AddRange(new object[] {
             "+",
             "-"});
             this.AddTransactionType.Location = new System.Drawing.Point(36, 81);
-            this.AddTransactionType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTransactionType.Margin = new System.Windows.Forms.Padding(4);
             this.AddTransactionType.Name = "AddTransactionType";
             this.AddTransactionType.Size = new System.Drawing.Size(57, 24);
             this.AddTransactionType.TabIndex = 23;
@@ -130,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(243, 48);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -140,8 +142,10 @@
             // 
             // AddTransactionName
             // 
+            this.AddTransactionName.BackColor = System.Drawing.Color.White;
+            this.AddTransactionName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AddTransactionName.Location = new System.Drawing.Point(107, 82);
-            this.AddTransactionName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTransactionName.Margin = new System.Windows.Forms.Padding(4);
             this.AddTransactionName.Name = "AddTransactionName";
             this.AddTransactionName.Size = new System.Drawing.Size(132, 22);
             this.AddTransactionName.TabIndex = 21;
@@ -153,9 +157,9 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonClose.Location = new System.Drawing.Point(600, 105);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClose.ForeColor = System.Drawing.Color.White;
+            this.buttonClose.Location = new System.Drawing.Point(361, 170);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(175, 47);
             this.buttonClose.TabIndex = 30;
@@ -170,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(791, 165);
+            this.ClientSize = new System.Drawing.Size(561, 395);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.AddTransactionCategory);
             this.Controls.Add(this.label4);
