@@ -40,6 +40,21 @@ namespace BudgetSaverApp
             LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
         }
 
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null) { activeForm.Close(); }
+            activeForm = childForm;
+            tabControlPortfolio.SelectTab(3);
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelFunctions.Controls.Add(childForm);
+            panelFunctions.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
         #region Transactions
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
@@ -71,14 +86,12 @@ namespace BudgetSaverApp
             var AddTransaction = new AddTransaction(userData);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             openChildForm(AddTransaction);
-            //AddTransaction.ShowDialog(this);
         }
 
         private void buttonAddCategory_Click(object sender, EventArgs e)
         {
             var AddCategory = new AddCategory();
             openChildForm(AddCategory);
-            //AddCategory.ShowDialog(this);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -100,7 +113,6 @@ namespace BudgetSaverApp
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
             openChildForm(EnterInfoBoxInstance);
-            //EnterInfoBoxInstance.ShowDialog(this);
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -109,6 +121,16 @@ namespace BudgetSaverApp
         #endregion
 
         #region Savings
+        private void buttonAddSavings_Click(object sender, EventArgs e)
+        {
+            var AddSavings = new AddSavings(userData);
+            AddSavings.FormClosed += AddSavings_FormClosed;
+            openChildForm(AddSavings);
+        }
+        private void AddSavings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+        }
         private void LoadSavingsOnUI(List<Possession> possessions)
         {
             flowLayoutPanelSavings.Controls.Clear();
@@ -177,37 +199,22 @@ namespace BudgetSaverApp
 
         private void flowLayoutPanelTransactions_MouseDown(object sender, MouseEventArgs e)
         {
-            bool match = false;
             Point transaction = new Point(e.X, e.Y);
-            if(e.Button == System.Windows.Forms.MouseButtons.Right)
+            var list = flowLayoutPanelTransactions.Controls.OfType<ListItemTransactions>().ToList();
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                foreach (Control c in flowLayoutPanelTransactions.Controls)
+                int i = 0;
+                foreach (ListItemTransactions c in list)
                 {
-                    if(c.Bounds.Contains(transaction))
+                    Console.WriteLine(c);
+                    i++;
+                    if (c.Bounds.Contains(transaction))
                     {
-                        match = true;
+                        Console.WriteLine("HEY " + i);
                     }
                 }
-                if(match)
-                {
-                    //delete
-                }
             }
-        }
-
-        private Form activeForm = null;
-        private void openChildForm(Form childForm)
-        {
-            if(activeForm != null) { activeForm.Close(); }
-            activeForm = childForm;
-            tabControlPortfolio.SelectTab(3);
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelFunctions.Controls.Add(childForm);
-            panelFunctions.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
         }
     }
 }

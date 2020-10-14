@@ -74,6 +74,12 @@
     <Compile Include="AddCategory.Designer.cs">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSavings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSavings.Designer.cs">
+      <DependentUpon>AddSavings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="UserData.cs" />
     <EmbeddedResource Include="AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSavings.resx">
+      <DependentUpon>AddSavings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTransaction.resx">
       <DependentUpon>AddTransaction.cs</DependentUpon>

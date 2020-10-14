@@ -35,6 +35,10 @@ namespace BudgetSaverApp
             }
            
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         [Category("Custom Props")]
         public string Title 

@@ -59,18 +59,21 @@
             this.labelMonthlySalary = new System.Windows.Forms.Label();
             this.labelCurrentSavings = new System.Windows.Forms.Label();
             this.tabPageStats = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.labelStatsWeeklyBalance = new System.Windows.Forms.Label();
             this.labelStatsFrequentCategory = new System.Windows.Forms.Label();
             this.labelStatsWeeklyTransactionAmount = new System.Windows.Forms.Label();
             this.labelStatsWeeklyIncome = new System.Windows.Forms.Label();
             this.labelStatsWeeklyExpenses = new System.Windows.Forms.Label();
+            this.tabPageFunctions = new System.Windows.Forms.TabPage();
+            this.panelFunctions = new System.Windows.Forms.Panel();
             this.panelTransactions = new System.Windows.Forms.Panel();
             this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.panelTabControl = new System.Windows.Forms.Panel();
-            this.tabPageFunctions = new System.Windows.Forms.TabPage();
-            this.panelFunctions = new System.Windows.Forms.Panel();
+            this.tabPageData = new System.Windows.Forms.TabPage();
+            this.buttonAddSavings = new System.Windows.Forms.Button();
             this.panelMainMenu.SuspendLayout();
             this.tabControlPortfolio.SuspendLayout();
             this.tabPageSavings.SuspendLayout();
@@ -78,17 +81,18 @@
             this.panelLabels.SuspendLayout();
             this.tabPagePortfolio.SuspendLayout();
             this.tabPageStats.SuspendLayout();
+            this.tabPageFunctions.SuspendLayout();
             this.panelTransactions.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchIcon)).BeginInit();
             this.panelTabControl.SuspendLayout();
-            this.tabPageFunctions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMainMenu
             // 
             this.panelMainMenu.AutoScroll = true;
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panelMainMenu.Controls.Add(this.buttonAddSavings);
             this.panelMainMenu.Controls.Add(this.buttonAddCategory);
             this.panelMainMenu.Controls.Add(this.buttonAddPortfolioValues);
             this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
@@ -164,6 +168,7 @@
             this.tabControlPortfolio.Controls.Add(this.tabPagePortfolio);
             this.tabControlPortfolio.Controls.Add(this.tabPageStats);
             this.tabControlPortfolio.Controls.Add(this.tabPageFunctions);
+            this.tabControlPortfolio.Controls.Add(this.tabPageData);
             this.tabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPortfolio.Location = new System.Drawing.Point(0, 0);
             this.tabControlPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -464,6 +469,7 @@
             // tabPageStats
             // 
             this.tabPageStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.tabPageStats.Controls.Add(this.dateTimePicker1);
             this.tabPageStats.Controls.Add(this.labelStatsWeeklyBalance);
             this.tabPageStats.Controls.Add(this.labelStatsFrequentCategory);
             this.tabPageStats.Controls.Add(this.labelStatsWeeklyTransactionAmount);
@@ -476,6 +482,13 @@
             this.tabPageStats.Size = new System.Drawing.Size(579, 442);
             this.tabPageStats.TabIndex = 2;
             this.tabPageStats.Text = "Stats";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(335, 40);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(105, 22);
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // labelStatsWeeklyBalance
             // 
@@ -535,6 +548,24 @@
             this.labelStatsWeeklyExpenses.TabIndex = 0;
             this.labelStatsWeeklyExpenses.Text = "Weekly expenses:";
             // 
+            // tabPageFunctions
+            // 
+            this.tabPageFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.tabPageFunctions.Controls.Add(this.panelFunctions);
+            this.tabPageFunctions.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFunctions.Name = "tabPageFunctions";
+            this.tabPageFunctions.Size = new System.Drawing.Size(579, 442);
+            this.tabPageFunctions.TabIndex = 3;
+            this.tabPageFunctions.Text = "Functions";
+            // 
+            // panelFunctions
+            // 
+            this.panelFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFunctions.Location = new System.Drawing.Point(0, 0);
+            this.panelFunctions.Name = "panelFunctions";
+            this.panelFunctions.Size = new System.Drawing.Size(579, 442);
+            this.panelFunctions.TabIndex = 0;
+            // 
             // panelTransactions
             // 
             this.panelTransactions.Controls.Add(this.flowLayoutPanelTransactions);
@@ -592,23 +623,30 @@
             this.panelTabControl.Size = new System.Drawing.Size(587, 471);
             this.panelTabControl.TabIndex = 8;
             // 
-            // tabPageFunctions
+            // tabPageData
             // 
-            this.tabPageFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageFunctions.Controls.Add(this.panelFunctions);
-            this.tabPageFunctions.Location = new System.Drawing.Point(4, 25);
-            this.tabPageFunctions.Name = "tabPageFunctions";
-            this.tabPageFunctions.Size = new System.Drawing.Size(579, 442);
-            this.tabPageFunctions.TabIndex = 3;
-            this.tabPageFunctions.Text = "Functions";
+            this.tabPageData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.tabPageData.Location = new System.Drawing.Point(4, 25);
+            this.tabPageData.Name = "tabPageData";
+            this.tabPageData.Size = new System.Drawing.Size(579, 442);
+            this.tabPageData.TabIndex = 4;
+            this.tabPageData.Text = "Data";
             // 
-            // panelFunctions
+            // buttonAddSavings
             // 
-            this.panelFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFunctions.Location = new System.Drawing.Point(0, 0);
-            this.panelFunctions.Name = "panelFunctions";
-            this.panelFunctions.Size = new System.Drawing.Size(579, 442);
-            this.panelFunctions.TabIndex = 0;
+            this.buttonAddSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.buttonAddSavings.FlatAppearance.BorderSize = 0;
+            this.buttonAddSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddSavings.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAddSavings.Location = new System.Drawing.Point(420, 5);
+            this.buttonAddSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAddSavings.Name = "buttonAddSavings";
+            this.buttonAddSavings.Size = new System.Drawing.Size(141, 27);
+            this.buttonAddSavings.TabIndex = 5;
+            this.buttonAddSavings.TabStop = false;
+            this.buttonAddSavings.Text = "Add savings";
+            this.buttonAddSavings.UseVisualStyleBackColor = false;
+            this.buttonAddSavings.Click += new System.EventHandler(this.buttonAddSavings_Click);
             // 
             // MainUI
             // 
@@ -635,12 +673,12 @@
             this.tabPagePortfolio.PerformLayout();
             this.tabPageStats.ResumeLayout(false);
             this.tabPageStats.PerformLayout();
+            this.tabPageFunctions.ResumeLayout(false);
             this.panelTransactions.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchIcon)).EndInit();
             this.panelTabControl.ResumeLayout(false);
-            this.tabPageFunctions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -689,5 +727,8 @@
         private System.Windows.Forms.Label labelTitleSavings3;
         private System.Windows.Forms.TabPage tabPageFunctions;
         private System.Windows.Forms.Panel panelFunctions;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TabPage tabPageData;
+        private System.Windows.Forms.Button buttonAddSavings;
     }
 }

@@ -1,4 +1,4 @@
-﻿Kebabai
+﻿Food
 Household
-Loterija
-Food
+Health
+Work
