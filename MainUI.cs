@@ -20,16 +20,21 @@ namespace BudgetSaverApp
     public partial class MainUI : Form
     {
         UserData userData;
-        public MainUI()
+        ITransactionService transactionService;
+        IPosessionsService posessionsService;
+        IStatisticsService statisticsService;
+        public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService)
         {
             userData = new UserData();
+            this.posessionsService = posessionsService;
+            this.transactionService = transactionService;
+            this.statisticsService = statisticsService;
             InitializeComponent();
-            Main main = new Main();//Don't comment, it's actually doing something
         }
         private void MainUI_Load(object sender, EventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
-            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            LoadTransactionsOnUI(transactionService.GetTransactionsList());
+            LoadSavingsOnUI(posessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
             SetStatsInfo();
@@ -37,7 +42,8 @@ namespace BudgetSaverApp
 
         public void ReloadSavings(object sender, System.EventArgs e)
         {
-            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            Console.WriteLine("paejo");
+            LoadSavingsOnUI(posessionsService.GetPossessionsList());
         }
 
         #region Transactions
@@ -63,12 +69,12 @@ namespace BudgetSaverApp
         }
         private void textBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
+            //LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
         }
 
         private void buttonAddTransactions_Click(object sender, EventArgs e)
         {
-            var AddTransaction = new AddTransaction(userData);
+            var AddTransaction = new AddTransaction(userData, transactionService);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             AddTransaction.ShowDialog(this);
         }
@@ -80,7 +86,7 @@ namespace BudgetSaverApp
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
+            LoadTransactionsOnUI(transactionService.GetTransactionsList());
             SetStatsInfo();
         }
         #endregion
@@ -113,10 +119,10 @@ namespace BudgetSaverApp
             {
                 ListSavings item = new ListSavings
                 {
-                    Title = p.name,
-                    Amount = p.amount.ToString(),
-                    Value = p.valueInDollars + " $",
-                    ImageUrl = p.linkOfImage
+                    Title = p.Name,
+                    Amount = p.Amount.ToString(),
+                    Value = p.ValueInDollars + " $",
+                    ImageUrl = p.LinkOfImage
                 };
                 flowLayoutPanelSavings.Controls.Add(item);
             }
@@ -161,7 +167,7 @@ namespace BudgetSaverApp
         #region Stats
         private void SetStatsInfo()
         {
-            Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
             labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
             labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
             labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;

@@ -8,7 +8,8 @@ namespace BudgetSaverApp
     public partial class AddTransaction : Form
     {
         UserData userData;
-        public AddTransaction(UserData userData)
+        ITransactionService transactionService;
+        public AddTransaction(UserData userData, ITransactionService transactionService)
         {
             this.userData = userData;
             InitializeComponent();
@@ -17,7 +18,7 @@ namespace BudgetSaverApp
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            TransactionService.GetTransactionService().AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
+            transactionService.AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
             Close();
         }
 
