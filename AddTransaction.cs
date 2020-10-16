@@ -18,7 +18,7 @@ namespace BudgetSaverApp
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            transactionService.AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
+            //transactionService.AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
             Close();
         }
 

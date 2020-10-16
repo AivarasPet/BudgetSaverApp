@@ -22,12 +22,12 @@ namespace BudgetSaverApp
         private object sender;
         UserData userData;
         ITransactionService transactionService;
-        IPosessionsService posessionsService;
+        IPosessionsService possessionsService;
         IStatisticsService statisticsService;
         public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService)
         {
             userData = new UserData();
-            this.posessionsService = posessionsService;
+            this.possessionsService = posessionsService;
             this.transactionService = transactionService;
             this.statisticsService = statisticsService;
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace BudgetSaverApp
         private void MainUI_Load(object sender, EventArgs e)
         {
             LoadTransactionsOnUI(transactionService.GetTransactionsList());
-            LoadSavingsOnUI(posessionsService.GetPossessionsList());
+            LoadSavingsOnUI(possessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
             SetStatsInfo();
@@ -43,7 +43,7 @@ namespace BudgetSaverApp
 
         public void ReloadSavings(object sender, System.EventArgs e)
         {
-            LoadSavingsOnUI(posessionsService.GetPossessionsList());
+            LoadSavingsOnUI(possessionsService.GetPossessionsList());
         }
 
         private Form activeForm = null;
@@ -85,7 +85,7 @@ namespace BudgetSaverApp
         }
         private void OnTransactionTileClicked(object sender, MouseEventArgs e)
         {
-            LoadTransactionsOnUI(transactionService.GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
+
         }
         private void TextBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
@@ -203,12 +203,12 @@ namespace BudgetSaverApp
         #region Stats
         private void SetStatsInfo()
         {
-            Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
-            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
-            labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
-            labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
-            labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
-            labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
+            //Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            //labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            //labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
+            //labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
+            //labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            //labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
 
         }
 
@@ -243,13 +243,13 @@ namespace BudgetSaverApp
                 if (o.GetHashCode() == this.sender.GetHashCode())
                 {
                     TabControlPortfolio.SelectTab(4);
-                    LabelName.Text = "Saving: " + list[i].name;
-                    LabelAmount.Text = "Amount: " + list[i].amount;
-                    LabelCategory.Text = "Total value: " + list[i].valueInDollars + " $";
+                    LabelName.Text = "Saving: " + list[i].Name;
+                    LabelAmount.Text = "Amount: " + list[i].Amount;
+                    LabelCategory.Text = "Total value: " + list[i].ValueInDollars + " $";
                     LabelDate.Visible = false;
                     PictureBoxLogo.Visible = true;
                     PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-                    PictureBoxLogo.LoadAsync(list[i].linkOfImage);
+                    PictureBoxLogo.LoadAsync(list[i].LinkOfImage);
                 }
                 i++;
             }
