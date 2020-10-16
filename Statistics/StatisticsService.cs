@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Statistics
 {
-    class StatisticsService
+    class StatisticsService : IStatisticsService
     {
-        private static StatisticsService _singleton;
-
-        public static StatisticsService GetStatisticsService()
+        ITransactionService transactionService;
+        public StatisticsService(ITransactionService transactionService)
         {
-            if (_singleton == null) _singleton = new StatisticsService();
-            return _singleton;
+            this.transactionService = transactionService;
         }
 
         public Stats GetStatistic(DateTime startDate, DateTime endDate)
@@ -28,7 +26,7 @@ namespace BudgetSaverApp.Statistics
             float expenses = 0;
             var result = new Dictionary<string, int>();
 
-            List<Transaction> list = TransactionService.GetTransactionService().GetTransactionsList();
+            List<Transaction> list = transactionService.GetTransactionsList();
             
             foreach (Transaction t in list)
             {

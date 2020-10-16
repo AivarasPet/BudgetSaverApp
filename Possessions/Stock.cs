@@ -2,7 +2,7 @@
 
 namespace BudgetSaverApp.Possessions
 {
-    class Stock : Possession, IHasAPI
+    class Stock : Possession, IApiCallback
     {
 
         public void OnAPIDownload(string APIData)

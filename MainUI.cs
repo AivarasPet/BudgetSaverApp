@@ -21,16 +21,21 @@ namespace BudgetSaverApp
     {
         private object sender;
         UserData userData;
-        public MainUI()
+        ITransactionService transactionService;
+        IPosessionsService posessionsService;
+        IStatisticsService statisticsService;
+        public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService)
         {
             userData = new UserData();
+            this.posessionsService = posessionsService;
+            this.transactionService = transactionService;
+            this.statisticsService = statisticsService;
             InitializeComponent();
-            Main main = new Main();//Don't comment, it's actually doing something           
         }
         private void MainUI_Load(object sender, EventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
-            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            LoadTransactionsOnUI(transactionService.GetTransactionsList());
+            LoadSavingsOnUI(posessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
             SetStatsInfo();
@@ -38,7 +43,8 @@ namespace BudgetSaverApp
 
         public void ReloadSavings(object sender, System.EventArgs e)
         {
-            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            Console.WriteLine("paejo");
+            LoadSavingsOnUI(posessionsService.GetPossessionsList());
         }
 
         private Form activeForm = null;
@@ -80,7 +86,7 @@ namespace BudgetSaverApp
         }
         private void OnTransactionTileClicked(object sender, MouseEventArgs e)
         {
-            this.sender = sender;
+            LoadTransactionsOnUI(transactionService.GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
         }
         private void TextBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
@@ -89,7 +95,7 @@ namespace BudgetSaverApp
 
         private void ButtonAddTransactions_Click(object sender, EventArgs e)
         {
-            var AddTransaction = new AddTransaction(userData);
+            var AddTransaction = new AddTransaction(userData, transactionService);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             OpenChildForm(AddTransaction);
         }
@@ -101,7 +107,7 @@ namespace BudgetSaverApp
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetTransactionsList());
+            LoadTransactionsOnUI(transactionService.GetTransactionsList());
             SetStatsInfo();
         }
         #endregion
@@ -135,7 +141,7 @@ namespace BudgetSaverApp
         }
         private void AddSavings_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadSavingsOnUI(PossessionsService.GetPossessionsService().GetPossessionsList());
+            LoadSavingsOnUI(possessionsService.GetPossessionsList());
         }
         private void LoadSavingsOnUI(List<Possession> possessions)
         {
@@ -144,10 +150,10 @@ namespace BudgetSaverApp
             {
                 ListSavings item = new ListSavings
                 {
-                    Title = p.name,
-                    Amount = p.amount.ToString(),
-                    Value = p.valueInDollars + " $",
-                    ImageUrl = p.linkOfImage
+                    Title = p.Name,
+                    Amount = p.Amount.ToString(),
+                    Value = p.ValueInDollars + " $",
+                    ImageUrl = p.LinkOfImage
                 };
 
                 item.MouseDown += OnSavingsTileClicked;
@@ -198,12 +204,12 @@ namespace BudgetSaverApp
         #region Stats
         private void SetStatsInfo()
         {
-            Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
-            LabelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
-            LabelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
-            LabelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
-            LabelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
-            LabelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
+            Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
+            labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
+            labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
 
         }
 
@@ -232,7 +238,7 @@ namespace BudgetSaverApp
         private void ToolStripMenuItemSavingsData_MouseDown(object sender, MouseEventArgs e)
         {
             int i = 0;
-            List<Possession> list = PossessionsService.GetPossessionsService().GetPossessionsList();
+            List<Possession> list = possessionsService.GetPossessionsList();
             foreach (Control o in FlowLayoutPanelSavings.Controls.OfType<ListSavings>().ToList())
             {
                 if (o.GetHashCode() == this.sender.GetHashCode())

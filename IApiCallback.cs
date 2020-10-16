@@ -1,6 +1,6 @@
 ﻿namespace BudgetSaverApp
 {
-    public interface IHasAPI
+    public interface IApiCallback
     {
         void OnAPIDownload(string APIData);
     }
