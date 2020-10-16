@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +40,7 @@ namespace BudgetSaverApp
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
             SetStatsInfo();
+            CleanTab();
         }
 
         public void ReloadSavings(object sender, System.EventArgs e)
@@ -85,7 +87,7 @@ namespace BudgetSaverApp
         }
         private void OnTransactionTileClicked(object sender, MouseEventArgs e)
         {
-
+            this.sender = sender;
         }
         private void TextBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
@@ -115,9 +117,9 @@ namespace BudgetSaverApp
         private void SetPortfolioInfo()
         {
             LabelGoalName.Text = "Goal: " + userData.GoalItemName;
-            LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
-            LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
-            LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
+            LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice + " €";
+            LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings + " €";
+            LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary + " €";
         }
         private void ButtonAddPortfolioValues_Click(object sender, EventArgs e)
         {
@@ -154,7 +156,6 @@ namespace BudgetSaverApp
                     Value = p.ValueInDollars + " $",
                     ImageUrl = p.LinkOfImage
                 };
-
                 item.MouseDown += OnSavingsTileClicked;
                 FlowLayoutPanelSavings.Controls.Add(item);
             }
@@ -203,12 +204,12 @@ namespace BudgetSaverApp
         #region Stats
         private void SetStatsInfo()
         {
-            //Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
-            //labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
-            //labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
-            //labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
-            //labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
-            //labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
+            Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            LabelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            LabelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income + " €";
+            LabelStatsWeeklyExpenses.Text = "Weekly spent: " + stats.Expenses + " €";
+            LabelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            LabelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses) + " €";
 
         }
 
@@ -255,6 +256,10 @@ namespace BudgetSaverApp
             }
         }
         private void ButtonClean_Click(object sender, EventArgs e)
+        {
+            CleanTab();
+        }
+        private void CleanTab()
         {
             LabelName.Text = "Tile name: ";
             LabelAmount.Text = "Amount: ";

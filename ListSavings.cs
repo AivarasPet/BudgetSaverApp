@@ -21,11 +21,6 @@ namespace BudgetSaverApp
             PictureBoxLogo.LoadAsync(_imageUrl);
         }
 
-        private void ListSavings_MouseClick(object sender, MouseEventArgs e)
-        {
-            Console.WriteLine(sender.GetHashCode());
-        }
-
         [Category("Custom Props")]
         public string Title
         {
