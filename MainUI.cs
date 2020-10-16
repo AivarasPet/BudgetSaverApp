@@ -229,18 +229,6 @@ namespace BudgetSaverApp
                 i++;
             }
         }
-        private void ButtonClean_Click(object sender, EventArgs e)
-        {
-            LabelName.Text = "Tile name: ";
-            LabelAmount.Text = "Amount: ";
-            LabelCategory.Text = "Category: ";
-            LabelDate.Text = "Date added: ";
-            LabelDate.Visible = true;
-            PictureBoxLogo.Visible = false;
-            TabControlPortfolio.SelectTab(0);
-        }
-        #endregion
-
         private void ToolStripMenuItemSavingsData_MouseDown(object sender, MouseEventArgs e)
         {
             int i = 0;
@@ -261,5 +249,16 @@ namespace BudgetSaverApp
                 i++;
             }
         }
+        private void ButtonClean_Click(object sender, EventArgs e)
+        {
+            LabelName.Text = "Tile name: ";
+            LabelAmount.Text = "Amount: ";
+            LabelCategory.Text = "Category: ";
+            LabelDate.Text = "Date added: ";
+            LabelDate.Visible = true;
+            PictureBoxLogo.Visible = false;
+            TabControlPortfolio.SelectTab(0);
+        }
+        #endregion     
     }
 }
