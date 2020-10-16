@@ -1,13 +1,13 @@
 ﻿namespace BudgetSaverApp.Portfolio
 {
-    class PortfolioService
+    class GoalsService
     {
         public static float mainGoalPrice { get; set; }
         public static float salaryMonthly { get; set; }
         public static float currentSavings { get; set; }
         public static string mainGoalName { get; set; }
 
-        public PortfolioService()
+        public GoalsService()
         {
             LoadDataFromTextFile();
         }

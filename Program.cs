@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BudgetSaverApp.Possessions;
+using BudgetSaverApp.Statistics;
+using BudgetSaverApp.Transactions;
+using System;
 using System.Windows.Forms;
 
 namespace BudgetSaverApp
@@ -13,7 +16,12 @@ namespace BudgetSaverApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainUI());
+
+            ITransactionService transactionService = TransactionsFactory.GetTransactionService();
+            IPosessionsService posessionsService = PossessionFactory.GetPossessionsService();
+            IStatisticsService statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
+
+            Application.Run(new MainUI(transactionService, posessionsService, statisticsService));
         }
     }
 }

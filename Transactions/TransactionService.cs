@@ -6,20 +6,18 @@ using Newtonsoft.Json;
 
 namespace BudgetSaverApp.Transactions
 {
-    class TransactionService
+    class TransactionService : ITransactionService
     {
-        private List<Transaction> list = new List<Transaction>();
-        private static TransactionService _singleton;
-
-        public static TransactionService GetTransactionService()
+        private List<Transaction> List = new List<Transaction>();
+        
+        public TransactionService()
         {
-            if (_singleton == null) _singleton = new TransactionService();
-            return _singleton;
+            LoadTransactionsListFromTextFile();
         }
 
         public List<Transaction> GetListWithTitleFiltered(string filter)
         {
-            var query = list.Where(oh => oh.Title.ToLower().Contains(filter)).ToList();
+            var query = List.Where(oh => oh.Title.ToLower().Contains(filter)).ToList();
             Console.WriteLine("Query count:" + query.Count);
 
             return query;
@@ -27,7 +25,7 @@ namespace BudgetSaverApp.Transactions
 
         public void LoadTransactionsListFromTextFile()
         {
-            list.Clear();
+            List.Clear();
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
             if (data == null) return;
@@ -36,13 +34,13 @@ namespace BudgetSaverApp.Transactions
                 Transaction transaction = JsonConvert.DeserializeObject<Transaction>(data[x]);
                 if(transaction != null)
                 {
-                    list.Add(transaction);
+                    List.Add(transaction);
                 }
             }
         }
         public List<Transaction> GetTransactionsList()
         {
-            return list ?? null;
+            return List ?? null;
         }
 
         public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category)
@@ -57,7 +55,7 @@ namespace BudgetSaverApp.Transactions
                     return;
 
                 Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category, DateTime.Now); 
-                list.Add(newTransaction);
+                List.Add(newTransaction);
                 StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
                 w.WriteLine(JsonConvert.SerializeObject(newTransaction));
                 w.Close();

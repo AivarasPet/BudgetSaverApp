@@ -6,16 +6,13 @@ using BudgetSaverApp.Pricing;
 
 namespace BudgetSaverApp.Possessions
 {
-    public class PossessionsService
+    class PossessionsService : IPosessionsService
     {
         List<Possession> list = new List<Possession>();
 
-        private static PossessionsService _singleton;
-
-
-        private PossessionsService()
+        public PossessionsService()
         {
-
+            LoadPossessionsList();
         }
 
         public List<Possession> GetPossessionsList()
@@ -23,13 +20,8 @@ namespace BudgetSaverApp.Possessions
             return list;
         }
 
-        public static PossessionsService GetPossessionsService()
-        {
-            if (_singleton == null) _singleton = new PossessionsService();
-            return _singleton;
-        }
-
-        public async void LoadPossessionsListFromTextFile() {
+     
+        public void LoadPossessionsList() {
             list.Clear();
             TextFileReader reader = new TextFileReader();
             string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");
@@ -39,13 +31,10 @@ namespace BudgetSaverApp.Possessions
             {
                 if (data[x] == "") continue;
 
-                int posOfSepperator = data[x].IndexOf(':');
-                string possessionType = data[x].Substring(0, posOfSepperator);
-                string jsonObjStr = data[x].Substring(posOfSepperator + 1, data[x].Length - possessionType.Length - 2);
-                
-                JObject o = JObject.Parse(jsonObjStr);
 
-                Possession possession = possessionType switch
+                JObject o = JObject.Parse(data[x]);
+
+                Possession possession = o["Type"].ToString() switch
                 {
                     "Crypto" => new Crypto(),
                     "Commodity" => new Commodity(),
@@ -56,16 +45,18 @@ namespace BudgetSaverApp.Possessions
 
                 if (possession != null)
                 {
-                    JsonConvert.PopulateObject(jsonObjStr, possession);
-                    Console.WriteLine(possession.name);
+                    JsonConvert.PopulateObject(o["Object"].ToString(), possession);
+                    Console.WriteLine(possession.Name);
                     list.Add(possession);
-                    APIFetcher.AddDownloadEntity(possession.linkOfAPI, (IHasAPI) possession); //downloads its api
+                    APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback) possession); //downloads its api
                 }
             }
 
-            await APIFetcher.RunAllDownloadsAsync();
+            APIFetcher.RunAllDownloadsAsync();
         }
 
-            
+      
+
+
     }
 }

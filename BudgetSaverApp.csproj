@@ -92,8 +92,13 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="IHasAPI.cs" />
+    <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
+    <Compile Include="Possessions\IPossessionsService.cs" />
+    <Compile Include="Possessions\PossessionFactory.cs" />
+    <Compile Include="Statistics\IStatisticsService.cs" />
+    <Compile Include="Statistics\StatisticsFactory.cs" />
+    <Compile Include="Transactions\ITransactionService.cs" />
     <Compile Include="ListSavings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,9 +112,8 @@
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
     <Compile Include="HttpRequest.cs" />
-    <Compile Include="Main.cs" />
     <Compile Include="MonthlyIncome.cs" />
-    <Compile Include="Portfolio\PortfolioService.cs" />
+    <Compile Include="Portfolio\GoalsService.cs" />
     <Compile Include="Possessions\Commodity.cs" />
     <Compile Include="Possessions\Crypto.cs" />
     <Compile Include="Possessions\Possession.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="Transactions\Transaction.cs" />
     <Compile Include="Transactions\TransactionService.cs" />
+    <Compile Include="Transactions\TransactionsFactory.cs" />
     <Compile Include="UserData.cs" />
     <EmbeddedResource Include="AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>

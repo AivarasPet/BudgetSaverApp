@@ -12,7 +12,7 @@ namespace BudgetSaverApp.Pricing
         class TaskEntity
         {
             public string url { set; get; }
-            public IHasAPI obj;
+            public IApiCallback obj;
         }
 
         private static List<TaskEntity> taskEntities = new List<TaskEntity>();
@@ -36,7 +36,7 @@ namespace BudgetSaverApp.Pricing
             AllAPIsDownloaded(null, EventArgs.Empty);
         }
 
-        public static void AddDownloadEntity(string url, IHasAPI obj)
+        public static void AddDownloadEntity(string url, IApiCallback obj)
         {
             taskEntities.Add(new TaskEntity
             {
@@ -48,7 +48,7 @@ namespace BudgetSaverApp.Pricing
 
         private static void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
         {
-                
+            Console.WriteLine(e.data);
         }
 
     }
