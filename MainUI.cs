@@ -43,7 +43,6 @@ namespace BudgetSaverApp
 
         public void ReloadSavings(object sender, System.EventArgs e)
         {
-            Console.WriteLine("paejo");
             LoadSavingsOnUI(posessionsService.GetPossessionsList());
         }
 
@@ -90,7 +89,7 @@ namespace BudgetSaverApp
         }
         private void TextBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(TextBoxTransactionSearchBar.Text));
+            LoadTransactionsOnUI(transactionService.GetListWithTitleFiltered(TextBoxTransactionSearchBar.Text));
         }
 
         private void ButtonAddTransactions_Click(object sender, EventArgs e)
@@ -219,7 +218,7 @@ namespace BudgetSaverApp
         private void ToolStripMenuItemData_MouseDown(object sender, MouseEventArgs e)
         {
             int i = 0;
-            List<Transaction> list = TransactionService.GetTransactionService().GetTransactionsList();
+            List<Transaction> list = transactionService.GetTransactionsList();
             foreach (Control o in FlowLayoutPanelTransactions.Controls.OfType<ListItemTransactions>().ToList())
             {
                 if (o.GetHashCode() == this.sender.GetHashCode())
