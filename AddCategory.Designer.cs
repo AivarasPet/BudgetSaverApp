@@ -28,63 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddCategoryName = new System.Windows.Forms.TextBox();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.AddCategoryButton = new System.Windows.Forms.Button();
-            this.labelTitle = new System.Windows.Forms.Label();
+            this.TextBoxAddCategory = new System.Windows.Forms.TextBox();
+            this.ButtonClose = new System.Windows.Forms.Button();
+            this.ButtonAddCategory = new System.Windows.Forms.Button();
+            this.LabelCategoryName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // AddCategoryName
+            // TextBoxAddCategory
             // 
-            this.AddCategoryName.Location = new System.Drawing.Point(34, 65);
-            this.AddCategoryName.Margin = new System.Windows.Forms.Padding(4);
-            this.AddCategoryName.Name = "AddCategoryName";
-            this.AddCategoryName.Size = new System.Drawing.Size(491, 22);
-            this.AddCategoryName.TabIndex = 0;
+            this.TextBoxAddCategory.Location = new System.Drawing.Point(34, 65);
+            this.TextBoxAddCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxAddCategory.Name = "TextBoxAddCategory";
+            this.TextBoxAddCategory.Size = new System.Drawing.Size(491, 22);
+            this.TextBoxAddCategory.TabIndex = 0;
             // 
-            // buttonClose
+            // ButtonClose
             // 
-            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonClose.Location = new System.Drawing.Point(350, 112);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(175, 47);
-            this.buttonClose.TabIndex = 31;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = false;
+            this.ButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ButtonClose.FlatAppearance.BorderSize = 0;
+            this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonClose.Location = new System.Drawing.Point(350, 112);
+            this.ButtonClose.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonClose.Name = "ButtonClose";
+            this.ButtonClose.Size = new System.Drawing.Size(175, 47);
+            this.ButtonClose.TabIndex = 31;
+            this.ButtonClose.Text = "Close";
+            this.ButtonClose.UseVisualStyleBackColor = false;
+            this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
-            // AddCategoryButton
+            // ButtonAddCategory
             // 
-            this.AddCategoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.AddCategoryButton.FlatAppearance.BorderSize = 0;
-            this.AddCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCategoryButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddCategoryButton.Location = new System.Drawing.Point(34, 112);
-            this.AddCategoryButton.Margin = new System.Windows.Forms.Padding(4);
-            this.AddCategoryButton.Name = "AddCategoryButton";
-            this.AddCategoryButton.Size = new System.Drawing.Size(175, 47);
-            this.AddCategoryButton.TabIndex = 32;
-            this.AddCategoryButton.Text = "Add category";
-            this.AddCategoryButton.UseVisualStyleBackColor = false;
-            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
+            this.ButtonAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddCategory.FlatAppearance.BorderSize = 0;
+            this.ButtonAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonAddCategory.Location = new System.Drawing.Point(34, 112);
+            this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonAddCategory.Name = "ButtonAddCategory";
+            this.ButtonAddCategory.Size = new System.Drawing.Size(175, 47);
+            this.ButtonAddCategory.TabIndex = 32;
+            this.ButtonAddCategory.Text = "Add category";
+            this.ButtonAddCategory.UseVisualStyleBackColor = false;
+            this.ButtonAddCategory.Click += new System.EventHandler(this.AddCategoryButton_Click);
             // 
-            // labelTitle
+            // LabelCategoryName
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelTitle.Location = new System.Drawing.Point(29, 23);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(152, 25);
-            this.labelTitle.TabIndex = 33;
-            this.labelTitle.Text = "Category name:";
+            this.LabelCategoryName.AutoSize = true;
+            this.LabelCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCategoryName.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelCategoryName.Location = new System.Drawing.Point(29, 23);
+            this.LabelCategoryName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelCategoryName.Name = "LabelCategoryName";
+            this.LabelCategoryName.Size = new System.Drawing.Size(152, 25);
+            this.LabelCategoryName.TabIndex = 33;
+            this.LabelCategoryName.Text = "Category name:";
             // 
             // AddCategory
             // 
@@ -92,10 +93,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(561, 395);
-            this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.AddCategoryButton);
-            this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.AddCategoryName);
+            this.Controls.Add(this.LabelCategoryName);
+            this.Controls.Add(this.ButtonAddCategory);
+            this.Controls.Add(this.ButtonClose);
+            this.Controls.Add(this.TextBoxAddCategory);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -107,9 +108,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox AddCategoryName;
-        private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button AddCategoryButton;
-        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.TextBox TextBoxAddCategory;
+        private System.Windows.Forms.Button ButtonClose;
+        private System.Windows.Forms.Button ButtonAddCategory;
+        private System.Windows.Forms.Label LabelCategoryName;
     }
 }

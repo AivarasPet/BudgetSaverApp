@@ -19,11 +19,11 @@ namespace BudgetSaverApp
 
         private void AddCategoryButton_Click(object sender, EventArgs e)
         {
-            CategoryService.GetCategoryService().AddCategory(AddCategoryName.Text);
+            CategoryService.GetCategoryService().AddCategory(TextBoxAddCategory.Text);
             Close();
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
         }

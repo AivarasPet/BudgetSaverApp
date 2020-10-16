@@ -12,16 +12,16 @@ namespace BudgetSaverApp
         {
             this.userData = userData;
             InitializeComponent();
-            AddTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
+            ComboBoxTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
         }
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            TransactionService.GetTransactionService().AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
+            TransactionService.GetTransactionService().AddNewTransaction(ComboBoxTransactionType.Text, TextBoxTitleName.Text, TextBoxTransactionAmount.Text, ComboBoxTransactionCategory.Text);
             Close();
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
         }

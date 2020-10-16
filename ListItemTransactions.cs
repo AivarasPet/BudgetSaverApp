@@ -7,7 +7,6 @@ namespace BudgetSaverApp
 {
     public partial class ListItemTransactions : UserControl
     {
-
         public ListItemTransactions()
         {
             InitializeComponent();
@@ -15,12 +14,11 @@ namespace BudgetSaverApp
 
         private string _title = "", _amount = "", _category = "", _transactionType = "";
 
-
         private void ListItemTransactions_Load(object sender, EventArgs e)
         {
-            LabelAmountVal.Text = _amount;
-            LabelTitleVal.Text = _title;
-            LabelCategoryVal.Text = _category;
+            LabelAmountValue.Text = _amount;
+            LabelTitleValue.Text = _title;
+            LabelCategoryValue.Text = _category;
             if(_transactionType.Contains("+"))
             {
                 LabelTransactionType.Text = _transactionType;
@@ -33,11 +31,6 @@ namespace BudgetSaverApp
                 LabelTransactionType.ForeColor = Color.Crimson;
                 PanelTransactionType.BackColor = Color.Crimson;
             }
-           
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         [Category("Custom Props")]
@@ -57,7 +50,7 @@ namespace BudgetSaverApp
         [Category("Custom Props")]
         public string Amount  
         {
-            get { return _title; }
+            get { return _amount; }
             set { _amount = value; }
         }
 

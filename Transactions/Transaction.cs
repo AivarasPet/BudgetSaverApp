@@ -8,7 +8,7 @@ namespace BudgetSaverApp.Transactions
         public float Amount { get; }
         public string Title { get; }
         public string Category { get; set; }
-        public DateTime date { get; }
+        public DateTime Date { get; }
 
         public Transaction(string transactionType, float amount, string title, string category, DateTime date)
         {
@@ -16,7 +16,7 @@ namespace BudgetSaverApp.Transactions
             this.Amount = amount;
             this.Title = title;
             this.Category = category;
-            this.date = date;
+            this.Date = date;
         }
     }
 }

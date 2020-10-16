@@ -34,7 +34,7 @@ namespace BudgetSaverApp.Statistics
             {
                 if (t == null) continue;
 
-                if (t.date >= startDate && t.date <= endDate)
+                if (t.Date >= startDate && t.Date <= endDate)
                 {
                     amount++;
 

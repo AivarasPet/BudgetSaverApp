@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.PanelTransactionType = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LabelCategoryVal = new System.Windows.Forms.Label();
+            this.LabelCategory = new System.Windows.Forms.Label();
+            this.LabelCategoryValue = new System.Windows.Forms.Label();
             this.LabelTransactionType = new System.Windows.Forms.Label();
-            this.LabelTitleVal = new System.Windows.Forms.Label();
-            this.LabelAmountVal = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LabelTitleValue = new System.Windows.Forms.Label();
+            this.LabelAmountValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PanelTransactionType
@@ -46,27 +45,27 @@
             this.PanelTransactionType.Size = new System.Drawing.Size(5, 65);
             this.PanelTransactionType.TabIndex = 18;
             // 
-            // label1
+            // LabelCategory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(46, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Category:";
+            this.LabelCategory.AutoSize = true;
+            this.LabelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.LabelCategory.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelCategory.Location = new System.Drawing.Point(46, 38);
+            this.LabelCategory.Name = "LabelCategory";
+            this.LabelCategory.Size = new System.Drawing.Size(58, 15);
+            this.LabelCategory.TabIndex = 22;
+            this.LabelCategory.Text = "Category:";
             // 
-            // LabelCategoryVal
+            // LabelCategoryValue
             // 
-            this.LabelCategoryVal.AutoSize = true;
-            this.LabelCategoryVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.LabelCategoryVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelCategoryVal.Location = new System.Drawing.Point(110, 38);
-            this.LabelCategoryVal.Name = "LabelCategoryVal";
-            this.LabelCategoryVal.Size = new System.Drawing.Size(18, 15);
-            this.LabelCategoryVal.TabIndex = 23;
-            this.LabelCategoryVal.Text = "- -";
+            this.LabelCategoryValue.AutoSize = true;
+            this.LabelCategoryValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.LabelCategoryValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelCategoryValue.Location = new System.Drawing.Point(110, 38);
+            this.LabelCategoryValue.Name = "LabelCategoryValue";
+            this.LabelCategoryValue.Size = new System.Drawing.Size(18, 15);
+            this.LabelCategoryValue.TabIndex = 23;
+            this.LabelCategoryValue.Text = "- -";
             // 
             // LabelTransactionType
             // 
@@ -79,49 +78,38 @@
             this.LabelTransactionType.Text = "+";
             this.LabelTransactionType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LabelTitleVal
+            // LabelTitleValue
             // 
-            this.LabelTitleVal.AutoSize = true;
-            this.LabelTitleVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.LabelTitleVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelTitleVal.Location = new System.Drawing.Point(45, 16);
-            this.LabelTitleVal.Name = "LabelTitleVal";
-            this.LabelTitleVal.Size = new System.Drawing.Size(26, 20);
-            this.LabelTitleVal.TabIndex = 20;
-            this.LabelTitleVal.Text = "- -";
+            this.LabelTitleValue.AutoSize = true;
+            this.LabelTitleValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LabelTitleValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelTitleValue.Location = new System.Drawing.Point(45, 16);
+            this.LabelTitleValue.Name = "LabelTitleValue";
+            this.LabelTitleValue.Size = new System.Drawing.Size(26, 20);
+            this.LabelTitleValue.TabIndex = 20;
+            this.LabelTitleValue.Text = "- -";
             // 
-            // LabelAmountVal
+            // LabelAmountValue
             // 
-            this.LabelAmountVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.LabelAmountVal.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountVal.Location = new System.Drawing.Point(233, 25);
-            this.LabelAmountVal.Name = "LabelAmountVal";
-            this.LabelAmountVal.Size = new System.Drawing.Size(107, 28);
-            this.LabelAmountVal.TabIndex = 19;
-            this.LabelAmountVal.Text = "- -";
-            this.LabelAmountVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(328, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(16, 15);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LabelAmountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LabelAmountValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelAmountValue.Location = new System.Drawing.Point(233, 25);
+            this.LabelAmountValue.Name = "LabelAmountValue";
+            this.LabelAmountValue.Size = new System.Drawing.Size(107, 28);
+            this.LabelAmountValue.TabIndex = 19;
+            this.LabelAmountValue.Text = "- -";
+            this.LabelAmountValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ListItemTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.LabelCategoryVal);
+            this.Controls.Add(this.LabelCategory);
+            this.Controls.Add(this.LabelCategoryValue);
             this.Controls.Add(this.LabelTransactionType);
-            this.Controls.Add(this.LabelTitleVal);
-            this.Controls.Add(this.LabelAmountVal);
+            this.Controls.Add(this.LabelTitleValue);
+            this.Controls.Add(this.LabelAmountValue);
             this.Controls.Add(this.PanelTransactionType);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(48)))), ((int)(((byte)(77)))));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -135,11 +123,10 @@
 
         #endregion
         private System.Windows.Forms.Panel PanelTransactionType;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LabelCategoryVal;
+        private System.Windows.Forms.Label LabelCategory;
+        private System.Windows.Forms.Label LabelCategoryValue;
         private System.Windows.Forms.Label LabelTransactionType;
-        private System.Windows.Forms.Label LabelTitleVal;
-        private System.Windows.Forms.Label LabelAmountVal;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label LabelTitleValue;
+        private System.Windows.Forms.Label LabelAmountValue;
     }
 }

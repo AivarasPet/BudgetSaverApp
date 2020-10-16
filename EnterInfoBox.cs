@@ -46,8 +46,8 @@ namespace BudgetSaverApp
         {
             // Checks whether input values are numbers
             float price, savings, salary;
-            bool valuesAreNumbers = float.TryParse(textBoxGoalItemPrice.Text, out price) &
-                                    float.TryParse(TextBoxSavingsEnter.Text, out savings) &
+            bool valuesAreNumbers = float.TryParse(TextBoxGoalItemPrice.Text, out price) &
+                                    float.TryParse(TextBoxSavings.Text, out savings) &
                                     float.TryParse(TextBoxMonthlySalary.Text, out salary);
             if (!valuesAreNumbers)
                 return;

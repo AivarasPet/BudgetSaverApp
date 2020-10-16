@@ -17,5 +17,9 @@ namespace BudgetSaverApp
             InitializeComponent();
         }
 
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -19,12 +19,13 @@ namespace BudgetSaverApp
 {
     public partial class MainUI : Form
     {
+        private object sender;
         UserData userData;
         public MainUI()
         {
             userData = new UserData();
             InitializeComponent();
-            Main main = new Main();//Don't comment, it's actually doing something
+            Main main = new Main();//Don't comment, it's actually doing something           
         }
         private void MainUI_Load(object sender, EventArgs e)
         {
@@ -41,16 +42,16 @@ namespace BudgetSaverApp
         }
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        private void OpenChildForm(Form childForm)
         {
             if (activeForm != null) { activeForm.Close(); }
             activeForm = childForm;
-            tabControlPortfolio.SelectTab(3);
+            TabControlPortfolio.SelectTab(3);
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelFunctions.Controls.Add(childForm);
-            panelFunctions.Tag = childForm;
+            PanelFunctions.Controls.Add(childForm);
+            PanelFunctions.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -58,7 +59,7 @@ namespace BudgetSaverApp
         #region Transactions
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
-            flowLayoutPanelTransactions.Controls.Clear();
+            FlowLayoutPanelTransactions.Controls.Clear();
             Console.WriteLine("search " + list.Count);
             foreach (Transaction t in list)
             {
@@ -73,25 +74,30 @@ namespace BudgetSaverApp
                     Amount = t.Amount.ToString() + " €",
                     Category = t.Category
                 };
-                flowLayoutPanelTransactions.Controls.Add(item);
+                item.MouseDown += OnTransactionTileClicked;
+                FlowLayoutPanelTransactions.Controls.Add(item);
             }
         }
-        private void textBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
+        private void OnTransactionTileClicked(object sender, MouseEventArgs e)
         {
-            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(textBoxTransactionSearchBar.Text));
+            this.sender = sender;
+        }
+        private void TextBoxTransactionSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            LoadTransactionsOnUI(TransactionService.GetTransactionService().GetListWithTitleFiltered(TextBoxTransactionSearchBar.Text));
         }
 
-        private void buttonAddTransactions_Click(object sender, EventArgs e)
+        private void ButtonAddTransactions_Click(object sender, EventArgs e)
         {
             var AddTransaction = new AddTransaction(userData);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
-            openChildForm(AddTransaction);
+            OpenChildForm(AddTransaction);
         }
 
-        private void buttonAddCategory_Click(object sender, EventArgs e)
+        private void ButtonAddCategory_Click(object sender, EventArgs e)
         {
             var AddCategory = new AddCategory();
-            openChildForm(AddCategory);
+            OpenChildForm(AddCategory);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -103,16 +109,16 @@ namespace BudgetSaverApp
         #region Portfolio
         private void SetPortfolioInfo()
         {
-            labelGoalName.Text = "Goal: " + userData.GoalItemName;
-            labelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
-            labelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
-            labelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
+            LabelGoalName.Text = "Goal: " + userData.GoalItemName;
+            LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice;
+            LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings;
+            LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary;
         }
-        private void buttonAddPortfolioValues_Click(object sender, EventArgs e)
+        private void ButtonAddPortfolioValues_Click(object sender, EventArgs e)
         {
             var EnterInfoBoxInstance = new EnterInfoBox(userData);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
-            openChildForm(EnterInfoBoxInstance);
+            OpenChildForm(EnterInfoBoxInstance);
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -121,11 +127,11 @@ namespace BudgetSaverApp
         #endregion
 
         #region Savings
-        private void buttonAddSavings_Click(object sender, EventArgs e)
+        private void ButtonAddSavings_Click(object sender, EventArgs e)
         {
             var AddSavings = new AddSavings(userData);
             AddSavings.FormClosed += AddSavings_FormClosed;
-            openChildForm(AddSavings);
+            OpenChildForm(AddSavings);
         }
         private void AddSavings_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -133,7 +139,7 @@ namespace BudgetSaverApp
         }
         private void LoadSavingsOnUI(List<Possession> possessions)
         {
-            flowLayoutPanelSavings.Controls.Clear();
+            FlowLayoutPanelSavings.Controls.Clear();
             foreach(Possession p in possessions)
             {
                 ListSavings item = new ListSavings
@@ -143,28 +149,34 @@ namespace BudgetSaverApp
                     Value = p.valueInDollars + " $",
                     ImageUrl = p.linkOfImage
                 };
-                flowLayoutPanelSavings.Controls.Add(item);
+
+                item.MouseDown += OnSavingsTileClicked;
+                FlowLayoutPanelSavings.Controls.Add(item);
             }
         }
-        private void buttonSelectAll_Click(object sender, EventArgs e)
+        private void OnSavingsTileClicked(object sender, MouseEventArgs e)
         {
-            ChangeColor(buttonSelectAll);
+            this.sender = sender;
         }
-        private void buttonSelectStocks_Click(object sender, EventArgs e)
+        private void ButtonSelectAll_Click(object sender, EventArgs e)
         {
-            ChangeColor(buttonSelectStocks);
+            ChangeColor(ButtonSelectAll);
         }
-        private void buttonSelectCrypto_Click(object sender, EventArgs e)
+        private void ButtonSelectStocks_Click(object sender, EventArgs e)
         {
-            ChangeColor(buttonSelectCrypto);
+            ChangeColor(ButtonSelectStocks);
         }
-        private void buttonSelectCommodities_Click(object sender, EventArgs e)
+        private void ButtonSelectCrypto_Click(object sender, EventArgs e)
         {
-            ChangeColor(buttonSelectCommodities);
+            ChangeColor(ButtonSelectCrypto);
         }
-        private void buttonSelectMoney_Click(object sender, EventArgs e)
+        private void ButtonSelectCommodities_Click(object sender, EventArgs e)
         {
-            ChangeColor(buttonSelectMoney);
+            ChangeColor(ButtonSelectCommodities);
+        }
+        private void ButtonSelectMoney_Click(object sender, EventArgs e)
+        {
+            ChangeColor(ButtonSelectMoney);
         }
         private void ChangeColor(Button button)
         {
@@ -187,33 +199,66 @@ namespace BudgetSaverApp
         private void SetStatsInfo()
         {
             Stats stats = StatisticsService.GetStatisticsService().GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
-            labelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
-            labelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
-            labelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
-            labelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
-            labelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
+            LabelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
+            LabelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income;
+            LabelStatsWeeklyExpenses.Text = "Weekly Spent: " + stats.Expenses;
+            LabelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
+            LabelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses);
 
         }
 
         #endregion
 
-        private void flowLayoutPanelTransactions_MouseDown(object sender, MouseEventArgs e)
+        #region Data
+        private void ToolStripMenuItemData_MouseDown(object sender, MouseEventArgs e)
         {
-            Point transaction = new Point(e.X, e.Y);
-            var list = flowLayoutPanelTransactions.Controls.OfType<ListItemTransactions>().ToList();
-
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            int i = 0;
+            List<Transaction> list = TransactionService.GetTransactionService().GetTransactionsList();
+            foreach (Control o in FlowLayoutPanelTransactions.Controls.OfType<ListItemTransactions>().ToList())
             {
-                int i = 0;
-                foreach (ListItemTransactions c in list)
+                if (o.GetHashCode() == this.sender.GetHashCode())
                 {
-                    Console.WriteLine(c);
-                    i++;
-                    if (c.Bounds.Contains(transaction))
-                    {
-                        Console.WriteLine("HEY " + i);
-                    }
+                    TabControlPortfolio.SelectTab(4);
+                    LabelName.Text = "Transaction: " + list[i].Title;
+                    LabelAmount.Text = "Amount: " + list[i].Amount.ToString() + " €";
+                    LabelCategory.Text = "Category: " + list[i].Category;
+                    LabelDate.Text = "Date added: " + (list[i].Date).ToString("yyyy/MM/dd");
+                    PictureBoxLogo.Visible = false;
+                    LabelDate.Visible = true;
                 }
+                i++;
+            }
+        }
+        private void ButtonClean_Click(object sender, EventArgs e)
+        {
+            LabelName.Text = "Tile name: ";
+            LabelAmount.Text = "Amount: ";
+            LabelCategory.Text = "Category: ";
+            LabelDate.Text = "Date added: ";
+            LabelDate.Visible = true;
+            PictureBoxLogo.Visible = false;
+            TabControlPortfolio.SelectTab(0);
+        }
+        #endregion
+
+        private void ToolStripMenuItemSavingsData_MouseDown(object sender, MouseEventArgs e)
+        {
+            int i = 0;
+            List<Possession> list = PossessionsService.GetPossessionsService().GetPossessionsList();
+            foreach (Control o in FlowLayoutPanelSavings.Controls.OfType<ListSavings>().ToList())
+            {
+                if (o.GetHashCode() == this.sender.GetHashCode())
+                {
+                    TabControlPortfolio.SelectTab(4);
+                    LabelName.Text = "Saving: " + list[i].name;
+                    LabelAmount.Text = "Amount: " + list[i].amount;
+                    LabelCategory.Text = "Total value: " + list[i].valueInDollars + " $";
+                    LabelDate.Visible = false;
+                    PictureBoxLogo.Visible = true;
+                    PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+                    PictureBoxLogo.LoadAsync(list[i].linkOfImage);
+                }
+                i++;
             }
         }
     }

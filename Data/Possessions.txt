@@ -1,3 +1,2 @@
 ﻿Crypto:{"Name":"Bitcoin","Amount":10.0,"linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10", "LinkOfImage":"https://cryptologos.cc/logos/bitcoin-btc-logo.png"}
 Crypto:{"Name":"Ethereum","Amount":10.0,"linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10", "LinkOfImage":"https://cryptologos.cc/logos/ethereum-eth-logo.png"}
-Crypto:{"Name":"Ethereum","Amount":10.0,"linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10", "LinkOfImage":"https://cryptologos.cc/logos/ethereum-eth-logo.png"}

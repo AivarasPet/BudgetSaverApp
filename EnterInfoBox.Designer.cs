@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.TextBoxGoalItemName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LabelSavings = new System.Windows.Forms.Label();
+            this.LabelSalary = new System.Windows.Forms.Label();
             this.TextBoxMonthlySalary = new System.Windows.Forms.TextBox();
-            this.InfoBoxConfirm = new System.Windows.Forms.Button();
-            this.InfoBoxCancel = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TextBoxSavingsEnter = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxGoalItemPrice = new System.Windows.Forms.TextBox();
+            this.ButtonConfirm = new System.Windows.Forms.Button();
+            this.ButtonCancel = new System.Windows.Forms.Button();
+            this.LabelGoalName = new System.Windows.Forms.Label();
+            this.TextBoxSavings = new System.Windows.Forms.TextBox();
+            this.LabelGoalPrice = new System.Windows.Forms.Label();
+            this.TextBoxGoalItemPrice = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TextBoxGoalItemName
@@ -50,27 +50,27 @@
             this.TextBoxGoalItemName.Size = new System.Drawing.Size(315, 22);
             this.TextBoxGoalItemName.TabIndex = 0;
             // 
-            // label1
+            // LabelSavings
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(80, 178);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Current savings:";
+            this.LabelSavings.AutoSize = true;
+            this.LabelSavings.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelSavings.Location = new System.Drawing.Point(80, 178);
+            this.LabelSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelSavings.Name = "LabelSavings";
+            this.LabelSavings.Size = new System.Drawing.Size(111, 17);
+            this.LabelSavings.TabIndex = 1;
+            this.LabelSavings.Text = "Current savings:";
             // 
-            // label2
+            // LabelSalary
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(80, 255);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Monthly salary";
+            this.LabelSalary.AutoSize = true;
+            this.LabelSalary.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelSalary.Location = new System.Drawing.Point(80, 255);
+            this.LabelSalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelSalary.Name = "LabelSalary";
+            this.LabelSalary.Size = new System.Drawing.Size(99, 17);
+            this.LabelSalary.TabIndex = 3;
+            this.LabelSalary.Text = "Monthly salary";
             // 
             // TextBoxMonthlySalary
             // 
@@ -82,102 +82,102 @@
             this.TextBoxMonthlySalary.Size = new System.Drawing.Size(315, 22);
             this.TextBoxMonthlySalary.TabIndex = 2;
             // 
-            // InfoBoxConfirm
+            // ButtonConfirm
             // 
-            this.InfoBoxConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.InfoBoxConfirm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.InfoBoxConfirm.FlatAppearance.BorderSize = 0;
-            this.InfoBoxConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InfoBoxConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoBoxConfirm.ForeColor = System.Drawing.Color.White;
-            this.InfoBoxConfirm.Location = new System.Drawing.Point(35, 338);
-            this.InfoBoxConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.InfoBoxConfirm.Name = "InfoBoxConfirm";
-            this.InfoBoxConfirm.Size = new System.Drawing.Size(109, 34);
-            this.InfoBoxConfirm.TabIndex = 4;
-            this.InfoBoxConfirm.Text = "Confirm";
-            this.InfoBoxConfirm.UseVisualStyleBackColor = false;
-            this.InfoBoxConfirm.Click += new System.EventHandler(this.InfoBoxConfirm_Click);
+            this.ButtonConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonConfirm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonConfirm.FlatAppearance.BorderSize = 0;
+            this.ButtonConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonConfirm.ForeColor = System.Drawing.Color.White;
+            this.ButtonConfirm.Location = new System.Drawing.Point(35, 338);
+            this.ButtonConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonConfirm.Name = "ButtonConfirm";
+            this.ButtonConfirm.Size = new System.Drawing.Size(109, 34);
+            this.ButtonConfirm.TabIndex = 4;
+            this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.UseVisualStyleBackColor = false;
+            this.ButtonConfirm.Click += new System.EventHandler(this.InfoBoxConfirm_Click);
             // 
-            // InfoBoxCancel
+            // ButtonCancel
             // 
-            this.InfoBoxCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.InfoBoxCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.InfoBoxCancel.FlatAppearance.BorderSize = 0;
-            this.InfoBoxCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InfoBoxCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoBoxCancel.ForeColor = System.Drawing.Color.White;
-            this.InfoBoxCancel.Location = new System.Drawing.Point(381, 338);
-            this.InfoBoxCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.InfoBoxCancel.Name = "InfoBoxCancel";
-            this.InfoBoxCancel.Size = new System.Drawing.Size(115, 34);
-            this.InfoBoxCancel.TabIndex = 5;
-            this.InfoBoxCancel.Text = "Cancel";
-            this.InfoBoxCancel.UseVisualStyleBackColor = false;
-            this.InfoBoxCancel.Click += new System.EventHandler(this.InfoBoxCancel_Click);
+            this.ButtonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ButtonCancel.FlatAppearance.BorderSize = 0;
+            this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonCancel.ForeColor = System.Drawing.Color.White;
+            this.ButtonCancel.Location = new System.Drawing.Point(381, 338);
+            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(115, 34);
+            this.ButtonCancel.TabIndex = 5;
+            this.ButtonCancel.Text = "Cancel";
+            this.ButtonCancel.UseVisualStyleBackColor = false;
+            this.ButtonCancel.Click += new System.EventHandler(this.InfoBoxCancel_Click);
             // 
-            // label3
+            // LabelGoalName
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(84, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Goal item";
+            this.LabelGoalName.AutoSize = true;
+            this.LabelGoalName.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelGoalName.Location = new System.Drawing.Point(84, 31);
+            this.LabelGoalName.Name = "LabelGoalName";
+            this.LabelGoalName.Size = new System.Drawing.Size(68, 17);
+            this.LabelGoalName.TabIndex = 6;
+            this.LabelGoalName.Text = "Goal item";
             // 
-            // TextBoxSavingsEnter
+            // TextBoxSavings
             // 
-            this.TextBoxSavingsEnter.BackColor = System.Drawing.Color.White;
-            this.TextBoxSavingsEnter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxSavingsEnter.Location = new System.Drawing.Point(108, 213);
-            this.TextBoxSavingsEnter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxSavingsEnter.Name = "TextBoxSavingsEnter";
-            this.TextBoxSavingsEnter.Size = new System.Drawing.Size(314, 22);
-            this.TextBoxSavingsEnter.TabIndex = 7;
+            this.TextBoxSavings.BackColor = System.Drawing.Color.White;
+            this.TextBoxSavings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSavings.Location = new System.Drawing.Point(108, 213);
+            this.TextBoxSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxSavings.Name = "TextBoxSavings";
+            this.TextBoxSavings.Size = new System.Drawing.Size(314, 22);
+            this.TextBoxSavings.TabIndex = 7;
             // 
-            // label4
+            // LabelGoalPrice
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(84, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Goal items price";
+            this.LabelGoalPrice.AutoSize = true;
+            this.LabelGoalPrice.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelGoalPrice.Location = new System.Drawing.Point(84, 98);
+            this.LabelGoalPrice.Name = "LabelGoalPrice";
+            this.LabelGoalPrice.Size = new System.Drawing.Size(110, 17);
+            this.LabelGoalPrice.TabIndex = 8;
+            this.LabelGoalPrice.Text = "Goal items price";
             // 
-            // textBoxGoalItemPrice
+            // TextBoxGoalItemPrice
             // 
-            this.textBoxGoalItemPrice.BackColor = System.Drawing.Color.White;
-            this.textBoxGoalItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxGoalItemPrice.Location = new System.Drawing.Point(108, 129);
-            this.textBoxGoalItemPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGoalItemPrice.Name = "textBoxGoalItemPrice";
-            this.textBoxGoalItemPrice.Size = new System.Drawing.Size(315, 22);
-            this.textBoxGoalItemPrice.TabIndex = 9;
+            this.TextBoxGoalItemPrice.BackColor = System.Drawing.Color.White;
+            this.TextBoxGoalItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxGoalItemPrice.Location = new System.Drawing.Point(108, 129);
+            this.TextBoxGoalItemPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxGoalItemPrice.Name = "TextBoxGoalItemPrice";
+            this.TextBoxGoalItemPrice.Size = new System.Drawing.Size(315, 22);
+            this.TextBoxGoalItemPrice.TabIndex = 9;
             // 
             // EnterInfoBox
             // 
-            this.AcceptButton = this.InfoBoxConfirm;
+            this.AcceptButton = this.ButtonConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.CancelButton = this.InfoBoxCancel;
+            this.CancelButton = this.ButtonCancel;
             this.ClientSize = new System.Drawing.Size(561, 395);
-            this.Controls.Add(this.textBoxGoalItemPrice);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.TextBoxSavingsEnter);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.InfoBoxCancel);
-            this.Controls.Add(this.InfoBoxConfirm);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TextBoxGoalItemPrice);
+            this.Controls.Add(this.LabelGoalPrice);
+            this.Controls.Add(this.TextBoxSavings);
+            this.Controls.Add(this.LabelGoalName);
+            this.Controls.Add(this.ButtonCancel);
+            this.Controls.Add(this.ButtonConfirm);
+            this.Controls.Add(this.LabelSalary);
             this.Controls.Add(this.TextBoxMonthlySalary);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelSavings);
             this.Controls.Add(this.TextBoxGoalItemName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EnterInfoBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add starting values";
+            this.Text = "Add portfolio";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,14 +186,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox TextBoxGoalItemName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LabelSavings;
+        private System.Windows.Forms.Label LabelSalary;
         private System.Windows.Forms.TextBox TextBoxMonthlySalary;
-        private System.Windows.Forms.Button InfoBoxConfirm;
-        private System.Windows.Forms.Button InfoBoxCancel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextBoxSavingsEnter;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxGoalItemPrice;
+        private System.Windows.Forms.Button ButtonConfirm;
+        private System.Windows.Forms.Button ButtonCancel;
+        private System.Windows.Forms.Label LabelGoalName;
+        private System.Windows.Forms.TextBox TextBoxSavings;
+        private System.Windows.Forms.Label LabelGoalPrice;
+        private System.Windows.Forms.TextBox TextBoxGoalItemPrice;
     }
 }

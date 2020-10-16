@@ -28,625 +28,755 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
-            this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.buttonAddCategory = new System.Windows.Forms.Button();
-            this.buttonAddPortfolioValues = new System.Windows.Forms.Button();
-            this.buttonAddTransactions = new System.Windows.Forms.Button();
-            this.textBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
-            this.tabControlPortfolio = new System.Windows.Forms.TabControl();
-            this.tabPageSavings = new System.Windows.Forms.TabPage();
-            this.panelPortfolioButtons = new System.Windows.Forms.Panel();
-            this.buttonSelectAll = new System.Windows.Forms.Button();
-            this.buttonSelectCommodities = new System.Windows.Forms.Button();
-            this.buttonSelectCrypto = new System.Windows.Forms.Button();
-            this.buttonSelectStocks = new System.Windows.Forms.Button();
-            this.buttonSelectMoney = new System.Windows.Forms.Button();
-            this.flowLayoutPanelSavings = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelLabels = new System.Windows.Forms.Panel();
-            this.labelTotalValueSavings3 = new System.Windows.Forms.Label();
-            this.labelAmountSavings3 = new System.Windows.Forms.Label();
-            this.labelTitleSavings3 = new System.Windows.Forms.Label();
-            this.labelTotalValueSavings2 = new System.Windows.Forms.Label();
-            this.labelAmountSavings2 = new System.Windows.Forms.Label();
-            this.labelTitleSavings2 = new System.Windows.Forms.Label();
-            this.labelTotalValueSavings1 = new System.Windows.Forms.Label();
-            this.labelAmountSavings1 = new System.Windows.Forms.Label();
-            this.labelTitleSavings1 = new System.Windows.Forms.Label();
-            this.tabPagePortfolio = new System.Windows.Forms.TabPage();
-            this.labelGoalPrice = new System.Windows.Forms.Label();
-            this.labelGoalName = new System.Windows.Forms.Label();
-            this.labelMonthlySalary = new System.Windows.Forms.Label();
-            this.labelCurrentSavings = new System.Windows.Forms.Label();
-            this.tabPageStats = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.labelStatsWeeklyBalance = new System.Windows.Forms.Label();
-            this.labelStatsFrequentCategory = new System.Windows.Forms.Label();
-            this.labelStatsWeeklyTransactionAmount = new System.Windows.Forms.Label();
-            this.labelStatsWeeklyIncome = new System.Windows.Forms.Label();
-            this.labelStatsWeeklyExpenses = new System.Windows.Forms.Label();
-            this.tabPageFunctions = new System.Windows.Forms.TabPage();
-            this.panelFunctions = new System.Windows.Forms.Panel();
-            this.panelTransactions = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
-            this.panelTabControl = new System.Windows.Forms.Panel();
-            this.tabPageData = new System.Windows.Forms.TabPage();
-            this.buttonAddSavings = new System.Windows.Forms.Button();
-            this.panelMainMenu.SuspendLayout();
-            this.tabControlPortfolio.SuspendLayout();
-            this.tabPageSavings.SuspendLayout();
-            this.panelPortfolioButtons.SuspendLayout();
-            this.panelLabels.SuspendLayout();
-            this.tabPagePortfolio.SuspendLayout();
-            this.tabPageStats.SuspendLayout();
-            this.tabPageFunctions.SuspendLayout();
-            this.panelTransactions.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchIcon)).BeginInit();
-            this.panelTabControl.SuspendLayout();
+            this.PanelMainMenu = new System.Windows.Forms.Panel();
+            this.ButtonAddSavings = new System.Windows.Forms.Button();
+            this.ButtonAddCategory = new System.Windows.Forms.Button();
+            this.ButtonAddPortfolioValues = new System.Windows.Forms.Button();
+            this.ButtonAddTransactions = new System.Windows.Forms.Button();
+            this.TextBoxTransactionSearchBar = new System.Windows.Forms.TextBox();
+            this.TabControlPortfolio = new System.Windows.Forms.TabControl();
+            this.TabPageSavings = new System.Windows.Forms.TabPage();
+            this.PanelPortfolioButtons = new System.Windows.Forms.Panel();
+            this.ButtonSelectAll = new System.Windows.Forms.Button();
+            this.ButtonSelectCommodities = new System.Windows.Forms.Button();
+            this.ButtonSelectCrypto = new System.Windows.Forms.Button();
+            this.ButtonSelectStocks = new System.Windows.Forms.Button();
+            this.ButtonSelectMoney = new System.Windows.Forms.Button();
+            this.FlowLayoutPanelSavings = new System.Windows.Forms.FlowLayoutPanel();
+            this.ContextMenuStripSavings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ToolStripMenuItemSavingsData = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSavingsDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.PanelLabels = new System.Windows.Forms.Panel();
+            this.LabelTotalValueSavings3 = new System.Windows.Forms.Label();
+            this.LabelAmountSavings3 = new System.Windows.Forms.Label();
+            this.LabelTitleSavings3 = new System.Windows.Forms.Label();
+            this.LabelTotalValueSavings2 = new System.Windows.Forms.Label();
+            this.LabelAmountSavings2 = new System.Windows.Forms.Label();
+            this.LabelTitleSavings2 = new System.Windows.Forms.Label();
+            this.LabelTotalValueSavings1 = new System.Windows.Forms.Label();
+            this.LabelAmountSavings1 = new System.Windows.Forms.Label();
+            this.LabelTitleSavings1 = new System.Windows.Forms.Label();
+            this.TabPagePortfolio = new System.Windows.Forms.TabPage();
+            this.LabelGoalPrice = new System.Windows.Forms.Label();
+            this.LabelGoalName = new System.Windows.Forms.Label();
+            this.LabelMonthlySalary = new System.Windows.Forms.Label();
+            this.LabelCurrentSavings = new System.Windows.Forms.Label();
+            this.TabPageStats = new System.Windows.Forms.TabPage();
+            this.LabelStatsWeeklyBalance = new System.Windows.Forms.Label();
+            this.LabelStatsFrequentCategory = new System.Windows.Forms.Label();
+            this.LabelStatsWeeklyTransactionAmount = new System.Windows.Forms.Label();
+            this.LabelStatsWeeklyIncome = new System.Windows.Forms.Label();
+            this.LabelStatsWeeklyExpenses = new System.Windows.Forms.Label();
+            this.TabPageFunctions = new System.Windows.Forms.TabPage();
+            this.PanelFunctions = new System.Windows.Forms.Panel();
+            this.TabPageData = new System.Windows.Forms.TabPage();
+            this.ButtonClean = new System.Windows.Forms.Button();
+            this.LabelDate = new System.Windows.Forms.Label();
+            this.LabelCategory = new System.Windows.Forms.Label();
+            this.LabelAmount = new System.Windows.Forms.Label();
+            this.LabelName = new System.Windows.Forms.Label();
+            this.PanelTransactions = new System.Windows.Forms.Panel();
+            this.FlowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
+            this.ContextMenuStripTransactions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ToolStripMenuItemTransactionsData = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemTransactionsDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.PanelSearchBar = new System.Windows.Forms.Panel();
+            this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
+            this.PanelTabControl = new System.Windows.Forms.Panel();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.PanelMainMenu.SuspendLayout();
+            this.TabControlPortfolio.SuspendLayout();
+            this.TabPageSavings.SuspendLayout();
+            this.PanelPortfolioButtons.SuspendLayout();
+            this.ContextMenuStripSavings.SuspendLayout();
+            this.PanelLabels.SuspendLayout();
+            this.TabPagePortfolio.SuspendLayout();
+            this.TabPageStats.SuspendLayout();
+            this.TabPageFunctions.SuspendLayout();
+            this.TabPageData.SuspendLayout();
+            this.PanelTransactions.SuspendLayout();
+            this.ContextMenuStripTransactions.SuspendLayout();
+            this.PanelSearchBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).BeginInit();
+            this.PanelTabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelMainMenu
-            // 
-            this.panelMainMenu.AutoScroll = true;
-            this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panelMainMenu.Controls.Add(this.buttonAddSavings);
-            this.panelMainMenu.Controls.Add(this.buttonAddCategory);
-            this.panelMainMenu.Controls.Add(this.buttonAddPortfolioValues);
-            this.panelMainMenu.Controls.Add(this.buttonAddTransactions);
-            this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMainMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(936, 36);
-            this.panelMainMenu.TabIndex = 0;
-            // 
-            // buttonAddCategory
-            // 
-            this.buttonAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonAddCategory.FlatAppearance.BorderSize = 0;
-            this.buttonAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddCategory.ForeColor = System.Drawing.Color.White;
-            this.buttonAddCategory.Location = new System.Drawing.Point(126, 3);
-            this.buttonAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAddCategory.Name = "buttonAddCategory";
-            this.buttonAddCategory.Size = new System.Drawing.Size(141, 27);
-            this.buttonAddCategory.TabIndex = 4;
-            this.buttonAddCategory.TabStop = false;
-            this.buttonAddCategory.Text = "Add category";
-            this.buttonAddCategory.UseVisualStyleBackColor = false;
-            this.buttonAddCategory.Click += new System.EventHandler(this.buttonAddCategory_Click);
-            // 
-            // buttonAddPortfolioValues
-            // 
-            this.buttonAddPortfolioValues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonAddPortfolioValues.FlatAppearance.BorderSize = 0;
-            this.buttonAddPortfolioValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPortfolioValues.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddPortfolioValues.Location = new System.Drawing.Point(273, 3);
-            this.buttonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAddPortfolioValues.Name = "buttonAddPortfolioValues";
-            this.buttonAddPortfolioValues.Size = new System.Drawing.Size(141, 27);
-            this.buttonAddPortfolioValues.TabIndex = 3;
-            this.buttonAddPortfolioValues.TabStop = false;
-            this.buttonAddPortfolioValues.Text = "Add starting values";
-            this.buttonAddPortfolioValues.UseVisualStyleBackColor = false;
-            this.buttonAddPortfolioValues.Click += new System.EventHandler(this.buttonAddPortfolioValues_Click);
-            // 
-            // buttonAddTransactions
-            // 
-            this.buttonAddTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonAddTransactions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonAddTransactions.FlatAppearance.BorderSize = 0;
-            this.buttonAddTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddTransactions.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddTransactions.Location = new System.Drawing.Point(0, 2);
-            this.buttonAddTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAddTransactions.Name = "buttonAddTransactions";
-            this.buttonAddTransactions.Size = new System.Drawing.Size(120, 27);
-            this.buttonAddTransactions.TabIndex = 1;
-            this.buttonAddTransactions.TabStop = false;
-            this.buttonAddTransactions.Text = "Add transaction";
-            this.buttonAddTransactions.UseVisualStyleBackColor = false;
-            this.buttonAddTransactions.Click += new System.EventHandler(this.buttonAddTransactions_Click);
-            // 
-            // textBoxTransactionSearchBar
-            // 
-            this.textBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTransactionSearchBar.Location = new System.Drawing.Point(25, 4);
-            this.textBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTransactionSearchBar.Name = "textBoxTransactionSearchBar";
-            this.textBoxTransactionSearchBar.Size = new System.Drawing.Size(325, 15);
-            this.textBoxTransactionSearchBar.TabIndex = 0;
-            this.textBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.textBoxTransactionSearchBar_TextChanged);
-            // 
-            // tabControlPortfolio
-            // 
-            this.tabControlPortfolio.Controls.Add(this.tabPageSavings);
-            this.tabControlPortfolio.Controls.Add(this.tabPagePortfolio);
-            this.tabControlPortfolio.Controls.Add(this.tabPageStats);
-            this.tabControlPortfolio.Controls.Add(this.tabPageFunctions);
-            this.tabControlPortfolio.Controls.Add(this.tabPageData);
-            this.tabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPortfolio.Location = new System.Drawing.Point(0, 0);
-            this.tabControlPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControlPortfolio.Name = "tabControlPortfolio";
-            this.tabControlPortfolio.SelectedIndex = 0;
-            this.tabControlPortfolio.Size = new System.Drawing.Size(587, 471);
-            this.tabControlPortfolio.TabIndex = 0;
-            // 
-            // tabPageSavings
-            // 
-            this.tabPageSavings.AutoScroll = true;
-            this.tabPageSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageSavings.Controls.Add(this.panelPortfolioButtons);
-            this.tabPageSavings.Controls.Add(this.flowLayoutPanelSavings);
-            this.tabPageSavings.Controls.Add(this.panelLabels);
-            this.tabPageSavings.Location = new System.Drawing.Point(4, 25);
-            this.tabPageSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageSavings.Name = "tabPageSavings";
-            this.tabPageSavings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageSavings.Size = new System.Drawing.Size(579, 442);
-            this.tabPageSavings.TabIndex = 0;
-            this.tabPageSavings.Text = "Savings";
-            // 
-            // panelPortfolioButtons
-            // 
-            this.panelPortfolioButtons.Controls.Add(this.buttonSelectAll);
-            this.panelPortfolioButtons.Controls.Add(this.buttonSelectCommodities);
-            this.panelPortfolioButtons.Controls.Add(this.buttonSelectCrypto);
-            this.panelPortfolioButtons.Controls.Add(this.buttonSelectStocks);
-            this.panelPortfolioButtons.Controls.Add(this.buttonSelectMoney);
-            this.panelPortfolioButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelPortfolioButtons.Location = new System.Drawing.Point(516, 27);
-            this.panelPortfolioButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPortfolioButtons.Name = "panelPortfolioButtons";
-            this.panelPortfolioButtons.Size = new System.Drawing.Size(60, 413);
-            this.panelPortfolioButtons.TabIndex = 2;
-            // 
-            // buttonSelectAll
-            // 
-            this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectAll.BackColor = System.Drawing.Color.White;
-            this.buttonSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectAll.FlatAppearance.BorderSize = 2;
-            this.buttonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectAll.Image")));
-            this.buttonSelectAll.Location = new System.Drawing.Point(13, 189);
-            this.buttonSelectAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSelectAll.Name = "buttonSelectAll";
-            this.buttonSelectAll.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectAll.TabIndex = 3;
-            this.buttonSelectAll.UseVisualStyleBackColor = false;
-            this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
-            // 
-            // buttonSelectCommodities
-            // 
-            this.buttonSelectCommodities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectCommodities.BackColor = System.Drawing.Color.White;
-            this.buttonSelectCommodities.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectCommodities.FlatAppearance.BorderSize = 2;
-            this.buttonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
-            this.buttonSelectCommodities.Location = new System.Drawing.Point(13, 234);
-            this.buttonSelectCommodities.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSelectCommodities.Name = "buttonSelectCommodities";
-            this.buttonSelectCommodities.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectCommodities.TabIndex = 2;
-            this.buttonSelectCommodities.UseVisualStyleBackColor = false;
-            this.buttonSelectCommodities.Click += new System.EventHandler(this.buttonSelectCommodities_Click);
-            // 
-            // buttonSelectCrypto
-            // 
-            this.buttonSelectCrypto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectCrypto.BackColor = System.Drawing.Color.White;
-            this.buttonSelectCrypto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectCrypto.FlatAppearance.BorderSize = 2;
-            this.buttonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectCrypto.Image")));
-            this.buttonSelectCrypto.Location = new System.Drawing.Point(13, 279);
-            this.buttonSelectCrypto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSelectCrypto.Name = "buttonSelectCrypto";
-            this.buttonSelectCrypto.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectCrypto.TabIndex = 1;
-            this.buttonSelectCrypto.UseVisualStyleBackColor = false;
-            this.buttonSelectCrypto.Click += new System.EventHandler(this.buttonSelectCrypto_Click);
-            // 
-            // buttonSelectStocks
-            // 
-            this.buttonSelectStocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectStocks.BackColor = System.Drawing.Color.White;
-            this.buttonSelectStocks.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectStocks.FlatAppearance.BorderSize = 2;
-            this.buttonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
-            this.buttonSelectStocks.Location = new System.Drawing.Point(13, 325);
-            this.buttonSelectStocks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSelectStocks.Name = "buttonSelectStocks";
-            this.buttonSelectStocks.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectStocks.TabIndex = 0;
-            this.buttonSelectStocks.UseVisualStyleBackColor = false;
-            this.buttonSelectStocks.Click += new System.EventHandler(this.buttonSelectStocks_Click);
-            // 
-            // buttonSelectMoney
-            // 
-            this.buttonSelectMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectMoney.BackColor = System.Drawing.Color.White;
-            this.buttonSelectMoney.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSelectMoney.FlatAppearance.BorderSize = 2;
-            this.buttonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectMoney.Image")));
-            this.buttonSelectMoney.Location = new System.Drawing.Point(13, 369);
-            this.buttonSelectMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSelectMoney.Name = "buttonSelectMoney";
-            this.buttonSelectMoney.Size = new System.Drawing.Size(41, 39);
-            this.buttonSelectMoney.TabIndex = 4;
-            this.buttonSelectMoney.UseVisualStyleBackColor = false;
-            this.buttonSelectMoney.Click += new System.EventHandler(this.buttonSelectMoney_Click);
-            // 
-            // flowLayoutPanelSavings
-            // 
-            this.flowLayoutPanelSavings.AutoScroll = true;
-            this.flowLayoutPanelSavings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelSavings.Location = new System.Drawing.Point(3, 27);
-            this.flowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanelSavings.Name = "flowLayoutPanelSavings";
-            this.flowLayoutPanelSavings.Size = new System.Drawing.Size(573, 413);
-            this.flowLayoutPanelSavings.TabIndex = 6;
-            // 
-            // panelLabels
-            // 
-            this.panelLabels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panelLabels.Controls.Add(this.labelTotalValueSavings3);
-            this.panelLabels.Controls.Add(this.labelAmountSavings3);
-            this.panelLabels.Controls.Add(this.labelTitleSavings3);
-            this.panelLabels.Controls.Add(this.labelTotalValueSavings2);
-            this.panelLabels.Controls.Add(this.labelAmountSavings2);
-            this.panelLabels.Controls.Add(this.labelTitleSavings2);
-            this.panelLabels.Controls.Add(this.labelTotalValueSavings1);
-            this.panelLabels.Controls.Add(this.labelAmountSavings1);
-            this.panelLabels.Controls.Add(this.labelTitleSavings1);
-            this.panelLabels.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLabels.Location = new System.Drawing.Point(3, 2);
-            this.panelLabels.Name = "panelLabels";
-            this.panelLabels.Size = new System.Drawing.Size(573, 25);
-            this.panelLabels.TabIndex = 0;
-            // 
-            // labelTotalValueSavings3
-            // 
-            this.labelTotalValueSavings3.AutoSize = true;
-            this.labelTotalValueSavings3.ForeColor = System.Drawing.Color.White;
-            this.labelTotalValueSavings3.Location = new System.Drawing.Point(1267, 3);
-            this.labelTotalValueSavings3.Name = "labelTotalValueSavings3";
-            this.labelTotalValueSavings3.Size = new System.Drawing.Size(82, 17);
-            this.labelTotalValueSavings3.TabIndex = 14;
-            this.labelTotalValueSavings3.Text = "Total value:";
-            // 
-            // labelAmountSavings3
-            // 
-            this.labelAmountSavings3.AutoSize = true;
-            this.labelAmountSavings3.ForeColor = System.Drawing.Color.White;
-            this.labelAmountSavings3.Location = new System.Drawing.Point(1170, 3);
-            this.labelAmountSavings3.Name = "labelAmountSavings3";
-            this.labelAmountSavings3.Size = new System.Drawing.Size(60, 17);
-            this.labelAmountSavings3.TabIndex = 13;
-            this.labelAmountSavings3.Text = "Amount:";
-            // 
-            // labelTitleSavings3
-            // 
-            this.labelTitleSavings3.AutoSize = true;
-            this.labelTitleSavings3.ForeColor = System.Drawing.Color.White;
-            this.labelTitleSavings3.Location = new System.Drawing.Point(1031, 3);
-            this.labelTitleSavings3.Name = "labelTitleSavings3";
-            this.labelTitleSavings3.Size = new System.Drawing.Size(43, 17);
-            this.labelTitleSavings3.TabIndex = 12;
-            this.labelTitleSavings3.Text = "Title: ";
-            // 
-            // labelTotalValueSavings2
-            // 
-            this.labelTotalValueSavings2.AutoSize = true;
-            this.labelTotalValueSavings2.ForeColor = System.Drawing.Color.White;
-            this.labelTotalValueSavings2.Location = new System.Drawing.Point(809, 3);
-            this.labelTotalValueSavings2.Name = "labelTotalValueSavings2";
-            this.labelTotalValueSavings2.Size = new System.Drawing.Size(82, 17);
-            this.labelTotalValueSavings2.TabIndex = 11;
-            this.labelTotalValueSavings2.Text = "Total value:";
-            // 
-            // labelAmountSavings2
-            // 
-            this.labelAmountSavings2.AutoSize = true;
-            this.labelAmountSavings2.ForeColor = System.Drawing.Color.White;
-            this.labelAmountSavings2.Location = new System.Drawing.Point(712, 3);
-            this.labelAmountSavings2.Name = "labelAmountSavings2";
-            this.labelAmountSavings2.Size = new System.Drawing.Size(60, 17);
-            this.labelAmountSavings2.TabIndex = 10;
-            this.labelAmountSavings2.Text = "Amount:";
-            // 
-            // labelTitleSavings2
-            // 
-            this.labelTitleSavings2.AutoSize = true;
-            this.labelTitleSavings2.ForeColor = System.Drawing.Color.White;
-            this.labelTitleSavings2.Location = new System.Drawing.Point(573, 3);
-            this.labelTitleSavings2.Name = "labelTitleSavings2";
-            this.labelTitleSavings2.Size = new System.Drawing.Size(43, 17);
-            this.labelTitleSavings2.TabIndex = 9;
-            this.labelTitleSavings2.Text = "Title: ";
-            // 
-            // labelTotalValueSavings1
-            // 
-            this.labelTotalValueSavings1.AutoSize = true;
-            this.labelTotalValueSavings1.ForeColor = System.Drawing.Color.White;
-            this.labelTotalValueSavings1.Location = new System.Drawing.Point(359, 3);
-            this.labelTotalValueSavings1.Name = "labelTotalValueSavings1";
-            this.labelTotalValueSavings1.Size = new System.Drawing.Size(82, 17);
-            this.labelTotalValueSavings1.TabIndex = 8;
-            this.labelTotalValueSavings1.Text = "Total value:";
-            // 
-            // labelAmountSavings1
-            // 
-            this.labelAmountSavings1.AutoSize = true;
-            this.labelAmountSavings1.ForeColor = System.Drawing.Color.White;
-            this.labelAmountSavings1.Location = new System.Drawing.Point(262, 3);
-            this.labelAmountSavings1.Name = "labelAmountSavings1";
-            this.labelAmountSavings1.Size = new System.Drawing.Size(60, 17);
-            this.labelAmountSavings1.TabIndex = 7;
-            this.labelAmountSavings1.Text = "Amount:";
-            // 
-            // labelTitleSavings1
-            // 
-            this.labelTitleSavings1.AutoSize = true;
-            this.labelTitleSavings1.ForeColor = System.Drawing.Color.White;
-            this.labelTitleSavings1.Location = new System.Drawing.Point(100, 3);
-            this.labelTitleSavings1.Name = "labelTitleSavings1";
-            this.labelTitleSavings1.Size = new System.Drawing.Size(43, 17);
-            this.labelTitleSavings1.TabIndex = 3;
-            this.labelTitleSavings1.Text = "Title: ";
-            // 
-            // tabPagePortfolio
-            // 
-            this.tabPagePortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPagePortfolio.Controls.Add(this.labelGoalPrice);
-            this.tabPagePortfolio.Controls.Add(this.labelGoalName);
-            this.tabPagePortfolio.Controls.Add(this.labelMonthlySalary);
-            this.tabPagePortfolio.Controls.Add(this.labelCurrentSavings);
-            this.tabPagePortfolio.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPagePortfolio.Name = "tabPagePortfolio";
-            this.tabPagePortfolio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPagePortfolio.Size = new System.Drawing.Size(579, 442);
-            this.tabPagePortfolio.TabIndex = 1;
-            this.tabPagePortfolio.Text = "Portfolio";
-            // 
-            // labelGoalPrice
-            // 
-            this.labelGoalPrice.AutoSize = true;
-            this.labelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoalPrice.ForeColor = System.Drawing.Color.White;
-            this.labelGoalPrice.Location = new System.Drawing.Point(25, 59);
-            this.labelGoalPrice.Name = "labelGoalPrice";
-            this.labelGoalPrice.Size = new System.Drawing.Size(122, 25);
-            this.labelGoalPrice.TabIndex = 16;
-            this.labelGoalPrice.Text = "Goal price: 0";
-            // 
-            // labelGoalName
-            // 
-            this.labelGoalName.AutoSize = true;
-            this.labelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoalName.ForeColor = System.Drawing.Color.White;
-            this.labelGoalName.Location = new System.Drawing.Point(25, 23);
-            this.labelGoalName.Name = "labelGoalName";
-            this.labelGoalName.Size = new System.Drawing.Size(59, 25);
-            this.labelGoalName.TabIndex = 15;
-            this.labelGoalName.Text = "Goal:";
-            // 
-            // labelMonthlySalary
-            // 
-            this.labelMonthlySalary.AutoSize = true;
-            this.labelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonthlySalary.ForeColor = System.Drawing.Color.White;
-            this.labelMonthlySalary.Location = new System.Drawing.Point(25, 130);
-            this.labelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelMonthlySalary.Name = "labelMonthlySalary";
-            this.labelMonthlySalary.Size = new System.Drawing.Size(160, 25);
-            this.labelMonthlySalary.TabIndex = 14;
-            this.labelMonthlySalary.Text = "Monthly salary: 0";
-            // 
-            // labelCurrentSavings
-            // 
-            this.labelCurrentSavings.AutoSize = true;
-            this.labelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrentSavings.ForeColor = System.Drawing.Color.White;
-            this.labelCurrentSavings.Location = new System.Drawing.Point(25, 95);
-            this.labelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelCurrentSavings.Name = "labelCurrentSavings";
-            this.labelCurrentSavings.Size = new System.Drawing.Size(171, 25);
-            this.labelCurrentSavings.TabIndex = 13;
-            this.labelCurrentSavings.Text = "Current savings: 0";
-            // 
-            // tabPageStats
-            // 
-            this.tabPageStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageStats.Controls.Add(this.dateTimePicker1);
-            this.tabPageStats.Controls.Add(this.labelStatsWeeklyBalance);
-            this.tabPageStats.Controls.Add(this.labelStatsFrequentCategory);
-            this.tabPageStats.Controls.Add(this.labelStatsWeeklyTransactionAmount);
-            this.tabPageStats.Controls.Add(this.labelStatsWeeklyIncome);
-            this.tabPageStats.Controls.Add(this.labelStatsWeeklyExpenses);
-            this.tabPageStats.Location = new System.Drawing.Point(4, 25);
-            this.tabPageStats.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPageStats.Name = "tabPageStats";
-            this.tabPageStats.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageStats.Size = new System.Drawing.Size(579, 442);
-            this.tabPageStats.TabIndex = 2;
-            this.tabPageStats.Text = "Stats";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(335, 40);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(105, 22);
-            this.dateTimePicker1.TabIndex = 5;
-            // 
-            // labelStatsWeeklyBalance
-            // 
-            this.labelStatsWeeklyBalance.AutoSize = true;
-            this.labelStatsWeeklyBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelStatsWeeklyBalance.ForeColor = System.Drawing.Color.White;
-            this.labelStatsWeeklyBalance.Location = new System.Drawing.Point(15, 130);
-            this.labelStatsWeeklyBalance.Name = "labelStatsWeeklyBalance";
-            this.labelStatsWeeklyBalance.Size = new System.Drawing.Size(158, 25);
-            this.labelStatsWeeklyBalance.TabIndex = 4;
-            this.labelStatsWeeklyBalance.Text = "Weekly balance:";
-            // 
-            // labelStatsFrequentCategory
-            // 
-            this.labelStatsFrequentCategory.AutoSize = true;
-            this.labelStatsFrequentCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelStatsFrequentCategory.ForeColor = System.Drawing.Color.White;
-            this.labelStatsFrequentCategory.Location = new System.Drawing.Point(15, 167);
-            this.labelStatsFrequentCategory.Name = "labelStatsFrequentCategory";
-            this.labelStatsFrequentCategory.Size = new System.Drawing.Size(217, 25);
-            this.labelStatsFrequentCategory.TabIndex = 3;
-            this.labelStatsFrequentCategory.Text = "Most frequent category:";
-            // 
-            // labelStatsWeeklyTransactionAmount
-            // 
-            this.labelStatsWeeklyTransactionAmount.AutoSize = true;
-            this.labelStatsWeeklyTransactionAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelStatsWeeklyTransactionAmount.ForeColor = System.Drawing.Color.White;
-            this.labelStatsWeeklyTransactionAmount.Location = new System.Drawing.Point(15, 22);
-            this.labelStatsWeeklyTransactionAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelStatsWeeklyTransactionAmount.Name = "labelStatsWeeklyTransactionAmount";
-            this.labelStatsWeeklyTransactionAmount.Size = new System.Drawing.Size(253, 25);
-            this.labelStatsWeeklyTransactionAmount.TabIndex = 2;
-            this.labelStatsWeeklyTransactionAmount.Text = "Total transactions in a week";
-            // 
-            // labelStatsWeeklyIncome
-            // 
-            this.labelStatsWeeklyIncome.AutoSize = true;
-            this.labelStatsWeeklyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelStatsWeeklyIncome.ForeColor = System.Drawing.Color.White;
-            this.labelStatsWeeklyIncome.Location = new System.Drawing.Point(15, 56);
-            this.labelStatsWeeklyIncome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelStatsWeeklyIncome.Name = "labelStatsWeeklyIncome";
-            this.labelStatsWeeklyIncome.Size = new System.Drawing.Size(152, 25);
-            this.labelStatsWeeklyIncome.TabIndex = 1;
-            this.labelStatsWeeklyIncome.Text = "Weekly income:";
-            // 
-            // labelStatsWeeklyExpenses
-            // 
-            this.labelStatsWeeklyExpenses.AutoSize = true;
-            this.labelStatsWeeklyExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelStatsWeeklyExpenses.ForeColor = System.Drawing.Color.White;
-            this.labelStatsWeeklyExpenses.Location = new System.Drawing.Point(15, 92);
-            this.labelStatsWeeklyExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelStatsWeeklyExpenses.Name = "labelStatsWeeklyExpenses";
-            this.labelStatsWeeklyExpenses.Size = new System.Drawing.Size(174, 25);
-            this.labelStatsWeeklyExpenses.TabIndex = 0;
-            this.labelStatsWeeklyExpenses.Text = "Weekly expenses:";
-            // 
-            // tabPageFunctions
-            // 
-            this.tabPageFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageFunctions.Controls.Add(this.panelFunctions);
-            this.tabPageFunctions.Location = new System.Drawing.Point(4, 25);
-            this.tabPageFunctions.Name = "tabPageFunctions";
-            this.tabPageFunctions.Size = new System.Drawing.Size(579, 442);
-            this.tabPageFunctions.TabIndex = 3;
-            this.tabPageFunctions.Text = "Functions";
-            // 
-            // panelFunctions
-            // 
-            this.panelFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFunctions.Location = new System.Drawing.Point(0, 0);
-            this.panelFunctions.Name = "panelFunctions";
-            this.panelFunctions.Size = new System.Drawing.Size(579, 442);
-            this.panelFunctions.TabIndex = 0;
-            // 
-            // panelTransactions
-            // 
-            this.panelTransactions.Controls.Add(this.flowLayoutPanelTransactions);
-            this.panelTransactions.Controls.Add(this.panel1);
-            this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTransactions.Location = new System.Drawing.Point(0, 36);
-            this.panelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelTransactions.Name = "panelTransactions";
-            this.panelTransactions.Size = new System.Drawing.Size(349, 471);
-            this.panelTransactions.TabIndex = 6;
-            // 
-            // flowLayoutPanelTransactions
-            // 
-            this.flowLayoutPanelTransactions.AutoScroll = true;
-            this.flowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 22);
-            this.flowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanelTransactions.Name = "flowLayoutPanelTransactions";
-            this.flowLayoutPanelTransactions.Size = new System.Drawing.Size(380, 449);
-            this.flowLayoutPanelTransactions.TabIndex = 5;
-            this.flowLayoutPanelTransactions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanelTransactions_MouseDown);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBoxSearchIcon);
-            this.panel1.Controls.Add(this.textBoxTransactionSearchBar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 22);
-            this.panel1.TabIndex = 5;
-            // 
-            // pictureBoxSearchIcon
-            // 
-            this.pictureBoxSearchIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxSearchIcon.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__21_;
-            this.pictureBoxSearchIcon.ImageLocation = "";
-            this.pictureBoxSearchIcon.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxSearchIcon.Name = "pictureBoxSearchIcon";
-            this.pictureBoxSearchIcon.Size = new System.Drawing.Size(25, 22);
-            this.pictureBoxSearchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxSearchIcon.TabIndex = 1;
-            this.pictureBoxSearchIcon.TabStop = false;
-            // 
-            // panelTabControl
-            // 
-            this.panelTabControl.Controls.Add(this.tabControlPortfolio);
-            this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTabControl.Location = new System.Drawing.Point(349, 36);
-            this.panelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelTabControl.Name = "panelTabControl";
-            this.panelTabControl.Size = new System.Drawing.Size(587, 471);
-            this.panelTabControl.TabIndex = 8;
-            // 
-            // tabPageData
-            // 
-            this.tabPageData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.tabPageData.Location = new System.Drawing.Point(4, 25);
-            this.tabPageData.Name = "tabPageData";
-            this.tabPageData.Size = new System.Drawing.Size(579, 442);
-            this.tabPageData.TabIndex = 4;
-            this.tabPageData.Text = "Data";
-            // 
-            // buttonAddSavings
-            // 
-            this.buttonAddSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonAddSavings.FlatAppearance.BorderSize = 0;
-            this.buttonAddSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddSavings.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAddSavings.Location = new System.Drawing.Point(420, 5);
-            this.buttonAddSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAddSavings.Name = "buttonAddSavings";
-            this.buttonAddSavings.Size = new System.Drawing.Size(141, 27);
-            this.buttonAddSavings.TabIndex = 5;
-            this.buttonAddSavings.TabStop = false;
-            this.buttonAddSavings.Text = "Add savings";
-            this.buttonAddSavings.UseVisualStyleBackColor = false;
-            this.buttonAddSavings.Click += new System.EventHandler(this.buttonAddSavings_Click);
+            // PanelMainMenu
+            // 
+            this.PanelMainMenu.AutoScroll = true;
+            this.PanelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.PanelMainMenu.Controls.Add(this.ButtonAddSavings);
+            this.PanelMainMenu.Controls.Add(this.ButtonAddCategory);
+            this.PanelMainMenu.Controls.Add(this.ButtonAddPortfolioValues);
+            this.PanelMainMenu.Controls.Add(this.ButtonAddTransactions);
+            this.PanelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMainMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelMainMenu.Name = "PanelMainMenu";
+            this.PanelMainMenu.Size = new System.Drawing.Size(936, 36);
+            this.PanelMainMenu.TabIndex = 0;
+            // 
+            // ButtonAddSavings
+            // 
+            this.ButtonAddSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddSavings.FlatAppearance.BorderSize = 0;
+            this.ButtonAddSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddSavings.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonAddSavings.Location = new System.Drawing.Point(420, 5);
+            this.ButtonAddSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddSavings.Name = "ButtonAddSavings";
+            this.ButtonAddSavings.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddSavings.TabIndex = 5;
+            this.ButtonAddSavings.TabStop = false;
+            this.ButtonAddSavings.Text = "Add savings";
+            this.ButtonAddSavings.UseVisualStyleBackColor = false;
+            this.ButtonAddSavings.Click += new System.EventHandler(this.ButtonAddSavings_Click);
+            // 
+            // ButtonAddCategory
+            // 
+            this.ButtonAddCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddCategory.FlatAppearance.BorderSize = 0;
+            this.ButtonAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddCategory.ForeColor = System.Drawing.Color.White;
+            this.ButtonAddCategory.Location = new System.Drawing.Point(126, 3);
+            this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddCategory.Name = "ButtonAddCategory";
+            this.ButtonAddCategory.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddCategory.TabIndex = 4;
+            this.ButtonAddCategory.TabStop = false;
+            this.ButtonAddCategory.Text = "Add category";
+            this.ButtonAddCategory.UseVisualStyleBackColor = false;
+            this.ButtonAddCategory.Click += new System.EventHandler(this.ButtonAddCategory_Click);
+            // 
+            // ButtonAddPortfolioValues
+            // 
+            this.ButtonAddPortfolioValues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddPortfolioValues.FlatAppearance.BorderSize = 0;
+            this.ButtonAddPortfolioValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddPortfolioValues.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonAddPortfolioValues.Location = new System.Drawing.Point(273, 3);
+            this.ButtonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddPortfolioValues.Name = "ButtonAddPortfolioValues";
+            this.ButtonAddPortfolioValues.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddPortfolioValues.TabIndex = 3;
+            this.ButtonAddPortfolioValues.TabStop = false;
+            this.ButtonAddPortfolioValues.Text = "Add starting values";
+            this.ButtonAddPortfolioValues.UseVisualStyleBackColor = false;
+            this.ButtonAddPortfolioValues.Click += new System.EventHandler(this.ButtonAddPortfolioValues_Click);
+            // 
+            // ButtonAddTransactions
+            // 
+            this.ButtonAddTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddTransactions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonAddTransactions.FlatAppearance.BorderSize = 0;
+            this.ButtonAddTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddTransactions.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonAddTransactions.Location = new System.Drawing.Point(0, 2);
+            this.ButtonAddTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddTransactions.Name = "ButtonAddTransactions";
+            this.ButtonAddTransactions.Size = new System.Drawing.Size(120, 27);
+            this.ButtonAddTransactions.TabIndex = 1;
+            this.ButtonAddTransactions.TabStop = false;
+            this.ButtonAddTransactions.Text = "Add transaction";
+            this.ButtonAddTransactions.UseVisualStyleBackColor = false;
+            this.ButtonAddTransactions.Click += new System.EventHandler(this.ButtonAddTransactions_Click);
+            // 
+            // TextBoxTransactionSearchBar
+            // 
+            this.TextBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(26, 3);
+            this.TextBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextBoxTransactionSearchBar.Name = "TextBoxTransactionSearchBar";
+            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(323, 15);
+            this.TextBoxTransactionSearchBar.TabIndex = 0;
+            this.TextBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.TextBoxTransactionSearchBar_TextChanged);
+            // 
+            // TabControlPortfolio
+            // 
+            this.TabControlPortfolio.Controls.Add(this.TabPageSavings);
+            this.TabControlPortfolio.Controls.Add(this.TabPagePortfolio);
+            this.TabControlPortfolio.Controls.Add(this.TabPageStats);
+            this.TabControlPortfolio.Controls.Add(this.TabPageFunctions);
+            this.TabControlPortfolio.Controls.Add(this.TabPageData);
+            this.TabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControlPortfolio.Location = new System.Drawing.Point(0, 0);
+            this.TabControlPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabControlPortfolio.Name = "TabControlPortfolio";
+            this.TabControlPortfolio.SelectedIndex = 0;
+            this.TabControlPortfolio.Size = new System.Drawing.Size(587, 471);
+            this.TabControlPortfolio.TabIndex = 0;
+            // 
+            // TabPageSavings
+            // 
+            this.TabPageSavings.AutoScroll = true;
+            this.TabPageSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageSavings.Controls.Add(this.PanelPortfolioButtons);
+            this.TabPageSavings.Controls.Add(this.FlowLayoutPanelSavings);
+            this.TabPageSavings.Controls.Add(this.PanelLabels);
+            this.TabPageSavings.Location = new System.Drawing.Point(4, 25);
+            this.TabPageSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPageSavings.Name = "TabPageSavings";
+            this.TabPageSavings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPageSavings.Size = new System.Drawing.Size(579, 442);
+            this.TabPageSavings.TabIndex = 0;
+            this.TabPageSavings.Text = "Savings";
+            // 
+            // PanelPortfolioButtons
+            // 
+            this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectAll);
+            this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectCommodities);
+            this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectCrypto);
+            this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectStocks);
+            this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectMoney);
+            this.PanelPortfolioButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PanelPortfolioButtons.Location = new System.Drawing.Point(516, 27);
+            this.PanelPortfolioButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelPortfolioButtons.Name = "PanelPortfolioButtons";
+            this.PanelPortfolioButtons.Size = new System.Drawing.Size(60, 413);
+            this.PanelPortfolioButtons.TabIndex = 2;
+            // 
+            // ButtonSelectAll
+            // 
+            this.ButtonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectAll.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectAll.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectAll.Image")));
+            this.ButtonSelectAll.Location = new System.Drawing.Point(13, 189);
+            this.ButtonSelectAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectAll.Name = "ButtonSelectAll";
+            this.ButtonSelectAll.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectAll.TabIndex = 3;
+            this.ButtonSelectAll.UseVisualStyleBackColor = false;
+            this.ButtonSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
+            // 
+            // ButtonSelectCommodities
+            // 
+            this.ButtonSelectCommodities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectCommodities.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectCommodities.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectCommodities.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
+            this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 234);
+            this.ButtonSelectCommodities.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectCommodities.Name = "ButtonSelectCommodities";
+            this.ButtonSelectCommodities.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCommodities.TabIndex = 2;
+            this.ButtonSelectCommodities.UseVisualStyleBackColor = false;
+            this.ButtonSelectCommodities.Click += new System.EventHandler(this.ButtonSelectCommodities_Click);
+            // 
+            // ButtonSelectCrypto
+            // 
+            this.ButtonSelectCrypto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectCrypto.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectCrypto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectCrypto.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectCrypto.Image")));
+            this.ButtonSelectCrypto.Location = new System.Drawing.Point(13, 279);
+            this.ButtonSelectCrypto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectCrypto.Name = "ButtonSelectCrypto";
+            this.ButtonSelectCrypto.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCrypto.TabIndex = 1;
+            this.ButtonSelectCrypto.UseVisualStyleBackColor = false;
+            this.ButtonSelectCrypto.Click += new System.EventHandler(this.ButtonSelectCrypto_Click);
+            // 
+            // ButtonSelectStocks
+            // 
+            this.ButtonSelectStocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectStocks.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectStocks.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectStocks.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
+            this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 325);
+            this.ButtonSelectStocks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectStocks.Name = "ButtonSelectStocks";
+            this.ButtonSelectStocks.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectStocks.TabIndex = 0;
+            this.ButtonSelectStocks.UseVisualStyleBackColor = false;
+            this.ButtonSelectStocks.Click += new System.EventHandler(this.ButtonSelectStocks_Click);
+            // 
+            // ButtonSelectMoney
+            // 
+            this.ButtonSelectMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectMoney.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectMoney.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectMoney.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectMoney.Image")));
+            this.ButtonSelectMoney.Location = new System.Drawing.Point(13, 369);
+            this.ButtonSelectMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectMoney.Name = "ButtonSelectMoney";
+            this.ButtonSelectMoney.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectMoney.TabIndex = 4;
+            this.ButtonSelectMoney.UseVisualStyleBackColor = false;
+            this.ButtonSelectMoney.Click += new System.EventHandler(this.ButtonSelectMoney_Click);
+            // 
+            // FlowLayoutPanelSavings
+            // 
+            this.FlowLayoutPanelSavings.AutoScroll = true;
+            this.FlowLayoutPanelSavings.ContextMenuStrip = this.ContextMenuStripSavings;
+            this.FlowLayoutPanelSavings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowLayoutPanelSavings.Location = new System.Drawing.Point(3, 27);
+            this.FlowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FlowLayoutPanelSavings.Name = "FlowLayoutPanelSavings";
+            this.FlowLayoutPanelSavings.Size = new System.Drawing.Size(573, 413);
+            this.FlowLayoutPanelSavings.TabIndex = 6;
+            // 
+            // ContextMenuStripSavings
+            // 
+            this.ContextMenuStripSavings.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenuStripSavings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemSavingsData,
+            this.ToolStripMenuItemSavingsDelete});
+            this.ContextMenuStripSavings.Name = "contextMenuStripTransactions";
+            this.ContextMenuStripSavings.Size = new System.Drawing.Size(123, 52);
+            // 
+            // ToolStripMenuItemSavingsData
+            // 
+            this.ToolStripMenuItemSavingsData.Name = "ToolStripMenuItemSavingsData";
+            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemSavingsData.Text = "Data";
+            this.ToolStripMenuItemSavingsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemSavingsData_MouseDown);
+            // 
+            // ToolStripMenuItemSavingsDelete
+            // 
+            this.ToolStripMenuItemSavingsDelete.Name = "ToolStripMenuItemSavingsDelete";
+            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemSavingsDelete.Text = "Delete";
+            // 
+            // PanelLabels
+            // 
+            this.PanelLabels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.PanelLabels.Controls.Add(this.LabelTotalValueSavings3);
+            this.PanelLabels.Controls.Add(this.LabelAmountSavings3);
+            this.PanelLabels.Controls.Add(this.LabelTitleSavings3);
+            this.PanelLabels.Controls.Add(this.LabelTotalValueSavings2);
+            this.PanelLabels.Controls.Add(this.LabelAmountSavings2);
+            this.PanelLabels.Controls.Add(this.LabelTitleSavings2);
+            this.PanelLabels.Controls.Add(this.LabelTotalValueSavings1);
+            this.PanelLabels.Controls.Add(this.LabelAmountSavings1);
+            this.PanelLabels.Controls.Add(this.LabelTitleSavings1);
+            this.PanelLabels.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelLabels.Location = new System.Drawing.Point(3, 2);
+            this.PanelLabels.Name = "PanelLabels";
+            this.PanelLabels.Size = new System.Drawing.Size(573, 25);
+            this.PanelLabels.TabIndex = 0;
+            // 
+            // LabelTotalValueSavings3
+            // 
+            this.LabelTotalValueSavings3.AutoSize = true;
+            this.LabelTotalValueSavings3.ForeColor = System.Drawing.Color.White;
+            this.LabelTotalValueSavings3.Location = new System.Drawing.Point(1267, 3);
+            this.LabelTotalValueSavings3.Name = "LabelTotalValueSavings3";
+            this.LabelTotalValueSavings3.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings3.TabIndex = 14;
+            this.LabelTotalValueSavings3.Text = "Total value:";
+            // 
+            // LabelAmountSavings3
+            // 
+            this.LabelAmountSavings3.AutoSize = true;
+            this.LabelAmountSavings3.ForeColor = System.Drawing.Color.White;
+            this.LabelAmountSavings3.Location = new System.Drawing.Point(1170, 3);
+            this.LabelAmountSavings3.Name = "LabelAmountSavings3";
+            this.LabelAmountSavings3.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings3.TabIndex = 13;
+            this.LabelAmountSavings3.Text = "Amount:";
+            // 
+            // LabelTitleSavings3
+            // 
+            this.LabelTitleSavings3.AutoSize = true;
+            this.LabelTitleSavings3.ForeColor = System.Drawing.Color.White;
+            this.LabelTitleSavings3.Location = new System.Drawing.Point(1031, 3);
+            this.LabelTitleSavings3.Name = "LabelTitleSavings3";
+            this.LabelTitleSavings3.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings3.TabIndex = 12;
+            this.LabelTitleSavings3.Text = "Title: ";
+            // 
+            // LabelTotalValueSavings2
+            // 
+            this.LabelTotalValueSavings2.AutoSize = true;
+            this.LabelTotalValueSavings2.ForeColor = System.Drawing.Color.White;
+            this.LabelTotalValueSavings2.Location = new System.Drawing.Point(809, 3);
+            this.LabelTotalValueSavings2.Name = "LabelTotalValueSavings2";
+            this.LabelTotalValueSavings2.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings2.TabIndex = 11;
+            this.LabelTotalValueSavings2.Text = "Total value:";
+            // 
+            // LabelAmountSavings2
+            // 
+            this.LabelAmountSavings2.AutoSize = true;
+            this.LabelAmountSavings2.ForeColor = System.Drawing.Color.White;
+            this.LabelAmountSavings2.Location = new System.Drawing.Point(712, 3);
+            this.LabelAmountSavings2.Name = "LabelAmountSavings2";
+            this.LabelAmountSavings2.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings2.TabIndex = 10;
+            this.LabelAmountSavings2.Text = "Amount:";
+            // 
+            // LabelTitleSavings2
+            // 
+            this.LabelTitleSavings2.AutoSize = true;
+            this.LabelTitleSavings2.ForeColor = System.Drawing.Color.White;
+            this.LabelTitleSavings2.Location = new System.Drawing.Point(573, 3);
+            this.LabelTitleSavings2.Name = "LabelTitleSavings2";
+            this.LabelTitleSavings2.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings2.TabIndex = 9;
+            this.LabelTitleSavings2.Text = "Title: ";
+            // 
+            // LabelTotalValueSavings1
+            // 
+            this.LabelTotalValueSavings1.AutoSize = true;
+            this.LabelTotalValueSavings1.ForeColor = System.Drawing.Color.White;
+            this.LabelTotalValueSavings1.Location = new System.Drawing.Point(359, 3);
+            this.LabelTotalValueSavings1.Name = "LabelTotalValueSavings1";
+            this.LabelTotalValueSavings1.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings1.TabIndex = 8;
+            this.LabelTotalValueSavings1.Text = "Total value:";
+            // 
+            // LabelAmountSavings1
+            // 
+            this.LabelAmountSavings1.AutoSize = true;
+            this.LabelAmountSavings1.ForeColor = System.Drawing.Color.White;
+            this.LabelAmountSavings1.Location = new System.Drawing.Point(262, 3);
+            this.LabelAmountSavings1.Name = "LabelAmountSavings1";
+            this.LabelAmountSavings1.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings1.TabIndex = 7;
+            this.LabelAmountSavings1.Text = "Amount:";
+            // 
+            // LabelTitleSavings1
+            // 
+            this.LabelTitleSavings1.AutoSize = true;
+            this.LabelTitleSavings1.ForeColor = System.Drawing.Color.White;
+            this.LabelTitleSavings1.Location = new System.Drawing.Point(100, 3);
+            this.LabelTitleSavings1.Name = "LabelTitleSavings1";
+            this.LabelTitleSavings1.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings1.TabIndex = 3;
+            this.LabelTitleSavings1.Text = "Title: ";
+            // 
+            // TabPagePortfolio
+            // 
+            this.TabPagePortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPagePortfolio.Controls.Add(this.LabelGoalPrice);
+            this.TabPagePortfolio.Controls.Add(this.LabelGoalName);
+            this.TabPagePortfolio.Controls.Add(this.LabelMonthlySalary);
+            this.TabPagePortfolio.Controls.Add(this.LabelCurrentSavings);
+            this.TabPagePortfolio.Location = new System.Drawing.Point(4, 25);
+            this.TabPagePortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagePortfolio.Name = "TabPagePortfolio";
+            this.TabPagePortfolio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagePortfolio.Size = new System.Drawing.Size(579, 442);
+            this.TabPagePortfolio.TabIndex = 1;
+            this.TabPagePortfolio.Text = "Portfolio";
+            // 
+            // LabelGoalPrice
+            // 
+            this.LabelGoalPrice.AutoSize = true;
+            this.LabelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGoalPrice.ForeColor = System.Drawing.Color.White;
+            this.LabelGoalPrice.Location = new System.Drawing.Point(25, 59);
+            this.LabelGoalPrice.Name = "LabelGoalPrice";
+            this.LabelGoalPrice.Size = new System.Drawing.Size(122, 25);
+            this.LabelGoalPrice.TabIndex = 16;
+            this.LabelGoalPrice.Text = "Goal price: 0";
+            // 
+            // LabelGoalName
+            // 
+            this.LabelGoalName.AutoSize = true;
+            this.LabelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGoalName.ForeColor = System.Drawing.Color.White;
+            this.LabelGoalName.Location = new System.Drawing.Point(25, 23);
+            this.LabelGoalName.Name = "LabelGoalName";
+            this.LabelGoalName.Size = new System.Drawing.Size(59, 25);
+            this.LabelGoalName.TabIndex = 15;
+            this.LabelGoalName.Text = "Goal:";
+            // 
+            // LabelMonthlySalary
+            // 
+            this.LabelMonthlySalary.AutoSize = true;
+            this.LabelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelMonthlySalary.ForeColor = System.Drawing.Color.White;
+            this.LabelMonthlySalary.Location = new System.Drawing.Point(25, 130);
+            this.LabelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelMonthlySalary.Name = "LabelMonthlySalary";
+            this.LabelMonthlySalary.Size = new System.Drawing.Size(160, 25);
+            this.LabelMonthlySalary.TabIndex = 14;
+            this.LabelMonthlySalary.Text = "Monthly salary: 0";
+            // 
+            // LabelCurrentSavings
+            // 
+            this.LabelCurrentSavings.AutoSize = true;
+            this.LabelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCurrentSavings.ForeColor = System.Drawing.Color.White;
+            this.LabelCurrentSavings.Location = new System.Drawing.Point(25, 95);
+            this.LabelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelCurrentSavings.Name = "LabelCurrentSavings";
+            this.LabelCurrentSavings.Size = new System.Drawing.Size(171, 25);
+            this.LabelCurrentSavings.TabIndex = 13;
+            this.LabelCurrentSavings.Text = "Current savings: 0";
+            // 
+            // TabPageStats
+            // 
+            this.TabPageStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageStats.Controls.Add(this.LabelStatsWeeklyBalance);
+            this.TabPageStats.Controls.Add(this.LabelStatsFrequentCategory);
+            this.TabPageStats.Controls.Add(this.LabelStatsWeeklyTransactionAmount);
+            this.TabPageStats.Controls.Add(this.LabelStatsWeeklyIncome);
+            this.TabPageStats.Controls.Add(this.LabelStatsWeeklyExpenses);
+            this.TabPageStats.Location = new System.Drawing.Point(4, 25);
+            this.TabPageStats.Margin = new System.Windows.Forms.Padding(4);
+            this.TabPageStats.Name = "TabPageStats";
+            this.TabPageStats.Padding = new System.Windows.Forms.Padding(4);
+            this.TabPageStats.Size = new System.Drawing.Size(579, 442);
+            this.TabPageStats.TabIndex = 2;
+            this.TabPageStats.Text = "Stats";
+            // 
+            // LabelStatsWeeklyBalance
+            // 
+            this.LabelStatsWeeklyBalance.AutoSize = true;
+            this.LabelStatsWeeklyBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelStatsWeeklyBalance.ForeColor = System.Drawing.Color.White;
+            this.LabelStatsWeeklyBalance.Location = new System.Drawing.Point(15, 130);
+            this.LabelStatsWeeklyBalance.Name = "LabelStatsWeeklyBalance";
+            this.LabelStatsWeeklyBalance.Size = new System.Drawing.Size(158, 25);
+            this.LabelStatsWeeklyBalance.TabIndex = 4;
+            this.LabelStatsWeeklyBalance.Text = "Weekly balance:";
+            // 
+            // LabelStatsFrequentCategory
+            // 
+            this.LabelStatsFrequentCategory.AutoSize = true;
+            this.LabelStatsFrequentCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelStatsFrequentCategory.ForeColor = System.Drawing.Color.White;
+            this.LabelStatsFrequentCategory.Location = new System.Drawing.Point(15, 167);
+            this.LabelStatsFrequentCategory.Name = "LabelStatsFrequentCategory";
+            this.LabelStatsFrequentCategory.Size = new System.Drawing.Size(217, 25);
+            this.LabelStatsFrequentCategory.TabIndex = 3;
+            this.LabelStatsFrequentCategory.Text = "Most frequent category:";
+            // 
+            // LabelStatsWeeklyTransactionAmount
+            // 
+            this.LabelStatsWeeklyTransactionAmount.AutoSize = true;
+            this.LabelStatsWeeklyTransactionAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelStatsWeeklyTransactionAmount.ForeColor = System.Drawing.Color.White;
+            this.LabelStatsWeeklyTransactionAmount.Location = new System.Drawing.Point(15, 22);
+            this.LabelStatsWeeklyTransactionAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelStatsWeeklyTransactionAmount.Name = "LabelStatsWeeklyTransactionAmount";
+            this.LabelStatsWeeklyTransactionAmount.Size = new System.Drawing.Size(253, 25);
+            this.LabelStatsWeeklyTransactionAmount.TabIndex = 2;
+            this.LabelStatsWeeklyTransactionAmount.Text = "Total transactions in a week";
+            // 
+            // LabelStatsWeeklyIncome
+            // 
+            this.LabelStatsWeeklyIncome.AutoSize = true;
+            this.LabelStatsWeeklyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelStatsWeeklyIncome.ForeColor = System.Drawing.Color.White;
+            this.LabelStatsWeeklyIncome.Location = new System.Drawing.Point(15, 56);
+            this.LabelStatsWeeklyIncome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelStatsWeeklyIncome.Name = "LabelStatsWeeklyIncome";
+            this.LabelStatsWeeklyIncome.Size = new System.Drawing.Size(152, 25);
+            this.LabelStatsWeeklyIncome.TabIndex = 1;
+            this.LabelStatsWeeklyIncome.Text = "Weekly income:";
+            // 
+            // LabelStatsWeeklyExpenses
+            // 
+            this.LabelStatsWeeklyExpenses.AutoSize = true;
+            this.LabelStatsWeeklyExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelStatsWeeklyExpenses.ForeColor = System.Drawing.Color.White;
+            this.LabelStatsWeeklyExpenses.Location = new System.Drawing.Point(15, 92);
+            this.LabelStatsWeeklyExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelStatsWeeklyExpenses.Name = "LabelStatsWeeklyExpenses";
+            this.LabelStatsWeeklyExpenses.Size = new System.Drawing.Size(174, 25);
+            this.LabelStatsWeeklyExpenses.TabIndex = 0;
+            this.LabelStatsWeeklyExpenses.Text = "Weekly expenses:";
+            // 
+            // TabPageFunctions
+            // 
+            this.TabPageFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageFunctions.Controls.Add(this.PanelFunctions);
+            this.TabPageFunctions.Location = new System.Drawing.Point(4, 25);
+            this.TabPageFunctions.Name = "TabPageFunctions";
+            this.TabPageFunctions.Size = new System.Drawing.Size(579, 442);
+            this.TabPageFunctions.TabIndex = 3;
+            this.TabPageFunctions.Text = "Functions";
+            // 
+            // PanelFunctions
+            // 
+            this.PanelFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelFunctions.Location = new System.Drawing.Point(0, 0);
+            this.PanelFunctions.Name = "PanelFunctions";
+            this.PanelFunctions.Size = new System.Drawing.Size(579, 442);
+            this.PanelFunctions.TabIndex = 0;
+            // 
+            // TabPageData
+            // 
+            this.TabPageData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageData.Controls.Add(this.PictureBoxLogo);
+            this.TabPageData.Controls.Add(this.ButtonClean);
+            this.TabPageData.Controls.Add(this.LabelDate);
+            this.TabPageData.Controls.Add(this.LabelCategory);
+            this.TabPageData.Controls.Add(this.LabelAmount);
+            this.TabPageData.Controls.Add(this.LabelName);
+            this.TabPageData.Location = new System.Drawing.Point(4, 25);
+            this.TabPageData.Name = "TabPageData";
+            this.TabPageData.Size = new System.Drawing.Size(579, 442);
+            this.TabPageData.TabIndex = 4;
+            this.TabPageData.Text = "Data";
+            // 
+            // ButtonClean
+            // 
+            this.ButtonClean.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonClean.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonClean.FlatAppearance.BorderSize = 0;
+            this.ButtonClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonClean.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ButtonClean.ForeColor = System.Drawing.Color.White;
+            this.ButtonClean.Location = new System.Drawing.Point(43, 175);
+            this.ButtonClean.Name = "ButtonClean";
+            this.ButtonClean.Size = new System.Drawing.Size(132, 34);
+            this.ButtonClean.TabIndex = 4;
+            this.ButtonClean.Text = "Clean";
+            this.ButtonClean.UseVisualStyleBackColor = false;
+            this.ButtonClean.Click += new System.EventHandler(this.ButtonClean_Click);
+            // 
+            // LabelDate
+            // 
+            this.LabelDate.AutoSize = true;
+            this.LabelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelDate.ForeColor = System.Drawing.Color.White;
+            this.LabelDate.Location = new System.Drawing.Point(56, 125);
+            this.LabelDate.Name = "LabelDate";
+            this.LabelDate.Size = new System.Drawing.Size(119, 25);
+            this.LabelDate.TabIndex = 3;
+            this.LabelDate.Text = "Date added:";
+            // 
+            // LabelCategory
+            // 
+            this.LabelCategory.AutoSize = true;
+            this.LabelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelCategory.ForeColor = System.Drawing.Color.White;
+            this.LabelCategory.Location = new System.Drawing.Point(55, 91);
+            this.LabelCategory.Name = "LabelCategory";
+            this.LabelCategory.Size = new System.Drawing.Size(98, 25);
+            this.LabelCategory.TabIndex = 2;
+            this.LabelCategory.Text = "Category:";
+            // 
+            // LabelAmount
+            // 
+            this.LabelAmount.AutoSize = true;
+            this.LabelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelAmount.ForeColor = System.Drawing.Color.White;
+            this.LabelAmount.Location = new System.Drawing.Point(55, 57);
+            this.LabelAmount.Name = "LabelAmount";
+            this.LabelAmount.Size = new System.Drawing.Size(86, 25);
+            this.LabelAmount.TabIndex = 1;
+            this.LabelAmount.Text = "Amount:";
+            // 
+            // LabelName
+            // 
+            this.LabelName.AutoSize = true;
+            this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelName.ForeColor = System.Drawing.Color.White;
+            this.LabelName.Location = new System.Drawing.Point(56, 25);
+            this.LabelName.Name = "LabelName";
+            this.LabelName.Size = new System.Drawing.Size(109, 25);
+            this.LabelName.TabIndex = 0;
+            this.LabelName.Text = "Tile name: ";
+            // 
+            // PanelTransactions
+            // 
+            this.PanelTransactions.Controls.Add(this.FlowLayoutPanelTransactions);
+            this.PanelTransactions.Controls.Add(this.PanelSearchBar);
+            this.PanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelTransactions.Location = new System.Drawing.Point(0, 36);
+            this.PanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTransactions.Name = "PanelTransactions";
+            this.PanelTransactions.Size = new System.Drawing.Size(349, 471);
+            this.PanelTransactions.TabIndex = 6;
+            // 
+            // FlowLayoutPanelTransactions
+            // 
+            this.FlowLayoutPanelTransactions.AutoScroll = true;
+            this.FlowLayoutPanelTransactions.ContextMenuStrip = this.ContextMenuStripTransactions;
+            this.FlowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FlowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 22);
+            this.FlowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FlowLayoutPanelTransactions.Name = "FlowLayoutPanelTransactions";
+            this.FlowLayoutPanelTransactions.Size = new System.Drawing.Size(390, 449);
+            this.FlowLayoutPanelTransactions.TabIndex = 5;
+            // 
+            // ContextMenuStripTransactions
+            // 
+            this.ContextMenuStripTransactions.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenuStripTransactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemTransactionsData,
+            this.ToolStripMenuItemTransactionsDelete});
+            this.ContextMenuStripTransactions.Name = "contextMenuStripTransactions";
+            this.ContextMenuStripTransactions.Size = new System.Drawing.Size(123, 52);
+            // 
+            // ToolStripMenuItemTransactionsData
+            // 
+            this.ToolStripMenuItemTransactionsData.Name = "ToolStripMenuItemTransactionsData";
+            this.ToolStripMenuItemTransactionsData.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemTransactionsData.Text = "Data";
+            this.ToolStripMenuItemTransactionsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemData_MouseDown);
+            // 
+            // ToolStripMenuItemTransactionsDelete
+            // 
+            this.ToolStripMenuItemTransactionsDelete.Name = "ToolStripMenuItemTransactionsDelete";
+            this.ToolStripMenuItemTransactionsDelete.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemTransactionsDelete.Text = "Delete";
+            // 
+            // PanelSearchBar
+            // 
+            this.PanelSearchBar.BackColor = System.Drawing.Color.White;
+            this.PanelSearchBar.Controls.Add(this.PictureBoxSearchIcon);
+            this.PanelSearchBar.Controls.Add(this.TextBoxTransactionSearchBar);
+            this.PanelSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelSearchBar.Location = new System.Drawing.Point(0, 0);
+            this.PanelSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelSearchBar.Name = "PanelSearchBar";
+            this.PanelSearchBar.Size = new System.Drawing.Size(349, 22);
+            this.PanelSearchBar.TabIndex = 5;
+            // 
+            // PictureBoxSearchIcon
+            // 
+            this.PictureBoxSearchIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PictureBoxSearchIcon.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__21_;
+            this.PictureBoxSearchIcon.ImageLocation = "";
+            this.PictureBoxSearchIcon.Location = new System.Drawing.Point(0, 0);
+            this.PictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PictureBoxSearchIcon.Name = "PictureBoxSearchIcon";
+            this.PictureBoxSearchIcon.Size = new System.Drawing.Size(25, 22);
+            this.PictureBoxSearchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PictureBoxSearchIcon.TabIndex = 1;
+            this.PictureBoxSearchIcon.TabStop = false;
+            // 
+            // PanelTabControl
+            // 
+            this.PanelTabControl.Controls.Add(this.TabControlPortfolio);
+            this.PanelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelTabControl.Location = new System.Drawing.Point(349, 36);
+            this.PanelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTabControl.Name = "PanelTabControl";
+            this.PanelTabControl.Size = new System.Drawing.Size(587, 471);
+            this.PanelTabControl.TabIndex = 8;
+            // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
+            this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
+            this.PictureBoxLogo.Location = new System.Drawing.Point(12, 25);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(37, 40);
+            this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PictureBoxLogo.TabIndex = 17;
+            this.PictureBoxLogo.TabStop = false;
             // 
             // MainUI
             // 
@@ -654,81 +784,97 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(936, 507);
-            this.Controls.Add(this.panelTabControl);
-            this.Controls.Add(this.panelTransactions);
-            this.Controls.Add(this.panelMainMenu);
+            this.Controls.Add(this.PanelTabControl);
+            this.Controls.Add(this.PanelTransactions);
+            this.Controls.Add(this.PanelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(954, 542);
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget saver app";
             this.Load += new System.EventHandler(this.MainUI_Load);
-            this.panelMainMenu.ResumeLayout(false);
-            this.tabControlPortfolio.ResumeLayout(false);
-            this.tabPageSavings.ResumeLayout(false);
-            this.panelPortfolioButtons.ResumeLayout(false);
-            this.panelLabels.ResumeLayout(false);
-            this.panelLabels.PerformLayout();
-            this.tabPagePortfolio.ResumeLayout(false);
-            this.tabPagePortfolio.PerformLayout();
-            this.tabPageStats.ResumeLayout(false);
-            this.tabPageStats.PerformLayout();
-            this.tabPageFunctions.ResumeLayout(false);
-            this.panelTransactions.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchIcon)).EndInit();
-            this.panelTabControl.ResumeLayout(false);
+            this.PanelMainMenu.ResumeLayout(false);
+            this.TabControlPortfolio.ResumeLayout(false);
+            this.TabPageSavings.ResumeLayout(false);
+            this.PanelPortfolioButtons.ResumeLayout(false);
+            this.ContextMenuStripSavings.ResumeLayout(false);
+            this.PanelLabels.ResumeLayout(false);
+            this.PanelLabels.PerformLayout();
+            this.TabPagePortfolio.ResumeLayout(false);
+            this.TabPagePortfolio.PerformLayout();
+            this.TabPageStats.ResumeLayout(false);
+            this.TabPageStats.PerformLayout();
+            this.TabPageFunctions.ResumeLayout(false);
+            this.TabPageData.ResumeLayout(false);
+            this.TabPageData.PerformLayout();
+            this.PanelTransactions.ResumeLayout(false);
+            this.ContextMenuStripTransactions.ResumeLayout(false);
+            this.PanelSearchBar.ResumeLayout(false);
+            this.PanelSearchBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).EndInit();
+            this.PanelTabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelMainMenu;
-        private System.Windows.Forms.Button buttonAddPortfolioValues;
-        private System.Windows.Forms.Button buttonAddTransactions;
-        private System.Windows.Forms.TextBox textBoxTransactionSearchBar;
-        private System.Windows.Forms.TabControl tabControlPortfolio;
-        private System.Windows.Forms.TabPage tabPageSavings;
-        private System.Windows.Forms.TabPage tabPagePortfolio;
-        private System.Windows.Forms.Panel panelTransactions;
-        private System.Windows.Forms.Label labelGoalPrice;
-        private System.Windows.Forms.Label labelGoalName;
-        private System.Windows.Forms.Label labelMonthlySalary;
-        private System.Windows.Forms.Label labelCurrentSavings;
-        private System.Windows.Forms.Panel panelTabControl;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTransactions;
-        private System.Windows.Forms.PictureBox pictureBoxSearchIcon;
-        private System.Windows.Forms.TabPage tabPageStats;
-        private System.Windows.Forms.Label labelStatsWeeklyIncome;
-        private System.Windows.Forms.Label labelStatsWeeklyExpenses;
-        private System.Windows.Forms.Label labelStatsWeeklyTransactionAmount;
-        private System.Windows.Forms.Label labelStatsFrequentCategory;
-        private System.Windows.Forms.Label labelStatsWeeklyBalance;
-        private System.Windows.Forms.Button buttonAddCategory;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSavings;
-        private System.Windows.Forms.Panel panelLabels;
-        private System.Windows.Forms.Panel panelPortfolioButtons;
-        private System.Windows.Forms.Button buttonSelectAll;
-        private System.Windows.Forms.Button buttonSelectCommodities;
-        private System.Windows.Forms.Button buttonSelectCrypto;
-        private System.Windows.Forms.Button buttonSelectStocks;
-        private System.Windows.Forms.Button buttonSelectMoney;
-        private System.Windows.Forms.Label labelTitleSavings1;
-        private System.Windows.Forms.Label labelTotalValueSavings1;
-        private System.Windows.Forms.Label labelAmountSavings1;
-        private System.Windows.Forms.Label labelTotalValueSavings2;
-        private System.Windows.Forms.Label labelAmountSavings2;
-        private System.Windows.Forms.Label labelTitleSavings2;
-        private System.Windows.Forms.Label labelTotalValueSavings3;
-        private System.Windows.Forms.Label labelAmountSavings3;
-        private System.Windows.Forms.Label labelTitleSavings3;
-        private System.Windows.Forms.TabPage tabPageFunctions;
-        private System.Windows.Forms.Panel panelFunctions;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TabPage tabPageData;
-        private System.Windows.Forms.Button buttonAddSavings;
+        private System.Windows.Forms.Panel PanelMainMenu;
+        private System.Windows.Forms.Button ButtonAddPortfolioValues;
+        private System.Windows.Forms.Button ButtonAddTransactions;
+        private System.Windows.Forms.TextBox TextBoxTransactionSearchBar;
+        private System.Windows.Forms.TabControl TabControlPortfolio;
+        private System.Windows.Forms.TabPage TabPageSavings;
+        private System.Windows.Forms.TabPage TabPagePortfolio;
+        private System.Windows.Forms.Panel PanelTransactions;
+        private System.Windows.Forms.Label LabelGoalPrice;
+        private System.Windows.Forms.Label LabelGoalName;
+        private System.Windows.Forms.Label LabelMonthlySalary;
+        private System.Windows.Forms.Label LabelCurrentSavings;
+        private System.Windows.Forms.Panel PanelTabControl;
+        private System.Windows.Forms.Panel PanelSearchBar;
+        private System.Windows.Forms.PictureBox PictureBoxSearchIcon;
+        private System.Windows.Forms.TabPage TabPageStats;
+        private System.Windows.Forms.Label LabelStatsWeeklyIncome;
+        private System.Windows.Forms.Label LabelStatsWeeklyExpenses;
+        private System.Windows.Forms.Label LabelStatsWeeklyTransactionAmount;
+        private System.Windows.Forms.Label LabelStatsFrequentCategory;
+        private System.Windows.Forms.Label LabelStatsWeeklyBalance;
+        private System.Windows.Forms.Button ButtonAddCategory;
+        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelSavings;
+        private System.Windows.Forms.Panel PanelLabels;
+        private System.Windows.Forms.Panel PanelPortfolioButtons;
+        private System.Windows.Forms.Button ButtonSelectAll;
+        private System.Windows.Forms.Button ButtonSelectCommodities;
+        private System.Windows.Forms.Button ButtonSelectCrypto;
+        private System.Windows.Forms.Button ButtonSelectStocks;
+        private System.Windows.Forms.Button ButtonSelectMoney;
+        private System.Windows.Forms.Label LabelTitleSavings1;
+        private System.Windows.Forms.Label LabelTotalValueSavings1;
+        private System.Windows.Forms.Label LabelAmountSavings1;
+        private System.Windows.Forms.Label LabelTotalValueSavings2;
+        private System.Windows.Forms.Label LabelAmountSavings2;
+        private System.Windows.Forms.Label LabelTitleSavings2;
+        private System.Windows.Forms.Label LabelTotalValueSavings3;
+        private System.Windows.Forms.Label LabelAmountSavings3;
+        private System.Windows.Forms.Label LabelTitleSavings3;
+        private System.Windows.Forms.TabPage TabPageFunctions;
+        private System.Windows.Forms.Panel PanelFunctions;
+        private System.Windows.Forms.TabPage TabPageData;
+        private System.Windows.Forms.Button ButtonAddSavings;
+        private System.Windows.Forms.Label LabelCategory;
+        private System.Windows.Forms.Label LabelAmount;
+        private System.Windows.Forms.Label LabelName;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStripTransactions;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTransactionsData;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTransactionsDelete;
+        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelTransactions;
+        private System.Windows.Forms.Label LabelDate;
+        private System.Windows.Forms.Button ButtonClean;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStripSavings;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsData;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsDelete;
+        private System.Windows.Forms.PictureBox PictureBoxLogo;
     }
 }
