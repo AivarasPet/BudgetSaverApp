@@ -89,5 +89,12 @@
     "Title": "d",
     "Category": "Health\r",
     "Date": "2020-10-19T14:21:20.3463513+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 5.0,
+    "Title": "u",
+    "Category": "Food\r",
+    "Date": "2020-10-19T16:01:50.7758611+03:00"
   }
 ]
