@@ -8,3 +8,4 @@
 {"TransactionType":"+","Amount":69.0,"Title":"F","Category":"Loterija\r","date":"2020-10-13T23:06:15.3180321+03:00"}
 {"TransactionType":"+","Amount":7.0,"Title":"h","Category":"Food\r","Date":"2020-10-19T00:00:32.4145629+03:00"}
 {"TransactionType":"-","Amount":5000.0,"Title":"Avarija","Category":"Work\r","Date":"2020-10-19T11:00:11.7166338+03:00"}
+{"TransactionType":"-","Amount":500.0,"Title":"sss","Category":"Food\r","Date":"2020-10-19T11:33:53.9001394+03:00"}

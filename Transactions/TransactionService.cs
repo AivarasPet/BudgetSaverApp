@@ -26,18 +26,18 @@ namespace BudgetSaverApp.Transactions
         public void LoadTransactionsListFromTextFile()
         {
             List.Clear();
-            TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
-            if (data == null) return;
-            for (int x = 0; x < data.Length; x++)
-            {
-                Transaction transaction = JsonConvert.DeserializeObject<Transaction>(data[x]);
-                if(transaction != null)
-                {
-                    List.Add(transaction);
-                }
-            }
+            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\TransactionsJson.json");
+            if (json == null) return;
+            List = JsonConvert.DeserializeObject<List<Transaction>>(json);
         }
+
+        public void SerializeTransactionList()
+        {
+            var json = JsonConvert.SerializeObject(List, Formatting.Indented);
+            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\TransactionsJson.json", json);
+        }
+
+
         public List<Transaction> GetTransactionsList()
         {
             return List ?? null;
@@ -56,11 +56,11 @@ namespace BudgetSaverApp.Transactions
 
                 Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category, DateTime.Now); 
                 List.Add(newTransaction);
-                StreamWriter w = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Transactions.txt");
-                w.WriteLine(JsonConvert.SerializeObject(newTransaction));
-                w.Close();
+                SerializeTransactionList();
             }
         }
+
+        
     }
 }
 
