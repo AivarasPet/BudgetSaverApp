@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using BudgetSaverApp.Goals;
+using BudgetSaverApp.Portfolio;
+using System.IO;
 
 namespace BudgetSaverApp
 {
@@ -8,8 +10,11 @@ namespace BudgetSaverApp
         public float CurrentSavings { get; set; }
         public float MonthlySalary { get; set; }
         public string GoalItemName { get; set; }
-        public UserData()
+
+        IGoalsService GoalsService;
+        public UserData(IGoalsService goalsService)
         {
+            this.GoalsService = goalsService;
             ReadFromFile();
         }
 
@@ -41,6 +46,8 @@ namespace BudgetSaverApp
             MonthlySalary = float.Parse(data[1]);
             GoalItemName = data[2];
             GoalItemPrice = float.Parse(data[3]);
+            GoalsService.SetMainGoalName(GoalItemName);
+            GoalsService.SetMainGoalPrice(GoalItemPrice);
         }
 
 

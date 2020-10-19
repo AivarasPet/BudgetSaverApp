@@ -9,7 +9,7 @@ namespace BudgetSaverApp.Transactions
     class TransactionService : ITransactionService
     {
         private List<Transaction> List = new List<Transaction>();
-        
+        public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
             LoadTransactionsListFromTextFile();
@@ -37,6 +37,7 @@ namespace BudgetSaverApp.Transactions
                     List.Add(transaction);
                 }
             }
+            OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
         public List<Transaction> GetTransactionsList()
         {

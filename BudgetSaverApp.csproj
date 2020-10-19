@@ -92,6 +92,8 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Goals\GoalsFactory.cs" />
+    <Compile Include="Goals\IGoalsService.cs" />
     <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
@@ -112,8 +114,7 @@
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
     <Compile Include="HttpRequest.cs" />
-    <Compile Include="MonthlyIncome.cs" />
-    <Compile Include="Portfolio\GoalsService.cs" />
+    <Compile Include="Goals\GoalsService.cs" />
     <Compile Include="Possessions\Commodity.cs" />
     <Compile Include="Possessions\Crypto.cs" />
     <Compile Include="Possessions\Possession.cs" />

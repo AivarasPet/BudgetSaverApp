@@ -12,10 +12,5 @@ namespace BudgetSaverApp.Statistics
         public float Income { get; set; }
         public float Expenses { get; set; }
         public string FrequentCategory { get; set; }
-
-        public Stats()
-        {
-            
-        }
     }
 }
