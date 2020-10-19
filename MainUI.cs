@@ -39,7 +39,7 @@ namespace BudgetSaverApp
             LoadSavingsOnUI(possessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetPortfolioInfo();
-            SetStatsInfo();
+            SetDefaultStatsInfo();
             CleanTab();
         }
 
@@ -109,7 +109,7 @@ namespace BudgetSaverApp
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoadTransactionsOnUI(transactionService.GetTransactionsList());
-            SetStatsInfo();
+            SetDefaultStatsInfo();
         }
         #endregion
 
@@ -202,15 +202,44 @@ namespace BudgetSaverApp
         #endregion
 
         #region Stats
-        private void SetStatsInfo()
+        private void SetDefaultStatsInfo()
         {
-            Stats stats = statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now));
+        }
+
+        private void SetStatsInfo(Stats stats)
+        {
+            
             LabelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
             LabelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income + " €";
             LabelStatsWeeklyExpenses.Text = "Weekly spent: " + stats.Expenses + " €";
             LabelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
             LabelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses) + " €";
 
+        }
+
+        private void ButtonStatsThisWeek_Click(object sender, EventArgs e)
+        {
+            SetDefaultStatsInfo();
+        }
+
+        private void ButtonStatsLastWeek_Click(object sender, EventArgs e)
+        {
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6),DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1))); 
+        }
+
+        private void ButtonStatsThisMonth_Click(object sender, EventArgs e)
+        {
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now));
+        }
+
+        private void ButtonStatsLastMonth_Click(object sender, EventArgs e)
+        {
+            var today = DateTime.Today;
+            var month = new DateTime(today.Year, today.Month, 1);
+            var first = month.AddMonths(-1);
+            var last = month.AddDays(-1);
+            SetStatsInfo(statisticsService.GetStatistic(first,last));
         }
 
         #endregion
@@ -269,6 +298,9 @@ namespace BudgetSaverApp
             PictureBoxLogo.Visible = false;
             TabControlPortfolio.SelectTab(0);
         }
-        #endregion     
+
+        #endregion
+
+        
     }
 }

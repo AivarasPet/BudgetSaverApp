@@ -47,7 +47,8 @@ namespace BudgetSaverApp.Statistics
             stats.TransactionAmount = amount;
             stats.Income = income;
             stats.Expenses = expenses;
-            stats.FrequentCategory = result.OrderByDescending(category => category.Value).First().Key;
+            if(result.Count != 0)
+                stats.FrequentCategory = result.OrderByDescending(category => category.Value).First().Key;
 
             return stats;
         }
