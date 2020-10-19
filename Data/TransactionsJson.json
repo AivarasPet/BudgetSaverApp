@@ -82,5 +82,12 @@
     "Title": "WWWW",
     "Category": "Household\r",
     "Date": "2020-10-19T11:42:23.0368862+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 7.0,
+    "Title": "d",
+    "Category": "Health\r",
+    "Date": "2020-10-19T14:21:20.3463513+03:00"
   }
 ]

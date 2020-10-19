@@ -244,9 +244,18 @@ namespace BudgetSaverApp
 
         private void ButtonStatsAdvancedShow_Click(object sender, EventArgs e)
         {
-            DateTimePickerStatsStart.Visible = true;
-            DateTimePickerStatsEnd.Visible = true;
-            ButtonStatsAdvancedStats.Visible = true;
+            if(ButtonStatsAdvancedStats.Visible == true)
+            {
+                DateTimePickerStatsStart.Visible = false;
+                DateTimePickerStatsEnd.Visible = false;
+                ButtonStatsAdvancedStats.Visible = false;
+            }
+            else
+            {
+                DateTimePickerStatsStart.Visible = true;
+                DateTimePickerStatsEnd.Visible = true;
+                ButtonStatsAdvancedStats.Visible = true;
+            }
         }
 
         private void ButtonStatsAdvancedStats_Click(object sender, EventArgs e)
