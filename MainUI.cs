@@ -242,6 +242,18 @@ namespace BudgetSaverApp
             SetStatsInfo(statisticsService.GetStatistic(first,last));
         }
 
+        private void ButtonStatsAdvancedShow_Click(object sender, EventArgs e)
+        {
+            DateTimePickerStatsStart.Visible = true;
+            DateTimePickerStatsEnd.Visible = true;
+            ButtonStatsAdvancedStats.Visible = true;
+        }
+
+        private void ButtonStatsAdvancedStats_Click(object sender, EventArgs e)
+        {
+            SetStatsInfo(statisticsService.GetStatistic(DateTimePickerStatsStart.Value,DateTimePickerStatsEnd.Value));
+        }
+
         #endregion
 
         #region Data
@@ -298,6 +310,8 @@ namespace BudgetSaverApp
             PictureBoxLogo.Visible = false;
             TabControlPortfolio.SelectTab(0);
         }
+
+
 
         #endregion
 

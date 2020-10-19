@@ -91,6 +91,10 @@
             this.ButtonStatsLastWeek = new System.Windows.Forms.Button();
             this.ButtonStatsThisMonth = new System.Windows.Forms.Button();
             this.ButtonStatsLastMonth = new System.Windows.Forms.Button();
+            this.DateTimePickerStatsEnd = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerStatsStart = new System.Windows.Forms.DateTimePicker();
+            this.ButtonStatsAdvancedShow = new System.Windows.Forms.Button();
+            this.ButtonStatsAdvancedStats = new System.Windows.Forms.Button();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
             this.TabPageSavings.SuspendLayout();
@@ -542,6 +546,10 @@
             // TabPageStats
             // 
             this.TabPageStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageStats.Controls.Add(this.ButtonStatsAdvancedStats);
+            this.TabPageStats.Controls.Add(this.ButtonStatsAdvancedShow);
+            this.TabPageStats.Controls.Add(this.DateTimePickerStatsStart);
+            this.TabPageStats.Controls.Add(this.DateTimePickerStatsEnd);
             this.TabPageStats.Controls.Add(this.ButtonStatsLastMonth);
             this.TabPageStats.Controls.Add(this.ButtonStatsThisMonth);
             this.TabPageStats.Controls.Add(this.ButtonStatsLastWeek);
@@ -850,6 +858,45 @@
             this.ButtonStatsLastMonth.UseVisualStyleBackColor = true;
             this.ButtonStatsLastMonth.Click += new System.EventHandler(this.ButtonStatsLastMonth_Click);
             // 
+            // DateTimePickerStatsEnd
+            // 
+            this.DateTimePickerStatsEnd.Location = new System.Drawing.Point(128, 330);
+            this.DateTimePickerStatsEnd.Name = "DateTimePickerStatsEnd";
+            this.DateTimePickerStatsEnd.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePickerStatsEnd.TabIndex = 9;
+            this.DateTimePickerStatsEnd.Visible = false;
+            // 
+            // DateTimePickerStatsStart
+            // 
+            this.DateTimePickerStatsStart.AllowDrop = true;
+            this.DateTimePickerStatsStart.Location = new System.Drawing.Point(128, 304);
+            this.DateTimePickerStatsStart.Name = "DateTimePickerStatsStart";
+            this.DateTimePickerStatsStart.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePickerStatsStart.TabIndex = 10;
+            this.DateTimePickerStatsStart.Value = new System.DateTime(2020, 10, 1, 0, 0, 0, 0);
+            this.DateTimePickerStatsStart.Visible = false;
+            // 
+            // ButtonStatsAdvancedShow
+            // 
+            this.ButtonStatsAdvancedShow.Location = new System.Drawing.Point(91, 275);
+            this.ButtonStatsAdvancedShow.Name = "ButtonStatsAdvancedShow";
+            this.ButtonStatsAdvancedShow.Size = new System.Drawing.Size(75, 23);
+            this.ButtonStatsAdvancedShow.TabIndex = 11;
+            this.ButtonStatsAdvancedShow.Text = "Advanced";
+            this.ButtonStatsAdvancedShow.UseVisualStyleBackColor = true;
+            this.ButtonStatsAdvancedShow.Click += new System.EventHandler(this.ButtonStatsAdvancedShow_Click);
+            // 
+            // ButtonStatsAdvancedStats
+            // 
+            this.ButtonStatsAdvancedStats.Location = new System.Drawing.Point(351, 326);
+            this.ButtonStatsAdvancedStats.Name = "ButtonStatsAdvancedStats";
+            this.ButtonStatsAdvancedStats.Size = new System.Drawing.Size(75, 23);
+            this.ButtonStatsAdvancedStats.TabIndex = 12;
+            this.ButtonStatsAdvancedStats.Text = "Show Stats";
+            this.ButtonStatsAdvancedStats.UseVisualStyleBackColor = true;
+            this.ButtonStatsAdvancedStats.Visible = false;
+            this.ButtonStatsAdvancedStats.Click += new System.EventHandler(this.ButtonStatsAdvancedStats_Click);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -953,5 +1000,9 @@
         private System.Windows.Forms.Button ButtonStatsThisWeek;
         private System.Windows.Forms.Button ButtonStatsThisMonth;
         private System.Windows.Forms.Button ButtonStatsLastMonth;
+        private System.Windows.Forms.Button ButtonStatsAdvancedStats;
+        private System.Windows.Forms.Button ButtonStatsAdvancedShow;
+        private System.Windows.Forms.DateTimePicker DateTimePickerStatsStart;
+        private System.Windows.Forms.DateTimePicker DateTimePickerStatsEnd;
     }
 }
