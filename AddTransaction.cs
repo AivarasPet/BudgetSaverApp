@@ -11,6 +11,7 @@ namespace BudgetSaverApp
         ITransactionService transactionService;
         public AddTransaction(UserData userData, ITransactionService transactionService)
         {
+            this.transactionService = transactionService; 
             this.userData = userData;
             InitializeComponent();
             ComboBoxTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
@@ -18,7 +19,7 @@ namespace BudgetSaverApp
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            //transactionService.AddNewTransaction(AddTransactionType.Text, AddTransactionName.Text, AddTransactionAmount.Text, AddTransactionCategory.Text);
+            transactionService.AddNewTransaction(ComboBoxTransactionType.Text, TextBoxTitleName.Text, TextBoxTransactionAmount.Text, ComboBoxTransactionCategory.Text);               
             Close();
         }
 

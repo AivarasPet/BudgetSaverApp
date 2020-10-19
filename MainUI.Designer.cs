@@ -72,6 +72,7 @@
             this.TabPageFunctions = new System.Windows.Forms.TabPage();
             this.PanelFunctions = new System.Windows.Forms.Panel();
             this.TabPageData = new System.Windows.Forms.TabPage();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.ButtonClean = new System.Windows.Forms.Button();
             this.LabelDate = new System.Windows.Forms.Label();
             this.LabelCategory = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.PanelSearchBar = new System.Windows.Forms.Panel();
             this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
-            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
             this.TabPageSavings.SuspendLayout();
@@ -96,12 +96,12 @@
             this.TabPageStats.SuspendLayout();
             this.TabPageFunctions.SuspendLayout();
             this.TabPageData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.PanelTransactions.SuspendLayout();
             this.ContextMenuStripTransactions.SuspendLayout();
             this.PanelSearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).BeginInit();
             this.PanelTabControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMainMenu
@@ -332,24 +332,27 @@
             // 
             // ContextMenuStripSavings
             // 
+            this.ContextMenuStripSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ContextMenuStripSavings.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStripSavings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSavingsData,
             this.ToolStripMenuItemSavingsDelete});
             this.ContextMenuStripSavings.Name = "contextMenuStripTransactions";
-            this.ContextMenuStripSavings.Size = new System.Drawing.Size(123, 52);
+            this.ContextMenuStripSavings.Size = new System.Drawing.Size(211, 80);
             // 
             // ToolStripMenuItemSavingsData
             // 
+            this.ToolStripMenuItemSavingsData.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemSavingsData.Name = "ToolStripMenuItemSavingsData";
-            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(210, 24);
             this.ToolStripMenuItemSavingsData.Text = "Data";
             this.ToolStripMenuItemSavingsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemSavingsData_MouseDown);
             // 
             // ToolStripMenuItemSavingsDelete
             // 
+            this.ToolStripMenuItemSavingsDelete.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemSavingsDelete.Name = "ToolStripMenuItemSavingsDelete";
-            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(210, 24);
             this.ToolStripMenuItemSavingsDelete.Text = "Delete";
             // 
             // PanelLabels
@@ -628,6 +631,17 @@
             this.TabPageData.TabIndex = 4;
             this.TabPageData.Text = "Data";
             // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
+            this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
+            this.PictureBoxLogo.Location = new System.Drawing.Point(12, 25);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(37, 40);
+            this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PictureBoxLogo.TabIndex = 17;
+            this.PictureBoxLogo.TabStop = false;
+            // 
             // ButtonClean
             // 
             this.ButtonClean.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -712,6 +726,7 @@
             // 
             // ContextMenuStripTransactions
             // 
+            this.ContextMenuStripTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ContextMenuStripTransactions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStripTransactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemTransactionsData,
@@ -721,6 +736,7 @@
             // 
             // ToolStripMenuItemTransactionsData
             // 
+            this.ToolStripMenuItemTransactionsData.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemTransactionsData.Name = "ToolStripMenuItemTransactionsData";
             this.ToolStripMenuItemTransactionsData.Size = new System.Drawing.Size(122, 24);
             this.ToolStripMenuItemTransactionsData.Text = "Data";
@@ -728,6 +744,7 @@
             // 
             // ToolStripMenuItemTransactionsDelete
             // 
+            this.ToolStripMenuItemTransactionsDelete.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemTransactionsDelete.Name = "ToolStripMenuItemTransactionsDelete";
             this.ToolStripMenuItemTransactionsDelete.Size = new System.Drawing.Size(122, 24);
             this.ToolStripMenuItemTransactionsDelete.Text = "Delete";
@@ -767,17 +784,6 @@
             this.PanelTabControl.Size = new System.Drawing.Size(587, 471);
             this.PanelTabControl.TabIndex = 8;
             // 
-            // PictureBoxLogo
-            // 
-            this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
-            this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
-            this.PictureBoxLogo.Location = new System.Drawing.Point(12, 25);
-            this.PictureBoxLogo.Name = "PictureBoxLogo";
-            this.PictureBoxLogo.Size = new System.Drawing.Size(37, 40);
-            this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PictureBoxLogo.TabIndex = 17;
-            this.PictureBoxLogo.TabStop = false;
-            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -807,13 +813,13 @@
             this.TabPageFunctions.ResumeLayout(false);
             this.TabPageData.ResumeLayout(false);
             this.TabPageData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.PanelTransactions.ResumeLayout(false);
             this.ContextMenuStripTransactions.ResumeLayout(false);
             this.PanelSearchBar.ResumeLayout(false);
             this.PanelSearchBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).EndInit();
             this.PanelTabControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

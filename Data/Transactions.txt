@@ -6,3 +6,4 @@
 {"TransactionType":"+","Amount":10000.0,"Title":"sadasd","Category":"Household\r","date":"2020-10-12T16:29:31.7886235+03:00"}
 {"TransactionType":"-","Amount":200.0,"Title":"sdsd","Category":"Loterija\r","date":"2020-10-12T16:30:00.3950945+03:00"}
 {"TransactionType":"+","Amount":69.0,"Title":"F","Category":"Loterija\r","date":"2020-10-13T23:06:15.3180321+03:00"}
+{"TransactionType":"+","Amount":7.0,"Title":"h","Category":"Food\r","Date":"2020-10-19T00:00:32.4145629+03:00"}

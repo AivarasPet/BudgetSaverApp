@@ -88,7 +88,6 @@
             this.Name = "ListSavings";
             this.Size = new System.Drawing.Size(453, 46);
             this.Load += new System.EventHandler(this.ListSavings_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListSavings_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

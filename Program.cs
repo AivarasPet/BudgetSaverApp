@@ -21,7 +21,7 @@ namespace BudgetSaverApp
             IPosessionsService posessionsService = PossessionFactory.GetPossessionsService();
             IStatisticsService statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
 
-            Application.Run(new MainUI(transactionService, posessionsService, statisticsService));
+            Application.Run(new MainUI(transactionService, posessionsService, statisticsService));           
         }
     }
 }
