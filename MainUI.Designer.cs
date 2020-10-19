@@ -64,6 +64,14 @@
             this.LabelMonthlySalary = new System.Windows.Forms.Label();
             this.LabelCurrentSavings = new System.Windows.Forms.Label();
             this.TabPageStats = new System.Windows.Forms.TabPage();
+            this.ButtonStatsAdvancedStats = new System.Windows.Forms.Button();
+            this.ButtonStatsAdvancedShow = new System.Windows.Forms.Button();
+            this.DateTimePickerStatsStart = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerStatsEnd = new System.Windows.Forms.DateTimePicker();
+            this.ButtonStatsLastMonth = new System.Windows.Forms.Button();
+            this.ButtonStatsThisMonth = new System.Windows.Forms.Button();
+            this.ButtonStatsLastWeek = new System.Windows.Forms.Button();
+            this.ButtonStatsThisWeek = new System.Windows.Forms.Button();
             this.LabelStatsWeeklyBalance = new System.Windows.Forms.Label();
             this.LabelStatsFrequentCategory = new System.Windows.Forms.Label();
             this.LabelStatsWeeklyTransactionAmount = new System.Windows.Forms.Label();
@@ -86,6 +94,7 @@
             this.PanelSearchBar = new System.Windows.Forms.Panel();
             this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
             this.TabPageSavings.SuspendLayout();
@@ -116,7 +125,7 @@
             this.PanelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.PanelMainMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelMainMenu.Name = "PanelMainMenu";
-            this.PanelMainMenu.Size = new System.Drawing.Size(936, 36);
+            this.PanelMainMenu.Size = new System.Drawing.Size(939, 36);
             this.PanelMainMenu.TabIndex = 0;
             // 
             // ButtonAddSavings
@@ -141,7 +150,7 @@
             this.ButtonAddCategory.FlatAppearance.BorderSize = 0;
             this.ButtonAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddCategory.ForeColor = System.Drawing.Color.White;
-            this.ButtonAddCategory.Location = new System.Drawing.Point(126, 3);
+            this.ButtonAddCategory.Location = new System.Drawing.Point(125, 2);
             this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddCategory.Name = "ButtonAddCategory";
             this.ButtonAddCategory.Size = new System.Drawing.Size(141, 27);
@@ -157,7 +166,7 @@
             this.ButtonAddPortfolioValues.FlatAppearance.BorderSize = 0;
             this.ButtonAddPortfolioValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddPortfolioValues.ForeColor = System.Drawing.SystemColors.Control;
-            this.ButtonAddPortfolioValues.Location = new System.Drawing.Point(273, 3);
+            this.ButtonAddPortfolioValues.Location = new System.Drawing.Point(273, 2);
             this.ButtonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddPortfolioValues.Name = "ButtonAddPortfolioValues";
             this.ButtonAddPortfolioValues.Size = new System.Drawing.Size(141, 27);
@@ -187,7 +196,7 @@
             // TextBoxTransactionSearchBar
             // 
             this.TextBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(26, 3);
+            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(27, 2);
             this.TextBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxTransactionSearchBar.Name = "TextBoxTransactionSearchBar";
             this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(323, 15);
@@ -206,7 +215,7 @@
             this.TabControlPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabControlPortfolio.Name = "TabControlPortfolio";
             this.TabControlPortfolio.SelectedIndex = 0;
-            this.TabControlPortfolio.Size = new System.Drawing.Size(587, 471);
+            this.TabControlPortfolio.Size = new System.Drawing.Size(590, 471);
             this.TabControlPortfolio.TabIndex = 0;
             // 
             // TabPageSavings
@@ -220,7 +229,7 @@
             this.TabPageSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPageSavings.Name = "TabPageSavings";
             this.TabPageSavings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabPageSavings.Size = new System.Drawing.Size(579, 442);
+            this.TabPageSavings.Size = new System.Drawing.Size(582, 442);
             this.TabPageSavings.TabIndex = 0;
             this.TabPageSavings.Text = "Savings";
             // 
@@ -232,7 +241,7 @@
             this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectStocks);
             this.PanelPortfolioButtons.Controls.Add(this.ButtonSelectMoney);
             this.PanelPortfolioButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelPortfolioButtons.Location = new System.Drawing.Point(516, 27);
+            this.PanelPortfolioButtons.Location = new System.Drawing.Point(519, 27);
             this.PanelPortfolioButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelPortfolioButtons.Name = "PanelPortfolioButtons";
             this.PanelPortfolioButtons.Size = new System.Drawing.Size(60, 413);
@@ -262,7 +271,7 @@
             this.ButtonSelectCommodities.FlatAppearance.BorderSize = 2;
             this.ButtonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
-            this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 234);
+            this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 233);
             this.ButtonSelectCommodities.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSelectCommodities.Name = "ButtonSelectCommodities";
             this.ButtonSelectCommodities.Size = new System.Drawing.Size(41, 39);
@@ -294,7 +303,7 @@
             this.ButtonSelectStocks.FlatAppearance.BorderSize = 2;
             this.ButtonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
-            this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 325);
+            this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 324);
             this.ButtonSelectStocks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSelectStocks.Name = "ButtonSelectStocks";
             this.ButtonSelectStocks.Size = new System.Drawing.Size(41, 39);
@@ -327,7 +336,7 @@
             this.FlowLayoutPanelSavings.Location = new System.Drawing.Point(3, 27);
             this.FlowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FlowLayoutPanelSavings.Name = "FlowLayoutPanelSavings";
-            this.FlowLayoutPanelSavings.Size = new System.Drawing.Size(573, 413);
+            this.FlowLayoutPanelSavings.Size = new System.Drawing.Size(576, 413);
             this.FlowLayoutPanelSavings.TabIndex = 6;
             // 
             // ContextMenuStripSavings
@@ -338,13 +347,13 @@
             this.ToolStripMenuItemSavingsData,
             this.ToolStripMenuItemSavingsDelete});
             this.ContextMenuStripSavings.Name = "contextMenuStripTransactions";
-            this.ContextMenuStripSavings.Size = new System.Drawing.Size(211, 80);
+            this.ContextMenuStripSavings.Size = new System.Drawing.Size(123, 52);
             // 
             // ToolStripMenuItemSavingsData
             // 
             this.ToolStripMenuItemSavingsData.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemSavingsData.Name = "ToolStripMenuItemSavingsData";
-            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(210, 24);
+            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(122, 24);
             this.ToolStripMenuItemSavingsData.Text = "Data";
             this.ToolStripMenuItemSavingsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemSavingsData_MouseDown);
             // 
@@ -352,7 +361,7 @@
             // 
             this.ToolStripMenuItemSavingsDelete.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemSavingsDelete.Name = "ToolStripMenuItemSavingsDelete";
-            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(210, 24);
+            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(122, 24);
             this.ToolStripMenuItemSavingsDelete.Text = "Delete";
             // 
             // PanelLabels
@@ -369,15 +378,16 @@
             this.PanelLabels.Controls.Add(this.LabelTitleSavings1);
             this.PanelLabels.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelLabels.Location = new System.Drawing.Point(3, 2);
+            this.PanelLabels.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelLabels.Name = "PanelLabels";
-            this.PanelLabels.Size = new System.Drawing.Size(573, 25);
+            this.PanelLabels.Size = new System.Drawing.Size(576, 25);
             this.PanelLabels.TabIndex = 0;
             // 
             // LabelTotalValueSavings3
             // 
             this.LabelTotalValueSavings3.AutoSize = true;
             this.LabelTotalValueSavings3.ForeColor = System.Drawing.Color.White;
-            this.LabelTotalValueSavings3.Location = new System.Drawing.Point(1267, 3);
+            this.LabelTotalValueSavings3.Location = new System.Drawing.Point(1267, 2);
             this.LabelTotalValueSavings3.Name = "LabelTotalValueSavings3";
             this.LabelTotalValueSavings3.Size = new System.Drawing.Size(82, 17);
             this.LabelTotalValueSavings3.TabIndex = 14;
@@ -387,7 +397,7 @@
             // 
             this.LabelAmountSavings3.AutoSize = true;
             this.LabelAmountSavings3.ForeColor = System.Drawing.Color.White;
-            this.LabelAmountSavings3.Location = new System.Drawing.Point(1170, 3);
+            this.LabelAmountSavings3.Location = new System.Drawing.Point(1171, 2);
             this.LabelAmountSavings3.Name = "LabelAmountSavings3";
             this.LabelAmountSavings3.Size = new System.Drawing.Size(60, 17);
             this.LabelAmountSavings3.TabIndex = 13;
@@ -397,7 +407,7 @@
             // 
             this.LabelTitleSavings3.AutoSize = true;
             this.LabelTitleSavings3.ForeColor = System.Drawing.Color.White;
-            this.LabelTitleSavings3.Location = new System.Drawing.Point(1031, 3);
+            this.LabelTitleSavings3.Location = new System.Drawing.Point(1031, 2);
             this.LabelTitleSavings3.Name = "LabelTitleSavings3";
             this.LabelTitleSavings3.Size = new System.Drawing.Size(43, 17);
             this.LabelTitleSavings3.TabIndex = 12;
@@ -407,7 +417,7 @@
             // 
             this.LabelTotalValueSavings2.AutoSize = true;
             this.LabelTotalValueSavings2.ForeColor = System.Drawing.Color.White;
-            this.LabelTotalValueSavings2.Location = new System.Drawing.Point(809, 3);
+            this.LabelTotalValueSavings2.Location = new System.Drawing.Point(809, 2);
             this.LabelTotalValueSavings2.Name = "LabelTotalValueSavings2";
             this.LabelTotalValueSavings2.Size = new System.Drawing.Size(82, 17);
             this.LabelTotalValueSavings2.TabIndex = 11;
@@ -417,7 +427,7 @@
             // 
             this.LabelAmountSavings2.AutoSize = true;
             this.LabelAmountSavings2.ForeColor = System.Drawing.Color.White;
-            this.LabelAmountSavings2.Location = new System.Drawing.Point(712, 3);
+            this.LabelAmountSavings2.Location = new System.Drawing.Point(712, 2);
             this.LabelAmountSavings2.Name = "LabelAmountSavings2";
             this.LabelAmountSavings2.Size = new System.Drawing.Size(60, 17);
             this.LabelAmountSavings2.TabIndex = 10;
@@ -427,7 +437,7 @@
             // 
             this.LabelTitleSavings2.AutoSize = true;
             this.LabelTitleSavings2.ForeColor = System.Drawing.Color.White;
-            this.LabelTitleSavings2.Location = new System.Drawing.Point(573, 3);
+            this.LabelTitleSavings2.Location = new System.Drawing.Point(573, 2);
             this.LabelTitleSavings2.Name = "LabelTitleSavings2";
             this.LabelTitleSavings2.Size = new System.Drawing.Size(43, 17);
             this.LabelTitleSavings2.TabIndex = 9;
@@ -437,7 +447,7 @@
             // 
             this.LabelTotalValueSavings1.AutoSize = true;
             this.LabelTotalValueSavings1.ForeColor = System.Drawing.Color.White;
-            this.LabelTotalValueSavings1.Location = new System.Drawing.Point(359, 3);
+            this.LabelTotalValueSavings1.Location = new System.Drawing.Point(359, 2);
             this.LabelTotalValueSavings1.Name = "LabelTotalValueSavings1";
             this.LabelTotalValueSavings1.Size = new System.Drawing.Size(82, 17);
             this.LabelTotalValueSavings1.TabIndex = 8;
@@ -447,7 +457,7 @@
             // 
             this.LabelAmountSavings1.AutoSize = true;
             this.LabelAmountSavings1.ForeColor = System.Drawing.Color.White;
-            this.LabelAmountSavings1.Location = new System.Drawing.Point(262, 3);
+            this.LabelAmountSavings1.Location = new System.Drawing.Point(261, 2);
             this.LabelAmountSavings1.Name = "LabelAmountSavings1";
             this.LabelAmountSavings1.Size = new System.Drawing.Size(60, 17);
             this.LabelAmountSavings1.TabIndex = 7;
@@ -457,7 +467,7 @@
             // 
             this.LabelTitleSavings1.AutoSize = true;
             this.LabelTitleSavings1.ForeColor = System.Drawing.Color.White;
-            this.LabelTitleSavings1.Location = new System.Drawing.Point(100, 3);
+            this.LabelTitleSavings1.Location = new System.Drawing.Point(100, 2);
             this.LabelTitleSavings1.Name = "LabelTitleSavings1";
             this.LabelTitleSavings1.Size = new System.Drawing.Size(43, 17);
             this.LabelTitleSavings1.TabIndex = 3;
@@ -474,7 +484,7 @@
             this.TabPagePortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPagePortfolio.Name = "TabPagePortfolio";
             this.TabPagePortfolio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabPagePortfolio.Size = new System.Drawing.Size(579, 442);
+            this.TabPagePortfolio.Size = new System.Drawing.Size(582, 442);
             this.TabPagePortfolio.TabIndex = 1;
             this.TabPagePortfolio.Text = "Portfolio";
             // 
@@ -527,25 +537,146 @@
             // TabPageStats
             // 
             this.TabPageStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPageStats.Controls.Add(this.ButtonStatsAdvancedStats);
+            this.TabPageStats.Controls.Add(this.ButtonStatsAdvancedShow);
+            this.TabPageStats.Controls.Add(this.DateTimePickerStatsStart);
+            this.TabPageStats.Controls.Add(this.DateTimePickerStatsEnd);
+            this.TabPageStats.Controls.Add(this.ButtonStatsLastMonth);
+            this.TabPageStats.Controls.Add(this.ButtonStatsThisMonth);
+            this.TabPageStats.Controls.Add(this.ButtonStatsLastWeek);
+            this.TabPageStats.Controls.Add(this.ButtonStatsThisWeek);
             this.TabPageStats.Controls.Add(this.LabelStatsWeeklyBalance);
             this.TabPageStats.Controls.Add(this.LabelStatsFrequentCategory);
             this.TabPageStats.Controls.Add(this.LabelStatsWeeklyTransactionAmount);
             this.TabPageStats.Controls.Add(this.LabelStatsWeeklyIncome);
             this.TabPageStats.Controls.Add(this.LabelStatsWeeklyExpenses);
             this.TabPageStats.Location = new System.Drawing.Point(4, 25);
-            this.TabPageStats.Margin = new System.Windows.Forms.Padding(4);
+            this.TabPageStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TabPageStats.Name = "TabPageStats";
-            this.TabPageStats.Padding = new System.Windows.Forms.Padding(4);
-            this.TabPageStats.Size = new System.Drawing.Size(579, 442);
+            this.TabPageStats.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TabPageStats.Size = new System.Drawing.Size(582, 442);
             this.TabPageStats.TabIndex = 2;
             this.TabPageStats.Text = "Stats";
+            // 
+            // ButtonStatsAdvancedStats
+            // 
+            this.ButtonStatsAdvancedStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsAdvancedStats.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsAdvancedStats.FlatAppearance.BorderSize = 0;
+            this.ButtonStatsAdvancedStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsAdvancedStats.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsAdvancedStats.Location = new System.Drawing.Point(468, 401);
+            this.ButtonStatsAdvancedStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsAdvancedStats.Name = "ButtonStatsAdvancedStats";
+            this.ButtonStatsAdvancedStats.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsAdvancedStats.TabIndex = 12;
+            this.ButtonStatsAdvancedStats.Text = "Show Stats";
+            this.ButtonStatsAdvancedStats.UseVisualStyleBackColor = false;
+            this.ButtonStatsAdvancedStats.Visible = false;
+            this.ButtonStatsAdvancedStats.Click += new System.EventHandler(this.ButtonStatsAdvancedStats_Click);
+            // 
+            // ButtonStatsAdvancedShow
+            // 
+            this.ButtonStatsAdvancedShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsAdvancedShow.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsAdvancedShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsAdvancedShow.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsAdvancedShow.Location = new System.Drawing.Point(121, 338);
+            this.ButtonStatsAdvancedShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsAdvancedShow.Name = "ButtonStatsAdvancedShow";
+            this.ButtonStatsAdvancedShow.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsAdvancedShow.TabIndex = 11;
+            this.ButtonStatsAdvancedShow.Text = "Advanced";
+            this.ButtonStatsAdvancedShow.UseVisualStyleBackColor = false;
+            this.ButtonStatsAdvancedShow.Click += new System.EventHandler(this.ButtonStatsAdvancedShow_Click);
+            // 
+            // DateTimePickerStatsStart
+            // 
+            this.DateTimePickerStatsStart.AllowDrop = true;
+            this.DateTimePickerStatsStart.Location = new System.Drawing.Point(171, 374);
+            this.DateTimePickerStatsStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerStatsStart.Name = "DateTimePickerStatsStart";
+            this.DateTimePickerStatsStart.Size = new System.Drawing.Size(265, 22);
+            this.DateTimePickerStatsStart.TabIndex = 10;
+            this.DateTimePickerStatsStart.Value = new System.DateTime(2020, 10, 1, 0, 0, 0, 0);
+            this.DateTimePickerStatsStart.Visible = false;
+            // 
+            // DateTimePickerStatsEnd
+            // 
+            this.DateTimePickerStatsEnd.Location = new System.Drawing.Point(171, 406);
+            this.DateTimePickerStatsEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerStatsEnd.Name = "DateTimePickerStatsEnd";
+            this.DateTimePickerStatsEnd.Size = new System.Drawing.Size(265, 22);
+            this.DateTimePickerStatsEnd.TabIndex = 9;
+            this.DateTimePickerStatsEnd.Visible = false;
+            // 
+            // ButtonStatsLastMonth
+            // 
+            this.ButtonStatsLastMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsLastMonth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsLastMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsLastMonth.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsLastMonth.Location = new System.Drawing.Point(337, 7);
+            this.ButtonStatsLastMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsLastMonth.Name = "ButtonStatsLastMonth";
+            this.ButtonStatsLastMonth.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsLastMonth.TabIndex = 8;
+            this.ButtonStatsLastMonth.Text = "Last Month";
+            this.ButtonStatsLastMonth.UseVisualStyleBackColor = false;
+            this.ButtonStatsLastMonth.Click += new System.EventHandler(this.ButtonStatsLastMonth_Click);
+            // 
+            // ButtonStatsThisMonth
+            // 
+            this.ButtonStatsThisMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsThisMonth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsThisMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsThisMonth.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsThisMonth.Location = new System.Drawing.Point(229, 7);
+            this.ButtonStatsThisMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsThisMonth.Name = "ButtonStatsThisMonth";
+            this.ButtonStatsThisMonth.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsThisMonth.TabIndex = 7;
+            this.ButtonStatsThisMonth.Text = "This Month";
+            this.ButtonStatsThisMonth.UseVisualStyleBackColor = false;
+            this.ButtonStatsThisMonth.Click += new System.EventHandler(this.ButtonStatsThisMonth_Click);
+            // 
+            // ButtonStatsLastWeek
+            // 
+            this.ButtonStatsLastWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsLastWeek.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsLastWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsLastWeek.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsLastWeek.Location = new System.Drawing.Point(121, 7);
+            this.ButtonStatsLastWeek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsLastWeek.Name = "ButtonStatsLastWeek";
+            this.ButtonStatsLastWeek.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsLastWeek.TabIndex = 6;
+            this.ButtonStatsLastWeek.Text = "Last Week";
+            this.ButtonStatsLastWeek.UseVisualStyleBackColor = false;
+            this.ButtonStatsLastWeek.Click += new System.EventHandler(this.ButtonStatsLastWeek_Click);
+            // 
+            // ButtonStatsThisWeek
+            // 
+            this.ButtonStatsThisWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsThisWeek.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonStatsThisWeek.FlatAppearance.BorderSize = 0;
+            this.ButtonStatsThisWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonStatsThisWeek.ForeColor = System.Drawing.Color.White;
+            this.ButtonStatsThisWeek.Location = new System.Drawing.Point(13, 7);
+            this.ButtonStatsThisWeek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonStatsThisWeek.Name = "ButtonStatsThisWeek";
+            this.ButtonStatsThisWeek.Size = new System.Drawing.Size(100, 28);
+            this.ButtonStatsThisWeek.TabIndex = 5;
+            this.ButtonStatsThisWeek.Text = "This Week";
+            this.ButtonStatsThisWeek.UseVisualStyleBackColor = false;
+            this.ButtonStatsThisWeek.Click += new System.EventHandler(this.ButtonStatsThisWeek_Click);
             // 
             // LabelStatsWeeklyBalance
             // 
             this.LabelStatsWeeklyBalance.AutoSize = true;
             this.LabelStatsWeeklyBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelStatsWeeklyBalance.ForeColor = System.Drawing.Color.White;
-            this.LabelStatsWeeklyBalance.Location = new System.Drawing.Point(15, 130);
+            this.LabelStatsWeeklyBalance.Location = new System.Drawing.Point(8, 197);
             this.LabelStatsWeeklyBalance.Name = "LabelStatsWeeklyBalance";
             this.LabelStatsWeeklyBalance.Size = new System.Drawing.Size(158, 25);
             this.LabelStatsWeeklyBalance.TabIndex = 4;
@@ -556,7 +687,7 @@
             this.LabelStatsFrequentCategory.AutoSize = true;
             this.LabelStatsFrequentCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelStatsFrequentCategory.ForeColor = System.Drawing.Color.White;
-            this.LabelStatsFrequentCategory.Location = new System.Drawing.Point(15, 167);
+            this.LabelStatsFrequentCategory.Location = new System.Drawing.Point(8, 234);
             this.LabelStatsFrequentCategory.Name = "LabelStatsFrequentCategory";
             this.LabelStatsFrequentCategory.Size = new System.Drawing.Size(217, 25);
             this.LabelStatsFrequentCategory.TabIndex = 3;
@@ -567,7 +698,7 @@
             this.LabelStatsWeeklyTransactionAmount.AutoSize = true;
             this.LabelStatsWeeklyTransactionAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelStatsWeeklyTransactionAmount.ForeColor = System.Drawing.Color.White;
-            this.LabelStatsWeeklyTransactionAmount.Location = new System.Drawing.Point(15, 22);
+            this.LabelStatsWeeklyTransactionAmount.Location = new System.Drawing.Point(8, 89);
             this.LabelStatsWeeklyTransactionAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelStatsWeeklyTransactionAmount.Name = "LabelStatsWeeklyTransactionAmount";
             this.LabelStatsWeeklyTransactionAmount.Size = new System.Drawing.Size(253, 25);
@@ -579,7 +710,7 @@
             this.LabelStatsWeeklyIncome.AutoSize = true;
             this.LabelStatsWeeklyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelStatsWeeklyIncome.ForeColor = System.Drawing.Color.White;
-            this.LabelStatsWeeklyIncome.Location = new System.Drawing.Point(15, 56);
+            this.LabelStatsWeeklyIncome.Location = new System.Drawing.Point(8, 123);
             this.LabelStatsWeeklyIncome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelStatsWeeklyIncome.Name = "LabelStatsWeeklyIncome";
             this.LabelStatsWeeklyIncome.Size = new System.Drawing.Size(152, 25);
@@ -591,7 +722,7 @@
             this.LabelStatsWeeklyExpenses.AutoSize = true;
             this.LabelStatsWeeklyExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelStatsWeeklyExpenses.ForeColor = System.Drawing.Color.White;
-            this.LabelStatsWeeklyExpenses.Location = new System.Drawing.Point(15, 92);
+            this.LabelStatsWeeklyExpenses.Location = new System.Drawing.Point(8, 159);
             this.LabelStatsWeeklyExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelStatsWeeklyExpenses.Name = "LabelStatsWeeklyExpenses";
             this.LabelStatsWeeklyExpenses.Size = new System.Drawing.Size(174, 25);
@@ -603,8 +734,9 @@
             this.TabPageFunctions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.TabPageFunctions.Controls.Add(this.PanelFunctions);
             this.TabPageFunctions.Location = new System.Drawing.Point(4, 25);
+            this.TabPageFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPageFunctions.Name = "TabPageFunctions";
-            this.TabPageFunctions.Size = new System.Drawing.Size(579, 442);
+            this.TabPageFunctions.Size = new System.Drawing.Size(582, 442);
             this.TabPageFunctions.TabIndex = 3;
             this.TabPageFunctions.Text = "Functions";
             // 
@@ -612,8 +744,9 @@
             // 
             this.PanelFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelFunctions.Location = new System.Drawing.Point(0, 0);
+            this.PanelFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelFunctions.Name = "PanelFunctions";
-            this.PanelFunctions.Size = new System.Drawing.Size(579, 442);
+            this.PanelFunctions.Size = new System.Drawing.Size(582, 442);
             this.PanelFunctions.TabIndex = 0;
             // 
             // TabPageData
@@ -626,8 +759,9 @@
             this.TabPageData.Controls.Add(this.LabelAmount);
             this.TabPageData.Controls.Add(this.LabelName);
             this.TabPageData.Location = new System.Drawing.Point(4, 25);
+            this.TabPageData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPageData.Name = "TabPageData";
-            this.TabPageData.Size = new System.Drawing.Size(579, 442);
+            this.TabPageData.Size = new System.Drawing.Size(582, 442);
             this.TabPageData.TabIndex = 4;
             this.TabPageData.Text = "Data";
             // 
@@ -636,8 +770,9 @@
             this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
             this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
             this.PictureBoxLogo.Location = new System.Drawing.Point(12, 25);
+            this.PictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxLogo.Name = "PictureBoxLogo";
-            this.PictureBoxLogo.Size = new System.Drawing.Size(37, 40);
+            this.PictureBoxLogo.Size = new System.Drawing.Size(37, 39);
             this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PictureBoxLogo.TabIndex = 17;
             this.PictureBoxLogo.TabStop = false;
@@ -651,6 +786,7 @@
             this.ButtonClean.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ButtonClean.ForeColor = System.Drawing.Color.White;
             this.ButtonClean.Location = new System.Drawing.Point(43, 175);
+            this.ButtonClean.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonClean.Name = "ButtonClean";
             this.ButtonClean.Size = new System.Drawing.Size(132, 34);
             this.ButtonClean.TabIndex = 4;
@@ -663,7 +799,7 @@
             this.LabelDate.AutoSize = true;
             this.LabelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelDate.ForeColor = System.Drawing.Color.White;
-            this.LabelDate.Location = new System.Drawing.Point(56, 125);
+            this.LabelDate.Location = new System.Drawing.Point(56, 126);
             this.LabelDate.Name = "LabelDate";
             this.LabelDate.Size = new System.Drawing.Size(119, 25);
             this.LabelDate.TabIndex = 3;
@@ -721,7 +857,7 @@
             this.FlowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 22);
             this.FlowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FlowLayoutPanelTransactions.Name = "FlowLayoutPanelTransactions";
-            this.FlowLayoutPanelTransactions.Size = new System.Drawing.Size(390, 449);
+            this.FlowLayoutPanelTransactions.Size = new System.Drawing.Size(389, 449);
             this.FlowLayoutPanelTransactions.TabIndex = 5;
             // 
             // ContextMenuStripTransactions
@@ -781,7 +917,7 @@
             this.PanelTabControl.Location = new System.Drawing.Point(349, 36);
             this.PanelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTabControl.Name = "PanelTabControl";
-            this.PanelTabControl.Size = new System.Drawing.Size(587, 471);
+            this.PanelTabControl.Size = new System.Drawing.Size(590, 471);
             this.PanelTabControl.TabIndex = 8;
             // 
             // MainUI
@@ -789,12 +925,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(936, 507);
+            this.ClientSize = new System.Drawing.Size(939, 507);
             this.Controls.Add(this.PanelTabControl);
             this.Controls.Add(this.PanelTransactions);
             this.Controls.Add(this.PanelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(954, 542);
+            this.MinimumSize = new System.Drawing.Size(954, 541);
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget saver app";
@@ -882,5 +1018,14 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsData;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsDelete;
         private System.Windows.Forms.PictureBox PictureBoxLogo;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button ButtonStatsLastWeek;
+        private System.Windows.Forms.Button ButtonStatsThisWeek;
+        private System.Windows.Forms.Button ButtonStatsThisMonth;
+        private System.Windows.Forms.Button ButtonStatsLastMonth;
+        private System.Windows.Forms.Button ButtonStatsAdvancedStats;
+        private System.Windows.Forms.Button ButtonStatsAdvancedShow;
+        private System.Windows.Forms.DateTimePicker DateTimePickerStatsStart;
+        private System.Windows.Forms.DateTimePicker DateTimePickerStatsEnd;
     }
 }

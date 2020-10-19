@@ -1,0 +1,93 @@
+[
+  {
+    "TransactionType": "+",
+    "Amount": 2000.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-10-12T15:25:42.2038334+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 20000.0,
+    "Title": "Lunch",
+    "Category": "Food\r",
+    "Date": "2020-10-12T15:58:37.6347808+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 1000.0,
+    "Title": "Mociutes pensija",
+    "Category": "Household\r",
+    "Date": "2020-10-12T16:26:23.6846254+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 4570.0,
+    "Title": "Teleloto",
+    "Category": "Loterija\r",
+    "Date": "2020-10-12T16:27:32.5401146+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 5000.0,
+    "Title": "sasadsda",
+    "Category": "Household\r",
+    "Date": "2020-10-12T16:29:18.7798163+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 10000.0,
+    "Title": "sadasd",
+    "Category": "Household\r",
+    "Date": "2020-10-12T16:29:31.7886235+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 200.0,
+    "Title": "sdsd",
+    "Category": "Loterija\r",
+    "Date": "2020-10-12T16:30:00.3950945+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 69.0,
+    "Title": "F",
+    "Category": "Loterija\r",
+    "Date": "2020-10-13T23:06:15.3180321+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 7.0,
+    "Title": "h",
+    "Category": "Food\r",
+    "Date": "2020-10-19T00:00:32.4145629+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 5000.0,
+    "Title": "Avarija",
+    "Category": "Work\r",
+    "Date": "2020-10-19T11:00:11.7166338+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 500.0,
+    "Title": "sss",
+    "Category": "Food\r",
+    "Date": "2020-10-19T11:33:53.9001394+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 1020.0,
+    "Title": "WWWW",
+    "Category": "Household\r",
+    "Date": "2020-10-19T11:42:23.0368862+03:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 7.0,
+    "Title": "d",
+    "Category": "Health\r",
+    "Date": "2020-10-19T14:21:20.3463513+03:00"
+  }
+]
