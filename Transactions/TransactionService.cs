@@ -9,7 +9,7 @@ namespace BudgetSaverApp.Transactions
     class TransactionService : ITransactionService
     {
         private List<Transaction> List = new List<Transaction>();
-        
+        public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
             LoadTransactionsListFromTextFile();
@@ -29,6 +29,7 @@ namespace BudgetSaverApp.Transactions
             string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\TransactionsJson.json");
             if (json == null) return;
             List = JsonConvert.DeserializeObject<List<Transaction>>(json);
+            OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
 
         public void SerializeTransactionList()

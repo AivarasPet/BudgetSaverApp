@@ -1,4 +1,6 @@
-﻿using BudgetSaverApp.Possessions;
+﻿using BudgetSaverApp.Goals;
+using BudgetSaverApp.Portfolio;
+using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
 using System;
@@ -20,8 +22,9 @@ namespace BudgetSaverApp
             ITransactionService transactionService = TransactionsFactory.GetTransactionService();
             IPosessionsService posessionsService = PossessionFactory.GetPossessionsService();
             IStatisticsService statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
+            IGoalsService goalsService = GoalsFactory.GetGoalsService(statisticsService);
 
-            Application.Run(new MainUI(transactionService, posessionsService, statisticsService));           
+            Application.Run(new MainUI(transactionService, posessionsService, statisticsService, goalsService));           
         }
     }
 }

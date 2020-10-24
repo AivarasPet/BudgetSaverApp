@@ -94,6 +94,8 @@
             this.PanelSearchBar = new System.Windows.Forms.Panel();
             this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
+            this.LabelProfitMonthly = new System.Windows.Forms.Label();
+            this.LabelDaysToGoForGoal = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
@@ -123,7 +125,7 @@
             this.PanelMainMenu.Controls.Add(this.ButtonAddTransactions);
             this.PanelMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelMainMenu.Location = new System.Drawing.Point(0, 0);
-            this.PanelMainMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelMainMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelMainMenu.Name = "PanelMainMenu";
             this.PanelMainMenu.Size = new System.Drawing.Size(939, 36);
             this.PanelMainMenu.TabIndex = 0;
@@ -134,10 +136,10 @@
             this.ButtonAddSavings.FlatAppearance.BorderSize = 0;
             this.ButtonAddSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddSavings.ForeColor = System.Drawing.SystemColors.Control;
-            this.ButtonAddSavings.Location = new System.Drawing.Point(420, 5);
-            this.ButtonAddSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddSavings.Location = new System.Drawing.Point(315, 4);
+            this.ButtonAddSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonAddSavings.Name = "ButtonAddSavings";
-            this.ButtonAddSavings.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddSavings.Size = new System.Drawing.Size(106, 22);
             this.ButtonAddSavings.TabIndex = 5;
             this.ButtonAddSavings.TabStop = false;
             this.ButtonAddSavings.Text = "Add savings";
@@ -153,7 +155,7 @@
             this.ButtonAddCategory.Location = new System.Drawing.Point(125, 2);
             this.ButtonAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddCategory.Name = "ButtonAddCategory";
-            this.ButtonAddCategory.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddCategory.Size = new System.Drawing.Size(106, 22);
             this.ButtonAddCategory.TabIndex = 4;
             this.ButtonAddCategory.TabStop = false;
             this.ButtonAddCategory.Text = "Add category";
@@ -169,7 +171,7 @@
             this.ButtonAddPortfolioValues.Location = new System.Drawing.Point(273, 2);
             this.ButtonAddPortfolioValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAddPortfolioValues.Name = "ButtonAddPortfolioValues";
-            this.ButtonAddPortfolioValues.Size = new System.Drawing.Size(141, 27);
+            this.ButtonAddPortfolioValues.Size = new System.Drawing.Size(106, 22);
             this.ButtonAddPortfolioValues.TabIndex = 3;
             this.ButtonAddPortfolioValues.TabStop = false;
             this.ButtonAddPortfolioValues.Text = "Add starting values";
@@ -184,9 +186,9 @@
             this.ButtonAddTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddTransactions.ForeColor = System.Drawing.SystemColors.Control;
             this.ButtonAddTransactions.Location = new System.Drawing.Point(0, 2);
-            this.ButtonAddTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAddTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonAddTransactions.Name = "ButtonAddTransactions";
-            this.ButtonAddTransactions.Size = new System.Drawing.Size(120, 27);
+            this.ButtonAddTransactions.Size = new System.Drawing.Size(90, 22);
             this.ButtonAddTransactions.TabIndex = 1;
             this.ButtonAddTransactions.TabStop = false;
             this.ButtonAddTransactions.Text = "Add transaction";
@@ -199,7 +201,7 @@
             this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(27, 2);
             this.TextBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxTransactionSearchBar.Name = "TextBoxTransactionSearchBar";
-            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(323, 15);
+            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(242, 13);
             this.TextBoxTransactionSearchBar.TabIndex = 0;
             this.TextBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.TextBoxTransactionSearchBar_TextChanged);
             // 
@@ -212,7 +214,7 @@
             this.TabControlPortfolio.Controls.Add(this.TabPageData);
             this.TabControlPortfolio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControlPortfolio.Location = new System.Drawing.Point(0, 0);
-            this.TabControlPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabControlPortfolio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabControlPortfolio.Name = "TabControlPortfolio";
             this.TabControlPortfolio.SelectedIndex = 0;
             this.TabControlPortfolio.Size = new System.Drawing.Size(590, 471);
@@ -225,8 +227,8 @@
             this.TabPageSavings.Controls.Add(this.PanelPortfolioButtons);
             this.TabPageSavings.Controls.Add(this.FlowLayoutPanelSavings);
             this.TabPageSavings.Controls.Add(this.PanelLabels);
-            this.TabPageSavings.Location = new System.Drawing.Point(4, 25);
-            this.TabPageSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPageSavings.Location = new System.Drawing.Point(4, 22);
+            this.TabPageSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabPageSavings.Name = "TabPageSavings";
             this.TabPageSavings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPageSavings.Size = new System.Drawing.Size(582, 442);
@@ -244,7 +246,7 @@
             this.PanelPortfolioButtons.Location = new System.Drawing.Point(519, 27);
             this.PanelPortfolioButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelPortfolioButtons.Name = "PanelPortfolioButtons";
-            this.PanelPortfolioButtons.Size = new System.Drawing.Size(60, 413);
+            this.PanelPortfolioButtons.Size = new System.Drawing.Size(45, 333);
             this.PanelPortfolioButtons.TabIndex = 2;
             // 
             // ButtonSelectAll
@@ -255,10 +257,10 @@
             this.ButtonSelectAll.FlatAppearance.BorderSize = 2;
             this.ButtonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectAll.Image")));
-            this.ButtonSelectAll.Location = new System.Drawing.Point(13, 189);
-            this.ButtonSelectAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectAll.Location = new System.Drawing.Point(10, 151);
+            this.ButtonSelectAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonSelectAll.Name = "ButtonSelectAll";
-            this.ButtonSelectAll.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectAll.Size = new System.Drawing.Size(31, 32);
             this.ButtonSelectAll.TabIndex = 3;
             this.ButtonSelectAll.UseVisualStyleBackColor = false;
             this.ButtonSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
@@ -274,7 +276,7 @@
             this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 233);
             this.ButtonSelectCommodities.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSelectCommodities.Name = "ButtonSelectCommodities";
-            this.ButtonSelectCommodities.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCommodities.Size = new System.Drawing.Size(31, 32);
             this.ButtonSelectCommodities.TabIndex = 2;
             this.ButtonSelectCommodities.UseVisualStyleBackColor = false;
             this.ButtonSelectCommodities.Click += new System.EventHandler(this.ButtonSelectCommodities_Click);
@@ -287,10 +289,10 @@
             this.ButtonSelectCrypto.FlatAppearance.BorderSize = 2;
             this.ButtonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectCrypto.Image")));
-            this.ButtonSelectCrypto.Location = new System.Drawing.Point(13, 279);
-            this.ButtonSelectCrypto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectCrypto.Location = new System.Drawing.Point(10, 224);
+            this.ButtonSelectCrypto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonSelectCrypto.Name = "ButtonSelectCrypto";
-            this.ButtonSelectCrypto.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCrypto.Size = new System.Drawing.Size(31, 32);
             this.ButtonSelectCrypto.TabIndex = 1;
             this.ButtonSelectCrypto.UseVisualStyleBackColor = false;
             this.ButtonSelectCrypto.Click += new System.EventHandler(this.ButtonSelectCrypto_Click);
@@ -306,7 +308,7 @@
             this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 324);
             this.ButtonSelectStocks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSelectStocks.Name = "ButtonSelectStocks";
-            this.ButtonSelectStocks.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectStocks.Size = new System.Drawing.Size(31, 32);
             this.ButtonSelectStocks.TabIndex = 0;
             this.ButtonSelectStocks.UseVisualStyleBackColor = false;
             this.ButtonSelectStocks.Click += new System.EventHandler(this.ButtonSelectStocks_Click);
@@ -320,10 +322,10 @@
             this.ButtonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectMoney.Image")));
-            this.ButtonSelectMoney.Location = new System.Drawing.Point(13, 369);
-            this.ButtonSelectMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectMoney.Location = new System.Drawing.Point(10, 297);
+            this.ButtonSelectMoney.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonSelectMoney.Name = "ButtonSelectMoney";
-            this.ButtonSelectMoney.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectMoney.Size = new System.Drawing.Size(31, 32);
             this.ButtonSelectMoney.TabIndex = 4;
             this.ButtonSelectMoney.UseVisualStyleBackColor = false;
             this.ButtonSelectMoney.Click += new System.EventHandler(this.ButtonSelectMoney_Click);
@@ -333,8 +335,8 @@
             this.FlowLayoutPanelSavings.AutoScroll = true;
             this.FlowLayoutPanelSavings.ContextMenuStrip = this.ContextMenuStripSavings;
             this.FlowLayoutPanelSavings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowLayoutPanelSavings.Location = new System.Drawing.Point(3, 27);
-            this.FlowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FlowLayoutPanelSavings.Location = new System.Drawing.Point(2, 22);
+            this.FlowLayoutPanelSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FlowLayoutPanelSavings.Name = "FlowLayoutPanelSavings";
             this.FlowLayoutPanelSavings.Size = new System.Drawing.Size(576, 413);
             this.FlowLayoutPanelSavings.TabIndex = 6;
@@ -389,7 +391,7 @@
             this.LabelTotalValueSavings3.ForeColor = System.Drawing.Color.White;
             this.LabelTotalValueSavings3.Location = new System.Drawing.Point(1267, 2);
             this.LabelTotalValueSavings3.Name = "LabelTotalValueSavings3";
-            this.LabelTotalValueSavings3.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings3.Size = new System.Drawing.Size(69, 15);
             this.LabelTotalValueSavings3.TabIndex = 14;
             this.LabelTotalValueSavings3.Text = "Total value:";
             // 
@@ -399,7 +401,7 @@
             this.LabelAmountSavings3.ForeColor = System.Drawing.Color.White;
             this.LabelAmountSavings3.Location = new System.Drawing.Point(1171, 2);
             this.LabelAmountSavings3.Name = "LabelAmountSavings3";
-            this.LabelAmountSavings3.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings3.Size = new System.Drawing.Size(52, 15);
             this.LabelAmountSavings3.TabIndex = 13;
             this.LabelAmountSavings3.Text = "Amount:";
             // 
@@ -409,7 +411,7 @@
             this.LabelTitleSavings3.ForeColor = System.Drawing.Color.White;
             this.LabelTitleSavings3.Location = new System.Drawing.Point(1031, 2);
             this.LabelTitleSavings3.Name = "LabelTitleSavings3";
-            this.LabelTitleSavings3.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings3.Size = new System.Drawing.Size(36, 15);
             this.LabelTitleSavings3.TabIndex = 12;
             this.LabelTitleSavings3.Text = "Title: ";
             // 
@@ -419,7 +421,7 @@
             this.LabelTotalValueSavings2.ForeColor = System.Drawing.Color.White;
             this.LabelTotalValueSavings2.Location = new System.Drawing.Point(809, 2);
             this.LabelTotalValueSavings2.Name = "LabelTotalValueSavings2";
-            this.LabelTotalValueSavings2.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings2.Size = new System.Drawing.Size(69, 15);
             this.LabelTotalValueSavings2.TabIndex = 11;
             this.LabelTotalValueSavings2.Text = "Total value:";
             // 
@@ -429,7 +431,7 @@
             this.LabelAmountSavings2.ForeColor = System.Drawing.Color.White;
             this.LabelAmountSavings2.Location = new System.Drawing.Point(712, 2);
             this.LabelAmountSavings2.Name = "LabelAmountSavings2";
-            this.LabelAmountSavings2.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings2.Size = new System.Drawing.Size(52, 15);
             this.LabelAmountSavings2.TabIndex = 10;
             this.LabelAmountSavings2.Text = "Amount:";
             // 
@@ -439,7 +441,7 @@
             this.LabelTitleSavings2.ForeColor = System.Drawing.Color.White;
             this.LabelTitleSavings2.Location = new System.Drawing.Point(573, 2);
             this.LabelTitleSavings2.Name = "LabelTitleSavings2";
-            this.LabelTitleSavings2.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings2.Size = new System.Drawing.Size(36, 15);
             this.LabelTitleSavings2.TabIndex = 9;
             this.LabelTitleSavings2.Text = "Title: ";
             // 
@@ -449,7 +451,7 @@
             this.LabelTotalValueSavings1.ForeColor = System.Drawing.Color.White;
             this.LabelTotalValueSavings1.Location = new System.Drawing.Point(359, 2);
             this.LabelTotalValueSavings1.Name = "LabelTotalValueSavings1";
-            this.LabelTotalValueSavings1.Size = new System.Drawing.Size(82, 17);
+            this.LabelTotalValueSavings1.Size = new System.Drawing.Size(69, 15);
             this.LabelTotalValueSavings1.TabIndex = 8;
             this.LabelTotalValueSavings1.Text = "Total value:";
             // 
@@ -459,7 +461,7 @@
             this.LabelAmountSavings1.ForeColor = System.Drawing.Color.White;
             this.LabelAmountSavings1.Location = new System.Drawing.Point(261, 2);
             this.LabelAmountSavings1.Name = "LabelAmountSavings1";
-            this.LabelAmountSavings1.Size = new System.Drawing.Size(60, 17);
+            this.LabelAmountSavings1.Size = new System.Drawing.Size(52, 15);
             this.LabelAmountSavings1.TabIndex = 7;
             this.LabelAmountSavings1.Text = "Amount:";
             // 
@@ -469,31 +471,34 @@
             this.LabelTitleSavings1.ForeColor = System.Drawing.Color.White;
             this.LabelTitleSavings1.Location = new System.Drawing.Point(100, 2);
             this.LabelTitleSavings1.Name = "LabelTitleSavings1";
-            this.LabelTitleSavings1.Size = new System.Drawing.Size(43, 17);
+            this.LabelTitleSavings1.Size = new System.Drawing.Size(36, 15);
             this.LabelTitleSavings1.TabIndex = 3;
             this.LabelTitleSavings1.Text = "Title: ";
             // 
             // TabPagePortfolio
             // 
             this.TabPagePortfolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
+            this.TabPagePortfolio.Controls.Add(this.LabelDaysToGoForGoal);
+            this.TabPagePortfolio.Controls.Add(this.LabelProfitMonthly);
             this.TabPagePortfolio.Controls.Add(this.LabelGoalPrice);
             this.TabPagePortfolio.Controls.Add(this.LabelGoalName);
             this.TabPagePortfolio.Controls.Add(this.LabelMonthlySalary);
             this.TabPagePortfolio.Controls.Add(this.LabelCurrentSavings);
-            this.TabPagePortfolio.Location = new System.Drawing.Point(4, 25);
-            this.TabPagePortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagePortfolio.Location = new System.Drawing.Point(4, 22);
+            this.TabPagePortfolio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabPagePortfolio.Name = "TabPagePortfolio";
             this.TabPagePortfolio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPagePortfolio.Size = new System.Drawing.Size(582, 442);
             this.TabPagePortfolio.TabIndex = 1;
-            this.TabPagePortfolio.Text = "Portfolio";
+            this.TabPagePortfolio.Text = "Goals";
             // 
             // LabelGoalPrice
             // 
             this.LabelGoalPrice.AutoSize = true;
             this.LabelGoalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelGoalPrice.ForeColor = System.Drawing.Color.White;
-            this.LabelGoalPrice.Location = new System.Drawing.Point(25, 59);
+            this.LabelGoalPrice.Location = new System.Drawing.Point(19, 48);
+            this.LabelGoalPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelGoalPrice.Name = "LabelGoalPrice";
             this.LabelGoalPrice.Size = new System.Drawing.Size(122, 25);
             this.LabelGoalPrice.TabIndex = 16;
@@ -504,7 +509,8 @@
             this.LabelGoalName.AutoSize = true;
             this.LabelGoalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelGoalName.ForeColor = System.Drawing.Color.White;
-            this.LabelGoalName.Location = new System.Drawing.Point(25, 23);
+            this.LabelGoalName.Location = new System.Drawing.Point(19, 19);
+            this.LabelGoalName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelGoalName.Name = "LabelGoalName";
             this.LabelGoalName.Size = new System.Drawing.Size(59, 25);
             this.LabelGoalName.TabIndex = 15;
@@ -515,8 +521,7 @@
             this.LabelMonthlySalary.AutoSize = true;
             this.LabelMonthlySalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMonthlySalary.ForeColor = System.Drawing.Color.White;
-            this.LabelMonthlySalary.Location = new System.Drawing.Point(25, 130);
-            this.LabelMonthlySalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelMonthlySalary.Location = new System.Drawing.Point(19, 106);
             this.LabelMonthlySalary.Name = "LabelMonthlySalary";
             this.LabelMonthlySalary.Size = new System.Drawing.Size(160, 25);
             this.LabelMonthlySalary.TabIndex = 14;
@@ -527,8 +532,7 @@
             this.LabelCurrentSavings.AutoSize = true;
             this.LabelCurrentSavings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCurrentSavings.ForeColor = System.Drawing.Color.White;
-            this.LabelCurrentSavings.Location = new System.Drawing.Point(25, 95);
-            this.LabelCurrentSavings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelCurrentSavings.Location = new System.Drawing.Point(19, 77);
             this.LabelCurrentSavings.Name = "LabelCurrentSavings";
             this.LabelCurrentSavings.Size = new System.Drawing.Size(171, 25);
             this.LabelCurrentSavings.TabIndex = 13;
@@ -788,7 +792,7 @@
             this.ButtonClean.Location = new System.Drawing.Point(43, 175);
             this.ButtonClean.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonClean.Name = "ButtonClean";
-            this.ButtonClean.Size = new System.Drawing.Size(132, 34);
+            this.ButtonClean.Size = new System.Drawing.Size(99, 28);
             this.ButtonClean.TabIndex = 4;
             this.ButtonClean.Text = "Clean";
             this.ButtonClean.UseVisualStyleBackColor = false;
@@ -810,7 +814,8 @@
             this.LabelCategory.AutoSize = true;
             this.LabelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelCategory.ForeColor = System.Drawing.Color.White;
-            this.LabelCategory.Location = new System.Drawing.Point(55, 91);
+            this.LabelCategory.Location = new System.Drawing.Point(41, 74);
+            this.LabelCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelCategory.Name = "LabelCategory";
             this.LabelCategory.Size = new System.Drawing.Size(98, 25);
             this.LabelCategory.TabIndex = 2;
@@ -821,7 +826,8 @@
             this.LabelAmount.AutoSize = true;
             this.LabelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelAmount.ForeColor = System.Drawing.Color.White;
-            this.LabelAmount.Location = new System.Drawing.Point(55, 57);
+            this.LabelAmount.Location = new System.Drawing.Point(41, 46);
+            this.LabelAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelAmount.Name = "LabelAmount";
             this.LabelAmount.Size = new System.Drawing.Size(86, 25);
             this.LabelAmount.TabIndex = 1;
@@ -832,7 +838,8 @@
             this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LabelName.ForeColor = System.Drawing.Color.White;
-            this.LabelName.Location = new System.Drawing.Point(56, 25);
+            this.LabelName.Location = new System.Drawing.Point(42, 20);
+            this.LabelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(109, 25);
             this.LabelName.TabIndex = 0;
@@ -843,10 +850,10 @@
             this.PanelTransactions.Controls.Add(this.FlowLayoutPanelTransactions);
             this.PanelTransactions.Controls.Add(this.PanelSearchBar);
             this.PanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelTransactions.Location = new System.Drawing.Point(0, 36);
-            this.PanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTransactions.Location = new System.Drawing.Point(0, 29);
+            this.PanelTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelTransactions.Name = "PanelTransactions";
-            this.PanelTransactions.Size = new System.Drawing.Size(349, 471);
+            this.PanelTransactions.Size = new System.Drawing.Size(262, 383);
             this.PanelTransactions.TabIndex = 6;
             // 
             // FlowLayoutPanelTransactions
@@ -854,8 +861,8 @@
             this.FlowLayoutPanelTransactions.AutoScroll = true;
             this.FlowLayoutPanelTransactions.ContextMenuStrip = this.ContextMenuStripTransactions;
             this.FlowLayoutPanelTransactions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FlowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 22);
-            this.FlowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FlowLayoutPanelTransactions.Location = new System.Drawing.Point(0, 18);
+            this.FlowLayoutPanelTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FlowLayoutPanelTransactions.Name = "FlowLayoutPanelTransactions";
             this.FlowLayoutPanelTransactions.Size = new System.Drawing.Size(389, 449);
             this.FlowLayoutPanelTransactions.TabIndex = 5;
@@ -892,9 +899,9 @@
             this.PanelSearchBar.Controls.Add(this.TextBoxTransactionSearchBar);
             this.PanelSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSearchBar.Location = new System.Drawing.Point(0, 0);
-            this.PanelSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelSearchBar.Name = "PanelSearchBar";
-            this.PanelSearchBar.Size = new System.Drawing.Size(349, 22);
+            this.PanelSearchBar.Size = new System.Drawing.Size(262, 18);
             this.PanelSearchBar.TabIndex = 5;
             // 
             // PictureBoxSearchIcon
@@ -903,9 +910,9 @@
             this.PictureBoxSearchIcon.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__21_;
             this.PictureBoxSearchIcon.ImageLocation = "";
             this.PictureBoxSearchIcon.Location = new System.Drawing.Point(0, 0);
-            this.PictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PictureBoxSearchIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PictureBoxSearchIcon.Name = "PictureBoxSearchIcon";
-            this.PictureBoxSearchIcon.Size = new System.Drawing.Size(25, 22);
+            this.PictureBoxSearchIcon.Size = new System.Drawing.Size(19, 18);
             this.PictureBoxSearchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PictureBoxSearchIcon.TabIndex = 1;
             this.PictureBoxSearchIcon.TabStop = false;
@@ -914,15 +921,37 @@
             // 
             this.PanelTabControl.Controls.Add(this.TabControlPortfolio);
             this.PanelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelTabControl.Location = new System.Drawing.Point(349, 36);
-            this.PanelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTabControl.Location = new System.Drawing.Point(262, 29);
+            this.PanelTabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelTabControl.Name = "PanelTabControl";
             this.PanelTabControl.Size = new System.Drawing.Size(590, 471);
             this.PanelTabControl.TabIndex = 8;
             // 
+            // LabelProfitMonthly
+            // 
+            this.LabelProfitMonthly.AutoSize = true;
+            this.LabelProfitMonthly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelProfitMonthly.ForeColor = System.Drawing.Color.White;
+            this.LabelProfitMonthly.Location = new System.Drawing.Point(19, 140);
+            this.LabelProfitMonthly.Name = "LabelProfitMonthly";
+            this.LabelProfitMonthly.Size = new System.Drawing.Size(104, 25);
+            this.LabelProfitMonthly.TabIndex = 17;
+            this.LabelProfitMonthly.Text = "Daily Profit";
+            // 
+            // LabelDaysToGoForGoal
+            // 
+            this.LabelDaysToGoForGoal.AutoSize = true;
+            this.LabelDaysToGoForGoal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDaysToGoForGoal.ForeColor = System.Drawing.Color.White;
+            this.LabelDaysToGoForGoal.Location = new System.Drawing.Point(19, 174);
+            this.LabelDaysToGoForGoal.Name = "LabelDaysToGoForGoal";
+            this.LabelDaysToGoForGoal.Size = new System.Drawing.Size(100, 25);
+            this.LabelDaysToGoForGoal.TabIndex = 18;
+            this.LabelDaysToGoForGoal.Text = "Days Left:";
+            // 
             // MainUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(939, 507);
@@ -1027,5 +1056,7 @@
         private System.Windows.Forms.Button ButtonStatsAdvancedShow;
         private System.Windows.Forms.DateTimePicker DateTimePickerStatsStart;
         private System.Windows.Forms.DateTimePicker DateTimePickerStatsEnd;
+        private System.Windows.Forms.Label LabelDaysToGoForGoal;
+        private System.Windows.Forms.Label LabelProfitMonthly;
     }
 }

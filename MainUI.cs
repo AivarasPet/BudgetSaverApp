@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using BudgetSaverApp.Goals;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Pricing;
@@ -25,12 +26,14 @@ namespace BudgetSaverApp
         ITransactionService transactionService;
         IPosessionsService possessionsService;
         IStatisticsService statisticsService;
-        public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService)
+        IGoalsService goalsService;
+        public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService, IGoalsService goalService)
         {
-            userData = new UserData();
             this.possessionsService = posessionsService;
             this.transactionService = transactionService;
             this.statisticsService = statisticsService;
+            this.goalsService = goalService;
+            userData = new UserData(goalsService);
             InitializeComponent();
         }
         private void MainUI_Load(object sender, EventArgs e)
@@ -38,8 +41,8 @@ namespace BudgetSaverApp
             LoadTransactionsOnUI(transactionService.GetTransactionsList());
             LoadSavingsOnUI(possessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
-            SetPortfolioInfo();
-            SetDefaultStatsInfo();
+            SetUserInfo();
+            SetStatsInfo();
             CleanTab();
         }
         public delegate void MethodInvoker();
@@ -122,12 +125,14 @@ namespace BudgetSaverApp
         #endregion
 
         #region Portfolio
-        private void SetPortfolioInfo()
+        private void SetUserInfo()
         {
             LabelGoalName.Text = "Goal: " + userData.GoalItemName;
             LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice + " €";
             LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings + " €";
             LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary + " €";
+            LabelProfitMonthly.Text = "Monthly Profit: " + goalsService.GetProfitMonthly();
+            LabelDaysToGoForGoal.Text = "Days To Go: " + goalsService.GetGoalDaysLeft();
         }
         private void ButtonAddPortfolioValues_Click(object sender, EventArgs e)
         {
@@ -137,7 +142,7 @@ namespace BudgetSaverApp
         }
         private void EnterInfoBox_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SetPortfolioInfo();
+            SetUserInfo();
         }
         #endregion
 
