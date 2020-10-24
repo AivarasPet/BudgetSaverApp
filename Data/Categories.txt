@@ -1,4 +1,7 @@
 ﻿Food
 Household
+Lottery
 Health
+Others
+Shopping
 Work

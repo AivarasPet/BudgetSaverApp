@@ -199,7 +199,6 @@
     <Content Include="Data\Categories.txt" />
     <Content Include="Data\ImageLinks.txt" />
     <Content Include="Data\Possessions.txt" />
-    <Content Include="Data\OLD AND USELESSTransactions.txt" />
     <Content Include="Data\UserData.txt" />
     <None Include="Resources\Webp.net-resizeimage %2823%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2821%29.png" />
