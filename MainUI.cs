@@ -42,7 +42,7 @@ namespace BudgetSaverApp
             LoadSavingsOnUI(possessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetUserInfo();
-            SetStatsInfo();
+            SetStatsInfo(new Stats());
             CleanTab();
         }
         public delegate void MethodInvoker();
