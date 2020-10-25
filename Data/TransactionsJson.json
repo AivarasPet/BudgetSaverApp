@@ -54,5 +54,12 @@
     "Title": "Sold old stuff",
     "Category": "Household\r",
     "Date": "2020-10-25T21:46:45.1061975+02:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 50.0,
+    "Title": "Stuff",
+    "Category": "N/A",
+    "Date": "2020-10-25T23:17:39.9862287+02:00"
   }
 ]

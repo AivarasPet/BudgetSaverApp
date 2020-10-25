@@ -8,6 +8,6 @@ namespace BudgetSaverApp
         public List<Transaction> GetListWithTitleFiltered(string filter);
         public void LoadTransactionsListFromTextFile();
         public List<Transaction> GetTransactionsList();
-        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category);
+        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A");
     }
 }

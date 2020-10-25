@@ -17,7 +17,14 @@ namespace BudgetSaverApp
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            transactionService.AddNewTransaction(ComboBoxTransactionType.Text, TextBoxTitleName.Text, TextBoxTransactionAmount.Text, ComboBoxTransactionCategory.Text);               
+            if(ComboBoxTransactionCategory.Text == "")
+            {
+                transactionService.AddNewTransaction(transactionType: ComboBoxTransactionType.Text, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
+            }
+            else
+            {
+                transactionService.AddNewTransaction(category: ComboBoxTransactionCategory.Text, transactionType: ComboBoxTransactionType.Text, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
+            }
             Close();
         }
 
