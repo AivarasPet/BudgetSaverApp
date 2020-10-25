@@ -50,9 +50,6 @@ namespace BudgetSaverApp
             bool isPriceValid = Regex.IsMatch(TextBoxGoalItemPrice.Text, numberPattern);
             bool isSavingsValid = Regex.IsMatch(TextBoxSavings.Text, numberPattern);
             bool isSalaryValid = Regex.IsMatch(TextBoxMonthlySalary.Text, numberPattern);
-            //if (!isPriceValid) { return; }
-            //if (!isSavingsValid) { return; }
-            //if (!isSalaryValid) { return; }
             if (!isPriceValid || !isSavingsValid || !isSalaryValid) { return; }
             // Writes input values into UserData.txt   
             userData.SetAll(TextBoxGoalItemName.Text, float.Parse(TextBoxGoalItemPrice.Text), float.Parse(TextBoxSavings.Text), float.Parse(TextBoxMonthlySalary.Text));
