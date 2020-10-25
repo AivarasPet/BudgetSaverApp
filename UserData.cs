@@ -1,5 +1,4 @@
 ﻿using BudgetSaverApp.Goals;
-using BudgetSaverApp.Portfolio;
 using System.IO;
 
 namespace BudgetSaverApp
@@ -26,7 +25,9 @@ namespace BudgetSaverApp
             MonthlySalary = salary;
         }
 
-        //IO
+        /// <summary>
+        /// Saves user data to Data\UserData.txt.
+        /// </summary>
         public void SaveToFile()
         {
             StreamWriter writer = new StreamWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
@@ -36,7 +37,9 @@ namespace BudgetSaverApp
             writer.WriteLine(GoalItemPrice);
             writer.Close();
         }
-
+        /// <summary>
+        /// Reads data from Data\UserData.txt and saves it to variables.
+        /// </summary>
         public void ReadFromFile()
         {
             TextFileReader textFileReader = new TextFileReader();
@@ -49,7 +52,5 @@ namespace BudgetSaverApp
             GoalsService.SetMainGoalName(GoalItemName);
             GoalsService.SetMainGoalPrice(GoalItemPrice);
         }
-
-
     }
 }

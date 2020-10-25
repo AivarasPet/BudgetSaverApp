@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Channels;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using BudgetSaverApp.Goals;
-using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Pricing;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
-using static BudgetSaverApp.Pricing.APIFetcher;
 
 namespace BudgetSaverApp
 {
+    /// <summary>
+    /// The main program window.
+    /// </summary>
     public partial class MainUI : Form
     {
         private object sender;
@@ -60,6 +55,10 @@ namespace BudgetSaverApp
         }
 
         private Form activeForm = null;
+        /// <summary>
+        /// Opens a child form in the Functions tab.
+        /// </summary>
+        /// <param name="childForm">The form window to be opened.</param>
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null) { activeForm.Close(); }
@@ -75,6 +74,10 @@ namespace BudgetSaverApp
         }
 
         #region Transactions
+        /// <summary>
+        /// Loads the transaction list on the MainUI window.
+        /// </summary>
+        /// <param name="list">List of transactions.</param>
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
             FlowLayoutPanelTransactions.Controls.Clear();
@@ -125,6 +128,9 @@ namespace BudgetSaverApp
         #endregion
 
         #region Portfolio
+        /// <summary>
+        /// Loads data in the Goals tab.
+        /// </summary>
         private void SetUserInfo()
         {
             LabelGoalName.Text = "Goal: " + userData.GoalItemName;
@@ -157,6 +163,10 @@ namespace BudgetSaverApp
         {
             LoadSavingsOnUI(possessionsService.GetPossessionsList());
         }
+        /// <summary>
+        /// Loads the possession list in the Savings tab.
+        /// </summary>
+        /// <param name="possessions">List of possessions.</param>
         private void LoadSavingsOnUI(List<Possession> possessions)
         {
             FlowLayoutPanelSavings.Controls.Clear();
@@ -219,7 +229,10 @@ namespace BudgetSaverApp
         {
             SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now));
         }
-
+        /// <summary>
+        /// Loads data in the Stats tab.
+        /// </summary>
+        /// <param name="stats"></param>
         private void SetStatsInfo(Stats stats)
         {
             
@@ -332,9 +345,6 @@ namespace BudgetSaverApp
             PictureBoxLogo.Visible = false;
             TabControlPortfolio.SelectTab(0);
         }
-
-
-
 
         #endregion
     }

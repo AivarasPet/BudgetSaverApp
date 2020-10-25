@@ -1,6 +1,5 @@
 ﻿using BudgetSaverApp.Goals;
 using BudgetSaverApp.Statistics;
-using BudgetSaverApp.Transactions;
 using System;
 
 namespace BudgetSaverApp.Portfolio

@@ -45,7 +45,6 @@ namespace BudgetSaverApp.Pricing
             });
         }
 
-
         private static void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
         {
             Console.WriteLine(e.data);

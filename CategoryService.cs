@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.IO;
 
 namespace BudgetSaverApp
 {
@@ -18,6 +13,10 @@ namespace BudgetSaverApp
             return _singleton;
         }
 
+        /// <summary>
+        /// Returns a string array of transaction categories from Data\Categories.txt.
+        /// </summary>
+        /// <returns></returns>
         public string[] GetCategories()
         {
             TextFileReader reader = new TextFileReader();
@@ -33,6 +32,10 @@ namespace BudgetSaverApp
             return categories;
         }
 
+        /// <summary>
+        /// Adds a transaction category to Data\Categories.txt.
+        /// </summary>
+        /// <param name="categoryName">Name of the new category.</param>
         public void AddCategory(string categoryName)
         {
             if (categoryName == null) return;
