@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Statistics
 {
@@ -14,7 +12,12 @@ namespace BudgetSaverApp.Statistics
         {
             this.transactionService = transactionService;
         }
-
+        /// <summary>
+        /// Returns an instance of Stats with statistics.
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
         public Stats GetStatistic(DateTime startDate, DateTime endDate)
         {
             Stats stats = new Stats();

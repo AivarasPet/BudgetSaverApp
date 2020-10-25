@@ -19,7 +19,6 @@ namespace BudgetSaverApp.Possessions
         {
             return list;
         }
-
      
         public void LoadPossessionsList() {
             list.Clear();
@@ -54,9 +53,5 @@ namespace BudgetSaverApp.Possessions
 
             APIFetcher.RunAllDownloadsAsync();
         }
-
-      
-
-
     }
 }

@@ -26,7 +26,6 @@ namespace BudgetSaverApp
 
         protected virtual void OnHttpRequestCompleted(string text)
         {
-            
             if (HttpRequestCompleted != null)
                 HttpRequestCompleted(this, new MyEventArgs { data = text });
         }

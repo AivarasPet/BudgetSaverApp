@@ -1,5 +1,4 @@
 ﻿using BudgetSaverApp.Goals;
-using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
