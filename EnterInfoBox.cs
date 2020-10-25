@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace BudgetSaverApp
 {
@@ -45,14 +46,16 @@ namespace BudgetSaverApp
         private void InfoBoxConfirm_Click(object sender, EventArgs e)
         {
             // Checks whether input values are numbers
-            float price, savings, salary;
-            bool valuesAreNumbers = float.TryParse(TextBoxGoalItemPrice.Text, out price) &
-                                    float.TryParse(TextBoxSavings.Text, out savings) &
-                                    float.TryParse(TextBoxMonthlySalary.Text, out salary);
-            if (!valuesAreNumbers)
-                return;
-            // Writes input values into UserData.txt
-            userData.SetAll(TextBoxGoalItemName.Text, price, savings, salary);                
+            string numberPattern = @"(^\d*\.?\d*[1-9]+\d*$)|(^[1-9]+\d*\.\d*$)";
+            bool isPriceValid = Regex.IsMatch(TextBoxGoalItemPrice.Text, numberPattern);
+            bool isSavingsValid = Regex.IsMatch(TextBoxSavings.Text, numberPattern);
+            bool isSalaryValid = Regex.IsMatch(TextBoxMonthlySalary.Text, numberPattern);
+            //if (!isPriceValid) { return; }
+            //if (!isSavingsValid) { return; }
+            //if (!isSalaryValid) { return; }
+            if (!isPriceValid || !isSavingsValid || !isSalaryValid) { return; }
+            // Writes input values into UserData.txt   
+            userData.SetAll(TextBoxGoalItemName.Text, float.Parse(TextBoxGoalItemPrice.Text), float.Parse(TextBoxSavings.Text), float.Parse(TextBoxMonthlySalary.Text));
             userData.SaveToFile();
             Close();
         }
