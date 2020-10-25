@@ -131,8 +131,8 @@ namespace BudgetSaverApp
             LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice + " €";
             LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings + " €";
             LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary + " €";
-            LabelProfitMonthly.Text = "Monthly Profit: " + goalsService.GetProfitMonthly();
-            LabelDaysToGoForGoal.Text = "Days To Go: " + goalsService.GetGoalDaysLeft();
+            LabelProfitMonthly.Text = "Monthly profit: " + goalsService.GetProfitMonthly() + " €";
+            LabelDaysToGoForGoal.Text = "Days left until the goal is reached: " + goalsService.GetGoalDaysLeft();
         }
         private void ButtonAddPortfolioValues_Click(object sender, EventArgs e)
         {
@@ -335,8 +335,7 @@ namespace BudgetSaverApp
 
 
 
-        #endregion
 
-        
+        #endregion
     }
 }
