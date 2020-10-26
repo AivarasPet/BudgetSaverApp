@@ -1,9 +1,11 @@
 ﻿using BudgetSaverApp.Goals;
+using BudgetSaverApp.Portfolio;
+using BudgetSaverApp.UserData;
 using System.IO;
 
 namespace BudgetSaverApp
 {
-    public class UserData
+    class UserDataService : IUserDataService
     {
         public float GoalItemPrice { get; set; }
         public float CurrentSavings { get; set; }
@@ -11,7 +13,7 @@ namespace BudgetSaverApp
         public string GoalItemName { get; set; }
 
         IGoalsService GoalsService;
-        public UserData(IGoalsService goalsService)
+        public UserDataService(IGoalsService goalsService)
         {
             this.GoalsService = goalsService;
             ReadFromFile();
@@ -51,6 +53,26 @@ namespace BudgetSaverApp
             GoalItemPrice = float.Parse(data[3]);
             GoalsService.SetMainGoalName(GoalItemName);
             GoalsService.SetMainGoalPrice(GoalItemPrice);
+        }
+
+        public float GetGoalItemPrice()
+        {
+            return GoalItemPrice;
+        }
+
+        public float GetCurrentSavings()
+        {
+            return CurrentSavings;
+        }
+
+        public float GetMonthlySalary()
+        {
+            return MonthlySalary;
+        }
+
+        public string GetGoalItemName()
+        {
+            return GoalItemName;
         }
     }
 }

@@ -17,13 +17,8 @@ namespace BudgetSaverApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            ITransactionService transactionService = TransactionsFactory.GetTransactionService();
-            IPosessionsService posessionsService = PossessionFactory.GetPossessionsService();
-            IStatisticsService statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
-            IGoalsService goalsService = GoalsFactory.GetGoalsService(statisticsService);
-
-            Application.Run(new MainUI(transactionService, posessionsService, statisticsService, goalsService));           
+            ServiceManager serviceManager = new ServiceManager();
+            Application.Run(new MainUI(serviceManager));           
         }
     }
 }

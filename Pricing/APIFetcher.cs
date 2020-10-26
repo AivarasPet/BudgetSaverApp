@@ -9,13 +9,13 @@ namespace BudgetSaverApp.Pricing
         //public delegate void APIFetcherEventHandler(object source, EventArgs args);
         public static event EventHandler AllAPIsDownloaded = delegate { };
 
-        class TaskEntity
+        struct ApiTaskEntity
         {
             public string url { set; get; }
-            public IApiCallback obj;
+            public IApiCallback ocjectThatNeedApiCallback;
         }
 
-        private static List<TaskEntity> taskEntities = new List<TaskEntity>();
+        private static List<ApiTaskEntity> taskEntities = new List<ApiTaskEntity>();
         private static List<Task> tasks = new List<Task>();
 
         private static async Task<string> DownloadAPIAsync(string url)
@@ -27,21 +27,21 @@ namespace BudgetSaverApp.Pricing
 
         public static async Task RunAllDownloadsAsync()
         {
-            foreach(TaskEntity e in taskEntities)
+            foreach(ApiTaskEntity e in taskEntities)
             {
-                tasks.Add((Task.Run(async () =>  e.obj.OnAPIDownload(await DownloadAPIAsync(e.url)))));
+                tasks.Add((Task.Run(async () =>  e.ocjectThatNeedApiCallback.OnAPIDownload(await DownloadAPIAsync(e.url)))));
             }
 
             await Task.WhenAll(tasks);
             AllAPIsDownloaded(null, EventArgs.Empty);
         }
 
-        public static void AddDownloadEntity(string url, IApiCallback obj)
+        public static void AddDownloadEntity(string url, IApiCallback callback)
         {
-            taskEntities.Add(new TaskEntity
+            taskEntities.Add(new ApiTaskEntity
             {
                 url = url,
-                obj = obj
+                ocjectThatNeedApiCallback = callback
             });
         }
 

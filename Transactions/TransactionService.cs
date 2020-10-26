@@ -9,11 +9,17 @@ namespace BudgetSaverApp.Transactions
     class TransactionService : ITransactionService
     {
         private List<Transaction> List = new List<Transaction>();
+
+        public List<Transaction> this[DateTime index] {
+            get => GetListWithACertainDate(index);
+        }
+
         public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
             LoadTransactionsListFromTextFile();
         }
+
 
         public List<Transaction> GetListWithTitleFiltered(string filter)
         {
@@ -61,7 +67,10 @@ namespace BudgetSaverApp.Transactions
             }
         }
 
-        
+        private List<Transaction> GetListWithACertainDate(DateTime date)
+        {
+            return List.Where(oh => oh.Date.Equals(date.Date)).ToList(); ;
+        }
     }
 }
 

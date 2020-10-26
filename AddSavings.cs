@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BudgetSaverApp.UserData;
+using System;
 using System.Windows.Forms;
 
 namespace BudgetSaverApp
 {
     public partial class AddSavings : Form
     {
-        public AddSavings(UserData userData)
+        public AddSavings(IUserDataService userData)
         {
             InitializeComponent();
         }
