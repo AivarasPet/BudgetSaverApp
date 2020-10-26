@@ -50,12 +50,10 @@ namespace BudgetSaverApp.Transactions
             return List ?? null;
         }
 
-        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category)
+        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A")
         {
             if (transactionType != "" && transactionName != "" && transactionAmount != "")
             {
-                if (category == "") { category = "Default"; }
-
                 // Checks whether transaction amount is a number
                 float transAmount;
                 if (!float.TryParse(transactionAmount, out transAmount))
