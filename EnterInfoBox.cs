@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetSaverApp.UserData;
+using System;
 using System.Windows.Forms;
 
 namespace BudgetSaverApp
@@ -6,8 +7,8 @@ namespace BudgetSaverApp
     public partial class EnterInfoBox : Form
     {
 
-        UserData userData;
-        public EnterInfoBox(UserData userData)
+        IUserDataService userData;
+        public EnterInfoBox(IUserDataService userData)
         {
             this.userData = userData;
             InitializeComponent();

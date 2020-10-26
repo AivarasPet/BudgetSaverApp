@@ -18,6 +18,8 @@ namespace BudgetSaverApp
             return _singleton;
         }
 
+      
+
         public string[] GetCategories()
         {
             TextFileReader reader = new TextFileReader();

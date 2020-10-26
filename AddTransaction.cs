@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BudgetSaverApp.Transactions;
+using BudgetSaverApp.UserData;
 
 namespace BudgetSaverApp
 {
     public partial class AddTransaction : Form
     {
-        UserData userData;
+        IUserDataService userData;
         ITransactionService transactionService;
-        public AddTransaction(UserData userData, ITransactionService transactionService)
+        public AddTransaction(IUserDataService userData, ITransactionService transactionService)
         {
             this.transactionService = transactionService; 
             this.userData = userData;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -7,7 +8,10 @@ namespace BudgetSaverApp.Possessions
 
         public void OnAPIDownload(string APIData)
         {
-            throw new NotImplementedException();
+            JObject jObject = JObject.Parse(APIData);
+            var price = jObject["c"];
+
+            this.ValueInDollars = Amount * float.Parse(price.ToString());
         }
     }
 }

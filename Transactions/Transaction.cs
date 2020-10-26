@@ -2,7 +2,7 @@
 
 namespace BudgetSaverApp.Transactions
 {
-    public class Transaction
+    public class Transaction : IComparable<Transaction>
     {
         public string TransactionType { get; }
         public float Amount { get; }
@@ -17,6 +17,13 @@ namespace BudgetSaverApp.Transactions
             this.Title = title;
             this.Category = category;
             this.Date = date;
+        }
+
+        public int CompareTo(Transaction other)
+        {
+            if (this.Date > other.Date) return 1;
+            else if (this.Date < other.Date) return -1;
+            else return 0;
         }
     }
 }

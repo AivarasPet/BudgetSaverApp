@@ -8,24 +8,24 @@ namespace BudgetSaverApp.Portfolio
     class GoalsService : IGoalsService
     {
         IStatisticsService StatisticsService;
-        Stats StatsRecent30Days;
         string _MainGoalName;
         float _MainGoalPrice;
 
         public GoalsService(IStatisticsService StatisticsService )
         {
             this.StatisticsService = StatisticsService;
-            StatsRecent30Days = StatsRecent30Days = this.StatisticsService.GetStatistic(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now);
+            
         }
 
         public float GetProfitMonthly()
         {
+            Stats StatsRecent30Days = this.StatisticsService.GetStatistic(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now);
             return StatsRecent30Days.Income - StatsRecent30Days.Expenses;
         }
 
         public int GetGoalDaysLeft()
         {
-            return (int)(_MainGoalPrice / (GetProfitMonthly() / 30));
+            return (int)(_MainGoalPrice / (GetProfitMonthly().Daily()));
         }
 
         public string MainGoalName()

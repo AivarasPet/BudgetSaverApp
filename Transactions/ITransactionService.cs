@@ -13,5 +13,10 @@ namespace BudgetSaverApp
         public void LoadTransactionsListFromTextFile();
         public List<Transaction> GetTransactionsList();
         public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category);
+
+        List<Transaction> this[DateTime index]
+        {
+            get;
+        }
     }
 }

@@ -591,7 +591,7 @@
             this.TabPageStats.Margin = new System.Windows.Forms.Padding(5);
             this.TabPageStats.Name = "TabPageStats";
             this.TabPageStats.Padding = new System.Windows.Forms.Padding(5);
-            this.TabPageStats.Size = new System.Drawing.Size(794, 580);
+            this.TabPageStats.Size = new System.Drawing.Size(559, 580);
             this.TabPageStats.TabIndex = 2;
             this.TabPageStats.Text = "Stats";
             // 
@@ -775,7 +775,7 @@
             this.TabPageFunctions.Location = new System.Drawing.Point(4, 25);
             this.TabPageFunctions.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TabPageFunctions.Name = "TabPageFunctions";
-            this.TabPageFunctions.Size = new System.Drawing.Size(794, 580);
+            this.TabPageFunctions.Size = new System.Drawing.Size(559, 580);
             this.TabPageFunctions.TabIndex = 3;
             this.TabPageFunctions.Text = "Functions";
             // 
@@ -785,7 +785,7 @@
             this.PanelFunctions.Location = new System.Drawing.Point(0, 0);
             this.PanelFunctions.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.PanelFunctions.Name = "PanelFunctions";
-            this.PanelFunctions.Size = new System.Drawing.Size(794, 580);
+            this.PanelFunctions.Size = new System.Drawing.Size(559, 580);
             this.PanelFunctions.TabIndex = 0;
             // 
             // TabPageData
@@ -800,7 +800,7 @@
             this.TabPageData.Location = new System.Drawing.Point(4, 25);
             this.TabPageData.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TabPageData.Name = "TabPageData";
-            this.TabPageData.Size = new System.Drawing.Size(772, 580);
+            this.TabPageData.Size = new System.Drawing.Size(559, 580);
             this.TabPageData.TabIndex = 4;
             this.TabPageData.Text = "Data";
             // 
@@ -969,6 +969,7 @@
             this.Controls.Add(this.PanelTabControl);
             this.Controls.Add(this.PanelTransactions);
             this.Controls.Add(this.PanelMainMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MinimumSize = new System.Drawing.Size(934, 700);
             this.Name = "MainUI";

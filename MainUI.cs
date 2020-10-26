@@ -15,6 +15,7 @@ using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Pricing;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
+using BudgetSaverApp.UserData;
 using static BudgetSaverApp.Pricing.APIFetcher;
 
 namespace BudgetSaverApp
@@ -22,18 +23,18 @@ namespace BudgetSaverApp
     public partial class MainUI : Form
     {
         private object sender;
-        UserData userData;
         ITransactionService transactionService;
         IPosessionsService possessionsService;
         IStatisticsService statisticsService;
         IGoalsService goalsService;
-        public MainUI(ITransactionService transactionService, IPosessionsService posessionsService, IStatisticsService statisticsService, IGoalsService goalService)
+        IUserDataService userDataService;
+        public MainUI(ServiceManager serviceManager)
         {
-            this.possessionsService = posessionsService;
-            this.transactionService = transactionService;
-            this.statisticsService = statisticsService;
-            this.goalsService = goalService;
-            userData = new UserData(goalsService);
+            this.possessionsService = serviceManager.posessionsService;
+            this.transactionService = serviceManager.transactionService;
+            this.statisticsService = serviceManager.statisticsService;
+            this.goalsService = serviceManager.goalsService;
+            this.userDataService = serviceManager.userDataService;
             InitializeComponent();
         }
         private void MainUI_Load(object sender, EventArgs e)
@@ -78,7 +79,6 @@ namespace BudgetSaverApp
         private void LoadTransactionsOnUI(List<Transaction> list)
         {
             FlowLayoutPanelTransactions.Controls.Clear();
-            Console.WriteLine("search " + list.Count);
             foreach (Transaction t in list)
             {
                 if (t == null)
@@ -107,7 +107,7 @@ namespace BudgetSaverApp
 
         private void ButtonAddTransactions_Click(object sender, EventArgs e)
         {
-            var AddTransaction = new AddTransaction(userData, transactionService);
+            var AddTransaction = new AddTransaction(userDataService, transactionService);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             OpenChildForm(AddTransaction);
         }
@@ -127,16 +127,16 @@ namespace BudgetSaverApp
         #region Portfolio
         private void SetUserInfo()
         {
-            LabelGoalName.Text = "Goal: " + userData.GoalItemName;
-            LabelGoalPrice.Text = "Goal Price: " + userData.GoalItemPrice + " €";
-            LabelCurrentSavings.Text = "Current savings: " + userData.CurrentSavings + " €";
-            LabelMonthlySalary.Text = "Monthly salary: " + userData.MonthlySalary + " €";
+            LabelGoalName.Text = "Goal: " + userDataService.GetGoalItemName();
+            LabelGoalPrice.Text = "Goal Price: " + userDataService.GetGoalItemPrice() + " €";
+            LabelCurrentSavings.Text = "Current savings: " + userDataService.GetCurrentSavings() + " €";
+            LabelMonthlySalary.Text = "Monthly salary: " + userDataService.GetMonthlySalary() + " €";
             LabelProfitMonthly.Text = "Monthly profit: " + goalsService.GetProfitMonthly() + " €";
             LabelDaysToGoForGoal.Text = "Days left until the goal is reached: " + goalsService.GetGoalDaysLeft();
         }
         private void ButtonAddPortfolioValues_Click(object sender, EventArgs e)
         {
-            var EnterInfoBoxInstance = new EnterInfoBox(userData);
+            var EnterInfoBoxInstance = new EnterInfoBox(userDataService);
             EnterInfoBoxInstance.FormClosed += EnterInfoBox_FormClosed;
             OpenChildForm(EnterInfoBoxInstance);
         }
@@ -149,7 +149,7 @@ namespace BudgetSaverApp
         #region Savings
         private void ButtonAddSavings_Click(object sender, EventArgs e)
         {
-            var AddSavings = new AddSavings(userData);
+            var AddSavings = new AddSavings(userDataService);
             AddSavings.FormClosed += AddSavings_FormClosed;
             OpenChildForm(AddSavings);
         }

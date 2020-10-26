@@ -92,12 +92,14 @@
     <Compile Include="EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtensionMethod.cs" />
     <Compile Include="Goals\GoalsFactory.cs" />
     <Compile Include="Goals\IGoalsService.cs" />
     <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
     <Compile Include="Possessions\PossessionFactory.cs" />
+    <Compile Include="ServiceManager.cs" />
     <Compile Include="Statistics\IStatisticsService.cs" />
     <Compile Include="Statistics\StatisticsFactory.cs" />
     <Compile Include="Transactions\ITransactionService.cs" />
@@ -136,7 +138,9 @@
     <Compile Include="Transactions\Transaction.cs" />
     <Compile Include="Transactions\TransactionService.cs" />
     <Compile Include="Transactions\TransactionsFactory.cs" />
-    <Compile Include="UserData.cs" />
+    <Compile Include="UserData\IUserDataService.cs" />
+    <Compile Include="UserData\UserDataService.cs" />
+    <Compile Include="UserData\UserDataFactory.cs" />
     <EmbeddedResource Include="AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
