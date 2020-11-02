@@ -299,7 +299,7 @@ namespace BudgetSaverApp
             List<Transaction> list = transactionService.GetTransactionsList();
             foreach (Control o in FlowLayoutPanelTransactions.Controls.OfType<ListItemTransactions>().ToList())
             {
-                if (o.GetHashCode() == this.sender.GetHashCode())
+                if (this.sender != null && o.GetHashCode() == this.sender.GetHashCode())
                 {
                     TabControlPortfolio.SelectTab(4);
                     LabelName.Text = "Transaction: " + list[i].Title;
