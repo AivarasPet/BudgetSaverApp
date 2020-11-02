@@ -348,5 +348,15 @@ namespace BudgetSaverApp
         }
 
         #endregion
+
+        private void ButtonPopularTransactions_Click(object sender, EventArgs e)
+        {
+            string toShow = "";
+            foreach(Tuple<Transaction, int> tuple in transactionService.GetTuples())
+            {
+                toShow += tuple.Item1.Title + " $" + tuple.Item1.Amount + " x" + tuple.Item2.ToString() + "\n";
+            }
+            MessageBox.Show(toShow);
+        }
     }
 }

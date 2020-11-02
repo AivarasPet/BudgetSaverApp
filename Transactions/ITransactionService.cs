@@ -11,6 +11,7 @@ namespace BudgetSaverApp
         public List<Transaction> GetTransactionsList();
         public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A");
 
+        public List<Tuple<Transaction, int>> GetTuples();
         List<Transaction> this[DateTime index]
         {
             get;

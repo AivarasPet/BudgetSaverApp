@@ -2,7 +2,7 @@
 
 namespace BudgetSaverApp.Transactions
 {
-    public class Transaction : IComparable<Transaction>
+    public class Transaction : IComparable<Transaction>, IEquatable<Transaction>, ICloneable
     {
         public string TransactionType { get; }
         public float Amount { get; }
@@ -23,7 +23,18 @@ namespace BudgetSaverApp.Transactions
         {
             if (this.Date > other.Date) return 1;
             else if (this.Date < other.Date) return -1;
-            else return 0;
+            else return 0;  
+        }
+
+        public bool Equals(Transaction other)
+        {
+            if(Title == other.Title && Category == other.Category) return true;
+            return false;
+        }
+
+        public object Clone()
+        {
+            return new Transaction(TransactionType, Amount, Title, Category, Date);
         }
     }
 }

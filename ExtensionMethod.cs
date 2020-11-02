@@ -13,6 +13,9 @@ namespace BudgetSaverApp
             return (float)(Math.Truncate(100 * (f / 30)) / 100);
         }
 
-
+        public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
+        }
     }
 }

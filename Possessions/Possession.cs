@@ -2,7 +2,7 @@
 
 namespace BudgetSaverApp.Possessions
 {
-    public abstract class Possession
+    public abstract class Possession 
     {
         public string Name { get; set; }
         public float Amount {get; set;}

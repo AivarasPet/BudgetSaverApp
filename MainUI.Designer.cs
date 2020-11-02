@@ -97,6 +97,7 @@
             this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ButtonPopularTransactions = new System.Windows.Forms.Button();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
             this.TabPageSavings.SuspendLayout();
@@ -119,6 +120,7 @@
             // 
             this.PanelMainMenu.AutoScroll = true;
             this.PanelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.PanelMainMenu.Controls.Add(this.ButtonPopularTransactions);
             this.PanelMainMenu.Controls.Add(this.ButtonAddSavings);
             this.PanelMainMenu.Controls.Add(this.ButtonAddCategory);
             this.PanelMainMenu.Controls.Add(this.ButtonAddPortfolioValues);
@@ -960,6 +962,22 @@
             this.PanelTabControl.Size = new System.Drawing.Size(567, 609);
             this.PanelTabControl.TabIndex = 8;
             // 
+            // ButtonPopularTransactions
+            // 
+            this.ButtonPopularTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ButtonPopularTransactions.FlatAppearance.BorderSize = 0;
+            this.ButtonPopularTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonPopularTransactions.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonPopularTransactions.Location = new System.Drawing.Point(574, 9);
+            this.ButtonPopularTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonPopularTransactions.Name = "ButtonPopularTransactions";
+            this.ButtonPopularTransactions.Size = new System.Drawing.Size(184, 27);
+            this.ButtonPopularTransactions.TabIndex = 6;
+            this.ButtonPopularTransactions.TabStop = false;
+            this.ButtonPopularTransactions.Text = "Popular Transactions";
+            this.ButtonPopularTransactions.UseVisualStyleBackColor = false;
+            this.ButtonPopularTransactions.Click += new System.EventHandler(this.ButtonPopularTransactions_Click);
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1070,5 +1088,6 @@
         private System.Windows.Forms.DateTimePicker DateTimePickerStatsEnd;
         private System.Windows.Forms.Label LabelDaysToGoForGoal;
         private System.Windows.Forms.Label LabelProfitMonthly;
+        private System.Windows.Forms.Button ButtonPopularTransactions;
     }
 }

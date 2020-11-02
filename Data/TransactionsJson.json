@@ -7,6 +7,13 @@
     "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {
+    "TransactionType": "+",
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-10-12T15:25:42.2038334+03:00"
+  },
+  {
     "TransactionType": "-",
     "Amount": 20.0,
     "Title": "Lunch",
