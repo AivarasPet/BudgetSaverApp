@@ -97,6 +97,7 @@
     <Compile Include="Goals\IGoalsService.cs" />
     <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
+    <Compile Include="Possessions\CustomJsonConverter.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
     <Compile Include="Possessions\PossessionFactory.cs" />
     <Compile Include="ServiceManager.cs" />
@@ -202,7 +203,7 @@
   <ItemGroup>
     <Content Include="Data\Categories.txt" />
     <Content Include="Data\ImageLinks.txt" />
-    <Content Include="Data\Possessions.txt" />
+    <None Include="Data\Possessions.json" />
     <Content Include="Data\UserData.txt" />
     <None Include="Resources\Webp.net-resizeimage %2823%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2821%29.png" />

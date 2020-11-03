@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace BudgetSaverApp.Possessions
 {
+    [JsonConverter(typeof(BaseConverter))]
     public abstract class Possession
     {
         public string Name { get; set; }

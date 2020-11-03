@@ -3,9 +3,13 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using BudgetSaverApp.Pricing;
+using System.IO;
+
+
 
 namespace BudgetSaverApp.Possessions
 {
+    
     class PossessionsService : IPosessionsService
     {
         List<Possession> list = new List<Possession>();
@@ -17,40 +21,22 @@ namespace BudgetSaverApp.Possessions
 
         public List<Possession> GetPossessionsList()
         {
-            return list;
+            return list ?? null;
         }
      
         public void LoadPossessionsList() {
+            
             list.Clear();
-            TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");
-            if (data == null) return;
+            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.json");
+            if (json == null) return;
 
-            for (int x = 0; x < data.Length; x++)
+            list = JsonConvert.DeserializeObject<List<Possession>>(json);
+
+            foreach (Possession possession in list)
             {
-                if (data[x] == "") continue;
-
-
-                JObject o = JObject.Parse(data[x]);
-
-                Possession possession = o["Type"].ToString() switch
-                {
-                    "Crypto" => new Crypto(),
-                    "Commodity" => new Commodity(),
-                    "Stock" => new Stock(),
-                    _ => null
-                };
-
-
-                if (possession != null)
-                {
-                    JsonConvert.PopulateObject(o["Object"].ToString(), possession);
-                    Console.WriteLine(possession.Name);
-                    list.Add(possession);
-                    APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback) possession); //downloads its api
-                }
+                if (possession == null) continue;
+                APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback)possession);
             }
-
             APIFetcher.RunAllDownloadsAsync();
         }
     }

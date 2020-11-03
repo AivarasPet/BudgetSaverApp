@@ -11,11 +11,11 @@ namespace BudgetSaverApp
             InitializeComponent();
         }
         private string _title = "", _amount = "", _value = "", _imageUrl = "";
-        
+
         private void ListSavings_Load(object sender, EventArgs e)
         {
             LabelTitleInput.Text = _title;
-            LabelAmountInput.Text = _amount;            
+            LabelAmountInput.Text = _amount;
             LabelValueInput.Text = _value;
             PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBoxLogo.LoadAsync(_imageUrl);
