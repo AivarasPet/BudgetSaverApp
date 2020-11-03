@@ -38,9 +38,7 @@ namespace BudgetSaverApp.Possessions
             string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\ImageLinks.json");
 
             GenericLinkList<ApiLink> apiList = JsonConvert.DeserializeObject<GenericLinkList<ApiLink>>(apiJson);
-            
             GenericLinkList<ImageLink> imageList = JsonConvert.DeserializeObject<GenericLinkList<ImageLink>>(imageJson);
-
 
             var completeList = list.GroupJoin(apiList, a => a.LinkOfAPI, b => b.id, (item, api) => new
             {
@@ -57,41 +55,30 @@ namespace BudgetSaverApp.Possessions
                 list1.Add(possession);
             }
 
+            list = list1.ToList();
+
+            list1.Clear();
+
             var completeList2 = list.GroupJoin(imageList, a => a.LinkOfImage, b => b.id, (item, api) => new
             {
                 Item = item,
                 Api = api
             });
 
+            foreach (var item in completeList2)
+            {
+                Possession possession = item.Item;
+                possession.LinkOfImage = item.Api.First().link;
+                list1.Add(possession);
+            }
+
             list = list1;
-
-            foreach (var item in list)
-            {
-                foreach(var itemImage in completeList2)
-                {
-                    if(item.LinkOfImage == itemImage.Item.LinkOfImage)
-                    {
-                        item.LinkOfImage = itemImage.Api.First().link;
-                    }
-                }
-            }
-
-            foreach (Possession possession in list)
-            {
-                Console.WriteLine(possession.Name);
-                Console.WriteLine(possession.LinkOfAPI);
-                Console.WriteLine(possession.LinkOfImage);
-            }
 
             foreach (Possession possession in list)
             {
                 if (possession == null) continue;
                 APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback)possession);
             }
-
-            
-
-            
 
             APIFetcher.RunAllDownloadsAsync();
         }
