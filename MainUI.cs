@@ -349,14 +349,40 @@ namespace BudgetSaverApp
 
         #endregion
 
-        private void ButtonPopularTransactions_Click(object sender, EventArgs e)
+        #region PopularTransactions
+
+        private void ButtonFilterTransactions_Click(object sender, EventArgs e)
         {
-            string toShow = "";
-            foreach(Tuple<Transaction, int> tuple in transactionService.GetTuples())
+            if (ButtonFilterTransactions.BackColor == Color.Transparent)
             {
-                toShow += tuple.Item1.Title + " $" + tuple.Item1.Amount + " x" + tuple.Item2.ToString() + "\n";
+                ButtonFilterTransactions.BackColor = Color.LightGray;
+                LoadPopularTransactionsOnUI();
             }
-            MessageBox.Show(toShow);
+            else
+            {
+                ButtonFilterTransactions.BackColor = Color.Transparent;
+                LoadTransactionsOnUI(transactionService.GetTransactionsList());
+            }                        
         }
+        private void LoadPopularTransactionsOnUI()
+        {
+            FlowLayoutPanelTransactions.Controls.Clear();
+            foreach (Tuple<Transaction, int> tuple in transactionService.GetTuples())
+            {
+                if (tuple == null)
+                {
+                    continue;
+                }
+                PopularTransactions item = new PopularTransactions
+                {
+                    Title = tuple.Item1.Title,
+                    Amount = tuple.Item1.Amount.ToString() + " €",
+                    Quantity = "x " + tuple.Item2.ToString(),
+                    TransactionType = tuple.Item1.TransactionType
+                };
+                FlowLayoutPanelTransactions.Controls.Add(item);
+            }
+        }
+        #endregion
     }
 }

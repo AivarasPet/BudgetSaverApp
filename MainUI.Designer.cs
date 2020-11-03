@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
             this.PanelMainMenu = new System.Windows.Forms.Panel();
-            this.ButtonAddSavings = new System.Windows.Forms.Button();
             this.ButtonAddCategory = new System.Windows.Forms.Button();
             this.ButtonAddPortfolioValues = new System.Windows.Forms.Button();
             this.ButtonAddTransactions = new System.Windows.Forms.Button();
@@ -39,15 +38,9 @@
             this.TabControlPortfolio = new System.Windows.Forms.TabControl();
             this.TabPageSavings = new System.Windows.Forms.TabPage();
             this.PanelPortfolioButtons = new System.Windows.Forms.Panel();
-            this.ButtonSelectAll = new System.Windows.Forms.Button();
-            this.ButtonSelectCommodities = new System.Windows.Forms.Button();
-            this.ButtonSelectCrypto = new System.Windows.Forms.Button();
-            this.ButtonSelectStocks = new System.Windows.Forms.Button();
-            this.ButtonSelectMoney = new System.Windows.Forms.Button();
             this.FlowLayoutPanelSavings = new System.Windows.Forms.FlowLayoutPanel();
             this.ContextMenuStripSavings = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemSavingsData = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemSavingsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelLabels = new System.Windows.Forms.Panel();
             this.LabelTotalValueSavings3 = new System.Windows.Forms.Label();
             this.LabelAmountSavings3 = new System.Windows.Forms.Label();
@@ -82,7 +75,6 @@
             this.TabPageFunctions = new System.Windows.Forms.TabPage();
             this.PanelFunctions = new System.Windows.Forms.Panel();
             this.TabPageData = new System.Windows.Forms.TabPage();
-            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.ButtonClean = new System.Windows.Forms.Button();
             this.LabelDate = new System.Windows.Forms.Label();
             this.LabelCategory = new System.Windows.Forms.Label();
@@ -92,12 +84,17 @@
             this.FlowLayoutPanelTransactions = new System.Windows.Forms.FlowLayoutPanel();
             this.ContextMenuStripTransactions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemTransactionsData = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemTransactionsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelSearchBar = new System.Windows.Forms.Panel();
-            this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.ButtonPopularTransactions = new System.Windows.Forms.Button();
+            this.ButtonSelectAll = new System.Windows.Forms.Button();
+            this.ButtonSelectCommodities = new System.Windows.Forms.Button();
+            this.ButtonSelectCrypto = new System.Windows.Forms.Button();
+            this.ButtonSelectStocks = new System.Windows.Forms.Button();
+            this.ButtonSelectMoney = new System.Windows.Forms.Button();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.ButtonFilterTransactions = new System.Windows.Forms.Button();
+            this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelMainMenu.SuspendLayout();
             this.TabControlPortfolio.SuspendLayout();
             this.TabPageSavings.SuspendLayout();
@@ -108,20 +105,18 @@
             this.TabPageStats.SuspendLayout();
             this.TabPageFunctions.SuspendLayout();
             this.TabPageData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             this.PanelTransactions.SuspendLayout();
             this.ContextMenuStripTransactions.SuspendLayout();
             this.PanelSearchBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).BeginInit();
             this.PanelTabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMainMenu
             // 
             this.PanelMainMenu.AutoScroll = true;
             this.PanelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.PanelMainMenu.Controls.Add(this.ButtonPopularTransactions);
-            this.PanelMainMenu.Controls.Add(this.ButtonAddSavings);
             this.PanelMainMenu.Controls.Add(this.ButtonAddCategory);
             this.PanelMainMenu.Controls.Add(this.ButtonAddPortfolioValues);
             this.PanelMainMenu.Controls.Add(this.ButtonAddTransactions);
@@ -131,22 +126,6 @@
             this.PanelMainMenu.Name = "PanelMainMenu";
             this.PanelMainMenu.Size = new System.Drawing.Size(916, 44);
             this.PanelMainMenu.TabIndex = 0;
-            // 
-            // ButtonAddSavings
-            // 
-            this.ButtonAddSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ButtonAddSavings.FlatAppearance.BorderSize = 0;
-            this.ButtonAddSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonAddSavings.ForeColor = System.Drawing.SystemColors.Control;
-            this.ButtonAddSavings.Location = new System.Drawing.Point(427, 9);
-            this.ButtonAddSavings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonAddSavings.Name = "ButtonAddSavings";
-            this.ButtonAddSavings.Size = new System.Drawing.Size(141, 27);
-            this.ButtonAddSavings.TabIndex = 5;
-            this.ButtonAddSavings.TabStop = false;
-            this.ButtonAddSavings.Text = "Add savings";
-            this.ButtonAddSavings.UseVisualStyleBackColor = false;
-            this.ButtonAddSavings.Click += new System.EventHandler(this.ButtonAddSavings_Click);
             // 
             // ButtonAddCategory
             // 
@@ -200,10 +179,10 @@
             // TextBoxTransactionSearchBar
             // 
             this.TextBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(36, 2);
+            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(26, 3);
             this.TextBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TextBoxTransactionSearchBar.Name = "TextBoxTransactionSearchBar";
-            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(323, 15);
+            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(291, 15);
             this.TextBoxTransactionSearchBar.TabIndex = 0;
             this.TextBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.TextBoxTransactionSearchBar_TextChanged);
             // 
@@ -251,87 +230,6 @@
             this.PanelPortfolioButtons.Size = new System.Drawing.Size(60, 545);
             this.PanelPortfolioButtons.TabIndex = 2;
             // 
-            // ButtonSelectAll
-            // 
-            this.ButtonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSelectAll.BackColor = System.Drawing.Color.White;
-            this.ButtonSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.ButtonSelectAll.FlatAppearance.BorderSize = 2;
-            this.ButtonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectAll.Image")));
-            this.ButtonSelectAll.Location = new System.Drawing.Point(13, 329);
-            this.ButtonSelectAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonSelectAll.Name = "ButtonSelectAll";
-            this.ButtonSelectAll.Size = new System.Drawing.Size(41, 39);
-            this.ButtonSelectAll.TabIndex = 3;
-            this.ButtonSelectAll.UseVisualStyleBackColor = false;
-            this.ButtonSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
-            // 
-            // ButtonSelectCommodities
-            // 
-            this.ButtonSelectCommodities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSelectCommodities.BackColor = System.Drawing.Color.White;
-            this.ButtonSelectCommodities.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.ButtonSelectCommodities.FlatAppearance.BorderSize = 2;
-            this.ButtonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
-            this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 415);
-            this.ButtonSelectCommodities.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ButtonSelectCommodities.Name = "ButtonSelectCommodities";
-            this.ButtonSelectCommodities.Size = new System.Drawing.Size(41, 39);
-            this.ButtonSelectCommodities.TabIndex = 2;
-            this.ButtonSelectCommodities.UseVisualStyleBackColor = false;
-            this.ButtonSelectCommodities.Click += new System.EventHandler(this.ButtonSelectCommodities_Click);
-            // 
-            // ButtonSelectCrypto
-            // 
-            this.ButtonSelectCrypto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSelectCrypto.BackColor = System.Drawing.Color.White;
-            this.ButtonSelectCrypto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.ButtonSelectCrypto.FlatAppearance.BorderSize = 2;
-            this.ButtonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectCrypto.Image")));
-            this.ButtonSelectCrypto.Location = new System.Drawing.Point(13, 372);
-            this.ButtonSelectCrypto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonSelectCrypto.Name = "ButtonSelectCrypto";
-            this.ButtonSelectCrypto.Size = new System.Drawing.Size(41, 39);
-            this.ButtonSelectCrypto.TabIndex = 1;
-            this.ButtonSelectCrypto.UseVisualStyleBackColor = false;
-            this.ButtonSelectCrypto.Click += new System.EventHandler(this.ButtonSelectCrypto_Click);
-            // 
-            // ButtonSelectStocks
-            // 
-            this.ButtonSelectStocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSelectStocks.BackColor = System.Drawing.Color.White;
-            this.ButtonSelectStocks.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.ButtonSelectStocks.FlatAppearance.BorderSize = 2;
-            this.ButtonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
-            this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 501);
-            this.ButtonSelectStocks.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ButtonSelectStocks.Name = "ButtonSelectStocks";
-            this.ButtonSelectStocks.Size = new System.Drawing.Size(41, 39);
-            this.ButtonSelectStocks.TabIndex = 0;
-            this.ButtonSelectStocks.UseVisualStyleBackColor = false;
-            this.ButtonSelectStocks.Click += new System.EventHandler(this.ButtonSelectStocks_Click);
-            // 
-            // ButtonSelectMoney
-            // 
-            this.ButtonSelectMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSelectMoney.BackColor = System.Drawing.Color.White;
-            this.ButtonSelectMoney.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.ButtonSelectMoney.FlatAppearance.BorderSize = 2;
-            this.ButtonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectMoney.Image")));
-            this.ButtonSelectMoney.Location = new System.Drawing.Point(13, 458);
-            this.ButtonSelectMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonSelectMoney.Name = "ButtonSelectMoney";
-            this.ButtonSelectMoney.Size = new System.Drawing.Size(41, 39);
-            this.ButtonSelectMoney.TabIndex = 4;
-            this.ButtonSelectMoney.UseVisualStyleBackColor = false;
-            this.ButtonSelectMoney.Click += new System.EventHandler(this.ButtonSelectMoney_Click);
-            // 
             // FlowLayoutPanelSavings
             // 
             this.FlowLayoutPanelSavings.AutoScroll = true;
@@ -348,25 +246,17 @@
             this.ContextMenuStripSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ContextMenuStripSavings.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStripSavings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemSavingsData,
-            this.ToolStripMenuItemSavingsDelete});
+            this.ToolStripMenuItemSavingsData});
             this.ContextMenuStripSavings.Name = "contextMenuStripTransactions";
-            this.ContextMenuStripSavings.Size = new System.Drawing.Size(123, 52);
+            this.ContextMenuStripSavings.Size = new System.Drawing.Size(111, 28);
             // 
             // ToolStripMenuItemSavingsData
             // 
             this.ToolStripMenuItemSavingsData.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemSavingsData.Name = "ToolStripMenuItemSavingsData";
-            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemSavingsData.Size = new System.Drawing.Size(110, 24);
             this.ToolStripMenuItemSavingsData.Text = "Data";
             this.ToolStripMenuItemSavingsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemSavingsData_MouseDown);
-            // 
-            // ToolStripMenuItemSavingsDelete
-            // 
-            this.ToolStripMenuItemSavingsDelete.ForeColor = System.Drawing.Color.White;
-            this.ToolStripMenuItemSavingsDelete.Name = "ToolStripMenuItemSavingsDelete";
-            this.ToolStripMenuItemSavingsDelete.Size = new System.Drawing.Size(122, 24);
-            this.ToolStripMenuItemSavingsDelete.Text = "Delete";
             // 
             // PanelLabels
             // 
@@ -806,18 +696,6 @@
             this.TabPageData.TabIndex = 4;
             this.TabPageData.Text = "Data";
             // 
-            // PictureBoxLogo
-            // 
-            this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
-            this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
-            this.PictureBoxLogo.Location = new System.Drawing.Point(16, 31);
-            this.PictureBoxLogo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.PictureBoxLogo.Name = "PictureBoxLogo";
-            this.PictureBoxLogo.Size = new System.Drawing.Size(49, 48);
-            this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PictureBoxLogo.TabIndex = 17;
-            this.PictureBoxLogo.TabStop = false;
-            // 
             // ButtonClean
             // 
             this.ButtonClean.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -907,37 +785,147 @@
             this.ContextMenuStripTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ContextMenuStripTransactions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStripTransactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemTransactionsData,
-            this.ToolStripMenuItemTransactionsDelete});
+            this.ToolStripMenuItemTransactionsData});
             this.ContextMenuStripTransactions.Name = "contextMenuStripTransactions";
-            this.ContextMenuStripTransactions.Size = new System.Drawing.Size(123, 52);
+            this.ContextMenuStripTransactions.Size = new System.Drawing.Size(111, 28);
             // 
             // ToolStripMenuItemTransactionsData
             // 
             this.ToolStripMenuItemTransactionsData.ForeColor = System.Drawing.Color.White;
             this.ToolStripMenuItemTransactionsData.Name = "ToolStripMenuItemTransactionsData";
-            this.ToolStripMenuItemTransactionsData.Size = new System.Drawing.Size(122, 24);
+            this.ToolStripMenuItemTransactionsData.Size = new System.Drawing.Size(110, 24);
             this.ToolStripMenuItemTransactionsData.Text = "Data";
             this.ToolStripMenuItemTransactionsData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripMenuItemData_MouseDown);
-            // 
-            // ToolStripMenuItemTransactionsDelete
-            // 
-            this.ToolStripMenuItemTransactionsDelete.ForeColor = System.Drawing.Color.White;
-            this.ToolStripMenuItemTransactionsDelete.Name = "ToolStripMenuItemTransactionsDelete";
-            this.ToolStripMenuItemTransactionsDelete.Size = new System.Drawing.Size(122, 24);
-            this.ToolStripMenuItemTransactionsDelete.Text = "Delete";
             // 
             // PanelSearchBar
             // 
             this.PanelSearchBar.BackColor = System.Drawing.Color.White;
-            this.PanelSearchBar.Controls.Add(this.PictureBoxSearchIcon);
+            this.PanelSearchBar.Controls.Add(this.ButtonFilterTransactions);
             this.PanelSearchBar.Controls.Add(this.TextBoxTransactionSearchBar);
+            this.PanelSearchBar.Controls.Add(this.PictureBoxSearchIcon);
             this.PanelSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSearchBar.Location = new System.Drawing.Point(0, 0);
             this.PanelSearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelSearchBar.Name = "PanelSearchBar";
             this.PanelSearchBar.Size = new System.Drawing.Size(349, 22);
             this.PanelSearchBar.TabIndex = 5;
+            // 
+            // PanelTabControl
+            // 
+            this.PanelTabControl.Controls.Add(this.TabControlPortfolio);
+            this.PanelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelTabControl.Location = new System.Drawing.Point(349, 44);
+            this.PanelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTabControl.Name = "PanelTabControl";
+            this.PanelTabControl.Size = new System.Drawing.Size(567, 609);
+            this.PanelTabControl.TabIndex = 8;
+            // 
+            // ButtonSelectAll
+            // 
+            this.ButtonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectAll.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectAll.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectAll.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectAll.Image")));
+            this.ButtonSelectAll.Location = new System.Drawing.Point(13, 329);
+            this.ButtonSelectAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectAll.Name = "ButtonSelectAll";
+            this.ButtonSelectAll.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectAll.TabIndex = 3;
+            this.ButtonSelectAll.UseVisualStyleBackColor = false;
+            this.ButtonSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
+            // 
+            // ButtonSelectCommodities
+            // 
+            this.ButtonSelectCommodities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectCommodities.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectCommodities.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectCommodities.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectCommodities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectCommodities.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__12_;
+            this.ButtonSelectCommodities.Location = new System.Drawing.Point(13, 415);
+            this.ButtonSelectCommodities.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.ButtonSelectCommodities.Name = "ButtonSelectCommodities";
+            this.ButtonSelectCommodities.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCommodities.TabIndex = 2;
+            this.ButtonSelectCommodities.UseVisualStyleBackColor = false;
+            this.ButtonSelectCommodities.Click += new System.EventHandler(this.ButtonSelectCommodities_Click);
+            // 
+            // ButtonSelectCrypto
+            // 
+            this.ButtonSelectCrypto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectCrypto.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectCrypto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectCrypto.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectCrypto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectCrypto.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectCrypto.Image")));
+            this.ButtonSelectCrypto.Location = new System.Drawing.Point(13, 372);
+            this.ButtonSelectCrypto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectCrypto.Name = "ButtonSelectCrypto";
+            this.ButtonSelectCrypto.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectCrypto.TabIndex = 1;
+            this.ButtonSelectCrypto.UseVisualStyleBackColor = false;
+            this.ButtonSelectCrypto.Click += new System.EventHandler(this.ButtonSelectCrypto_Click);
+            // 
+            // ButtonSelectStocks
+            // 
+            this.ButtonSelectStocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectStocks.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectStocks.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectStocks.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectStocks.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__13_;
+            this.ButtonSelectStocks.Location = new System.Drawing.Point(13, 501);
+            this.ButtonSelectStocks.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.ButtonSelectStocks.Name = "ButtonSelectStocks";
+            this.ButtonSelectStocks.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectStocks.TabIndex = 0;
+            this.ButtonSelectStocks.UseVisualStyleBackColor = false;
+            this.ButtonSelectStocks.Click += new System.EventHandler(this.ButtonSelectStocks_Click);
+            // 
+            // ButtonSelectMoney
+            // 
+            this.ButtonSelectMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSelectMoney.BackColor = System.Drawing.Color.White;
+            this.ButtonSelectMoney.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.ButtonSelectMoney.FlatAppearance.BorderSize = 2;
+            this.ButtonSelectMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSelectMoney.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonSelectMoney.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSelectMoney.Image")));
+            this.ButtonSelectMoney.Location = new System.Drawing.Point(13, 458);
+            this.ButtonSelectMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSelectMoney.Name = "ButtonSelectMoney";
+            this.ButtonSelectMoney.Size = new System.Drawing.Size(41, 39);
+            this.ButtonSelectMoney.TabIndex = 4;
+            this.ButtonSelectMoney.UseVisualStyleBackColor = false;
+            this.ButtonSelectMoney.Click += new System.EventHandler(this.ButtonSelectMoney_Click);
+            // 
+            // PictureBoxLogo
+            // 
+            this.PictureBoxLogo.BackColor = System.Drawing.Color.DimGray;
+            this.PictureBoxLogo.Image = global::BudgetSaverApp.Properties.Resources.Webp_net_resizeimage__23_;
+            this.PictureBoxLogo.Location = new System.Drawing.Point(16, 31);
+            this.PictureBoxLogo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(49, 48);
+            this.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PictureBoxLogo.TabIndex = 17;
+            this.PictureBoxLogo.TabStop = false;
+            // 
+            // ButtonFilterTransactions
+            // 
+            this.ButtonFilterTransactions.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonFilterTransactions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ButtonFilterTransactions.FlatAppearance.BorderSize = 0;
+            this.ButtonFilterTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonFilterTransactions.Image = ((System.Drawing.Image)(resources.GetObject("ButtonFilterTransactions.Image")));
+            this.ButtonFilterTransactions.Location = new System.Drawing.Point(323, 0);
+            this.ButtonFilterTransactions.Name = "ButtonFilterTransactions";
+            this.ButtonFilterTransactions.Size = new System.Drawing.Size(26, 22);
+            this.ButtonFilterTransactions.TabIndex = 2;
+            this.ButtonFilterTransactions.UseVisualStyleBackColor = false;
+            this.ButtonFilterTransactions.Click += new System.EventHandler(this.ButtonFilterTransactions_Click);
             // 
             // PictureBoxSearchIcon
             // 
@@ -951,32 +939,6 @@
             this.PictureBoxSearchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PictureBoxSearchIcon.TabIndex = 1;
             this.PictureBoxSearchIcon.TabStop = false;
-            // 
-            // PanelTabControl
-            // 
-            this.PanelTabControl.Controls.Add(this.TabControlPortfolio);
-            this.PanelTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelTabControl.Location = new System.Drawing.Point(349, 44);
-            this.PanelTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PanelTabControl.Name = "PanelTabControl";
-            this.PanelTabControl.Size = new System.Drawing.Size(567, 609);
-            this.PanelTabControl.TabIndex = 8;
-            // 
-            // ButtonPopularTransactions
-            // 
-            this.ButtonPopularTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ButtonPopularTransactions.FlatAppearance.BorderSize = 0;
-            this.ButtonPopularTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonPopularTransactions.ForeColor = System.Drawing.SystemColors.Control;
-            this.ButtonPopularTransactions.Location = new System.Drawing.Point(574, 9);
-            this.ButtonPopularTransactions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonPopularTransactions.Name = "ButtonPopularTransactions";
-            this.ButtonPopularTransactions.Size = new System.Drawing.Size(184, 27);
-            this.ButtonPopularTransactions.TabIndex = 6;
-            this.ButtonPopularTransactions.TabStop = false;
-            this.ButtonPopularTransactions.Text = "Popular Transactions";
-            this.ButtonPopularTransactions.UseVisualStyleBackColor = false;
-            this.ButtonPopularTransactions.Click += new System.EventHandler(this.ButtonPopularTransactions_Click);
             // 
             // MainUI
             // 
@@ -1008,13 +970,13 @@
             this.TabPageFunctions.ResumeLayout(false);
             this.TabPageData.ResumeLayout(false);
             this.TabPageData.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             this.PanelTransactions.ResumeLayout(false);
             this.ContextMenuStripTransactions.ResumeLayout(false);
             this.PanelSearchBar.ResumeLayout(false);
             this.PanelSearchBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).EndInit();
             this.PanelTabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxSearchIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1063,19 +1025,16 @@
         private System.Windows.Forms.TabPage TabPageFunctions;
         private System.Windows.Forms.Panel PanelFunctions;
         private System.Windows.Forms.TabPage TabPageData;
-        private System.Windows.Forms.Button ButtonAddSavings;
         private System.Windows.Forms.Label LabelCategory;
         private System.Windows.Forms.Label LabelAmount;
         private System.Windows.Forms.Label LabelName;
         private System.Windows.Forms.ContextMenuStrip ContextMenuStripTransactions;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTransactionsData;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemTransactionsDelete;
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelTransactions;
         private System.Windows.Forms.Label LabelDate;
         private System.Windows.Forms.Button ButtonClean;
         private System.Windows.Forms.ContextMenuStrip ContextMenuStripSavings;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsData;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSavingsDelete;
         private System.Windows.Forms.PictureBox PictureBoxLogo;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button ButtonStatsLastWeek;
@@ -1088,6 +1047,6 @@
         private System.Windows.Forms.DateTimePicker DateTimePickerStatsEnd;
         private System.Windows.Forms.Label LabelDaysToGoForGoal;
         private System.Windows.Forms.Label LabelProfitMonthly;
-        private System.Windows.Forms.Button ButtonPopularTransactions;
+        private System.Windows.Forms.Button ButtonFilterTransactions;
     }
 }
