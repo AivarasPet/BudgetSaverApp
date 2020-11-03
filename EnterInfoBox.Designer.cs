@@ -81,6 +81,7 @@
             this.TextBoxMonthlySalary.Name = "TextBoxMonthlySalary";
             this.TextBoxMonthlySalary.Size = new System.Drawing.Size(315, 22);
             this.TextBoxMonthlySalary.TabIndex = 2;
+            this.TextBoxMonthlySalary.Click += new System.EventHandler(this.TextBoxMonthlySalary_Click);
             // 
             // ButtonConfirm
             // 
@@ -135,6 +136,7 @@
             this.TextBoxSavings.Name = "TextBoxSavings";
             this.TextBoxSavings.Size = new System.Drawing.Size(314, 22);
             this.TextBoxSavings.TabIndex = 7;
+            this.TextBoxSavings.Click += new System.EventHandler(this.TextBoxSavings_Click);
             // 
             // LabelGoalPrice
             // 
@@ -155,6 +157,7 @@
             this.TextBoxGoalItemPrice.Name = "TextBoxGoalItemPrice";
             this.TextBoxGoalItemPrice.Size = new System.Drawing.Size(315, 22);
             this.TextBoxGoalItemPrice.TabIndex = 9;
+            this.TextBoxGoalItemPrice.Click += new System.EventHandler(this.TextBoxGoalItemPrice_Click);
             // 
             // EnterInfoBox
             // 

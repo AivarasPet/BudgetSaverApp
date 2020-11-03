@@ -4,7 +4,7 @@
     "Amount": 400.0,
     "Title": "Salary",
     "Category": "Work\r",
-    "Date": "2020-09-12T15:25:42.2038334+03:00"
+    "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {
     "TransactionType": "-",
@@ -47,5 +47,19 @@
     "Title": "Shopping at Maxima",
     "Category": "Shopping\r",
     "Date": "2020-10-12T16:30:00.3950945+03:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 3000.0,
+    "Title": "Sold old stuff",
+    "Category": "Household\r",
+    "Date": "2020-10-25T21:46:45.1061975+02:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 50.0,
+    "Title": "Stuff",
+    "Category": "N/A",
+    "Date": "2020-10-25T23:17:39.9862287+02:00"
   }
 ]
