@@ -1,3 +1,3 @@
-﻿[{"Type":"Crypto","Object":{"Name":"Bitcoin","Amount":10.0,"linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10", "LinkOfImage":"https://cryptologos.cc/logos/bitcoin-btc-logo.png"}},
-{"Type":"Crypto","Object":{"Name":"Ethereum","Amount":10.0,"linkOfAPI":"https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10", "LinkOfImage":"https://cryptologos.cc/logos/ethereum-eth-logo.png"}},
-{"Type":"Stock","Object":{"Name":"Apple","Amount":5,"linkOfAPI":"https://finnhub.io/api/v1/quote?symbol=AAPL&token=", "LinkOfImage":"https://i.pinimg.com/originals/1c/aa/03/1caa032c47f63d50902b9d34492e1303.jpg"}}]
+﻿[{"Type":"Crypto","Object":{"Name":"Bitcoin","Amount":10.0,"linkOfAPI":"0", "LinkOfImage":"0"}},
+{"Type":"Crypto","Object":{"Name":"Ethereum","Amount":10.0,"linkOfAPI":"1", "LinkOfImage":"1"}},
+{"Type":"Stock","Object":{"Name":"Apple","Amount":5,"linkOfAPI":"2", "LinkOfImage":"2"}}]

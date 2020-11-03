@@ -99,6 +99,9 @@
     <Compile Include="ImageFetcher.cs" />
     <Compile Include="Possessions\CustomJsonConverter.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
+    <Compile Include="Possessions\Links\ApiLink.cs" />
+    <Compile Include="Possessions\Links\GenericLinkList.cs" />
+    <Compile Include="Possessions\Links\ImageLink.cs" />
     <Compile Include="Possessions\PossessionFactory.cs" />
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Statistics\IStatisticsService.cs" />
@@ -173,6 +176,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Data\APILinks.json" />
+    <None Include="Data\ImageLinks.json" />
     <None Include="Data\TransactionsJson.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
