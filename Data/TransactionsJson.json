@@ -68,5 +68,19 @@
     "Title": "Stuff",
     "Category": "N/A",
     "Date": "2020-10-25T23:17:39.9862287+02:00"
+  },
+  {
+    "TransactionType": "+",
+    "Amount": 1000.0,
+    "Title": "Seeling items",
+    "Category": "Household\r",
+    "Date": "2020-11-04T14:10:36.5824376+02:00"
+  },
+  {
+    "TransactionType": "-",
+    "Amount": 1000.0,
+    "Title": "Loan",
+    "Category": "Household\r",
+    "Date": "2020-11-04T14:48:14.6468848+02:00"
   }
 ]

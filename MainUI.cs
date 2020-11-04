@@ -39,7 +39,7 @@ namespace BudgetSaverApp
             LoadSavingsOnUI(possessionsService.GetPossessionsList());
             APIFetcher.AllAPIsDownloaded += new System.EventHandler(ReloadSavings);
             SetUserInfo();
-            SetStatsInfo(new Stats());
+            SetDefaultStatsInfo();
             CleanTab();
         }
         public delegate void MethodInvoker();
@@ -124,6 +124,7 @@ namespace BudgetSaverApp
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoadTransactionsOnUI(transactionService.GetTransactionsList());
+            SetUserInfo();
             SetDefaultStatsInfo();
         }
         #endregion
@@ -171,7 +172,7 @@ namespace BudgetSaverApp
         private void LoadSavingsOnUI(List<Possession> possessions)
         {
             FlowLayoutPanelSavings.Controls.Clear();
-            foreach(Possession p in possessions)
+            foreach (Possession p in possessions)
             {
                 ListSavings item = new ListSavings
                 {
@@ -228,36 +229,46 @@ namespace BudgetSaverApp
         #region Stats
         private void SetDefaultStatsInfo()
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now));
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now), "This Week's ");
+            ButtonStatsThisWeek.BackColor = Color.Black;
+            ButtonStatsThisWeek.FlatAppearance.BorderColor = Color.Black;
         }
         /// <summary>
         /// Loads data in the Stats tab.
         /// </summary>
         /// <param name="stats"></param>
-        private void SetStatsInfo(Stats stats)
+        private void SetStatsInfo(Stats stats, string setting)
         {
-            
-            LabelStatsWeeklyTransactionAmount.Text = "Week amount of transaction: " + stats.TransactionAmount;
-            LabelStatsWeeklyIncome.Text = "Weekly Income: " + stats.Income + " €";
-            LabelStatsWeeklyExpenses.Text = "Weekly spent: " + stats.Expenses + " €";
-            LabelStatsFrequentCategory.Text = "Most frequent category: " + stats.FrequentCategory;
-            LabelStatsWeeklyBalance.Text = "Weekly balance: " + (stats.Income - stats.Expenses) + " €";
+            LabelStatsWeeklyTransactionAmount.Text = setting + "transaction amount: " + stats.TransactionAmount;
+            LabelStatsWeeklyIncome.Text = setting + "income: " + stats.Income + " €";
+            LabelStatsWeeklyExpenses.Text = setting + "expenses: " + stats.Expenses + " €";
+            LabelStatsFrequentCategory.Text = setting + "most frequent category: " + stats.FrequentCategory;
+            LabelStatsWeeklyBalance.Text = setting + "balance: " + (stats.Income - stats.Expenses) + " €";
 
         }
 
         private void ButtonStatsThisWeek_Click(object sender, EventArgs e)
         {
             SetDefaultStatsInfo();
+            ClearButtonSelection();
+            ButtonStatsThisWeek.BackColor = Color.Black;
+            ButtonStatsThisWeek.FlatAppearance.BorderColor = Color.Black;
         }
 
         private void ButtonStatsLastWeek_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6),DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1))); 
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6), DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1)), "Last Week's ");
+            ClearButtonSelection();
+            ButtonStatsLastWeek.BackColor = Color.Black;
+            ButtonStatsLastWeek.FlatAppearance.BorderColor = Color.Black;
         }
 
         private void ButtonStatsThisMonth_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now));
+            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now), "This Month's ");
+            ClearButtonSelection();
+            ButtonStatsThisMonth.BackColor = Color.Black;
+            ButtonStatsThisMonth.FlatAppearance.BorderColor = Color.Black;
         }
 
         private void ButtonStatsLastMonth_Click(object sender, EventArgs e)
@@ -266,28 +277,48 @@ namespace BudgetSaverApp
             var month = new DateTime(today.Year, today.Month, 1);
             var first = month.AddMonths(-1);
             var last = month.AddDays(-1);
-            SetStatsInfo(statisticsService.GetStatistic(first,last));
+            SetStatsInfo(statisticsService.GetStatistic(first, last), "Last Month's ");
+            ClearButtonSelection();
+            ButtonStatsLastMonth.BackColor = Color.Black;
+            ButtonStatsLastMonth.FlatAppearance.BorderColor = Color.Black;
         }
 
         private void ButtonStatsAdvancedShow_Click(object sender, EventArgs e)
         {
-            if(ButtonStatsAdvancedStats.Visible == true)
+            if (ButtonStatsAdvancedStats.Visible == true)
             {
                 DateTimePickerStatsStart.Visible = false;
                 DateTimePickerStatsEnd.Visible = false;
                 ButtonStatsAdvancedStats.Visible = false;
+                ButtonStatsAdvancedShow.BackColor = Color.FromArgb(45, 45, 48);
+                ButtonStatsAdvancedShow.FlatAppearance.BorderColor = Color.FromArgb(45, 45, 48);
             }
             else
             {
                 DateTimePickerStatsStart.Visible = true;
                 DateTimePickerStatsEnd.Visible = true;
                 ButtonStatsAdvancedStats.Visible = true;
+                ButtonStatsAdvancedShow.BackColor = Color.Black;
+                ButtonStatsAdvancedShow.FlatAppearance.BorderColor = Color.Black;
             }
         }
 
         private void ButtonStatsAdvancedStats_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTimePickerStatsStart.Value,DateTimePickerStatsEnd.Value));
+            SetStatsInfo(statisticsService.GetStatistic(DateTimePickerStatsStart.Value, DateTimePickerStatsEnd.Value), "Set Range's ");
+            ClearButtonSelection();
+        }
+
+        private void ClearButtonSelection()
+        {
+            ButtonStatsThisWeek.BackColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsThisWeek.FlatAppearance.BorderColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsLastWeek.BackColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsLastWeek.FlatAppearance.BorderColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsThisMonth.BackColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsThisMonth.FlatAppearance.BorderColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsLastMonth.BackColor = Color.FromArgb(45, 45, 48);
+            ButtonStatsLastMonth.FlatAppearance.BorderColor = Color.FromArgb(45, 45, 48);
         }
 
         #endregion
@@ -362,7 +393,7 @@ namespace BudgetSaverApp
             {
                 ButtonFilterTransactions.BackColor = Color.Transparent;
                 LoadTransactionsOnUI(transactionService.GetTransactionsList());
-            }                        
+            }
         }
         private void LoadPopularTransactionsOnUI()
         {
