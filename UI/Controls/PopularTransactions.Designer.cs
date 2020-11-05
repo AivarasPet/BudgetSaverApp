@@ -39,7 +39,7 @@
             this.LabelTitleValue.AutoSize = true;
             this.LabelTitleValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.LabelTitleValue.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelTitleValue.Location = new System.Drawing.Point(38, 22);
+            this.LabelTitleValue.Location = new System.Drawing.Point(37, 18);
             this.LabelTitleValue.Name = "LabelTitleValue";
             this.LabelTitleValue.Size = new System.Drawing.Size(26, 20);
             this.LabelTitleValue.TabIndex = 21;
@@ -48,11 +48,11 @@
             // LabelQuantityValue
             // 
             this.LabelQuantityValue.AutoSize = true;
-            this.LabelQuantityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.LabelQuantityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.LabelQuantityValue.ForeColor = System.Drawing.SystemColors.Control;
             this.LabelQuantityValue.Location = new System.Drawing.Point(38, 42);
             this.LabelQuantityValue.Name = "LabelQuantityValue";
-            this.LabelQuantityValue.Size = new System.Drawing.Size(22, 17);
+            this.LabelQuantityValue.Size = new System.Drawing.Size(18, 15);
             this.LabelQuantityValue.TabIndex = 23;
             this.LabelQuantityValue.Text = "- -";
             // 
@@ -69,7 +69,7 @@
             // 
             this.LabelAmountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.LabelAmountValue.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountValue.Location = new System.Drawing.Point(237, 18);
+            this.LabelAmountValue.Location = new System.Drawing.Point(237, 14);
             this.LabelAmountValue.Name = "LabelAmountValue";
             this.LabelAmountValue.Size = new System.Drawing.Size(107, 28);
             this.LabelAmountValue.TabIndex = 25;
