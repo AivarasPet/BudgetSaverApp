@@ -51,7 +51,7 @@ namespace BudgetSaverApp
             string isPriceValid = "Price is not a number".ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxGoalItemPrice.Text);
             string isSavingsValid = "Savings has to be a number".ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxSavings.Text);
             string isSalaryValid = "Salary has to be a number".ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxMonthlySalary.Text);
-            if (isPriceValid != ""  isSavingsValid != ""  isSalaryValid != "")
+            if (isPriceValid != "" || isSavingsValid != "" || isSalaryValid != "")
             {
                 MessageBox.Show(isPriceValid + isSavingsValid + isSalaryValid);
                 return;
