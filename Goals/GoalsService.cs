@@ -24,7 +24,7 @@ namespace BudgetSaverApp.Portfolio
 
         public int GetGoalDaysLeft()
         {
-            return (int)(_MainGoalPrice / (GetProfitMonthly().Daily()));
+            return (int)(_MainGoalPrice / GetProfitMonthly().Daily());
         }
 
         public string MainGoalName()

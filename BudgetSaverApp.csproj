@@ -97,6 +97,12 @@
     <Compile Include="Goals\IGoalsService.cs" />
     <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
+    <Compile Include="PopularTransactions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PopularTransactions.Designer.cs">
+      <DependentUpon>PopularTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Possessions\IPossessionsService.cs" />
     <Compile Include="Possessions\PossessionFactory.cs" />
     <Compile Include="ServiceManager.cs" />
@@ -162,6 +168,9 @@
     <EmbeddedResource Include="ListItemTransactions.resx">
       <DependentUpon>ListItemTransactions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopularTransactions.resx">
+      <DependentUpon>PopularTransactions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -204,6 +213,7 @@
     <Content Include="Data\ImageLinks.txt" />
     <Content Include="Data\Possessions.txt" />
     <Content Include="Data\UserData.txt" />
+    <None Include="Resources\Webp.net-resizeimage %282%292.png" />
     <None Include="Resources\Webp.net-resizeimage %2823%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2821%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2813%29.png" />

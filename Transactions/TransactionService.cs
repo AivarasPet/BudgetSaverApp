@@ -69,6 +69,27 @@ namespace BudgetSaverApp.Transactions
         {
             return List.Where(oh => oh.Date.Equals(date.Date)).ToList(); ;
         }
+
+        public List<Tuple<Transaction, int>> GetTuples()
+        {
+            List<Tuple<Transaction, int>> tuples = new List<Tuple<Transaction, int>>();
+            IList<Transaction> copyOfTransactions = List.Clone();
+            for(int x = 0; x < copyOfTransactions.Count; x++)
+            {
+                int count = 1;
+                for (int y = x+1; y < copyOfTransactions.Count; y++)
+                {
+                    if (copyOfTransactions.ElementAt(x).Equals(copyOfTransactions.ElementAt(y)))
+                    {
+                        count++;
+                        copyOfTransactions.RemoveAt(y);
+                    }
+                }
+                Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(copyOfTransactions.ElementAt(x), count);
+                if(count > 1) tuples.Add(tuple);
+            }
+            return tuples;
+        }
     }
 }
 
