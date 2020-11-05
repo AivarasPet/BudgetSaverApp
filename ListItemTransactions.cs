@@ -19,15 +19,15 @@ namespace BudgetSaverApp
             LabelAmountValue.Text = _amount;
             LabelTitleValue.Text = _title;
             LabelCategoryValue.Text = _category;
-            if(_transactionType.Contains("Income"))
+            if(_transactionType.Contains("+"))
             {
-                LabelTransactionType.Text = "+";
+                LabelTransactionType.Text = _transactionType;
                 LabelTransactionType.ForeColor = Color.LimeGreen;
                 PanelTransactionType.BackColor = Color.LimeGreen;
             }
-            else if(_transactionType.Contains("Expenses"))
+            else if(_transactionType.Contains("-"))
             {
-                LabelTransactionType.Text = "-";
+                LabelTransactionType.Text = _transactionType;
                 LabelTransactionType.ForeColor = Color.Crimson;
                 PanelTransactionType.BackColor = Color.Crimson;
             }

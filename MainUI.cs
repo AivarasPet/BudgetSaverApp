@@ -236,12 +236,11 @@ namespace BudgetSaverApp
         /// <summary>
         /// Loads data in the Stats tab.
         /// </summary>
-        /// <param name="sta
-        /// 
+        /// <param name="stats"></param>
         private void SetStatsInfo(Stats stats, string setting)
         {
             LabelStatsWeeklyTransactionAmount.Text = setting + "transaction amount: " + stats.TransactionAmount;
-            LabelStatsWeeklyIncome.Text = setting + "income: " + ((double)stats.Income) + " €";
+            LabelStatsWeeklyIncome.Text = setting + "income: " + stats.Income + " €";
             LabelStatsWeeklyExpenses.Text = setting + "expenses: " + stats.Expenses + " €";
             LabelStatsFrequentCategory.Text = setting + "most frequent category: " + stats.FrequentCategory;
             LabelStatsWeeklyBalance.Text = setting + "balance: " + (stats.Income - stats.Expenses) + " €";

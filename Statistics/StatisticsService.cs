@@ -39,7 +39,7 @@ namespace BudgetSaverApp.Statistics
                 {
                     amount++;
 
-                    if (t.TransactionType == "Income") income += t.Amount;
+                    if (t.TransactionType == "+") income += t.Amount;
                     else expenses += t.Amount;
 
                     if (result.TryGetValue(t.Category, out int count)) result[t.Category] = count + 1;

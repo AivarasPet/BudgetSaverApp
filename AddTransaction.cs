@@ -10,25 +10,12 @@ namespace BudgetSaverApp
     {
         IUserDataService userData;
         ITransactionService transactionService;
-        [Flags]
-        enum Type
-        {
-            Income = 0,
-            Expenses = 1
-        }
         public AddTransaction(IUserDataService userData, ITransactionService transactionService)
         {
             this.transactionService = transactionService; 
             this.userData = userData;
             InitializeComponent();
             ComboBoxTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
-        }
-        private void AddTransaction_Load(object sender, EventArgs e)
-        {
-            foreach (var item in Enum.GetValues(typeof(Type)))
-            {
-                ComboBoxTransactionType.Items.Add(item);
-            }
         }
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
