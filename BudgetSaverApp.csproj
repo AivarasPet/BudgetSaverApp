@@ -97,6 +97,7 @@
     <Compile Include="Goals\IGoalsService.cs" />
     <Compile Include="IApiCallback.cs" />
     <Compile Include="ImageFetcher.cs" />
+    <Compile Include="Possessions\CustomJsonConverter.cs" />
     <Compile Include="PopularTransactions.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +105,9 @@
       <DependentUpon>PopularTransactions.cs</DependentUpon>
     </Compile>
     <Compile Include="Possessions\IPossessionsService.cs" />
+    <Compile Include="Possessions\Links\ApiLink.cs" />
+    <Compile Include="Possessions\Links\GenericLinkList.cs" />
+    <Compile Include="Possessions\Links\ImageLink.cs" />
     <Compile Include="Possessions\PossessionFactory.cs" />
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Statistics\IStatisticsService.cs" />
@@ -181,6 +185,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Data\APILinks.json" />
+    <None Include="Data\ImageLinks.json" />
     <None Include="Data\TransactionsJson.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -211,7 +217,7 @@
   <ItemGroup>
     <Content Include="Data\Categories.txt" />
     <Content Include="Data\ImageLinks.txt" />
-    <Content Include="Data\Possessions.txt" />
+    <None Include="Data\Possessions.json" />
     <Content Include="Data\UserData.txt" />
     <None Include="Resources\Webp.net-resizeimage %282%292.png" />
     <None Include="Resources\Webp.net-resizeimage %2823%29.png" />

@@ -3,9 +3,13 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using BudgetSaverApp.Pricing;
+using System.IO;
+using BudgetSaverApp.Possessions.Links;
+using System.Linq;
 
 namespace BudgetSaverApp.Possessions
 {
+    
     class PossessionsService : IPosessionsService
     {
         List<Possession> list = new List<Possession>();
@@ -17,38 +21,63 @@ namespace BudgetSaverApp.Possessions
 
         public List<Possession> GetPossessionsList()
         {
-            return list;
+            return list ?? null;
         }
      
         public void LoadPossessionsList() {
+            
             list.Clear();
-            TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.txt");
-            if (data == null) return;
+            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.json");
+            
 
-            for (int x = 0; x < data.Length; x++)
+            if (json == null) return;
+
+            list = JsonConvert.DeserializeObject<List<Possession>>(json);
+
+            string apiJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\APILinks.json");
+            string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\ImageLinks.json");
+
+            GenericLinkList<ApiLink> apiList = JsonConvert.DeserializeObject<GenericLinkList<ApiLink>>(apiJson);
+            GenericLinkList<ImageLink> imageList = JsonConvert.DeserializeObject<GenericLinkList<ImageLink>>(imageJson);
+
+            var completeList = list.GroupJoin(apiList, a => a.LinkOfAPI, b => b.id, (item, api) => new
             {
-                if (data[x] == "") continue;
+                Item = item,
+                Api = api
+            });
 
+            List<Possession> list1 = new List<Possession>();
 
-                JObject o = JObject.Parse(data[x]);
+            foreach(var item in completeList)
+            {
+                Possession possession = item.Item;
+                possession.LinkOfAPI = item.Api.First().link;
+                list1.Add(possession);
+            }
 
-                Possession possession = o["Type"].ToString() switch
-                {
-                    "Crypto" => new Crypto(),
-                    "Commodity" => new Commodity(),
-                    "Stock" => new Stock(),
-                    _ => null
-                };
+            list = list1.ToList();
 
+            list1.Clear();
 
-                if (possession != null)
-                {
-                    JsonConvert.PopulateObject(o["Object"].ToString(), possession);
-                    Console.WriteLine(possession.Name);
-                    list.Add(possession);
-                    APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback) possession); //downloads its api
-                }
+            var completeList2 = list.GroupJoin(imageList, a => a.LinkOfImage, b => b.id, (item, api) => new
+            {
+                Item = item,
+                Api = api
+            });
+
+            foreach (var item in completeList2)
+            {
+                Possession possession = item.Item;
+                possession.LinkOfImage = item.Api.First().link;
+                list1.Add(possession);
+            }
+
+            list = list1;
+
+            foreach (Possession possession in list)
+            {
+                if (possession == null) continue;
+                APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback)possession);
             }
 
             APIFetcher.RunAllDownloadsAsync();
