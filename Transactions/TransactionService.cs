@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using static BudgetSaverApp.Transactions.Transaction;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -50,16 +51,16 @@ namespace BudgetSaverApp.Transactions
             return List ?? null;
         }
 
-        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A")
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A")
         {
-            if (transactionType != "" && transactionName != "" && transactionAmount != "")
+            if (transactType != null && transactionName != "" && transactionAmount != "")
             {
                 // Checks whether transaction amount is a number
                 float transAmount;
                 if (!float.TryParse(transactionAmount, out transAmount))
                     return;
 
-                Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category, DateTime.Now); 
+                Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now); 
                 List.Add(newTransaction);
                 SerializeTransactionList();
             }

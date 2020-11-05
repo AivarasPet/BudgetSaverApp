@@ -4,15 +4,22 @@ namespace BudgetSaverApp.Transactions
 {
     public class Transaction : IComparable<Transaction>, IEquatable<Transaction>, ICloneable
     {
-        public string TransactionType { get; }
+
+        [Flags]
+        public enum TransactionType
+        {
+            INCOME = 0,
+            EXPENSES = 1
+        }
+        public TransactionType TransactType { get; }
         public float Amount { get; }
         public string Title { get; }
         public string Category { get; set; }
         public DateTime Date { get; }
 
-        public Transaction(string transactionType, float amount, string title, string category, DateTime date)
+        public Transaction(TransactionType transactType, float amount, string title, string category, DateTime date)
         {
-            this.TransactionType = transactionType;
+            this.TransactType = transactType;
             this.Amount = amount;
             this.Title = title;
             this.Category = category;
@@ -34,7 +41,7 @@ namespace BudgetSaverApp.Transactions
 
         public object Clone()
         {
-            return new Transaction(TransactionType, Amount, Title, Category, Date);
+            return new Transaction(TransactType, Amount, Title, Category, Date);
         }
     }
 }
