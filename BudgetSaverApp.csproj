@@ -68,40 +68,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCategory.cs">
+    <Compile Include="UI\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCategory.Designer.cs">
+    <Compile Include="UI\AddCategory.Designer.cs">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSavings.cs">
+    <Compile Include="UI\AddSavings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSavings.Designer.cs">
+    <Compile Include="UI\AddSavings.Designer.cs">
       <DependentUpon>AddSavings.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTransaction.cs">
+    <Compile Include="UI\AddTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTransaction.Designer.cs">
+    <Compile Include="UI\AddTransaction.Designer.cs">
       <DependentUpon>AddTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnterInfoBox.cs">
+    <Compile Include="UI\EnterInfoBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnterInfoBox.Designer.cs">
+    <Compile Include="UI\EnterInfoBox.Designer.cs">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethod.cs" />
     <Compile Include="Goals\GoalsFactory.cs" />
     <Compile Include="Goals\IGoalsService.cs" />
-    <Compile Include="IApiCallback.cs" />
-    <Compile Include="ImageFetcher.cs" />
+    <Compile Include="Other\IApiCallback.cs" />
+    <Compile Include="Other\ImageFetcher.cs" />
     <Compile Include="Possessions\CustomJsonConverter.cs" />
-    <Compile Include="PopularTransactions.cs">
+    <Compile Include="UI\Controls\PopularTransactions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PopularTransactions.Designer.cs">
+    <Compile Include="UI\Controls\PopularTransactions.Designer.cs">
       <DependentUpon>PopularTransactions.cs</DependentUpon>
     </Compile>
     <Compile Include="Possessions\IPossessionsService.cs" />
@@ -113,19 +113,19 @@
     <Compile Include="Statistics\IStatisticsService.cs" />
     <Compile Include="Statistics\StatisticsFactory.cs" />
     <Compile Include="Transactions\ITransactionService.cs" />
-    <Compile Include="ListSavings.cs">
+    <Compile Include="UI\Controls\ListSavings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ListSavings.Designer.cs">
+    <Compile Include="UI\Controls\ListSavings.Designer.cs">
       <DependentUpon>ListSavings.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainUI.cs">
+    <Compile Include="UI\MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainUI.Designer.cs">
+    <Compile Include="UI\MainUI.Designer.cs">
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="HttpRequest.cs" />
+    <Compile Include="Other\HttpRequest.cs" />
     <Compile Include="Goals\GoalsService.cs" />
     <Compile Include="Possessions\Commodity.cs" />
     <Compile Include="Possessions\Crypto.cs" />
@@ -136,43 +136,43 @@
     <Compile Include="Statistics\Stats.cs" />
     <Compile Include="Statistics\StatisticsService.cs" />
     <Compile Include="TextFileReader.cs" />
-    <Compile Include="ListItemTransactions.cs">
+    <Compile Include="UI\Controls\ListItemTransactions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ListItemTransactions.Designer.cs">
+    <Compile Include="UI\Controls\ListItemTransactions.Designer.cs">
       <DependentUpon>ListItemTransactions.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CategoryService.cs" />
+    <Compile Include="Other\CategoryService.cs" />
     <Compile Include="Transactions\Transaction.cs" />
     <Compile Include="Transactions\TransactionService.cs" />
     <Compile Include="Transactions\TransactionsFactory.cs" />
     <Compile Include="UserData\IUserDataService.cs" />
     <Compile Include="UserData\UserDataService.cs" />
     <Compile Include="UserData\UserDataFactory.cs" />
-    <EmbeddedResource Include="AddCategory.resx">
+    <EmbeddedResource Include="UI\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSavings.resx">
+    <EmbeddedResource Include="UI\AddSavings.resx">
       <DependentUpon>AddSavings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTransaction.resx">
+    <EmbeddedResource Include="UI\AddTransaction.resx">
       <DependentUpon>AddTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterInfoBox.resx">
+    <EmbeddedResource Include="UI\EnterInfoBox.resx">
       <DependentUpon>EnterInfoBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListSavings.resx">
+    <EmbeddedResource Include="UI\Controls\ListSavings.resx">
       <DependentUpon>ListSavings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainUI.resx">
+    <EmbeddedResource Include="UI\MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListItemTransactions.resx">
+    <EmbeddedResource Include="UI\Controls\ListItemTransactions.resx">
       <DependentUpon>ListItemTransactions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PopularTransactions.resx">
+    <EmbeddedResource Include="UI\Controls\PopularTransactions.resx">
       <DependentUpon>PopularTransactions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -228,5 +228,6 @@
     <None Include="Resources\Webp.net-resizeimage %2815%29.png" />
     <None Include="Resources\Webp.net-resizeimage %2810%29.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
