@@ -67,6 +67,7 @@ namespace BudgetSaverApp.Transactions
 
         private List<Transaction> GetListWithACertainDate(DateTime date)
         {
+            foreach(Transaction t in List) { if(t.Date.Date == date.Date) Console.WriteLine(t.Title); }
             return List.Where(oh => oh.Date.Equals(date.Date)).ToList(); ;
         }
 
