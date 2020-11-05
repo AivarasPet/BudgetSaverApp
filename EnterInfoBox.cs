@@ -48,15 +48,14 @@ namespace BudgetSaverApp
         {
             // Checks whether input values are numbers
             string numberPatternRegex = @"(^\d*\.?\d*[1-9]+\d*$)|(^[1-9]+\d*\.\d*$)";
-            bool isPriceValid = Regex.IsMatch(TextBoxGoalItemPrice.Text, numberPatternRegex);
-            bool isSavingsValid = Regex.IsMatch(TextBoxSavings.Text, numberPatternRegex);
-            bool isSalaryValid = Regex.IsMatch(TextBoxMonthlySalary.Text, numberPatternRegex);
-            if (!isPriceValid || !isSavingsValid || !isSalaryValid) 
+            string error = "Not a number";
+            string isPriceValid = error.ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxGoalItemPrice.Text);
+            string isSavingsValid = error.ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxSavings.Text);
+            string isSalaryValid = error.ErrorMessageIfNotMatchesRegex(numberPatternRegex, TextBoxMonthlySalary.Text);
+            if (isPriceValid == error || isSavingsValid == error || isSalaryValid == error)
             {
-                if (!isPriceValid){ TextBoxGoalItemPrice.Text = "Wrong input. Please enter positive numbers"; }
-                if (!isSavingsValid){ TextBoxSavings.Text = "Wrong input. Please enter positive numbers"; }
-                if (!isSalaryValid){ TextBoxMonthlySalary.Text = "Wrong input. Please enter positive numbers"; }
-                return; 
+                Console.WriteLine(isPriceValid + isSavingsValid + isSalaryValid);
+                return;
             }
             // Writes input values into UserData.txt   
             userData.SetAll(TextBoxGoalItemName.Text, float.Parse(TextBoxGoalItemPrice.Text), float.Parse(TextBoxSavings.Text), float.Parse(TextBoxMonthlySalary.Text));
