@@ -132,6 +132,15 @@ namespace BudgetSaverApp
         {
             LoadTransactionsOnUI(transactionService[DateTimePickerTransactions.Value.Date]);
         }
+        private void ButtonTransactionRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshTransactionsList();
+        }
+        private void RefreshTransactionsList()
+        {
+            ButtonFilterTransactions.BackColor = Color.Transparent;
+            LoadTransactionsOnUI(transactionService.GetTransactionsList());
+        }
         #endregion
 
         #region Portfolio
@@ -398,7 +407,7 @@ namespace BudgetSaverApp
             else
             {
                 ButtonFilterTransactions.BackColor = Color.Transparent;
-                LoadTransactionsOnUI(transactionService.GetTransactionsList());
+                RefreshTransactionsList();
             }
         }
         private void LoadPopularTransactionsOnUI()
@@ -414,7 +423,7 @@ namespace BudgetSaverApp
                 {
                     Title = tuple.Item1.Title,
                     Amount = tuple.Item1.Amount.ToString() + " €",
-                    Quantity = "x " + tuple.Item2.ToString(),
+                    Quantity = "Transaction was used " + tuple.Item2.ToString() + " times",
                     TransactionType = tuple.Item1.TransactionType
                 };
                 FlowLayoutPanelTransactions.Controls.Add(item);
