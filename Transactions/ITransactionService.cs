@@ -1,6 +1,7 @@
 ﻿using BudgetSaverApp.Transactions;
 using System;
 using System.Collections.Generic;
+using static BudgetSaverApp.Transactions.Transaction;
 
 namespace BudgetSaverApp
 {
@@ -9,9 +10,9 @@ namespace BudgetSaverApp
         public List<Transaction> GetListWithTitleFiltered(string filter);
         public void LoadTransactionsListFromTextFile();
         public List<Transaction> GetTransactionsList();
-        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A");
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A");
 
-        public List<Tuple<Transaction, int>> GetTuples();
+        public List<Tuple<Transaction, int>> GetPopularTransactionTuples();
         List<Transaction> this[DateTime index]
         {
             get;

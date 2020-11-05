@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BudgetSaverApp.Transactions;
 
 namespace BudgetSaverApp
 {
@@ -17,7 +18,8 @@ namespace BudgetSaverApp
             InitializeComponent();
         }
 
-        private string _title = "", _amount = "", _quantity = "", _transactionType = "";
+        private string _title = "", _amount = "", _quantity = "";
+        Transaction.TransactionType _transactType;
 
         [Category("Custom Props")]
         public string Title
@@ -31,11 +33,11 @@ namespace BudgetSaverApp
             LabelTitleValue.Text = _title;
             LabelAmountValue.Text = _amount;
             LabelQuantityValue.Text = _quantity;
-            if (_transactionType.Contains("+"))
+            if (_transactType == Transaction.TransactionType.INCOME)
             {
                 PanelTransactionType.BackColor = Color.LimeGreen;
             }
-            else if (_transactionType.Contains("-"))
+            else if (_transactType == Transaction.TransactionType.EXPENSES)
             {
                 PanelTransactionType.BackColor = Color.Crimson;
             }
@@ -56,10 +58,10 @@ namespace BudgetSaverApp
         }
 
         [Category("Custom Props")]
-        public string TransactionType
+        public Transaction.TransactionType TransactType
         {
-            get { return _transactionType; }
-            set { _transactionType = value; }
+            get { return _transactType; }
+            set { _transactType = value; }
         }
     }
 }

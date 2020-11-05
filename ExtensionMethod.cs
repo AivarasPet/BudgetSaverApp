@@ -21,7 +21,7 @@ namespace BudgetSaverApp
 
         public static string ErrorMessageIfNotMatchesRegex(this string message, string regexKey, string source)
         {
-            return Regex.IsMatch(source, regexKey) ? source + '\n' : message;
+            return Regex.IsMatch(source, regexKey) ? "" : message + '\n';
         }
     }
 }

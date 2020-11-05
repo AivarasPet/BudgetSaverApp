@@ -91,7 +91,7 @@ namespace BudgetSaverApp
                 }
                 ListItemTransactions item = new ListItemTransactions
                 {
-                    TransactionType = t.TransactionType,
+                    TransactType = t.TransactType,
                     Title = t.Title,
                     Amount = t.Amount.ToString() + " €",
                     Category = t.Category
@@ -413,7 +413,7 @@ namespace BudgetSaverApp
         private void LoadPopularTransactionsOnUI()
         {
             FlowLayoutPanelTransactions.Controls.Clear();
-            foreach (Tuple<Transaction, int> tuple in transactionService.GetTuples())
+            foreach (Tuple<Transaction, int> tuple in transactionService.GetPopularTransactionTuples())
             {
                 if (tuple == null)
                 {
