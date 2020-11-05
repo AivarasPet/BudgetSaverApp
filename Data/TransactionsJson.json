@@ -1,97 +1,97 @@
 [
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME", 
     "Amount": 400.0,
     "Title": "Salary",
     "Category": "Work\r",
     "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 400.0,
     "Title": "Salary",
     "Category": "Work\r",
     "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "EXPENSES",
     "Amount": 20.0,
     "Title": "Lunch",
     "Category": "Food\r",
     "Date": "2020-10-12T15:58:37.6347808+03:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 100.0,
     "Title": "Gift",
     "Category": "Others\r",
     "Date": "2020-10-12T16:26:23.6846254+03:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 15.0,
     "Title": "Teleloto",
     "Category": "Lottery\r",
     "Date": "2020-10-12T16:27:32.5401146+03:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "EXPENSES",
     "Amount": 500.0,
     "Title": "Taxes",
     "Category": "Household\r",
     "Date": "2020-10-12T16:29:18.7798163+03:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "INCOME",
     "Amount": 200.0,
     "Title": "Car repairs",
     "Category": "Household\r",
     "Date": "2020-10-12T16:29:31.7886235+03:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "INCOME",
     "Amount": 50.0,
     "Title": "Shopping at Maxima",
     "Category": "Shopping\r",
     "Date": "2020-10-12T16:30:00.3950945+03:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 3000.0,
     "Title": "Sold old stuff",
     "Category": "Household\r",
     "Date": "2020-10-25T21:46:45.1061975+02:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "EXPENSES",
     "Amount": 50.0,
     "Title": "Stuff",
     "Category": "N/A",
     "Date": "2020-10-25T23:17:39.9862287+02:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 1000.0,
     "Title": "Seeling items",
     "Category": "Household\r",
     "Date": "2020-11-04T14:10:36.5824376+02:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "EXPENSES",
     "Amount": 1000.0,
     "Title": "Loan",
     "Category": "Household\r",
     "Date": "2020-11-04T14:48:14.6468848+02:00"
   },
   {
-    "TransactionType": "Income",
+    "TransactType": "INCOME",
     "Amount": 50.0,
     "Title": "Gift",
     "Category": "Food\r",
     "Date": "2020-11-04T17:10:44.3295029+02:00"
   },
   {
-    "TransactionType": "Expenses",
+    "TransactType": "EXPENSES",
     "Amount": 100.0,
     "Title": "Loan",
     "Category": "Household\r",
