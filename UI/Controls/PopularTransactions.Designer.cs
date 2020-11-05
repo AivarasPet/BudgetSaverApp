@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.LabelTitleValue = new System.Windows.Forms.Label();
-            this.LabelAmountValue = new System.Windows.Forms.Label();
             this.LabelQuantityValue = new System.Windows.Forms.Label();
             this.PanelTransactionType = new System.Windows.Forms.Panel();
+            this.LabelAmountValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelTitleValue
@@ -44,17 +44,6 @@
             this.LabelTitleValue.Size = new System.Drawing.Size(26, 20);
             this.LabelTitleValue.TabIndex = 21;
             this.LabelTitleValue.Text = "- -";
-            // 
-            // LabelAmountValue
-            // 
-            this.LabelAmountValue.AutoSize = true;
-            this.LabelAmountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.LabelAmountValue.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelAmountValue.Location = new System.Drawing.Point(231, 22);
-            this.LabelAmountValue.Name = "LabelAmountValue";
-            this.LabelAmountValue.Size = new System.Drawing.Size(26, 20);
-            this.LabelAmountValue.TabIndex = 22;
-            this.LabelAmountValue.Text = "- -";
             // 
             // LabelQuantityValue
             // 
@@ -76,14 +65,25 @@
             this.PanelTransactionType.Size = new System.Drawing.Size(5, 65);
             this.PanelTransactionType.TabIndex = 24;
             // 
+            // LabelAmountValue
+            // 
+            this.LabelAmountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LabelAmountValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelAmountValue.Location = new System.Drawing.Point(156, 18);
+            this.LabelAmountValue.Name = "LabelAmountValue";
+            this.LabelAmountValue.Size = new System.Drawing.Size(107, 28);
+            this.LabelAmountValue.TabIndex = 25;
+            this.LabelAmountValue.Text = "- -";
+            this.LabelAmountValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // PopularTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.LabelAmountValue);
             this.Controls.Add(this.PanelTransactionType);
             this.Controls.Add(this.LabelQuantityValue);
-            this.Controls.Add(this.LabelAmountValue);
             this.Controls.Add(this.LabelTitleValue);
             this.Name = "PopularTransactions";
             this.Size = new System.Drawing.Size(347, 65);
@@ -96,8 +96,8 @@
         #endregion
 
         private System.Windows.Forms.Label LabelTitleValue;
-        private System.Windows.Forms.Label LabelAmountValue;
         private System.Windows.Forms.Label LabelQuantityValue;
         private System.Windows.Forms.Panel PanelTransactionType;
+        private System.Windows.Forms.Label LabelAmountValue;
     }
 }

@@ -96,5 +96,12 @@
     "Title": "Loan",
     "Category": "Household\r",
     "Date": "2020-11-04T17:12:49.8970918+02:00"
+  },
+  {
+    "TransactionType": "Income",
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "N/A",
+    "Date": "2020-11-05T00:00:00.00:00"
   }
 ]

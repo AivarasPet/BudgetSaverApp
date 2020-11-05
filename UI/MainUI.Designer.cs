@@ -91,6 +91,7 @@
             this.ContextMenuStripTransactions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemTransactionsData = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelSearchBar = new System.Windows.Forms.Panel();
+            this.DateTimePickerTransactions = new System.Windows.Forms.DateTimePicker();
             this.ButtonFilterTransactions = new System.Windows.Forms.Button();
             this.PictureBoxSearchIcon = new System.Windows.Forms.PictureBox();
             this.PanelTabControl = new System.Windows.Forms.Panel();
@@ -179,10 +180,10 @@
             // TextBoxTransactionSearchBar
             // 
             this.TextBoxTransactionSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(26, 3);
+            this.TextBoxTransactionSearchBar.Location = new System.Drawing.Point(29, 5);
             this.TextBoxTransactionSearchBar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TextBoxTransactionSearchBar.Name = "TextBoxTransactionSearchBar";
-            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(291, 15);
+            this.TextBoxTransactionSearchBar.Size = new System.Drawing.Size(261, 15);
             this.TextBoxTransactionSearchBar.TabIndex = 0;
             this.TextBoxTransactionSearchBar.TextChanged += new System.EventHandler(this.TextBoxTransactionSearchBar_TextChanged);
             // 
@@ -893,6 +894,7 @@
             // PanelSearchBar
             // 
             this.PanelSearchBar.BackColor = System.Drawing.Color.White;
+            this.PanelSearchBar.Controls.Add(this.DateTimePickerTransactions);
             this.PanelSearchBar.Controls.Add(this.ButtonFilterTransactions);
             this.PanelSearchBar.Controls.Add(this.TextBoxTransactionSearchBar);
             this.PanelSearchBar.Controls.Add(this.PictureBoxSearchIcon);
@@ -903,16 +905,28 @@
             this.PanelSearchBar.Size = new System.Drawing.Size(349, 27);
             this.PanelSearchBar.TabIndex = 5;
             // 
+            // DateTimePickerTransactions
+            // 
+            this.DateTimePickerTransactions.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.DateTimePickerTransactions.CustomFormat = "yyyy/MM/dd";
+            this.DateTimePickerTransactions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DateTimePickerTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.DateTimePickerTransactions.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateTimePickerTransactions.Location = new System.Drawing.Point(327, 0);
+            this.DateTimePickerTransactions.Name = "DateTimePickerTransactions";
+            this.DateTimePickerTransactions.Size = new System.Drawing.Size(22, 26);
+            this.DateTimePickerTransactions.TabIndex = 0;
+            this.DateTimePickerTransactions.ValueChanged += new System.EventHandler(this.DateTimePickerTransactions_ValueChanged);
+            // 
             // ButtonFilterTransactions
             // 
             this.ButtonFilterTransactions.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonFilterTransactions.Dock = System.Windows.Forms.DockStyle.Right;
             this.ButtonFilterTransactions.FlatAppearance.BorderSize = 0;
             this.ButtonFilterTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonFilterTransactions.Image = ((System.Drawing.Image)(resources.GetObject("ButtonFilterTransactions.Image")));
-            this.ButtonFilterTransactions.Location = new System.Drawing.Point(323, 0);
+            this.ButtonFilterTransactions.Location = new System.Drawing.Point(295, 0);
             this.ButtonFilterTransactions.Name = "ButtonFilterTransactions";
-            this.ButtonFilterTransactions.Size = new System.Drawing.Size(26, 27);
+            this.ButtonFilterTransactions.Size = new System.Drawing.Size(28, 27);
             this.ButtonFilterTransactions.TabIndex = 2;
             this.ButtonFilterTransactions.UseVisualStyleBackColor = false;
             this.ButtonFilterTransactions.Click += new System.EventHandler(this.ButtonFilterTransactions_Click);
@@ -1048,5 +1062,6 @@
         private System.Windows.Forms.Label LabelDaysToGoForGoal;
         private System.Windows.Forms.Label LabelProfitMonthly;
         private System.Windows.Forms.Button ButtonFilterTransactions;
+        private System.Windows.Forms.DateTimePicker DateTimePickerTransactions;
     }
 }

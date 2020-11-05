@@ -127,6 +127,11 @@ namespace BudgetSaverApp
             SetUserInfo();
             SetDefaultStatsInfo();
         }
+
+        private void DateTimePickerTransactions_ValueChanged(object sender, EventArgs e)
+        {
+            LoadTransactionsOnUI(transactionService[DateTimePickerTransactions.Value.Date]);
+        }
         #endregion
 
         #region Portfolio
