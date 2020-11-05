@@ -404,7 +404,7 @@ namespace BudgetSaverApp
         private void LoadPopularTransactionsOnUI()
         {
             FlowLayoutPanelTransactions.Controls.Clear();
-            foreach (Tuple<Transaction, int> tuple in transactionService.GetTuples())
+            foreach (Tuple<Transaction, int> tuple in transactionService.GetPopularTransactionTuples())
             {
                 if (tuple == null)
                 {
