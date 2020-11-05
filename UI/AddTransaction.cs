@@ -20,7 +20,7 @@ namespace BudgetSaverApp
         }
         private void AddTransaction_Load(object sender, EventArgs e)
         {
-            foreach (var item in Enum.GetValues(typeof(Type)))
+            foreach (var item in Enum.GetValues(typeof(Transaction.TransactionType)))
             {
                 ComboBoxTransactionType.Items.Add(item);
             }

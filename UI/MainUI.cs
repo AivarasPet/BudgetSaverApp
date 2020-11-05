@@ -424,7 +424,7 @@ namespace BudgetSaverApp
                     Title = tuple.Item1.Title,
                     Amount = tuple.Item1.Amount.ToString() + " €",
                     Quantity = "Transaction was used " + tuple.Item2.ToString() + " times",
-                    TransactionType = tuple.Item1.TransactionType
+                    TransactType = tuple.Item1.TransactType
                 };
                 FlowLayoutPanelTransactions.Controls.Add(item);
             }
