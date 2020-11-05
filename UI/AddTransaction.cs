@@ -10,12 +10,7 @@ namespace BudgetSaverApp
     {
         IUserDataService userData;
         ITransactionService transactionService;
-        [Flags]
-        enum Type
-        {
-            Income = 0,
-            Expenses = 1
-        }
+
         public AddTransaction(IUserDataService userData, ITransactionService transactionService)
         {
             this.transactionService = transactionService; 
@@ -33,13 +28,14 @@ namespace BudgetSaverApp
 
         private void AddTransactionButton_Click(object sender, EventArgs e)
         {
-            if(ComboBoxTransactionCategory.Text == "")
+            Transaction.TransactionType transactType = (float.Parse(TextBoxTransactionAmount.Text) >= 0) ? Transaction.TransactionType.INCOME : Transaction.TransactionType.EXPENSES;
+            if (ComboBoxTransactionCategory.Text == "")
             {
-                transactionService.AddNewTransaction(transactionType: ComboBoxTransactionType.Text, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
+                transactionService.AddNewTransaction(transactType: transactType, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
             }
             else
             {
-                transactionService.AddNewTransaction(category: ComboBoxTransactionCategory.Text, transactionType: ComboBoxTransactionType.Text, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
+                transactionService.AddNewTransaction(category: ComboBoxTransactionCategory.Text, transactType: transactType, transactionName: TextBoxTitleName.Text, transactionAmount: TextBoxTransactionAmount.Text);
             }
             Close();
         }

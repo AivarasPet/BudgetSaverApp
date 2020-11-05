@@ -91,7 +91,7 @@ namespace BudgetSaverApp
                 }
                 ListItemTransactions item = new ListItemTransactions
                 {
-                    TransactionType = t.TransactionType,
+                    TransactType = t.TransactType,
                     Title = t.Title,
                     Amount = t.Amount.ToString() + " €",
                     Category = t.Category
@@ -415,7 +415,7 @@ namespace BudgetSaverApp
                     Title = tuple.Item1.Title,
                     Amount = tuple.Item1.Amount.ToString() + " €",
                     Quantity = "x " + tuple.Item2.ToString(),
-                    TransactionType = tuple.Item1.TransactionType
+                    TransactType = tuple.Item1.TransactType
                 };
                 FlowLayoutPanelTransactions.Controls.Add(item);
             }

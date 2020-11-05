@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using static BudgetSaverApp.Transactions.Transaction;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -50,16 +51,16 @@ namespace BudgetSaverApp.Transactions
             return List ?? null;
         }
 
-        public void AddNewTransaction(string transactionType, string transactionName, string transactionAmount, string category = "N/A")
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A")
         {
-            if (transactionType != "" && transactionName != "" && transactionAmount != "")
+            if (transactType != null && transactionName != "" && transactionAmount != "")
             {
                 // Checks whether transaction amount is a number
                 float transAmount;
                 if (!float.TryParse(transactionAmount, out transAmount))
                     return;
 
-                Transaction newTransaction = new Transaction(transactionType, transAmount, transactionName, category, DateTime.Now); 
+                Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now); 
                 List.Add(newTransaction);
                 SerializeTransactionList();
             }
@@ -67,6 +68,7 @@ namespace BudgetSaverApp.Transactions
 
         private List<Transaction> GetListWithACertainDate(DateTime date)
         {
+            foreach(Transaction t in List) { if(t.Date.Date == date.Date) Console.WriteLine(t.Title); }
             return List.Where(oh => oh.Date.Equals(date.Date)).ToList(); ;
         }
 
@@ -77,15 +79,20 @@ namespace BudgetSaverApp.Transactions
             for(int x = 0; x < copyOfTransactions.Count; x++)
             {
                 int count = 1;
+                float amount = (copyOfTransactions.ElementAt(x).TransactType == Transaction.TransactionType.EXPENSES) ? -copyOfTransactions.ElementAt(x).Amount : copyOfTransactions.ElementAt(x).Amount;
                 for (int y = x+1; y < copyOfTransactions.Count; y++)
                 {
                     if (copyOfTransactions.ElementAt(x).Equals(copyOfTransactions.ElementAt(y)))
                     {
                         count++;
+                        amount += (copyOfTransactions.ElementAt(y).TransactType == Transaction.TransactionType.EXPENSES) ? -copyOfTransactions.ElementAt(y).Amount : copyOfTransactions.ElementAt(y).Amount;
                         copyOfTransactions.RemoveAt(y);
                     }
                 }
-                Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(copyOfTransactions.ElementAt(x), count);
+                TransactionType type = (amount >= 0) ? (Transaction.TransactionType.INCOME) : (Transaction.TransactionType.EXPENSES);
+                Console.WriteLine("AMOUNT : " + amount);
+                Transaction transaction = new Transaction(type, Math.Abs(amount), copyOfTransactions.ElementAt(x).Title, copyOfTransactions.ElementAt(x).Category, copyOfTransactions.ElementAt(x).Date);
+                Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(transaction, count);
                 if(count > 1) tuples.Add(tuple);
             }
             return tuples;
