@@ -217,6 +217,7 @@
   <ItemGroup>
     <Content Include="Data\Categories.txt" />
     <Content Include="Data\ImageLinks.txt" />
+    <None Include="Resources\Webp.net-resizeimage %284%29.png" />
     <None Include="Data\Possessions.json" />
     <Content Include="Data\UserData.txt" />
     <None Include="Resources\Webp.net-resizeimage %282%292.png" />
