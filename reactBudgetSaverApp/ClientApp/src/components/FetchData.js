@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FetchData.css';
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
@@ -17,19 +18,19 @@ export class FetchData extends Component {
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>TransactionType</th>
           </tr>
         </thead>
         <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
+          {forecasts.map((transaction,index) =>
+              <tr key={index} typeforcss={transaction.transactType}>
+                  <td>{transaction.title}</td>
+                  <td>{transaction.amount}</td>
+                  <td>{transaction.category}</td>
+                  <td>{transaction.transactType}</td>
             </tr>
           )}
         </tbody>
@@ -52,8 +53,9 @@ export class FetchData extends Component {
   }
 
   async populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
+      const response = await fetch('transaction');
+      const data = await response.json();
+      console.log(data);
+      this.setState({ forecasts: data, loading: false });
   }
 }
