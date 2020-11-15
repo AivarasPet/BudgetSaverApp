@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -6,7 +8,8 @@ namespace BudgetSaverApp.Possessions
     {
         public void OnAPIDownload(string APIData)
         {
-            throw new NotImplementedException();
+              
+            //JObject jObject = JObject.Parse(response.Content);
         }
     }
 }

@@ -22,6 +22,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Data\APILinks.json" />
+    <Content Remove="Data\ImageLinks.json" />
+    <Content Remove="Data\Possessions.json" />
+    <Content Remove="Data\TransactionsJson.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Categories.txt" />
+    <None Remove="Data\ImageLinks.txt" />
+    <None Remove="Data\UserData.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Categories.txt" />
+    <Content Include="Data\ImageLinks.txt" />
+    <Content Include="Data\UserData.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Data\APILinks.json" />
+    <None Include="Data\ImageLinks.json" />
+    <None Include="Data\Possessions.json" />
+    <None Include="Data\TransactionsJson.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BudgetSaverApp.csproj" />
   </ItemGroup>
 

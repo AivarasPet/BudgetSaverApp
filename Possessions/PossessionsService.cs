@@ -37,27 +37,31 @@ namespace BudgetSaverApp.Possessions
             string apiJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\APILinks.json");
             string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\ImageLinks.json");
 
-            GenericLinkList<ApiLink> apiList = JsonConvert.DeserializeObject<GenericLinkList<ApiLink>>(apiJson);
-            GenericLinkList<ImageLink> imageList = JsonConvert.DeserializeObject<GenericLinkList<ImageLink>>(imageJson);
+            List<ApiLink> apiList = JsonConvert.DeserializeObject<List<ApiLink>>(apiJson);
+            List<ImageLink> imageList = JsonConvert.DeserializeObject<List<ImageLink>>(imageJson);
 
-            var completeList = list.GroupJoin(apiList, a => a.LinkOfAPI, b => b.id, (item, api) => new
-            {
-                Item = item,
-                Api = api
-            });
+            //var completeList = list.GroupJoin(apiList, a => a.ApiLinkID, b => b.Id, (item, api) => new
+            // {
+            //     Item = item,
+            //     Api = api
+            // });
+            var completeList =
+                from a in apiList
+                join l in list
+                on a.Id equals l.ApiLinkID
+                select new {Item = l, Link = a.Link, Headers = a.Headers};
 
             List<Possession> list1 = new List<Possession>();
 
             foreach(var item in completeList)
             {
-                Possession possession = item.Item;
-                possession.LinkOfAPI = item.Api.First().link;
-                list1.Add(possession);
+                ApiLink apiLink = new ApiLink
+                {
+                    Headers = item.Headers,
+                    Link = item.Link
+                };
+                APIFetcher.AddDownloadEntity(apiLink, (IApiCallback) item.Item);
             }
-
-            list = list1.ToList();
-
-            list1.Clear();
 
             var completeList2 = list.GroupJoin(imageList, a => a.LinkOfImage, b => b.id, (item, api) => new
             {
@@ -74,11 +78,6 @@ namespace BudgetSaverApp.Possessions
 
             list = list1;
 
-            foreach (Possession possession in list)
-            {
-                if (possession == null) continue;
-                APIFetcher.AddDownloadEntity(possession.LinkOfAPI, (IApiCallback)possession);
-            }
 
             APIFetcher.RunAllDownloadsAsync();
         }
