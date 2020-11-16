@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace my_new_app.Controllers
 {
     [Route("[controller]")]
-    public class TransactionController: ControllerBase
+    public class TransactionController : ControllerBase
     {
 
         private readonly ILogger<WeatherForecastController> _logger;
