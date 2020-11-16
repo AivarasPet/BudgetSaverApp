@@ -33,7 +33,7 @@ namespace BudgetSaverApp.Transactions
         public void LoadTransactionsListFromTextFile()
         {
             List.Clear();
-            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\TransactionsJson.json");
+            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\TransactionsJson.json");
             if (json == null) return;
             List = JsonConvert.DeserializeObject<List<Transaction>>(json);
             OnTransactionServiceLoaded(null, EventArgs.Empty);
@@ -42,7 +42,7 @@ namespace BudgetSaverApp.Transactions
         public void SerializeTransactionList()
         {
             var json = JsonConvert.SerializeObject(List, Formatting.Indented);
-            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\TransactionsJson.json", json);
+            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\TransactionsJson.json", json);
         }
 
 

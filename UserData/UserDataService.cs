@@ -32,7 +32,7 @@ namespace BudgetSaverApp
         /// </summary>
         public void SaveToFile()
         {
-            StreamWriter writer = new StreamWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
+            StreamWriter writer = new StreamWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\UserData.txt");
             writer.WriteLine(CurrentSavings);
             writer.WriteLine(MonthlySalary);
             writer.WriteLine(GoalItemName);
@@ -45,7 +45,7 @@ namespace BudgetSaverApp
         public void ReadFromFile()
         {
             TextFileReader textFileReader = new TextFileReader();
-            string[] data = textFileReader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\UserData.txt");
+            string[] data = textFileReader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\UserData.txt");
 
             CurrentSavings = float.Parse(data[0]);
             MonthlySalary = float.Parse(data[1]);
