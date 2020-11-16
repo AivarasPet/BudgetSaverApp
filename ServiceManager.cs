@@ -18,12 +18,16 @@ namespace BudgetSaverApp
         public IStatisticsService statisticsService { get; }
         public IGoalsService goalsService { get; }
         public IUserDataService userDataService { get; }
+
+        //public CategoryService categoryService { get; }
+
         public ServiceManager() { 
             transactionService = TransactionsFactory.GetTransactionService();
             posessionsService = PossessionFactory.GetPossessionsService();
             statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
             goalsService = GoalsFactory.GetGoalsService(statisticsService);
             userDataService = UserDataFactory.GetStatisticsService(goalsService);
+            //categoryService = CategoryService.GetCategoryService();
         }
     }
 }

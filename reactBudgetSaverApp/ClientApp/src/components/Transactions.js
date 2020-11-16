@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 import './Transactions.css';
+import Select from 'react-select';
 
 export class Transactions extends Component {
   static displayName = Transactions.name;
 
   constructor(props) {
-    super(props);
-    this.state = { transactions: [], loading: true };
+      super(props);
+      this.state = {
+          transactions: [],
+          loading: true,
+          addNewTransactionVisibility: true,
+          placeHolder: "Title"
+      };
+      this.toggleVisilibity = this.toggleVisilibity.bind(this);
+      this.type = [
+          { value: 0, label: 'Income' },
+          { value: 1, label: 'Expenses' }
+      ];
+
+      this.categories = [
+          { value: 'Horyshit',label: 'Hory'}
+      ]
   }
 
   componentDidMount() {
@@ -36,21 +51,40 @@ export class Transactions extends Component {
     );
     }
 
+    
 
-  render() {
+    render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
       : Transactions.renderTransactionsTable(this.state.transactions);
+      return (
 
-    return (
-      <div>
-        <h1 id="tabelLabel" >Transaction list</h1>
+          <div>
+              <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
+              {!this.state.addNewTransactionVisibility && (
+                  <form onSubmit={this.handleNewTransaction}>
+                      
+                      <Select options={this.type} />
+                      <input type="text" placeholder="Title"/>
+                      <input type="number" min="0" step="any" placeholder="Amount" />
+                      <Select options={this.categories} />
+                      <input type="submit" value="Add"/>
+                  </form>
+              )}
+              <h1 id="tabelLabel" >Transaction list</h1>
         <p>This table shows total list of all transactions.
             Green color indicates Income and Red indicates Expenses.</p>
         {contents}
       </div>
     );
-  }
+    }
+
+
+    toggleVisilibity() {
+        this.setState({
+            addNewTransactionVisibility: !this.state.addNewTransactionVisibility
+        });
+    }
 
   async populateTransactionData() {
       const response = await fetch('transaction');
