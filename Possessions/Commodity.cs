@@ -8,8 +8,17 @@ namespace BudgetSaverApp.Possessions
     {
         public void OnAPIDownload(string APIData)
         {
-              
-            //JObject jObject = JObject.Parse(response.Content);
+            string key = this.Name switch
+            {
+                "Silver" => "XAG",
+                "Polyamide" => "PA",
+                "Platinum" => "PL",
+                "Gold" => "XAU",
+                _ => ""
+            };
+
+            JObject jObject = JObject.Parse(APIData);
+            ValueInDollars = Amount * float.Parse(jObject["rates"][key].ToString());
         }
     }
 }
