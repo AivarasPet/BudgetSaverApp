@@ -20,6 +20,12 @@ namespace my_new_app.Controllers
             _logger = logger;
         }
 
+        public IActionResult AddTransaction(Transaction transaction)
+        {
+            Console.WriteLine(transaction);
+            return Ok();
+        }
+
         [HttpGet]
         public IEnumerable<Transaction> Get()
         {

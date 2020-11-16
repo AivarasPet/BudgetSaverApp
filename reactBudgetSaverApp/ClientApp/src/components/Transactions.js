@@ -19,13 +19,12 @@ export class Transactions extends Component {
           { value: 1, label: 'Expenses' }
       ];
 
-      this.categories = [
-          { value: 'Horyshit',label: 'Hory'}
-      ]
+      this.categories = [];
   }
 
   componentDidMount() {
-    this.populateTransactionData();
+      this.populateTransactionData();
+      this.populateCategories();
   }
 
   static renderTransactionsTable(transactions) {
@@ -42,7 +41,7 @@ export class Transactions extends Component {
           {transactions.map((transaction,index) =>
               <tr key={index} typeforcss={transaction.transactType}>
                   <td>{transaction.title}</td>
-                  {transaction.transactType == '0' ? <td>{'+ ' + transaction.amount}</td> : <td>{'- ' + transaction.amount}</td>}
+                  {transaction.transactType === 0 ? <td>{'+ ' + transaction.amount}</td> : <td>{'- ' + transaction.amount}</td>}
                   <td>{transaction.category}</td>
             </tr>
           )}
@@ -51,7 +50,19 @@ export class Transactions extends Component {
     );
     }
 
-    
+    handleNewTransaction = (event) => {
+        // Simple POST request with a JSON body using fetch
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event.target)
+        };
+
+        console.log(event.target);
+        fetch('Transactions/AddTransaction', requestOptions);
+
+
+    }
 
     render() {
     let contents = this.state.loading
@@ -86,10 +97,22 @@ export class Transactions extends Component {
         });
     }
 
-  async populateTransactionData() {
-      const response = await fetch('transaction');
-      const data = await response.json();
-      console.log(data);
-      this.setState({ transactions: data, loading: false });
-  }
+    async populateTransactionData() {
+        const response = await fetch('transaction');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ transactions: data, loading: false });
+    }
+
+    async populateCategories() {
+        const response = await fetch('categories/getcategories');
+        const data = await response.json();
+        console.log(data);
+        var tempCategories = [];
+        data.forEach(function (element){
+            tempCategories.push({label:element.name,value:element.name})
+        });
+
+        this.categories = tempCategories;
+    }
 }

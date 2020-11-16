@@ -18,7 +18,7 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/transactions' component={Transactions} />
         <Route path='/possessions' component={Possessions} />
-        <Route path='/statistics' component={Statistics} />
+            <Route path='/statistics' component={Statistics} />
       </Layout>
     );
   }
