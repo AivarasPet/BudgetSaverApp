@@ -1,0 +1,2 @@
+﻿BtcLogoImg:https://www.subpng.com/png-q951j6/
+EthLogoImg:https://cryptologos.cc/logos/ethereum-eth-logo.png

@@ -27,15 +27,15 @@ namespace BudgetSaverApp.Possessions
         public void LoadPossessionsList() {
             
             list.Clear();
-            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Possessions.json");
+            string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\Possessions.json");
             
 
             if (json == null) return;
 
             list = JsonConvert.DeserializeObject<List<Possession>>(json);
 
-            string apiJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\APILinks.json");
-            string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\ImageLinks.json");
+            string apiJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\APILinks.json");
+            string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\ImageLinks.json");
 
             GenericLinkList<ApiLink> apiList = JsonConvert.DeserializeObject<GenericLinkList<ApiLink>>(apiJson);
             GenericLinkList<ImageLink> imageList = JsonConvert.DeserializeObject<GenericLinkList<ImageLink>>(imageJson);
