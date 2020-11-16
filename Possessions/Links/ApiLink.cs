@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Possessions.Links
 {
-    struct ApiLink
+    public struct ApiLink
     {
-        public string id { get; set; }
-        public string link { get; set; }
+        public string Id { get; set; }
+        public string Link { get; set; }
+        public Dictionary<string, string> Headers { get; set; }
     }
 }

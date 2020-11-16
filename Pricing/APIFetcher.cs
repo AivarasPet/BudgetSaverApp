@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetSaverApp.Possessions.Links;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,36 +13,36 @@ namespace BudgetSaverApp.Pricing
 
         struct ApiTaskEntity
         {
-            public string url { set; get; }
+            public ApiLink apiLink { set; get; }
             public IApiCallback ocjectThatNeedApiCallback;
         }
 
         private static List<ApiTaskEntity> taskEntities = new List<ApiTaskEntity>();
         private static List<Task> tasks = new List<Task>();
 
-        private static async Task<string> DownloadAPIAsync(string url)
+        private static async Task<string> DownloadAPIAsync(ApiLink apiLink)
         {
             HttpRequest request = new HttpRequest();
             //request.HttpRequestCompleted += this.OnCryptoPricingDownloaded;
-            return await request.StartHttpRequest(url);
+            return await request.StartHttpRequest(apiLink);
         }
 
         public static async Task RunAllDownloadsAsync()
         {
             foreach(ApiTaskEntity e in taskEntities)
             {
-                tasks.Add((Task.Run(async () =>  e.ocjectThatNeedApiCallback.OnAPIDownload(await DownloadAPIAsync(e.url)))));
+                tasks.Add((Task.Run(async () =>  e.ocjectThatNeedApiCallback.OnAPIDownload(await DownloadAPIAsync(e.apiLink)))));
             }
 
             await Task.WhenAll(tasks);
             AllAPIsDownloaded(null, EventArgs.Empty);
         }
 
-        public static void AddDownloadEntity(string url, IApiCallback callback)
+        public static void AddDownloadEntity(ApiLink apiLink, IApiCallback callback)
         {
             taskEntities.Add(new ApiTaskEntity
             {
-                url = url,
+                apiLink = apiLink,
                 ocjectThatNeedApiCallback = callback
             });
         }

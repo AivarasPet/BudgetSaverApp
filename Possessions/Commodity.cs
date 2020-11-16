@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -6,7 +8,17 @@ namespace BudgetSaverApp.Possessions
     {
         public void OnAPIDownload(string APIData)
         {
-            throw new NotImplementedException();
+            string key = this.Name switch
+            {
+                "Silver" => "XAG",
+                "Polyamide" => "PA",
+                "Platinum" => "PL",
+                "Gold" => "XAU",
+                _ => ""
+            };
+
+            JObject jObject = JObject.Parse(APIData);
+            ValueInDollars = Amount * float.Parse(jObject["rates"][key].ToString());
         }
     }
 }

@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using BudgetSaverApp.Goals;
 using BudgetSaverApp.Possessions;
+using BudgetSaverApp.Possessions.Links;
 using BudgetSaverApp.Pricing;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
 using BudgetSaverApp.UserData;
+using Newtonsoft.Json;
+using RestSharp;
 using static BudgetSaverApp.Pricing.APIFetcher;
 
 namespace BudgetSaverApp
@@ -41,8 +47,33 @@ namespace BudgetSaverApp
             SetUserInfo();
             SetDefaultStatsInfo();
             CleanTab();
+            doStuff();
         }
+
+
+        void doStuff()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("x-rapidapi-key", "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f");
+            dic.Add("x-rapidapi-host", "live-metal-prices.p.rapidapi.com");
+            ApiLink api = new ApiLink
+            {
+                Id = "11",
+                Link = "https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR",
+                Headers = dic
+            };
+            var json = JsonConvert.SerializeObject(api, Formatting.Indented);
+            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\api.json", json);
+            //var client = new RestClient("https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR");
+            //var request = new RestRequest(Method.GET);
+            //request.AddHeader("x-rapidapi-key", "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f");
+            //request.AddHeader("x-rapidapi-host", "live-metal-prices.p.rapidapi.com");
+            //IRestResponse response = client.Execute(request);
+            //Console.WriteLine(request.Parameters.ElementAt(0));
+        }
+
         public delegate void MethodInvoker();
+
         public void ReloadSavings(object sender, System.EventArgs e)
         {
             foreach (Possession possesion in possessionsService.GetPossessionsList()) Console.WriteLine("kaina:" + possesion.ValueInDollars);

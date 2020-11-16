@@ -1,3 +1,38 @@
-﻿[{"Type":"Crypto","Object":{"Name":"Bitcoin","Amount":10.0,"linkOfAPI":"0", "LinkOfImage":"0"}},
-{"Type":"Crypto","Object":{"Name":"Ethereum","Amount":10.0,"linkOfAPI":"1", "LinkOfImage":"1"}},
-{"Type":"Stock","Object":{"Name":"Apple","Amount":5,"linkOfAPI":"2", "LinkOfImage":"2"}}]
+﻿[
+  {
+    "Type": "Crypto",
+    "Object": {
+      "Name": "Bitcoin",
+      "Amount": 10.0,
+      "APILinkID": "0",
+      "LinkOfImage": "0"
+    }
+  },
+  {
+    "Type": "Crypto",
+    "Object": {
+      "Name": "Ethereum",
+      "Amount": 10.0,
+      "APILinkID": "1",
+      "LinkOfImage": "1"
+    }
+  },
+  {
+    "Type": "Stock",
+    "Object": {
+      "Name": "Apple",
+      "Amount": 5,
+      "APILinkID": "2",
+      "LinkOfImage": "2"
+    }
+  },
+  {
+    "Type": "Commodity",
+    "Object": {
+      "Name": "Gold",
+      "Amount": 5,
+      "APILinkID": "3",
+      "LinkOfImage": "goldImg"
+    }
+  }
+]

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BudgetSaverApp.Possessions.Links;
+using Newtonsoft.Json;
 using System;
 
 namespace BudgetSaverApp.Possessions
@@ -9,7 +10,7 @@ namespace BudgetSaverApp.Possessions
         public string Name { get; set; }
         public float Amount {get; set;}
         public float ValueInDollars { get; set; }
-        public string LinkOfAPI { get; set; }
+        public string ApiLinkID { get; set; }
         public string LinkOfImage { get; set; } //by this key, a picture for UI will be fetched from ImageFetcher
         public DateTime LastEdited { get; set; }
 
