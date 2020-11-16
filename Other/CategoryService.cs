@@ -2,15 +2,12 @@
 
 namespace BudgetSaverApp
 {
-    class CategoryService
+    class CategoryService: ICategoryService
     {
 
-        private static CategoryService _singleton;
-
-        public static CategoryService GetCategoryService()
+        public CategoryService()
         {
-            if (_singleton == null) _singleton = new CategoryService();
-            return _singleton;
+            
         }
 
         /// <summary>

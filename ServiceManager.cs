@@ -19,7 +19,7 @@ namespace BudgetSaverApp
         public IGoalsService goalsService { get; }
         public IUserDataService userDataService { get; }
 
-        //public CategoryService categoryService { get; }
+        public ICategoryService categoryService { get; }
 
         public ServiceManager() { 
             transactionService = TransactionsFactory.GetTransactionService();
@@ -27,7 +27,7 @@ namespace BudgetSaverApp
             statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
             goalsService = GoalsFactory.GetGoalsService(statisticsService);
             userDataService = UserDataFactory.GetStatisticsService(goalsService);
-            //categoryService = CategoryService.GetCategoryService();
+            categoryService = CategoryFactory.GetStatisticsService();
         }
     }
 }

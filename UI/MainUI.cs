@@ -30,6 +30,7 @@ namespace BudgetSaverApp
         IStatisticsService statisticsService;
         IGoalsService goalsService;
         IUserDataService userDataService;
+        ICategoryService categoryService;
         public MainUI(ServiceManager serviceManager)
         {
             this.possessionsService = serviceManager.posessionsService;
@@ -37,6 +38,7 @@ namespace BudgetSaverApp
             this.statisticsService = serviceManager.statisticsService;
             this.goalsService = serviceManager.goalsService;
             this.userDataService = serviceManager.userDataService;
+            this.categoryService = serviceManager.categoryService;
             InitializeComponent();
         }
         private void MainUI_Load(object sender, EventArgs e)
@@ -142,14 +144,14 @@ namespace BudgetSaverApp
 
         private void ButtonAddTransactions_Click(object sender, EventArgs e)
         {
-            var AddTransaction = new AddTransaction(userDataService, transactionService);
+            var AddTransaction = new AddTransaction(userDataService, transactionService, categoryService);
             AddTransaction.FormClosed += AddTransaction_FormClosed;
             OpenChildForm(AddTransaction);
         }
 
         private void ButtonAddCategory_Click(object sender, EventArgs e)
         {
-            var AddCategory = new AddCategory();
+            var AddCategory = new AddCategory(categoryService);
             OpenChildForm(AddCategory);
         }
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)

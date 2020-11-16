@@ -11,12 +11,12 @@ namespace BudgetSaverApp
         IUserDataService userData;
         ITransactionService transactionService;
 
-        public AddTransaction(IUserDataService userData, ITransactionService transactionService)
+        public AddTransaction(IUserDataService userData, ITransactionService transactionService, ICategoryService categoryService)
         {
-            this.transactionService = transactionService; 
+            this.transactionService = transactionService;
             this.userData = userData;
             InitializeComponent();
-            ComboBoxTransactionCategory.Items.AddRange(CategoryService.GetCategoryService().GetCategories());
+            ComboBoxTransactionCategory.Items.AddRange(categoryService.GetCategories());
         }
         private void AddTransaction_Load(object sender, EventArgs e)
         {

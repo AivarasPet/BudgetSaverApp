@@ -5,14 +5,16 @@ namespace BudgetSaverApp
 {
     public partial class AddCategory : Form
     {
-        public AddCategory()
+        ICategoryService categoryService;
+        public AddCategory(ICategoryService categoryService)
         {
+            this.categoryService = categoryService;
             InitializeComponent();
         }
 
         private void AddCategoryButton_Click(object sender, EventArgs e)
         {
-            CategoryService.GetCategoryService().AddCategory(TextBoxAddCategory.Text);
+            categoryService.AddCategory(TextBoxAddCategory.Text);
             Close();
         }
 
