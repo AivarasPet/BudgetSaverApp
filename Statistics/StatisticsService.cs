@@ -27,10 +27,9 @@ namespace BudgetSaverApp.Statistics
             int amount = 0;
             float income = 0;
             float expenses = 0;
-            var result = new Dictionary<string, int>();
 
             List<Transaction> list = transactionService.GetTransactionsList();
-            
+
             foreach (Transaction t in list)
             {
                 if (t == null) continue;
@@ -39,21 +38,41 @@ namespace BudgetSaverApp.Statistics
                 {
                     amount++;
 
-                    if (t.TransactType == Transaction.TransactionType.INCOME) income += t.Amount;
-                    else expenses += t.Amount;
-
-                    if (result.TryGetValue(t.Category, out int count)) result[t.Category] = count + 1;
-                    else result.Add(t.Category, 1);
+                    if (stats.SubStatsMap.TryGetValue(t.Category, out SubStats subStats))
+                    {
+                        subStats.Count++;
+                        ProcessSubStats(subStats, t, ref income, ref expenses);
+                    }
+                    else
+                    {
+                        SubStats newSubStats = new SubStats { Count = 1};
+                        stats.SubStatsMap.Add(t.Category, newSubStats);
+                        ProcessSubStats(newSubStats, t, ref income, ref expenses);
+                    }
                 }
             }
 
             stats.TransactionAmount = amount;
-            stats.Income = income;
-            stats.Expenses = expenses;
-            if(result.Count != 0)
-                stats.FrequentCategory = result.OrderByDescending(category => category.Value).First().Key;
+            stats.TotalIncome = income;
+            stats.TotalExpenses = expenses;
+            //if(result.Count != 0)
+            //    stats.FrequentCategory = result.OrderByDescending(category => category.Value).First().Key;
 
             return stats;
+        }
+
+        private void ProcessSubStats(SubStats subStats, Transaction transaction, ref float totalIncome, ref float totalExpenses)
+        {
+            if (transaction.TransactType == Transaction.TransactionType.INCOME)
+            {
+                subStats.Income += transaction.Amount;
+                totalIncome += transaction.Amount;
+            }
+            else
+            {
+                subStats.Expenses += transaction.Amount;
+                totalExpenses += transaction.Amount;
+            }
         }
     }
 }

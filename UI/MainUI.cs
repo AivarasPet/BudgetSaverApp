@@ -55,23 +55,20 @@ namespace BudgetSaverApp
 
         void doStuff()
         {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("x-rapidapi-key", "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f");
-            dic.Add("x-rapidapi-host", "live-metal-prices.p.rapidapi.com");
-            ApiLink api = new ApiLink
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            List<Stats> list = new List<Stats>();
+            var stat = statisticsService.GetStatistic(firstDayOfMonth, lastDayOfMonth);
+            Console.WriteLine(stat.SubStatsMap["Food\r"].Expenses + " <- expenses");
+            for (int x = 0; x < 12; x++)
             {
-                Id = "11",
-                Link = "https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR",
-                Headers = dic
-            };
-            var json = JsonConvert.SerializeObject(api, Formatting.Indented);
-            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\api.json", json);
-            //var client = new RestClient("https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("x-rapidapi-key", "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f");
-            //request.AddHeader("x-rapidapi-host", "live-metal-prices.p.rapidapi.com");
-            //IRestResponse response = client.Execute(request);
-            //Console.WriteLine(request.Parameters.ElementAt(0));
+                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
+                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                stat = statisticsService.GetStatistic(firstDayOfMonth, lastDayOfMonth);
+            }
+            //if (list.Count>0) list.RemoveAt(list.Count-1);
+            //foreach (Stats stats in list) Console.WriteLine("EXPENSES " + stats.Expenses);
         }
 
         public delegate void MethodInvoker();
@@ -288,10 +285,10 @@ namespace BudgetSaverApp
         private void SetStatsInfo(Stats stats, string setting)
         {
             LabelStatsWeeklyTransactionAmount.Text = setting + "transaction amount: " + stats.TransactionAmount;
-            LabelStatsWeeklyIncome.Text = setting + "income: " + ((double)stats.Income) + " €";
-            LabelStatsWeeklyExpenses.Text = setting + "expenses: " + stats.Expenses + " €";
-            LabelStatsFrequentCategory.Text = setting + "most frequent category: " + stats.FrequentCategory;
-            LabelStatsWeeklyBalance.Text = setting + "balance: " + (stats.Income - stats.Expenses) + " €";
+            LabelStatsWeeklyIncome.Text = setting + "income: " + ((double)stats.TotalIncome) + " €";
+            LabelStatsWeeklyExpenses.Text = setting + "expenses: " + stats.TotalExpenses + " €";
+            //LabelStatsFrequentCategory.Text = setting + "most frequent category: " + stats.FrequentCategory;
+            LabelStatsWeeklyBalance.Text = setting + "balance: " + (stats.TotalIncome - stats.TotalExpenses) + " €";
 
         }
 
