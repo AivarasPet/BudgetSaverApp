@@ -53,7 +53,7 @@ namespace BudgetSaverApp.Transactions
 
         public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A")
         {
-            if (transactType != null && transactionName != "" && transactionAmount != "")
+            if (transactionName != "" && transactionAmount != "")
             {
                 // Checks whether transaction amount is a number
                 float transAmount;

@@ -74,5 +74,67 @@ namespace BudgetSaverApp.Statistics
                 totalExpenses += transaction.Amount;
             }
         }
+
+
+
+        public Dictionary<string, Stats> LowestYearlyExpenesByCategory()
+        {
+            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            var lastMonthStats = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+
+            List<Stats> lastYearMonthlyStats = new List<Stats>();
+
+            for (int x = 0; x < 12; x++)
+            {
+                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
+                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                Stats stat = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+                lastYearMonthlyStats.Add(stat);
+            }
+
+            foreach (string key in lastMonthStats.SubStatsMap.Keys)
+            {
+                var query = (from c in lastYearMonthlyStats
+                             where c.SubStatsMap.ContainsKey(key)
+                             orderby c.SubStatsMap[key].Expenses ascending
+                             select c
+                            ).Take(1);
+                dict.Add(key, query.ElementAt(0));
+            }
+
+            return dict;
+        }
+
+        public List<string> Suggestions()
+        {
+            List<string> toReturn = new List<string>();
+            
+            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            var lastMonthStats = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+
+            Dictionary<string, Stats> lowestInYearStats = LowestYearlyExpenesByCategory();
+
+            foreach (string key in lastMonthStats.SubStatsMap.Keys)
+            {
+                if (key.Equals("N/A")) continue;
+                if(lowestInYearStats.TryGetValue(key, out Stats value))
+                {
+                    float oldExpenses = value.SubStatsMap[key].Expenses;
+                    float newExpenses = lastMonthStats.SubStatsMap[key].Expenses;
+                    string message =
+                        (oldExpenses > newExpenses)
+                            ? ("this month You spent " + (oldExpenses - newExpenses) + " Eur. more than you ever have on " + key)
+                            : ("this month You spent " + (newExpenses - oldExpenses) + " Eur. less than you ever have on " + key);
+                    toReturn.Add(message);
+                }
+            }
+            return toReturn;
+        }
     }
 }

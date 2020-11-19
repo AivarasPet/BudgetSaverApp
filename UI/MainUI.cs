@@ -55,20 +55,7 @@ namespace BudgetSaverApp
 
         void doStuff()
         {
-            DateTime date = DateTime.Now;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            List<Stats> list = new List<Stats>();
-            var stat = statisticsService.GetStatistic(firstDayOfMonth, lastDayOfMonth);
-            Console.WriteLine(stat.SubStatsMap["Food\r"].Expenses + " <- expenses");
-            for (int x = 0; x < 12; x++)
-            {
-                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
-                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-                stat = statisticsService.GetStatistic(firstDayOfMonth, lastDayOfMonth);
-            }
-            //if (list.Count>0) list.RemoveAt(list.Count-1);
-            //foreach (Stats stats in list) Console.WriteLine("EXPENSES " + stats.Expenses);
+            foreach(string suggestion in statisticsService.Suggestions()) Console.Write(suggestion);
         }
 
         public delegate void MethodInvoker();
