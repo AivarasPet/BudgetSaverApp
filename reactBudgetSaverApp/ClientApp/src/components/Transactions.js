@@ -10,28 +10,35 @@ export class Transactions extends Component {
       this.state = {
           transactions: [],
           loading: true,
-          addNewTransactionVisibility: true,
-          placeHolder: "Title"
+          addNewTransactionVisibility: false,
+          placeHolder: "Title",
+          inputType: "",
+          inputCategory: ""
       };
       this.toggleVisilibity = this.toggleVisilibity.bind(this);
+      this.handleTypeChange = this.handleTypeChange.bind(this);
+      this.handleCategoryChange = this.handleCategoryChange.bind(this);
+      this.clearAdd = this.clearAdd.bind(this);
       this.type = [
           { value: 0, label: 'Income' },
           { value: 1, label: 'Expenses' }
       ];
 
-      this.categories = [
-          { value: 'Horyshit',label: 'Hory'}
-      ]
+      this.categories = [];
+
+      this.inputTitle = React.createRef();
+      this.inputAmount = React.createRef();
   }
 
   componentDidMount() {
-    this.populateTransactionData();
+      this.populateTransactionData();
+      this.populateCategories();
   }
 
   static renderTransactionsTable(transactions) {
     return (
         <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel">
-        <thead class="thead-dark">
+        <thead className="thead-dark">
           <tr>
             <th>Title</th>
             <th>Amount {'\u20AC'}</th>
@@ -42,7 +49,7 @@ export class Transactions extends Component {
           {transactions.map((transaction,index) =>
               <tr key={index} typeforcss={transaction.transactType}>
                   <td>{transaction.title}</td>
-                  {transaction.transactType == '0' ? <td>{'+ ' + transaction.amount}</td> : <td>{'- ' + transaction.amount}</td>}
+                  {transaction.transactType === 0 ? <td>{'+ ' + transaction.amount}</td> : <td>{'- ' + transaction.amount}</td>}
                   <td>{transaction.category}</td>
             </tr>
           )}
@@ -51,7 +58,49 @@ export class Transactions extends Component {
     );
     }
 
-    
+    handleTypeChange(event) {
+        this.setState({ inputType: event.value });
+    }
+
+    handleCategoryChange(event) {
+        this.setState({ inputCategory: event.value });
+    }
+
+    clearAdd() {
+        this.setState({ inputCategory: "", inputType: "", addNewTransactionVisibility: false });
+        this.setState({  });
+        this.inputAmount = "";
+        this.inputTitle = "";
+
+    }
+
+    handleNewTransaction = (event) => {
+        // Simple POST request with a JSON body using fetch
+        event.preventDefault();
+
+       
+        var data = { transactType: this.state.inputType, amount: parseFloat(this.inputAmount.current.value), title: this.inputTitle.current.value, category: this.state.inputCategory };
+        console.log(data);
+
+        this.clearAdd();
+
+        const message = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+
+        fetch('Transaction/PostAddTransaction', message)
+            .then(response => response.json())
+            .then(data => {
+                var transactions = this.state.transactions;
+                transactions.push(data);
+                this.setState({ transactions: transactions });
+
+            });
+        
+
+    }
 
     render() {
     let contents = this.state.loading
@@ -61,14 +110,14 @@ export class Transactions extends Component {
 
           <div>
               <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
-              {!this.state.addNewTransactionVisibility && (
+              {this.state.addNewTransactionVisibility && (
                   <form onSubmit={this.handleNewTransaction}>
-                      
-                      <Select options={this.type} />
-                      <input type="text" placeholder="Title"/>
-                      <input type="number" min="0" step="any" placeholder="Amount" />
-                      <Select options={this.categories} />
-                      <input type="submit" value="Add"/>
+
+                      <Select options={this.type} onChange={this.handleTypeChange} />
+                      <input type="text" placeholder="Title" ref={this.inputTitle} />
+                      <input type="number" min="0" step="any" placeholder="Amount" ref={this.inputAmount} />
+                      <Select options={this.categories} onChange={this.handleCategoryChange} />
+                      <input type="submit" value="Add" />
                   </form>
               )}
               <h1 id="tabelLabel" >Transaction list</h1>
@@ -86,10 +135,22 @@ export class Transactions extends Component {
         });
     }
 
-  async populateTransactionData() {
-      const response = await fetch('transaction');
-      const data = await response.json();
-      console.log(data);
-      this.setState({ transactions: data, loading: false });
-  }
+    async populateTransactionData() {
+        const response = await fetch('transaction');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ transactions: data, loading: false });
+    }
+
+    async populateCategories() {
+        const response = await fetch('categories/getcategories');
+        const data = await response.json();
+        console.log(data);
+        var tempCategories = [];
+        data.forEach(function (element){
+            tempCategories.push({label:element.name,value:element.name})
+        });
+
+        this.categories = tempCategories;
+    }
 }

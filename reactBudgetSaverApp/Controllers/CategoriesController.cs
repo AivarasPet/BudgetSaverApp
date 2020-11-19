@@ -2,30 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BudgetSaverApp;
-using BudgetSaverApp.Transactions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-    [Route("[controller]")]
-    public class CategoriesController: ControllerBase
+    [ApiController]
+    
+
+    public class Category
+    {
+        public string Name { get; set; }
+    }
+    public class CategoriesController : ControllerBase
     {
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public CategoriesController(ILogger<WeatherForecastController> logger)
+        
+        public List<Category> CategoryConvert (string[] firstArray)
         {
-            _logger = logger;
+            List<Category> data = new List<Category>();
+            for (int i = 0; i < firstArray.Length; i++)
+            {
+                data.Add(new Category { Name = firstArray[i] });
+            }
+            return data;
         }
 
-        [HttpGet]
-        public IEnumerable<Transaction> Get()
+        public ActionResult<IEnumerable<Category>> GetCategories()
         {
-            ITransactionService transactionService = Session.serviceManager.transactionService;
-            return transactionService.GetTransactionsList().ToArray();
-            
-        }
+            return CategoryConvert(Session.serviceManager.categoryService.GetCategories());
+        } 
     }
 }
