@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Statistics.css"
 
 export class Statistics extends Component {
     static displayName = Statistics.name;
@@ -12,6 +13,7 @@ export class Statistics extends Component {
       this.lastWeek = this.lastWeek.bind(this);
       this.thisMonth = this.thisMonth.bind(this);
       this.lastMonth = this.lastMonth.bind(this);
+      this.thisWeek();
   }
 
     async thisWeek() {
@@ -45,16 +47,17 @@ export class Statistics extends Component {
 
     static renderStatistic(statistics) {
         return (
-            <div>
-                <div>Transaction amount: {statistics.transactionAmount}</div>
-                <div>Income: {statistics.income}</div>
-                <div>Expenses: {statistics.expenses}</div>
-                <div>Balance: {statistics.income - statistics.expenses}</div>
-                <div>Most frequent category: {statistics.frequentCategory}</div>
-            </div>
+            <ul>
+                <p></p>
+                <div>
+                    <li>Transaction amount: {statistics.transactionAmount}</li>
+                    <li>Income: + {statistics.income} {'\u20AC'}</li>
+                    <li>Expenses: - {statistics.expenses} {'\u20AC'}</li>
+                    <li>Balance: {statistics.income - statistics.expenses} {'\u20AC'}</li>
+                    <li>Most frequent category: {statistics.frequentCategory}</li>
+                </div>
+            </ul>
         );
-
-
     }
 
 
