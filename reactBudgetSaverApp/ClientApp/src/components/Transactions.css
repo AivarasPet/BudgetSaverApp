@@ -31,3 +31,15 @@ td:nth-child(3) {
 .table {
     color: black;
 }
+
+input {
+    border-color: #E1E1E1;
+    border-style: solid;
+    border-radius: 0.25rem;
+}
+
+    input[type = "submit"] {
+        color: #fff;
+        background-color: #1b6ec2;
+        border-color: #1861ac;
+    }

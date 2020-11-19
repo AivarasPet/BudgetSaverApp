@@ -107,25 +107,22 @@ export class Transactions extends Component {
       ? <p><em>Loading...</em></p>
       : Transactions.renderTransactionsTable(this.state.transactions);
       return (
-
-          <div>
-              <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
-              {this.state.addNewTransactionVisibility && (
-                  <form onSubmit={this.handleNewTransaction}>
-
-                      <Select options={this.type} onChange={this.handleTypeChange} />
-                      <input type="text" placeholder="Title" ref={this.inputTitle} />
-                      <input type="number" min="0" step="any" placeholder="Amount" ref={this.inputAmount} />
-                      <Select options={this.categories} onChange={this.handleCategoryChange} />
-                      <input type="submit" value="Add" />
-                  </form>
-              )}
-              <h1 id="tabelLabel" >Transaction list</h1>
-        <p>This table shows total list of all transactions.
-            Green color indicates Income and Red indicates Expenses.</p>
-        {contents}
-      </div>
-    );
+        <div>
+            <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
+            {this.state.addNewTransactionVisibility && (
+                <form onSubmit={this.handleNewTransaction}>
+                    <Select options={this.type} onChange={this.handleTypeChange} />
+                    <input type="text" placeholder="Title" ref={this.inputTitle} style={{ width: "555px" }} />
+                    <input type="number" min="0" step="any" placeholder="Amount" ref={this.inputAmount} style={{ width: "555px" }} />
+                    <Select options={this.categories} onChange={this.handleCategoryChange} />
+                    <input type="submit" value="Add" style={{ width: "140px" }} />
+                </form>
+            )}
+            <h1 id="tabelLabel" >Transaction list</h1>
+            <p>This table shows total list of all transactions.</p>
+            {contents}
+        </div>
+      );
     }
 
 

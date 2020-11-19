@@ -17,7 +17,7 @@ namespace BudgetSaverApp
         public string[] GetCategories()
         {
             TextFileReader reader = new TextFileReader();
-            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\Data\Categories.txt");
+            string[] data = reader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\Categories.txt");
             if (data == null) return null;
             string[] categories = new string[data.Length-1];
             for (int x = 0; x < data.Length; x++)
