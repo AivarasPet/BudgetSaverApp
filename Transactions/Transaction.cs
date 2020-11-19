@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -11,12 +12,27 @@ namespace BudgetSaverApp.Transactions
             INCOME = 0,
             EXPENSES = 1
         }
-        public TransactionType TransactType { get; }
-        public float Amount { get; }
-        public string Title { get; }
+        public TransactionType TransactType { get; set; }
+        public float Amount { get; set; }
+        public string Title { get; set; }
         public string Category { get; set; }
-        public DateTime Date { get; }
+        public DateTime Date { get; set; }
 
+        public Transaction()
+        {
+
+        }
+
+        public Transaction(TransactionType transactType, float amount, string title, string category)
+        {
+            this.TransactType = transactType;
+            this.Amount = amount;
+            this.Title = title;
+            this.Category = category;
+            this.Date = DateTime.Now;
+        }
+
+        [JsonConstructor]
         public Transaction(TransactionType transactType, float amount, string title, string category, DateTime date)
         {
             this.TransactType = transactType;

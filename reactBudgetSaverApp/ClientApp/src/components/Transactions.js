@@ -10,16 +10,24 @@ export class Transactions extends Component {
       this.state = {
           transactions: [],
           loading: true,
-          addNewTransactionVisibility: true,
-          placeHolder: "Title"
+          addNewTransactionVisibility: false,
+          placeHolder: "Title",
+          inputType: "",
+          inputCategory: ""
       };
       this.toggleVisilibity = this.toggleVisilibity.bind(this);
+      this.handleTypeChange = this.handleTypeChange.bind(this);
+      this.handleCategoryChange = this.handleCategoryChange.bind(this);
+      this.clearAdd = this.clearAdd.bind(this);
       this.type = [
           { value: 0, label: 'Income' },
           { value: 1, label: 'Expenses' }
       ];
 
       this.categories = [];
+
+      this.inputTitle = React.createRef();
+      this.inputAmount = React.createRef();
   }
 
   componentDidMount() {
@@ -30,7 +38,7 @@ export class Transactions extends Component {
   static renderTransactionsTable(transactions) {
     return (
         <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel">
-        <thead class="thead-dark">
+        <thead className="thead-dark">
           <tr>
             <th>Title</th>
             <th>Amount {'\u20AC'}</th>
@@ -50,17 +58,47 @@ export class Transactions extends Component {
     );
     }
 
+    handleTypeChange(event) {
+        this.setState({ inputType: event.value });
+    }
+
+    handleCategoryChange(event) {
+        this.setState({ inputCategory: event.value });
+    }
+
+    clearAdd() {
+        this.setState({ inputCategory: "", inputType: "", addNewTransactionVisibility: false });
+        this.setState({  });
+        this.inputAmount = "";
+        this.inputTitle = "";
+
+    }
+
     handleNewTransaction = (event) => {
         // Simple POST request with a JSON body using fetch
-        const requestOptions = {
-            method: 'POST',
+        event.preventDefault();
+
+       
+        var data = { transactType: this.state.inputType, amount: parseFloat(this.inputAmount.current.value), title: this.inputTitle.current.value, category: this.state.inputCategory };
+        console.log(data);
+
+        this.clearAdd();
+
+        const message = {
+            method: 'post',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(event.target)
+            body: JSON.stringify(data)
         };
 
-        console.log(event.target);
-        fetch('Transactions/AddTransaction', requestOptions);
+        fetch('Transaction/PostAddTransaction', message)
+            .then(response => response.json())
+            .then(data => {
+                var transactions = this.state.transactions;
+                transactions.push(data);
+                this.setState({ transactions: transactions });
 
+            });
+        
 
     }
 
@@ -72,14 +110,14 @@ export class Transactions extends Component {
 
           <div>
               <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
-              {!this.state.addNewTransactionVisibility && (
+              {this.state.addNewTransactionVisibility && (
                   <form onSubmit={this.handleNewTransaction}>
-                      
-                      <Select options={this.type} />
-                      <input type="text" placeholder="Title"/>
-                      <input type="number" min="0" step="any" placeholder="Amount" />
-                      <Select options={this.categories} />
-                      <input type="submit" value="Add"/>
+
+                      <Select options={this.type} onChange={this.handleTypeChange} />
+                      <input type="text" placeholder="Title" ref={this.inputTitle} />
+                      <input type="number" min="0" step="any" placeholder="Amount" ref={this.inputAmount} />
+                      <Select options={this.categories} onChange={this.handleCategoryChange} />
+                      <input type="submit" value="Add" />
                   </form>
               )}
               <h1 id="tabelLabel" >Transaction list</h1>

@@ -10,32 +10,27 @@ namespace my_new_app.Controllers
     [ApiController]
     
 
-    public class category
+    public class Category
     {
-        public string name { get; set; }
+        public string Name { get; set; }
     }
     public class CategoriesController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
 
-        public CategoriesController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
         
-        public List<category> categoryConvert (string[] firstArray)
+        public List<Category> CategoryConvert (string[] firstArray)
         {
-            List<category> data = new List<category>();
+            List<Category> data = new List<Category>();
             for (int i = 0; i < firstArray.Length; i++)
             {
-                data.Add(new category { name = firstArray[i] });
+                data.Add(new Category { Name = firstArray[i] });
             }
             return data;
         }
 
-        public ActionResult<IEnumerable<category>> getCategories()
+        public ActionResult<IEnumerable<Category>> GetCategories()
         {
-            return categoryConvert(Session.serviceManager.categoryService.GetCategories());
+            return CategoryConvert(Session.serviceManager.categoryService.GetCategories());
         } 
     }
 }
