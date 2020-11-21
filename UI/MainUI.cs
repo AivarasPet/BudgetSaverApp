@@ -62,7 +62,7 @@ namespace BudgetSaverApp
 
         public void ReloadSavings(object sender, System.EventArgs e)
         {
-            foreach (Possession possesion in possessionsService.GetPossessionsList()) Console.WriteLine("kaina:" + possesion.ValueInDollars);
+            //foreach (Possession possesion in possessionsService.GetPossessionsList()) Console.WriteLine("kaina:" + possesion.ValueInDollars);
             Delegate func = new MethodInvoker(LazyLoadSavingsOnUI);
             this.Invoke(func);
             //LoadSavingsOnUI(possessionsService.GetPossessionsList());
