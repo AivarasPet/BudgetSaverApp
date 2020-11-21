@@ -12,10 +12,9 @@ namespace BudgetSaverApp
     {
         public string data { get; set; }
     }
-    class HttpRequest
+    public class HttpRequest
     {
-        public delegate void HttpRequestDownloaderEventhandler(object source, MyEventArgs args);
-        public event HttpRequestDownloaderEventhandler HttpRequestCompleted;
+
 
         public async Task<string> StartHttpRequest(ApiLink apiLink)
         {
@@ -30,13 +29,7 @@ namespace BudgetSaverApp
             }
             IRestResponse response = client.Execute(request);
             return response.Content;
-            //Console.WriteLine(request.Parameters.ElementAt(0));
         }
 
-        protected virtual void OnHttpRequestCompleted(string text)
-        {
-            if (HttpRequestCompleted != null)
-                HttpRequestCompleted(this, new MyEventArgs { data = text });
-        }
     }
 }

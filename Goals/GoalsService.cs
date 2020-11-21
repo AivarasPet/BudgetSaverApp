@@ -19,7 +19,7 @@ namespace BudgetSaverApp.Portfolio
         public float GetProfitMonthly()
         {
             Stats StatsRecent30Days = this.StatisticsService.GetStatistic(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now);
-            return StatsRecent30Days.Income - StatsRecent30Days.Expenses;
+            return StatsRecent30Days.TotalIncome - StatsRecent30Days.TotalExpenses;
         }
 
         public int GetGoalDaysLeft()

@@ -151,6 +151,7 @@
   <ItemGroup>
     <Compile Include="Other\CategoryFactory.cs" />
     <Compile Include="Other\ICategoryService.cs" />
+    <Compile Include="Statistics\SubStats.cs" />
     <Compile Include="UI\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
