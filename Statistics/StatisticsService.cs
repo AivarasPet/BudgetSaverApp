@@ -8,9 +8,29 @@ namespace BudgetSaverApp.Statistics
     class StatisticsService : IStatisticsService
     {
         ITransactionService transactionService;
+        List<Stats> StatsPastYearMonthly;
+        Stats StatsLastMonth, StatsPastYear;
+
+
         public StatisticsService(ITransactionService transactionService)
         {
             this.transactionService = transactionService;
+
+            
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            StatsLastMonth = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+            StatsPastYearMonthly = new List<Stats>();
+            StatsPastYear = GetStatistic(firstDayOfMonth.AddYears(-1), lastDayOfMonth);
+
+            for (int x = 0; x < 12; x++)
+            {
+                Stats stat = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+                StatsPastYearMonthly.Add(stat);
+                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
+                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            }
         }
         /// <summary>
         /// Returns an instance of Stats with statistics.
@@ -77,29 +97,30 @@ namespace BudgetSaverApp.Statistics
 
 
 
-        public Dictionary<string, Stats> LowestYearlyExpenesByCategory()
+        public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCommpared)
         {
             Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-            DateTime date = DateTime.Now;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            var lastMonthStats = GetStatistic(firstDayOfMonth, lastDayOfMonth);
-
-            List<Stats> lastYearMonthlyStats = new List<Stats>();
-
-            for (int x = 0; x < 12; x++)
+            foreach (string key in statsToBeCommpared.SubStatsMap.Keys)
             {
-                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
-                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-                Stats stat = GetStatistic(firstDayOfMonth, lastDayOfMonth);
-                lastYearMonthlyStats.Add(stat);
-            }
-
-            foreach (string key in lastMonthStats.SubStatsMap.Keys)
-            {
-                var query = (from c in lastYearMonthlyStats
+                var query = (from c in StatsPastYearMonthly
                              where c.SubStatsMap.ContainsKey(key)
                              orderby c.SubStatsMap[key].Expenses ascending
+                             select c
+                            ).Take(1);
+                dict.Add(key, query.ElementAt(0));
+            }
+
+            return dict;
+        }
+
+        public Dictionary<string, Stats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
+        {
+            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+            foreach (string key in statsToBeCompared.SubStatsMap.Keys)
+            {
+                var query = (from c in StatsPastYearMonthly
+                             where c.SubStatsMap.ContainsKey(key)
+                             orderby c.SubStatsMap[key].Income descending
                              select c
                             ).Take(1);
                 dict.Add(key, query.ElementAt(0));
@@ -118,7 +139,7 @@ namespace BudgetSaverApp.Statistics
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             var lastMonthStats = GetStatistic(firstDayOfMonth, lastDayOfMonth);
 
-            Dictionary<string, Stats> lowestInYearStats = LowestYearlyExpenesByCategory();
+            Dictionary<string, Stats> lowestInYearStats = LowestYearlyExpenesByCategory(lastMonthStats);
 
             foreach (string key in lastMonthStats.SubStatsMap.Keys)
             {
