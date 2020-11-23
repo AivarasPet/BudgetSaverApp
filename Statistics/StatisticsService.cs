@@ -1,4 +1,5 @@
 ﻿using BudgetSaverApp.Transactions;
+using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace BudgetSaverApp.Statistics
         {
             this.transactionService = transactionService;
 
-            
+
             DateTime date = DateTime.Now;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
@@ -65,7 +66,7 @@ namespace BudgetSaverApp.Statistics
                     }
                     else
                     {
-                        SubStats newSubStats = new SubStats { Count = 1};
+                        SubStats newSubStats = new SubStats { Count = 1 };
                         stats.SubStatsMap.Add(t.Category, newSubStats);
                         ProcessSubStats(newSubStats, t, ref income, ref expenses);
                     }
@@ -97,10 +98,11 @@ namespace BudgetSaverApp.Statistics
 
 
 
-        public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCommpared)
+        public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared)
         {
+            if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
             Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-            foreach (string key in statsToBeCommpared.SubStatsMap.Keys)
+            foreach (string key in statsToBeCompared.SubStatsMap.Keys)
             {
                 var query = (from c in StatsPastYearMonthly
                              where c.SubStatsMap.ContainsKey(key)
@@ -116,6 +118,7 @@ namespace BudgetSaverApp.Statistics
         public Dictionary<string, Stats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
         {
             Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+            if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
             foreach (string key in statsToBeCompared.SubStatsMap.Keys)
             {
                 var query = (from c in StatsPastYearMonthly
@@ -129,33 +132,67 @@ namespace BudgetSaverApp.Statistics
             return dict;
         }
 
-        public List<string> Suggestions()
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory()
         {
-            List<string> toReturn = new List<string>();
-            
-            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-            DateTime date = DateTime.Now;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            var lastMonthStats = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+            Stats statsThatAreCompared = StatsLastMonth;
+            List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
+            Dictionary<string, Stats> dictLowestExpenses = LowestYearlyExpenesByCategory(statsThatAreCompared);
+            Dictionary<string, Stats> dictHighestIncome = HighestYearlyIncomeByCategory(statsThatAreCompared);
 
-            Dictionary<string, Stats> lowestInYearStats = LowestYearlyExpenesByCategory(lastMonthStats);
-
-            foreach (string key in lastMonthStats.SubStatsMap.Keys)
+            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
             {
                 if (key.Equals("N/A")) continue;
-                if(lowestInYearStats.TryGetValue(key, out Stats value))
+                if (dictLowestExpenses.TryGetValue(key, out Stats value))
                 {
                     float oldExpenses = value.SubStatsMap[key].Expenses;
-                    float newExpenses = lastMonthStats.SubStatsMap[key].Expenses;
-                    string message =
-                        (oldExpenses > newExpenses)
-                            ? ("this month You spent " + (oldExpenses - newExpenses) + " Eur. more than you ever have on " + key)
-                            : ("this month You spent " + (newExpenses - oldExpenses) + " Eur. less than you ever have on " + key);
-                    toReturn.Add(message);
+                    float newExpenses = statsThatAreCompared.SubStatsMap[key].Expenses;
+                    if(oldExpenses != newExpenses) toReturn.Add(FinancialFeedbackBuilder(false, oldExpenses, newExpenses, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
                 }
             }
+
+            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
+            {
+                if (key.Equals("N/A")) continue;
+                if (dictLowestExpenses.TryGetValue(key, out Stats value))
+                {
+                    float oldIncome = value.SubStatsMap[key].Income;
+                    float newIncome = statsThatAreCompared.SubStatsMap[key].Income;
+                    if(oldIncome != newIncome) toReturn.Add(FinancialFeedbackBuilder(true, oldIncome, newIncome, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
+                }
+            }
+
             return toReturn;
         }
+
+        private FinancialFeedbackByCategory FinancialFeedbackBuilder(bool isIncome, float oldNumber, float newNumber, DateTime dateCompared, DateTime dateComparedTo, string categpry)
+        {
+            float difference, percentage;
+            bool isPositiveFeedback;
+
+            if(oldNumber < newNumber)
+            {
+                difference = newNumber - oldNumber;
+                percentage = difference / (oldNumber + difference) * 100;
+                isPositiveFeedback = !isIncome;
+            }
+            else
+            {
+                difference = oldNumber - newNumber;
+                percentage = difference / (newNumber + difference) * 100;
+                isPositiveFeedback = isIncome;
+            }
+
+            return new FinancialFeedbackByCategory
+            {
+                category = categpry,
+                IsExpenses = !isIncome,
+                IsFeedbackPositive = isPositiveFeedback,
+                DateCompared = dateCompared,
+                DateComparedTo = dateComparedTo,
+                Difference = difference,
+                PercentageDifference = percentage
+            };
+        }
+
     }
 }

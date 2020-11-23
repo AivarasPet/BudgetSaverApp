@@ -1,4 +1,5 @@
-﻿using System;
+﻿using my_new_app.ModelsToBeFetched;
+using System;
 using System.Collections.Generic;
 
 namespace BudgetSaverApp.Statistics
@@ -7,6 +8,6 @@ namespace BudgetSaverApp.Statistics
     {
         public Stats GetStatistic(DateTime startDate, DateTime endDate);
         public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared);
-        public List<string> Suggestions();
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory();
     }
 }
