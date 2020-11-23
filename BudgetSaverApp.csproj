@@ -149,6 +149,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
     <Compile Include="Other\CategoryFactory.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="Statistics\SubStats.cs" />
