@@ -16,7 +16,7 @@ namespace BudgetSaverApp
     {
 
 
-        public async Task<string> StartHttpRequest(ApiLink apiLink)
+        public String StartHttpRequest(ApiLink apiLink)
         {
             var client = new RestClient(apiLink.Link);
             var request = new RestRequest(Method.GET);

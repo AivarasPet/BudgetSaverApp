@@ -54,6 +54,19 @@ namespace BudgetSaverApp
             foreach (FinancialFeedbackByCategory f in list) Console.WriteLine(f.category + "  ir " + f.Difference);
         }
 
+        public void ayy()
+        {
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("api_key", "4SykxztoStAkUxdKf7Xd");
+            ApiLink api = new ApiLink
+            {
+                Link = "https://www.quandl.com/api/v3/datasets/RATEINF/CPI_USA.json?",
+                Headers = headers
+            };
+            HttpRequest httpRequest = new HttpRequest();
+            httpRequest.StartHttpRequest(api);
+           // https://www.quandl.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=4SykxztoStAkUxdKf7Xd
+        }
 
 
         public delegate void MethodInvoker();
