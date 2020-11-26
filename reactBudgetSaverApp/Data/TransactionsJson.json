@@ -152,5 +152,12 @@
     "Title": "Mociutes Saibos",
     "Category": "Shopping\r",
     "Date": "2020-11-19T20:47:11.2085687+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 10.0,
+    "Title": "k",
+    "Category": "Food\r",
+    "Date": "2020-11-25T21:16:09.0435594+02:00"
   }
 ]

@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Data\api.json" />
     <Content Remove="Data\APILinks.json" />
     <Content Remove="Data\ImageLinks.json" />
     <Content Remove="Data\Possessions.json" />
@@ -42,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Data\api.json" />
     <None Include="Data\APILinks.json" />
     <None Include="Data\ImageLinks.json" />
     <None Include="Data\Possessions.json" />

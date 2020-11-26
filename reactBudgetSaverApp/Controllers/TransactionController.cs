@@ -40,14 +40,9 @@ namespace my_new_app.Controllers
         [HttpPost]
         public ActionResult<Transaction> PostAddTransaction([FromBody] Transaction values)
         {
-            
-
             ITransactionService transactionService = Session.serviceManager.transactionService;
-            //transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
-
+            transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
             return values;
-        }
-
-        
+        }        
     }
 }

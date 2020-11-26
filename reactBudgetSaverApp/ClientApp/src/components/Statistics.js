@@ -7,8 +7,10 @@ export class Statistics extends Component {
   constructor(props) {
     super(props);
       this.state = {
-          currentCount: 0, statistic: {}, loading: true
+          currentCount: 0, statistic: {}, loading: true,
+          setStatisticsDateVisibility: false
       };
+      this.toggleVisilibity = this.toggleVisilibity.bind(this);
       this.thisWeek = this.thisWeek.bind(this);
       this.lastWeek = this.lastWeek.bind(this);
       this.thisMonth = this.thisMonth.bind(this);
@@ -51,15 +53,13 @@ export class Statistics extends Component {
                 <p></p>
                 <div>
                     <li>Transaction amount: {statistics.transactionAmount}</li>
-                    <li>Income: + {statistics.income} {'\u20AC'}</li>
-                    <li>Expenses: - {statistics.expenses} {'\u20AC'}</li>
-                    <li>Balance: {statistics.income - statistics.expenses} {'\u20AC'}</li>
-                    <li>Most frequent category: {statistics.frequentCategory}</li>
+                    <li>Income: + {statistics.totalIncome} {'\u20AC'}</li>
+                    <li>Expenses: - {statistics.totalExpenses} {'\u20AC'}</li>
+                    <li>Balance: {statistics.totalIncome - statistics.totalExpenses} {'\u20AC'}</li>
                 </div>
             </ul>
         );
     }
-
 
     render() {
         let contents = this.state.loading
@@ -69,15 +69,29 @@ export class Statistics extends Component {
             <div>
                 <h1>Statistics</h1>
                 <div>
-                    <button onClick={this.thisWeek}>This Week</button>
-                    <button onClick={this.lastWeek}>Last Week</button>
-                    <button onClick={this.thisMonth}>This Month</button>
-                    <button onClick={this.lastMonth}>Last Month</button>
+                    <button onClick={this.thisWeek}>This Week</button> &nbsp;
+                    <button onClick={this.lastWeek}>Last Week</button> &nbsp;
+                    <button onClick={this.thisMonth}>This Month</button> &nbsp;
+                    <button onClick={this.lastMonth}>Last Month</button> &nbsp;
+                    <button onClick={this.toggleVisilibity}>Advanced</button>
+                    {this.state.setStatisticsDateVisibility && (
+                        <form onSubmit={this.handleNewTransaction}>
+                            <label >Select starting date:</label><input type="date" name="start" class="form-control"></input>
+                            <label >Select ending date:</label><input type="date" name="end" class="form-control"></input>
+                            <p></p>
+                            <button onClick={this.lastMonth}>Show Stats</button>
+                        </form>
+                    )}
+                    <p></p>
                 </div>
-
                 {contents}
-                
             </div>
         );
-      }
+    }
+
+    toggleVisilibity() {
+        this.setState({
+            setStatisticsDateVisibility: !this.state.setStatisticsDateVisibility
+        });
+    }
     }
