@@ -4,6 +4,34 @@
     "Amount": 400.0,
     "Title": "Salary",
     "Category": "Work\r",
+    "Date": "2020-09-12T15:25:42.2038334+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-09-12T15:25:42.2038334+03:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 20.0,
+    "Title": "Lunch",
+    "Category": "Food\r",
+    "Date": "2020-09-12T15:58:37.6347808+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "Others\r",
+    "Date": "2020-09-12T16:26:23.6846254+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
     "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {

@@ -15,6 +15,7 @@ using BudgetSaverApp.Transactions;
 using BudgetSaverApp.UserData;
 using my_new_app.ModelsToBeFetched;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using static BudgetSaverApp.Pricing.APIFetcher;
 
@@ -50,9 +51,10 @@ namespace BudgetSaverApp
             SetUserInfo();
             SetDefaultStatsInfo();
             CleanTab();
-            List<FinancialFeedbackByCategory> list = statisticsService.GetFinancialFeedackByCategory();
+            List<FinancialFeedbackByCategory> list = statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
             foreach (FinancialFeedbackByCategory f in list) Console.WriteLine(f.category + "  ir " + f.Difference);
         }
+
 
 
 
