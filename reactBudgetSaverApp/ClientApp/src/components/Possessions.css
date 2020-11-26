@@ -1,1 +1,3 @@
-﻿
+﻿.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #8F8D8D;
+}

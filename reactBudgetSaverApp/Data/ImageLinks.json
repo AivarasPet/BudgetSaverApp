@@ -10,5 +10,9 @@
   {
     "Id": "2",
     "Link": "https://i.pinimg.com/originals/1c/aa/03/1caa032c47f63d50902b9d34492e1303.jpg"
+  },
+  {
+    "Id": "goldImg",
+    "Link": "https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/512x512/shadow/gold_bar.png"
   }
 ]

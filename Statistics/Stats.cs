@@ -10,6 +10,7 @@ namespace BudgetSaverApp.Statistics
         public float TotalExpenses { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+
         public Dictionary<string, SubStats> SubStatsMap = new Dictionary<string, SubStats>();
     }
 }
