@@ -5,7 +5,8 @@
       "Name": "Bitcoin",
       "Amount": 10.0,
       "APILinkID": "0",
-      "LinkOfImage": "0"
+      "LinkOfImage": "0",
+      "ValueInDollarsWhenBought": 12000
     }
   },
   {
@@ -14,7 +15,8 @@
       "Name": "Ethereum",
       "Amount": 10.0,
       "APILinkID": "1",
-      "LinkOfImage": "1"
+      "LinkOfImage": "1",
+      "ValueInDollarsWhenBought": 500
     }
   },
   {
@@ -23,16 +25,8 @@
       "Name": "Apple",
       "Amount": 5,
       "APILinkID": "2",
-      "LinkOfImage": "2"
-    }
-  },
-  {
-    "Type": "Commodity",
-    "Object": {
-      "Name": "Gold",
-      "Amount": 5,
-      "APILinkID": "3",
-      "LinkOfImage": "goldImg"
+      "LinkOfImage": "2",
+      "ValueInDollarsWhenBought": 100
     }
   }
 ]

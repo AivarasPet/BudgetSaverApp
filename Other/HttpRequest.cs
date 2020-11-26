@@ -12,9 +12,9 @@ namespace BudgetSaverApp
     {
         public string data { get; set; }
     }
+
     public class HttpRequest
     {
-
 
         public String StartHttpRequest(ApiLink apiLink)
         {

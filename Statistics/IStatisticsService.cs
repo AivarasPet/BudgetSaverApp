@@ -8,6 +8,8 @@ namespace BudgetSaverApp.Statistics
     {
         public Stats GetStatistic(DateTime startDate, DateTime endDate);
         public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared);
-        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory();
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryAdvanced();
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo);
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth();
     }
 }
