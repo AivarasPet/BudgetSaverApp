@@ -7,6 +7,7 @@ namespace BudgetSaverApp.Possessions
     [JsonConverter(typeof(BaseConverter))]
     public abstract class Possession
     {
+        public float PossessionType { get; set; }
         public string Name { get; set; }
         public float Amount {get; set;}
         public float ValueInDollars { get; set; }

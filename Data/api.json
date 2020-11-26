@@ -1,8 +1,8 @@
 {
-  "Id": "11",
-  "Link": "https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR",
-  "Headers": {
-    "x-rapidapi-key": "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f",
-    "x-rapidapi-host": "live-metal-prices.p.rapidapi.com"
-  }
+  //"Id": "11",
+  //"Link": "https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR",
+  //"Headers": {
+  //  "x-rapidapi-key": "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f",
+  //  "x-rapidapi-host": "live-metal-prices.p.rapidapi.com"
+  //}
 }

@@ -81,5 +81,26 @@ namespace BudgetSaverApp.Possessions
 
             APIFetcher.RunAllDownloadsAsync();
         }
+
+        public void SerializePossessionList()
+        {
+            var json = JsonConvert.SerializeObject(list, Formatting.Indented);
+            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\TransactionsJson.json", json);
+        }
+
+        public void AddNewPossession(string transactionName, string transactionAmount, string category = "N/A")
+        {
+            if (transactionName != "" && transactionAmount != "")
+            {
+                // Checks whether transaction amount is a number
+                float transAmount;
+                if (!float.TryParse(transactionAmount, out transAmount))
+                    return;
+
+                //Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
+                //List.Add(newTransaction);
+                //SerializeTransactionList();
+            }
+        }
     }
 }

@@ -18,14 +18,16 @@ export class Possessions extends Component {
             <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel">
                 <thead class="thead-dark">
                     <tr>
+                        <th style={{ width: '4%' }}>Logo</th>
                         <th>Title</th>
-                        <th>Amount </th>
+                        <th>Amount</th>
                         <th>Value {'\u0024'}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {possessions.map((possession, index) =>
-                        <tr key={index} typeforcss={possession.possessionsType}>
+                        <tr>
+                            <img src={possession.linkOfImage} className = "image" />
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
                             <td>{possession.valueInDollars}</td>

@@ -36,6 +36,7 @@ namespace my_new_app.Controllers
             var last = month.AddDays(-1);
             return statisticsService.GetStatistic(first, last);
         }
+        public ActionResult<Stats> CustomDate() => statisticsService.GetStatistic(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now);
 
     }
 }

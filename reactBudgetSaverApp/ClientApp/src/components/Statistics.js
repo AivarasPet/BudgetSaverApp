@@ -46,7 +46,6 @@ export class Statistics extends Component {
         this.setState({ statistic: data, loading: false });
     }
 
-
     static renderStatistic(statistics) {
         return (
             <ul>
@@ -75,9 +74,9 @@ export class Statistics extends Component {
                     <button onClick={this.lastMonth}>Last Month</button> &nbsp;
                     <button onClick={this.toggleVisilibity}>Advanced</button>
                     {this.state.setStatisticsDateVisibility && (
-                        <form onSubmit={this.handleNewTransaction}>
-                            <label >Select starting date:</label><input type="date" name="start" class="form-control"></input>
-                            <label >Select ending date:</label><input type="date" name="end" class="form-control"></input>
+                        <form>
+                            <label>Select starting date:</label><input type="date" name="start" class="form-control" style={{ width: "20%" }}></input>
+                            <label>Select ending date:</label><input type="date" name="end" class="form-control" style={{ width: "20%" }}></input>
                             <p></p>
                             <button onClick={this.lastMonth}>Show Stats</button>
                         </form>
