@@ -51,7 +51,7 @@ namespace BudgetSaverApp.Transactions
             return List ?? null;
         }
 
-        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A")
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "Other")
         {
             if (transactionName != "" && transactionAmount != "")
             {
@@ -60,7 +60,8 @@ namespace BudgetSaverApp.Transactions
                 if (!float.TryParse(transactionAmount, out transAmount))
                     return;
 
-                Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now); 
+                Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
+
                 List.Add(newTransaction);
                 SerializeTransactionList();
             }

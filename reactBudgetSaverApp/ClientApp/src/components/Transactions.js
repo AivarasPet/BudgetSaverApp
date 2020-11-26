@@ -73,7 +73,6 @@ export class Transactions extends Component {
         this.setState({});
         this.inputAmount = "";
         this.inputTitle = "";
-
     }
 
     handleNewTransaction = (event) => {

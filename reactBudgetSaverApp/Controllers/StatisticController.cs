@@ -22,7 +22,9 @@ namespace my_new_app.Controllers
             return Content("Hello");
         }
 
-        public ActionResult<Stats> ThisWeek() => statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now);
+        public ActionResult<Stats> ThisWeek(){
+            return statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int) DateTime.Today.DayOfWeek + (int) DayOfWeek.Monday), DateTime.Now);
+        }
 
         public ActionResult<Stats> LastWeek() => statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6), DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1));
 
@@ -36,5 +38,12 @@ namespace my_new_app.Controllers
             var last = month.AddDays(-1);
             return statisticsService.GetStatistic(first, last);
         }
+
+        public ActionResult<Stats> Advanced(DateTime startDate,DateTime endDate)
+        {
+            
+            return statisticsService.GetStatistic(startDate, endDate);
+        }
+
     }
 }

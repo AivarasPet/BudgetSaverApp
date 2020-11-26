@@ -173,7 +173,6 @@ namespace BudgetSaverApp.Statistics
 
             foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
             {
-                if (key.Equals("N/A")) continue;
                 if (statsThatAreComparedTo.SubStatsMap.TryGetValue(key, out SubStats value))
                 {
                     oldExpenses = value.Expenses;
@@ -190,7 +189,6 @@ namespace BudgetSaverApp.Statistics
             float oldIncome =0, newIncome =0;
             foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
             {
-                if (key.Equals("N/A")) continue;
                 if (statsThatAreComparedTo.SubStatsMap.TryGetValue(key, out SubStats value))
                 {
                     oldIncome = value.Income;
@@ -216,7 +214,6 @@ namespace BudgetSaverApp.Statistics
 
             foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
             {
-                if (key.Equals("N/A")) continue;
                 if (dictLowestExpenses.TryGetValue(key, out Stats value))
                 {
                     float oldExpenses = value.SubStatsMap[key].Expenses;
@@ -227,7 +224,6 @@ namespace BudgetSaverApp.Statistics
 
             foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
             {
-                if (key.Equals("N/A")) continue;
                 if (dictLowestExpenses.TryGetValue(key, out Stats value))
                 {
                     float oldIncome = value.SubStatsMap[key].Income;

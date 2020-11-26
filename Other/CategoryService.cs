@@ -24,7 +24,8 @@ namespace BudgetSaverApp
             {
                 if (data[x] == "") continue;
 
-                categories[x] = data[x].ToString();
+                categories[x] = data[x].Substring(0,data[x].Length-1);
+
             }
             return categories;
         }
