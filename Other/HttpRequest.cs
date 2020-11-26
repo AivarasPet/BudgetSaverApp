@@ -12,11 +12,11 @@ namespace BudgetSaverApp
     {
         public string data { get; set; }
     }
+
     public class HttpRequest
     {
 
-
-        public async Task<string> StartHttpRequest(ApiLink apiLink)
+        public String StartHttpRequest(ApiLink apiLink)
         {
             var client = new RestClient(apiLink.Link);
             var request = new RestRequest(Method.GET);

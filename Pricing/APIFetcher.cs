@@ -20,18 +20,18 @@ namespace BudgetSaverApp.Pricing
         private static List<ApiTaskEntity> taskEntities = new List<ApiTaskEntity>();
         private static List<Task> tasks = new List<Task>();
 
-        private static async Task<string> DownloadAPIAsync(ApiLink apiLink)
+        private static void DownloadAPIAsync(ApiTaskEntity taskEntity)
         {
             HttpRequest request = new HttpRequest();
-            //request.HttpRequestCompleted += this.OnCryptoPricingDownloaded;
-            return await request.StartHttpRequest(apiLink);
+            string response = request.StartHttpRequest(taskEntity.apiLink);
+            taskEntity.ocjectThatNeedApiCallback.OnAPIDownload(response);
         }
 
         public static async Task RunAllDownloadsAsync()
         {
             foreach(ApiTaskEntity e in taskEntities)
             {
-                tasks.Add((Task.Run(async () =>  e.ocjectThatNeedApiCallback.OnAPIDownload(await DownloadAPIAsync(e.apiLink)))));
+                tasks.Add(Task.Run(() =>  DownloadAPIAsync(e)));
             }
 
             await Task.WhenAll(tasks);
