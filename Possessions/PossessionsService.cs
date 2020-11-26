@@ -49,16 +49,19 @@ namespace BudgetSaverApp.Possessions
                 from a in apiList
                 join l in list
                 on a.Id equals l.ApiLinkID
-                select new {Item = l, Link = a.Link, Headers = a.Headers};
+                select new {Item = l, Link = a.Link, Type = a.Type, Headers = a.Headers};
 
             List<Possession> list1 = new List<Possession>();
 
             foreach(var item in completeList)
             {
+                Possession possession = item.Item;
+                possession.Type = item.Type;
                 ApiLink apiLink = new ApiLink
                 {
                     Headers = item.Headers,
-                    Link = item.Link
+                    Link = item.Link,
+                    Type = item.Type
                 };
                 APIFetcher.AddDownloadEntity(apiLink, (IApiCallback) item.Item);
             }
@@ -72,7 +75,7 @@ namespace BudgetSaverApp.Possessions
             foreach (var item in completeList2)
             {
                 Possession possession = item.Item;
-                possession.LinkOfImage = item.Api.First().link;
+                possession.LinkOfImage = item.Api.First().link;               
                 list1.Add(possession);
             }
 
@@ -80,27 +83,6 @@ namespace BudgetSaverApp.Possessions
 
 
             APIFetcher.RunAllDownloadsAsync();
-        }
-
-        public void SerializePossessionList()
-        {
-            var json = JsonConvert.SerializeObject(list, Formatting.Indented);
-            File.WriteAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\TransactionsJson.json", json);
-        }
-
-        public void AddNewPossession(string transactionName, string transactionAmount, string category = "N/A")
-        {
-            if (transactionName != "" && transactionAmount != "")
-            {
-                // Checks whether transaction amount is a number
-                float transAmount;
-                if (!float.TryParse(transactionAmount, out transAmount))
-                    return;
-
-                //Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
-                //List.Add(newTransaction);
-                //SerializeTransactionList();
-            }
         }
     }
 }

@@ -56,6 +56,11 @@ export class Possessions extends Component {
         const response = await fetch('possessions');
         const data = await response.json();
         console.log(data);
+
+        //const response2 = await fetch('possessions/List');
+        //const data2 = await response2.json();
+        //console.log(data2);
+
         this.setState({ possessions: data, loading: false });
     }
 }

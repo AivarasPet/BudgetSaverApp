@@ -13,6 +13,8 @@ namespace BudgetSaverApp.Possessions
             var price = jObject["Data"]["Data"][10]["open"];
 
             this.ValueInDollars = Amount * float.Parse(price.ToString());
+            if (this.ValueInDollarsWhenBought != 0) this.PercentageChangeInValue = (this.ValueInDollars - this.ValueInDollarsWhenBought) / this.ValueInDollarsWhenBought * 100;
+            else this.PercentageChangeInValue = 0;
             Console.WriteLine(price);
         }
     }
