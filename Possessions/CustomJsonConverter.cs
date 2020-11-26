@@ -31,7 +31,6 @@ namespace BudgetSaverApp.Possessions
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JObject jo = JObject.Load(reader);
-            Console.WriteLine(jo);
             return (jo["Type"].Value<string>()) switch
             {
                 "Crypto" => JsonConvert.DeserializeObject<Crypto>(jo.ToString(), SpecifiedSubclassConversion),
