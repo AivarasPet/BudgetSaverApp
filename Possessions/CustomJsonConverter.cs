@@ -33,9 +33,9 @@ namespace BudgetSaverApp.Possessions
             JObject jo = JObject.Load(reader);
             return (jo["Type"].Value<string>()) switch
             {
-                "Crypto" => JsonConvert.DeserializeObject<Crypto>(jo["Object"].ToString(), SpecifiedSubclassConversion),
-                "Commodity" => JsonConvert.DeserializeObject<Commodity>(jo["Object"].ToString(), SpecifiedSubclassConversion),
-                "Stock" => JsonConvert.DeserializeObject<Stock>(jo["Object"].ToString(), SpecifiedSubclassConversion),
+                "Crypto" => JsonConvert.DeserializeObject<Crypto>(jo.ToString(), SpecifiedSubclassConversion),
+                "Commodity" => JsonConvert.DeserializeObject<Commodity>(jo.ToString(), SpecifiedSubclassConversion),
+                "Stock" => JsonConvert.DeserializeObject<Stock>(jo.ToString(), SpecifiedSubclassConversion),
                 _ => throw new Exception(),
             };
             throw new NotImplementedException();

@@ -1,32 +1,68 @@
 ﻿[
-  {
-    "Type": "Crypto",
-    "Object": {
-      "Name": "Bitcoin",
-      "Amount": 10.0,
-      "APILinkID": "0",
-      "LinkOfImage": "0",
-      "ValueInDollarsWhenBought": 12000
-    }
-  },
-  {
-    "Type": "Crypto",
-    "Object": {
-      "Name": "Ethereum",
-      "Amount": 10.0,
-      "APILinkID": "1",
-      "LinkOfImage": "1",
-      "ValueInDollarsWhenBought": 500
-    }
-  },
-  {
-    "Type": "Stock",
-    "Object": {
-      "Name": "Apple",
-      "Amount": 5,
-      "APILinkID": "2",
-      "LinkOfImage": "2",
-      "ValueInDollarsWhenBought": 100
-    }
-  }
+    /*{
+        "Type": "Crypto",
+        "Object": {
+            "Name": "Bitcoin",
+            "Amount": 10.0,
+            "APILinkID": "0",
+            "LinkOfImage": "0"
+        }
+    },
+    {
+        "Type": "Crypto",
+        "Object": {
+            "Name": "Ethereum",
+            "Amount": 10.0,
+            "APILinkID": "1",
+            "LinkOfImage": "1"
+        }
+    },
+    {
+        "Type": "Stock",
+        "Object": {
+            "Name": "Apple",
+            "Amount": 5,
+            "APILinkID": "2",
+            "LinkOfImage": "2"
+        }
+    },
+    {
+        "Type": "Commodity",
+        "Object": {
+            "Name": "Gold",
+            "Amount": 5,
+            "APILinkID": "3",
+            "LinkOfImage": "goldImg"
+        }
+    }*/
+    {
+        "Type": "Crypto",
+        "Name": "Bitcoin",
+        "Amount": 10.0,
+        "APILinkID": "Bitcoin",
+        "LinkOfImage": "0"
+    },
+    {
+        "Type": "Crypto",
+        "Name": "Ethereum",
+        "Amount": 10.0,
+        "APILinkID": "Ethereum",
+        "LinkOfImage": "1"
+    },
+    {
+        "Type": "Stock",
+        "Name": "Apple",
+        "Amount": 5,
+        "APILinkID": "Apple",
+        "LinkOfImage": "2"
+    }//,
+  //{
+  //  "Type": "Commodity",
+  //  "Object": {
+  //    "Name": "Gold",
+  //    "Amount": 5,
+  //    "APILinkID": "3",
+  //    "LinkOfImage": "goldImg"
+  //  }
+  //}
 ]

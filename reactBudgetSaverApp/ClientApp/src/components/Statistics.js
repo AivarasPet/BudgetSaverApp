@@ -116,8 +116,8 @@ export class Statistics extends Component {
                     <button onClick={this.toggleVisilibity}>Advanced</button>
                     {this.state.setStatisticsDateVisibility && (
                         <form onSubmit={this.advanced}>
-                            <label >Select starting date:</label><input type="date"  className="form-control" ref={this.startDate}></input>
-                            <label >Select ending date:</label><input type="date" className="form-control" ref={this.endDate}></input>
+                            <label >Select starting date:</label><input type="date" className="form-control" ref={this.startDate} style={{ width: "20%" }}></input>
+                            <label >Select ending date:</label><input type="date" className="form-control" ref={this.endDate} style={{ width: "20%"}}></input>
                             <p></p>
                             <input type="submit" value="Show Stats" style={{ width: "140px", height: 37 }}/>
                         </form>

@@ -20,5 +20,9 @@ export default class App extends Component {
         <Route path='/possessions' component={Possessions} />
       </Layout>
     );
-  }
+    }
+
+    componentDidMount() {
+        document.title = 'Smart saver';
+    }
 }

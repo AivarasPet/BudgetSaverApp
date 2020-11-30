@@ -10,6 +10,7 @@ namespace BudgetSaverApp.Possessions.Links
     {
         public string Id { get; set; }
         public string Link { get; set; }
+        public string Type { get; set; }
         public Dictionary<string, string> Headers { get; set; }
     }
 }

@@ -18,14 +18,16 @@ export class Possessions extends Component {
             <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel">
                 <thead class="thead-dark">
                     <tr>
+                        <th style={{ width: '4%' }}>Logo</th>
                         <th>Title</th>
-                        <th>Amount </th>
+                        <th>Amount</th>
                         <th>Value {'\u0024'}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {possessions.map((possession, index) =>
-                        <tr key={index} typeforcss={possession.possessionsType}>
+                        <tr>
+                            <img src={possession.linkOfImage} className = "image" />
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
                             <td>{possession.valueInDollars}</td>
@@ -44,7 +46,7 @@ export class Possessions extends Component {
         return (
             <div>
                 <h1 id="tabelLabel" >Possesion list</h1>
-                <p>This table shows total list of all transactions.</p>
+                <p>This table shows total list of all possessions.</p>
                 {contents}
             </div>
         );
@@ -54,6 +56,7 @@ export class Possessions extends Component {
         const response = await fetch('possessions');
         const data = await response.json();
         console.log(data);
+
         this.setState({ possessions: data, loading: false });
     }
 }

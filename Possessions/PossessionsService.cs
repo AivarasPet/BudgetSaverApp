@@ -49,16 +49,19 @@ namespace BudgetSaverApp.Possessions
                 from a in apiList
                 join l in list
                 on a.Id equals l.ApiLinkID
-                select new {Item = l, Link = a.Link, Headers = a.Headers};
+                select new {Item = l, Link = a.Link, Type = a.Type, Headers = a.Headers};
 
             List<Possession> list1 = new List<Possession>();
 
             foreach(var item in completeList)
             {
+                Possession possession = item.Item;
+                possession.Type = item.Type;
                 ApiLink apiLink = new ApiLink
                 {
                     Headers = item.Headers,
-                    Link = item.Link
+                    Link = item.Link,
+                    Type = item.Type
                 };
                 APIFetcher.AddDownloadEntity(apiLink, (IApiCallback) item.Item);
             }
@@ -72,7 +75,7 @@ namespace BudgetSaverApp.Possessions
             foreach (var item in completeList2)
             {
                 Possession possession = item.Item;
-                possession.LinkOfImage = item.Api.First().link;
+                possession.LinkOfImage = item.Api.First().link;               
                 list1.Add(possession);
             }
 
