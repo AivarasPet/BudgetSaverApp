@@ -17,10 +17,7 @@ export class Transactions extends Component {
             sortedBy: "",
             sortDirection: 0
         };
-        this.toggleVisilibity = this.toggleVisilibity.bind(this);
-        this.handleTypeChange = this.handleTypeChange.bind(this);
-        this.handleCategoryChange = this.handleCategoryChange.bind(this);
-        this.clearAdd = this.clearAdd.bind(this);
+
         this.type = [
             { value: 0, label: 'Income' },
             { value: 1, label: 'Expenses' }
@@ -60,15 +57,15 @@ export class Transactions extends Component {
         );
     }
 
-    handleTypeChange(event) {
+    handleTypeChange = (event) => {
         this.setState({ inputType: event.value });
     }
 
-    handleCategoryChange(event) {
+    handleCategoryChange = (event) => {
         this.setState({ inputCategory: event.value });
     }
 
-    clearAdd() {
+    clearAdd = () => {
         this.setState({ inputCategory: "", inputType: "", addNewTransactionVisibility: false });
         this.setState({});
         this.inputAmount = "";
@@ -128,7 +125,7 @@ export class Transactions extends Component {
     }
 
 
-    toggleVisilibity() {
+    toggleVisilibity = () => {
         this.setState({
             addNewTransactionVisibility: !this.state.addNewTransactionVisibility
         });

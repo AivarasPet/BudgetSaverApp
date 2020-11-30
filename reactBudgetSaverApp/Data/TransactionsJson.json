@@ -180,5 +180,12 @@
     "Title": "eee",
     "Category": "Food",
     "Date": "2020-11-26T20:59:26.8395047+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 43434.0,
+    "Title": "Deeee",
+    "Category": "Household",
+    "Date": "2020-11-30T21:05:54.2853219+02:00"
   }
 ]
