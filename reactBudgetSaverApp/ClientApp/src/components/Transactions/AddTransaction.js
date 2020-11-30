@@ -51,7 +51,6 @@ export default class AddTransaction extends Component {
         this.inputTitle = "";
     }
 
-
     handleNewTransaction = (event) => {
         // Simple POST request with a JSON body using fetch
         event.preventDefault();
@@ -105,12 +104,12 @@ export default class AddTransaction extends Component {
             <div>
                 <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
                 {this.state.addNewTransactionVisibility && (
-                    <form onSubmit={this.handleNewTransaction}><p></p>
-                        <Select placeholder="Transaction type" options={this.type} onChange={this.handleTypeChange} /><p></p>
-                        <input type="text" placeholder="  Title" onChange={this.handleTitleChange} style={{ width: "100%", height: 37 }} /><p></p>
-                        <input type="number" min="0" step="any" placeholder="  Amount" onChange={this.handleAmountChange} style={{ width: "100%", height: 37 }} /><p></p>
-                        <Select placeholder="Category" options={this.categories} onChange={this.handleCategoryChange} /><p></p>
-                        <input type="submit" value="Add" style={{ width: "140px", height: 37 }} /><p></p>
+                    <form onSubmit={this.handleNewTransaction}>{"\n"}
+                        <Select type="type" options={this.type} onChange={this.handleTypeChange} />
+                        <input type="text" placeholder="  Title" onChange={this.handleTitleChange} style={{ width: "100%", height: 37 }} />
+                        <input type="number" min="0" step="any" placeholder="  Amount" onChange={this.handleAmountChange} style={{ width: "100%", height: 37 }} />
+                        <Select placeholder="Category" options={this.categories} onChange={this.handleCategoryChange} />
+                        <input type="submit" value="Add" style={{ width: "140px", height: 37 }} />
                     </form>
                 )}
             </div>
