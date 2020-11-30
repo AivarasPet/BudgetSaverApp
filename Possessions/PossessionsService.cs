@@ -81,7 +81,6 @@ namespace BudgetSaverApp.Possessions
 
             list = list1;
 
-
             APIFetcher.RunAllDownloadsAsync();
         }
     }

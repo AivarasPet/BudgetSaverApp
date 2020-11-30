@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { Transactions } from './components/Transactions';
+import { Transactions } from './components/Transactions/Transactions';
 import { Possessions } from './components/Possessions';
 import { Statistics } from './components/Statistics';
 import { Goals } from './components/Goals';
