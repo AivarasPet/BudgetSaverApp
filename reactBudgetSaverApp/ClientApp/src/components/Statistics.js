@@ -13,12 +13,6 @@ export class Statistics extends Component {
           setStatisticsDateVisibility: false,
           subStatistics: {}
       };
-      this.toggleVisilibity = this.toggleVisilibity.bind(this);
-      this.thisWeek = this.thisWeek.bind(this);
-      this.lastWeek = this.lastWeek.bind(this);
-      this.thisMonth = this.thisMonth.bind(this);
-      this.lastMonth = this.lastMonth.bind(this);
-      this.advanced = this.advanced.bind(this);
 
       this.renderStatistic = this.renderStatistic.bind(this);
       this.renderSubStatistics = this.renderSubStatistics.bind(this);
@@ -27,36 +21,32 @@ export class Statistics extends Component {
       this.endDate = React.createRef();
   }
 
-    async thisWeek() {
+    thisWeek = async () => {
         const response = await fetch('statistic/thisweek');
         const data = await response.json();
-        //console.log(data.subStatsMap);
         this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
-        console.log(this.state.subStatistics);
     }
 
-    async lastWeek() {
+    lastWeek = async () => {
         const response = await fetch('statistic/lastweek');
         const data = await response.json();
-        console.log(data);
         this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
     }
 
-    async thisMonth() {
+    thisMonth = async () => {
         const response = await fetch('statistic/thismonth');
         const data = await response.json();
-        console.log(data);
         this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
     }
 
-    async lastMonth() {
+    lastMonth = async () => {
         const response = await fetch('statistic/lastmonth');
         const data = await response.json();
         console.log(data);
         this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
     }
 
-    async advanced (event) {
+    advanced = async (event) => {
         event.preventDefault();
         var url = new URL(window.location.origin+'/statistic/advanced');
         url.searchParams.append("startDate", this.startDate.current.value);
@@ -139,9 +129,9 @@ export class Statistics extends Component {
         );
     }
 
-    toggleVisilibity() {
+    toggleVisilibity = () => {
         this.setState({
             setStatisticsDateVisibility: !this.state.setStatisticsDateVisibility
         });
     }
-    }
+}
