@@ -21,7 +21,7 @@ namespace BudgetSaverApp
                 using (var sr = new StreamReader(location))
                 {
                     string[] arr = sr.ReadToEnd().Split('\n');
-                    Console.WriteLine(arr.Length);
+                    //Console.WriteLine(arr.Length);
                     return arr;
                 }
             }
