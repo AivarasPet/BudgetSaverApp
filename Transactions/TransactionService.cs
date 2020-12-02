@@ -57,8 +57,31 @@ namespace BudgetSaverApp.Transactions
             {
                 // Checks whether transaction amount is a number
                 float transAmount;
+
                 if (!float.TryParse(transactionAmount, out transAmount))
                     return;
+
+                if(transAmount < 0)
+                    throw new ArgumentException("Provided amount can't be negative");
+                
+                // Check if category exists
+
+                ICategoryService categoryService = new CategoryService();
+                string [] categories = categoryService.GetCategories();
+                bool exists = false;
+                foreach(string cat in categories)
+                {
+                    if(category == cat)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists)
+                {
+                    throw new BadCategoryException("Category not found");
+                }
+                
 
                 Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
 

@@ -222,5 +222,75 @@
     "Title": "Setinas",
     "Category": "Household",
     "Date": "2020-11-30T22:53:21.9831466+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 444.0,
+    "Title": "Hero",
+    "Category": "Food",
+    "Date": "2020-12-02T20:21:40.4502529+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 56565656.0,
+    "Title": "Eeeeeeee",
+    "Category": "Food",
+    "Date": "2020-12-02T20:24:20.8470307+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 64444.0,
+    "Title": "DEDEDEDE",
+    "Category": "Health",
+    "Date": "2020-12-02T20:28:06.5762543+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 6000.0,
+    "Title": "TisBoi",
+    "Category": "Food",
+    "Date": "2020-12-02T20:30:37.0100394+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 54.0,
+    "Title": "Test",
+    "Category": "Food",
+    "Date": "2020-12-02T20:58:16.9614815+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 45454.0,
+    "Title": "EEEEE",
+    "Category": "Health",
+    "Date": "2020-12-02T21:08:10.536038+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 5656.0,
+    "Title": "dede",
+    "Category": "Household",
+    "Date": "2020-12-02T21:27:20.4736673+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 5555.0,
+    "Title": "HEY",
+    "Category": "Food",
+    "Date": "2020-12-02T21:37:11.4981908+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 44444.0,
+    "Title": "eeeeeeeee",
+    "Category": "Food",
+    "Date": "2020-12-02T21:38:39.4338086+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 3333.0,
+    "Title": "dwdwd",
+    "Category": "Household",
+    "Date": "2020-12-02T21:39:40.8337316+02:00"
   }
 ]

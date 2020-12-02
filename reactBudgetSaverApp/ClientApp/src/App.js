@@ -12,7 +12,8 @@ export default class App extends Component {
   static displayName = App.name;
 
   render () {
-    return (
+      return (
+
         <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/transactions' component={Transactions} />

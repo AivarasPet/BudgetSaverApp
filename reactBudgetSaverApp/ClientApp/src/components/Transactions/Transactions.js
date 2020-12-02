@@ -18,6 +18,7 @@ export class Transactions extends Component {
     }
 
     static renderTransactionsTable(transactions) {
+
         return (
             <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel" sortable="true">
                 <thead className="thead-dark">
@@ -47,6 +48,7 @@ export class Transactions extends Component {
             : Transactions.renderTransactionsTable(this.state.transactions);
         return (
             <div>
+
                 <AddTransaction onUpdate={this.onUpdate.bind(this)}/>
                 <h1 id="tabelLabel" >Transaction list</h1>
                 <p>This table shows total list of all transactions.</p>

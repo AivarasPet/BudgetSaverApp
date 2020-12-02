@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import Popup from 'react-popup';
 
 export default class AddTransaction extends Component {
     static displayName = AddTransaction.name;
@@ -57,12 +58,11 @@ export default class AddTransaction extends Component {
 
         //verification
         if (this.state.inputType === "" || this.state.inputAmount === NaN || this.state.inputTitle === "" || this.state.inputCategory === "") {
-            console.log("einanx");
             return;
         }
 
         var data = { transactType: this.state.inputType, amount: parseFloat(this.state.inputAmount), title: this.state.inputTitle, category: this.state.inputCategory };
-        
+
 
         console.log(data);
 
@@ -74,11 +74,24 @@ export default class AddTransaction extends Component {
             body: JSON.stringify(data)
         };
 
+
+
         fetch('Transaction/PostAddTransaction', message)
-            .then(response => response.json())
-            .then(data => {
-                this.props.onUpdate(data);
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+                    return null;
+                }
+            }).then(data => {
+                if (data !== null) {
+                    this.props.onUpdate(data);;
+                }
+                    
             });
+
+
     }
 
     toggleVisilibity = () => {
@@ -102,6 +115,7 @@ export default class AddTransaction extends Component {
     render() {
         return (
             <div>
+                
                 <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
                 {this.state.addNewTransactionVisibility && (
                     <form onSubmit={this.handleNewTransaction}>{"\n"}

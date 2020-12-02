@@ -11,16 +11,6 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-    public class Student
-    {
-        public string name { get; set; }
-        public int age { get; set; }
-        public string country { get; set; }
-        public Student()
-        {
-
-        }
-    }
     public class TransactionController : ControllerBase
     {
 
@@ -33,7 +23,7 @@ namespace my_new_app.Controllers
 
         public ActionResult Test()
         {
-            System.Diagnostics.Debug.WriteLine("sup");
+            
             return Ok();
         }
         
@@ -41,7 +31,19 @@ namespace my_new_app.Controllers
         public ActionResult<Transaction> PostAddTransaction([FromBody] Transaction values)
         {
             ITransactionService transactionService = Session.serviceManager.transactionService;
-            transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
+            try
+            {
+                transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
+                
+            }catch (BadCategoryException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }catch (ArgumentException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
             return values;
         }        
     }
