@@ -72,25 +72,31 @@ namespace BudgetSaverApp.Transactions
             return List.Where(oh => oh.Date.Date.CompareTo(date.Date) == 0).ToList(); 
         }
 
+        public delegate float Converter(Transaction element);
+
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples()
         {
+            Converter convertAmount = delegate (Transaction element)
+            {
+                return (element.TransactType == Transaction.TransactionType.EXPENSES) ? -element.Amount : element.Amount;
+            };
+
             List<Tuple<Transaction, int>> tuples = new List<Tuple<Transaction, int>>();
             IList<Transaction> copyOfTransactions = List.Clone();
             for(int x = 0; x < copyOfTransactions.Count; x++)
             {
                 int count = 1;
-                float amount = (copyOfTransactions.ElementAt(x).TransactType == Transaction.TransactionType.EXPENSES) ? -copyOfTransactions.ElementAt(x).Amount : copyOfTransactions.ElementAt(x).Amount;
+                float amount = convertAmount(copyOfTransactions.ElementAt(x));
                 for (int y = x+1; y < copyOfTransactions.Count; y++)
                 {
                     if (copyOfTransactions.ElementAt(x).Equals(copyOfTransactions.ElementAt(y)))
                     {
                         count++;
-                        amount += (copyOfTransactions.ElementAt(y).TransactType == Transaction.TransactionType.EXPENSES) ? -copyOfTransactions.ElementAt(y).Amount : copyOfTransactions.ElementAt(y).Amount;
+                        amount += convertAmount(copyOfTransactions.ElementAt(y));
                         copyOfTransactions.RemoveAt(y);
                     }
                 }
                 TransactionType type = (amount >= 0) ? (Transaction.TransactionType.INCOME) : (Transaction.TransactionType.EXPENSES);
-                Console.WriteLine("AMOUNT : " + amount);
                 Transaction transaction = new Transaction(type, Math.Abs(amount), copyOfTransactions.ElementAt(x).Title, copyOfTransactions.ElementAt(x).Category, copyOfTransactions.ElementAt(x).Date);
                 Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(transaction, count);
                 if(count > 1) tuples.Add(tuple);

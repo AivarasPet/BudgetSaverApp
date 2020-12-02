@@ -36,10 +36,19 @@ input {
     border-color: #E1E1E1;
     border-style: solid;
     border-radius: 0.25rem;
+    margin-top: 10px;
 }
 
-    input[type = "submit"] {
-        color: #fff;
-        background-color: #1b6ec2;
-        border-color: #1861ac;
-    }
+input[type = "submit"] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+input[type = "number"] {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-bottom: 10px;
+}

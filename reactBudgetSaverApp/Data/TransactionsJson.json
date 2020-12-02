@@ -180,5 +180,47 @@
     "Title": "eee",
     "Category": "Food",
     "Date": "2020-11-26T20:59:26.8395047+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 43434.0,
+    "Title": "Deeee",
+    "Category": "Household",
+    "Date": "2020-11-30T21:05:54.2853219+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 555.0,
+    "Title": "sss",
+    "Category": "Food",
+    "Date": "2020-11-30T22:26:04.4188151+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 4444.0,
+    "Title": "DDDDDDDDDDDDDDDDDDDDD",
+    "Category": "Household",
+    "Date": "2020-11-30T22:30:44.3858387+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 555.0,
+    "Title": "ddd",
+    "Category": "Household",
+    "Date": "2020-11-30T22:40:32.5593653+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 555.0,
+    "Title": "ddd",
+    "Category": "Household",
+    "Date": "2020-11-30T22:46:05.6223631+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 555.0,
+    "Title": "Setinas",
+    "Category": "Household",
+    "Date": "2020-11-30T22:53:21.9831466+02:00"
   }
 ]
