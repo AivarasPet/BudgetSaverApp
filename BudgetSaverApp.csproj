@@ -154,6 +154,7 @@
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
+    <Compile Include="Transactions\BadCategoryException.cs" />
     <Compile Include="UI\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
