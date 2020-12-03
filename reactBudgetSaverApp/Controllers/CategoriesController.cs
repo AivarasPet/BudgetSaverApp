@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BudgetSaverApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +17,11 @@ namespace my_new_app.Controllers
     }
     public class CategoriesController : ControllerBase
     {
-
+        private ICategoryService _categoryService;
+        public CategoriesController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
         
         public List<Category> CategoryConvert (string[] firstArray)
         {
@@ -30,7 +35,7 @@ namespace my_new_app.Controllers
 
         public ActionResult<IEnumerable<Category>> GetCategories()
         {
-            return CategoryConvert(Session.serviceManager.categoryService.GetCategories());
+            return CategoryConvert(_categoryService.GetCategories());
         } 
     }
 }

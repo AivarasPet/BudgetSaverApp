@@ -2,7 +2,7 @@
 {
     public class PossessionFactory
     {
-        public static IPosessionsService GetPossessionsService()
+        public static IPossessionsService GetPossessionsService()
         {
             return new PossessionsService();
         }

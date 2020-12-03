@@ -1,3 +1,6 @@
+using BudgetSaverApp;
+using BudgetSaverApp.Goals;
+using BudgetSaverApp.Statistics;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -20,7 +23,12 @@ namespace my_new_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            ServiceManager serviceManager = new ServiceManager();
+            services.AddSingleton<ITransactionService>(serviceManager.transactionService);
+            services.AddSingleton<IPossessionsService>(serviceManager.posessionsService);
+            services.AddSingleton<IStatisticsService>(serviceManager.statisticsService);
+            services.AddSingleton<ICategoryService>(serviceManager.categoryService);
+            services.AddSingleton<IGoalsService>(serviceManager.goalsService);
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

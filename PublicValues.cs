@@ -1,6 +1,6 @@
 ﻿using BudgetSaverApp.Possessions.Links;
 using Newtonsoft.Json.Linq;
-using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +13,15 @@ namespace BudgetSaverApp
 
         private static float inflation = 0;
 
-        public float InflationInARecentYear()
+        public static float InflationInARecentYear()
         {
             if (inflation != 0) return inflation;
 
+            string link = ConfigurationManager.AppSettings["APIKeyInflation"];
+            if (link == null) return 0;
             ApiLink api = new ApiLink
             {
-                Link = "https://www.quandl.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=4SykxztoStAkUxdKf7Xd"
+                Link = link
             };
             HttpRequest httpRequest = new HttpRequest();
             string result = httpRequest.StartHttpRequest(api);

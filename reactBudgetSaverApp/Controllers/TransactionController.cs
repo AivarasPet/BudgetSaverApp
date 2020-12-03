@@ -13,12 +13,15 @@ namespace my_new_app.Controllers
 {
     public class TransactionController : ControllerBase
     {
+        ITransactionService _transactionService;
+        public TransactionController(ITransactionService transactionService)
+        {
+            _transactionService = transactionService;
+        }
 
         public ActionResult<IEnumerable<Transaction>> Index()
         {
-            ITransactionService transactionService = Session.serviceManager.transactionService;
-            return transactionService.GetTransactionsList().ToArray();
-
+            return _transactionService.GetTransactionsList().ToArray();
         }
 
         public ActionResult Test()

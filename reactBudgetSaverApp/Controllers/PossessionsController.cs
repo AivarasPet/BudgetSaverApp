@@ -11,13 +11,17 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
+
     public class PossessionsController : ControllerBase
     {
+        private IPossessionsService _possessionsService;
+        public  PossessionsController(IPossessionsService possessionsService)
+        {
+            _possessionsService = possessionsService;
+        }
         public ActionResult<IEnumerable<Possession>> Index()
         {
-            IPosessionsService possessionService = Session.serviceManager.posessionsService;
-            return possessionService.GetPossessionsList().ToArray();
-        }
-
+            return _possessionsService.GetPossessionsList().ToArray();
+        }      
     }
 }

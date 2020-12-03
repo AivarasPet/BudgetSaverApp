@@ -16,8 +16,7 @@ namespace my_new_app
     {
         public static void Main(string[] args)
         {
-            //ApiTestAsync();
-            Session.serviceManager = new ServiceManager();
+            
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -8,11 +8,11 @@ export class Goals extends Component {
       this.state = {
           goals: {}, loading: true
       };
-      this.thisWeek = this.thisWeek.bind(this);
+      this.getProfitMonthly = this.getProfitMonthly.bind(this);
     }
 
-    async thisWeek() {
-        const response = await fetch('goals/thisweek');
+    async getProfitMonthly() {
+        const response = await fetch('goals/GetProfitMonthly');
         const data = await response.json();
         console.log(data);
         this.setState({ goals: data, loading: false });
@@ -23,11 +23,15 @@ export class Goals extends Component {
             <ul>
                 <p></p>
                 <div>
-                    <li>Goal name: {goals.thisWeek }</li>
+                    <li>Goal name: {goals}</li>
                 </div>
             </ul>
         );
     } 
+
+    componentDidMount() {
+        this.getProfitMonthly();
+    }
 
     render() {
         let contents = this.state.loading
