@@ -11,12 +11,15 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-
+    class floatObject
+    {
+        public float profit { get; set; }
+    }
     public class GoalsController : Controller
     {
         readonly IGoalsService goalsService = Session.serviceManager.goalsService;
 
-        public float ThisWeek() => goalsService.GetGoalDaysLeft();
+        public ActionResult<float> GetProfitMonthly() => goalsService.GetProfitMonthly();
 
     }
 }

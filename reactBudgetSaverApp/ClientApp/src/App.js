@@ -18,6 +18,7 @@ export default class App extends Component {
         <Route path='/transactions' component={Transactions} />
         <Route path='/statistics' component={Statistics} />
         <Route path='/possessions' component={Possessions} />
+        <Route path='/goals' component={Goals} />
       </Layout>
     );
   }
