@@ -17,9 +17,12 @@ namespace my_new_app.Controllers
     }
     public class GoalsController : Controller
     {
-        readonly IGoalsService goalsService = Session.serviceManager.goalsService;
-
-        public ActionResult<float> GetProfitMonthly() => goalsService.GetProfitMonthly();
+        private IGoalsService _goalsService;
+        public GoalsController(IGoalsService goalsService)
+        {
+            _goalsService = goalsService;
+        }
+        public ActionResult<float> GetProfitMonthly() => _goalsService.GetProfitMonthly();
 
     }
 }

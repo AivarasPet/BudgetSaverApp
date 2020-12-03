@@ -10,7 +10,7 @@ namespace BudgetSaverApp.Portfolio
         string _MainGoalName;
         float _MainGoalPrice;
 
-        public GoalsService(IStatisticsService StatisticsService )
+        public  GoalsService(IStatisticsService StatisticsService )
         {
             this.StatisticsService = StatisticsService;
             

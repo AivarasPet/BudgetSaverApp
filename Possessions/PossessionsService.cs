@@ -10,7 +10,7 @@ using System.Linq;
 namespace BudgetSaverApp.Possessions
 {
     
-    class PossessionsService : IPosessionsService
+    class PossessionsService : IPossessionsService
     {
         List<Possession> list = new List<Possession>();
 

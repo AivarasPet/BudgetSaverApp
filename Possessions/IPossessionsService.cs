@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BudgetSaverApp
 {
-    public interface IPosessionsService 
+    public interface IPossessionsService 
     {
         public List<Possession> GetPossessionsList();
         public void LoadPossessionsList();

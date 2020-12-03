@@ -11,24 +11,17 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-    public class Student
-    {
-        public string name { get; set; }
-        public int age { get; set; }
-        public string country { get; set; }
-        public Student()
-        {
-
-        }
-    }
     public class TransactionController : ControllerBase
     {
+        ITransactionService _transactionService;
+        public TransactionController(ITransactionService transactionService)
+        {
+            _transactionService = transactionService;
+        }
 
         public ActionResult<IEnumerable<Transaction>> Index()
         {
-            ITransactionService transactionService = Session.serviceManager.transactionService;
-            return transactionService.GetTransactionsList().ToArray();
-
+            return _transactionService.GetTransactionsList().ToArray();
         }
 
         public ActionResult Test()

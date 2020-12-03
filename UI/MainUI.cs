@@ -28,7 +28,7 @@ namespace BudgetSaverApp
     {
         private object sender;
         ITransactionService transactionService;
-        IPosessionsService possessionsService;
+        IPossessionsService possessionsService;
         IStatisticsService statisticsService;
         IGoalsService goalsService;
         IUserDataService userDataService;
@@ -53,6 +53,7 @@ namespace BudgetSaverApp
             CleanTab();
             List<FinancialFeedbackByCategory> list = statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
             foreach (FinancialFeedbackByCategory f in list) Console.WriteLine(f.category + "  ir " + f.Difference);
+            float ay = PublicValues.InflationInARecentYear();
         }
 
 

@@ -14,7 +14,7 @@ namespace BudgetSaverApp
     public class ServiceManager
     {
         public ITransactionService transactionService { get; }
-        public IPosessionsService posessionsService { get; }
+        public IPossessionsService posessionsService { get; }
         public IStatisticsService statisticsService { get; }
         public IGoalsService goalsService { get; }
         public IUserDataService userDataService { get; }
