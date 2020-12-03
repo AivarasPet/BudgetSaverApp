@@ -7,7 +7,7 @@ using BudgetSaverApp.Transactions;
 using BudgetSaverApp.Statistics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using my_new_app.ModelsToBeFetched;
 
 namespace my_new_app.Controllers
 {
@@ -43,6 +43,12 @@ namespace my_new_app.Controllers
         {
             
             return statisticsService.GetStatistic(startDate, endDate);
+        }
+
+
+        public ActionResult<IEnumerable<FinancialFeedbackByCategory>> GetPreviousMonthFeedback()
+        {
+            return statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
         }
 
     }

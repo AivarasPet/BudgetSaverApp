@@ -3,294 +3,329 @@
     "TransactType": 0,
     "Amount": 400.0,
     "Title": "Salary",
-    "Category": "Work",
+    "Category": "Work\r",
     "Date": "2020-10-12T15:25:42.2038334+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 400.0,
     "Title": "Salary",
-    "Category": "Work",
-    "Date": "2020-10-12T15:25:42.2038334+03:00"
+    "Category": "Work\r",
+    "Date": "2020-09-12T15:25:42.2038334+03:00"
   },
   {
     "TransactType": 1,
     "Amount": 20.0,
     "Title": "Lunch",
-    "Category": "Food",
-    "Date": "2020-10-12T15:58:37.6347808+03:00"
+    "Category": "Food\r",
+    "Date": "2020-09-12T15:58:37.6347808+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 100.0,
     "Title": "Gift",
-    "Category": "Others",
-    "Date": "2020-10-12T16:26:23.6846254+03:00"
+    "Category": "Others\r",
+    "Date": "2020-09-12T16:26:23.6846254+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 15.0,
     "Title": "Teleloto",
-    "Category": "Lottery",
+    "Category": "Lottery\r",
     "Date": "2020-10-12T16:27:32.5401146+03:00"
   },
   {
     "TransactType": 1,
     "Amount": 500.0,
     "Title": "Taxes",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-10-12T16:29:18.7798163+03:00"
   },
   {
     "TransactType": 1,
     "Amount": 200.0,
     "Title": "Car repairs",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-10-12T16:29:31.7886235+03:00"
   },
   {
     "TransactType": 1,
     "Amount": 50.0,
     "Title": "Shopping at Maxima",
-    "Category": "Shopping",
+    "Category": "Shopping\r",
     "Date": "2020-10-12T16:30:00.3950945+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 3000.0,
     "Title": "Sold old stuff",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-10-25T21:46:45.1061975+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 50.0,
+    "Title": "Stuff",
+    "Category": "N/A",
+    "Date": "2020-10-25T23:17:39.9862287+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 1000.0,
     "Title": "Selling items",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-11-04T14:10:36.5824376+02:00"
   },
   {
     "TransactType": 1,
     "Amount": 1000.0,
     "Title": "Loan",
-    "Category": "Household",
+    "Category": "Household\r",
+    "Date": "2020-12-04T14:48:14.6468848+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 50.0,
+    "Title": "Gift",
+    "Category": "Food\r",
+    "Date": "2020-12-04T17:10:44.3295029+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 100.0,
+    "Title": "Loan",
+    "Category": "Household\r",
+    "Date": "2020-12-04T17:12:49.8970918+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "N/A",
+    "Date": "2020-11-05T00:00:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "Others\r",
+    "Date": "2020-10-05T21:45:54.6897123+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-10-14T21:45:54.6897123+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 500.0,
+    "Title": "TevoSaibos",
+    "Category": "Lottery\r",
+    "Date": "2020-10-19T20:28:39.4901421+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 433.0,
+    "Title": "ManoSaibos",
+    "Category": "Food\r",
+    "Date": "2020-10-19T20:34:56.4784511+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 343.0,
+    "Title": "Musu saibos",
+    "Category": "Household\r",
+    "Date": "2020-10-19T20:41:47.5747979+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 600.0,
+    "Title": "Visu Saibos",
+    "Category": "Household\r",
+    "Date": "2020-10-19T20:42:43.7589126+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 69.0,
+    "Title": "Mociutes Saibos",
+    "Category": "Shopping\r",
+    "Date": "2020-10-19T20:47:11.2085687+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 10.0,
+    "Title": "k",
+    "Category": "Food\r",
+    "Date": "2020-10-25T21:16:09.0435594+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-10-12T15:25:42.2038334+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work\r",
+    "Date": "2020-10-12T15:25:42.2038334+03:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 20.0,
+    "Title": "Lunch",
+    "Category": "Food\r",
+    "Date": "2020-10-12T15:58:37.6347808+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "Others\r",
+    "Date": "2020-10-12T16:26:23.6846254+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 15.0,
+    "Title": "Teleloto",
+    "Category": "Lottery\r",
+    "Date": "2020-10-12T16:27:32.5401146+03:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 500.0,
+    "Title": "Taxes",
+    "Category": "Household\r",
+    "Date": "2020-10-12T16:29:18.7798163+03:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 200.0,
+    "Title": "Car repairs",
+    "Category": "Household\r",
+    "Date": "2020-10-12T16:29:31.7886235+03:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 50.0,
+    "Title": "Shopping at Maxima",
+    "Category": "Shopping\r",
+    "Date": "2020-10-12T16:30:00.3950945+03:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 3000.0,
+    "Title": "Sold old stuff",
+    "Category": "Household\r",
+    "Date": "2020-10-25T21:46:45.1061975+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 50.0,
+    "Title": "Stuff",
+    "Category": "N/A",
+    "Date": "2020-10-25T23:17:39.9862287+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 1000.0,
+    "Title": "Selling items",
+    "Category": "Household\r",
+    "Date": "2020-11-04T14:10:36.5824376+02:00"
+  },
+  {
+    "TransactType": 1,
+    "Amount": 1000.0,
+    "Title": "Loan",
+    "Category": "Household\r",
     "Date": "2020-11-04T14:48:14.6468848+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 50.0,
     "Title": "Gift",
-    "Category": "Food",
+    "Category": "Food\r",
     "Date": "2020-11-04T17:10:44.3295029+02:00"
   },
   {
     "TransactType": 1,
     "Amount": 100.0,
     "Title": "Loan",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-11-04T17:12:49.8970918+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 100.0,
     "Title": "Gift",
-    "Category": "Others",
+    "Category": "N/A",
+    "Date": "2020-11-05T00:00:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 100.0,
+    "Title": "Gift",
+    "Category": "Others\r",
     "Date": "2020-11-05T21:45:54.6897123+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 400.0,
     "Title": "Salary",
-    "Category": "Work",
+    "Category": "Work\r",
     "Date": "2020-11-14T21:45:54.6897123+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 500.0,
     "Title": "TevoSaibos",
-    "Category": "Lottery",
+    "Category": "Lottery\r",
     "Date": "2020-11-19T20:28:39.4901421+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 433.0,
     "Title": "ManoSaibos",
-    "Category": "Food",
+    "Category": "Food\r",
     "Date": "2020-11-19T20:34:56.4784511+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 343.0,
     "Title": "Musu saibos",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-11-19T20:41:47.5747979+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 600.0,
     "Title": "Visu Saibos",
-    "Category": "Household",
+    "Category": "Household\r",
     "Date": "2020-11-19T20:42:43.7589126+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 69.0,
     "Title": "Mociutes Saibos",
-    "Category": "Shopping",
+    "Category": "Shopping\r",
     "Date": "2020-11-19T20:47:11.2085687+02:00"
   },
   {
     "TransactType": 0,
     "Amount": 10.0,
     "Title": "k",
-    "Category": "Food",
+    "Category": "Food\r",
     "Date": "2020-11-25T21:16:09.0435594+02:00"
   },
   {
     "TransactType": 0,
-    "Amount": 4444.0,
-    "Title": "ssss",
-    "Category": "Shopping",
-    "Date": "2020-11-26T19:04:51.8943585+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 45555.0,
-    "Title": "Labas",
-    "Category": "Food",
-    "Date": "2020-11-26T20:44:17.5902889+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 333.0,
-    "Title": "DDDD",
-    "Category": "Lottery",
-    "Date": "2020-11-26T20:48:50.7543325+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 44.0,
-    "Title": "ssss",
-    "Category": "Household",
-    "Date": "2020-11-26T20:51:45.2942862+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 444.0,
-    "Title": "eee",
-    "Category": "Food",
-    "Date": "2020-11-26T20:59:26.8395047+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 43434.0,
-    "Title": "Deeee",
-    "Category": "Household",
-    "Date": "2020-11-30T21:05:54.2853219+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 555.0,
-    "Title": "sss",
-    "Category": "Food",
-    "Date": "2020-11-30T22:26:04.4188151+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 4444.0,
-    "Title": "DDDDDDDDDDDDDDDDDDDDD",
-    "Category": "Household",
-    "Date": "2020-11-30T22:30:44.3858387+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 555.0,
-    "Title": "ddd",
-    "Category": "Household",
-    "Date": "2020-11-30T22:40:32.5593653+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 555.0,
-    "Title": "ddd",
-    "Category": "Household",
-    "Date": "2020-11-30T22:46:05.6223631+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 555.0,
-    "Title": "Setinas",
-    "Category": "Household",
-    "Date": "2020-11-30T22:53:21.9831466+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 444.0,
-    "Title": "Hero",
-    "Category": "Food",
-    "Date": "2020-12-02T20:21:40.4502529+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 56565656.0,
-    "Title": "Eeeeeeee",
-    "Category": "Food",
-    "Date": "2020-12-02T20:24:20.8470307+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 64444.0,
-    "Title": "DEDEDEDE",
-    "Category": "Health",
-    "Date": "2020-12-02T20:28:06.5762543+02:00"
-  },
-  {
-    "TransactType": 1,
-    "Amount": 6000.0,
-    "Title": "TisBoi",
-    "Category": "Food",
-    "Date": "2020-12-02T20:30:37.0100394+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 54.0,
-    "Title": "Test",
-    "Category": "Food",
-    "Date": "2020-12-02T20:58:16.9614815+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 45454.0,
-    "Title": "EEEEE",
-    "Category": "Health",
-    "Date": "2020-12-02T21:08:10.536038+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 5656.0,
-    "Title": "dede",
-    "Category": "Household",
-    "Date": "2020-12-02T21:27:20.4736673+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 5555.0,
-    "Title": "HEY",
-    "Category": "Food",
-    "Date": "2020-12-02T21:37:11.4981908+02:00"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 44444.0,
-    "Title": "eeeeeeeee",
-    "Category": "Food",
-    "Date": "2020-12-02T21:38:39.4338086+02:00"
-  },
-  {
-    "TransactType": 1,
-    "Amount": 3333.0,
-    "Title": "dwdwd",
-    "Category": "Household",
-    "Date": "2020-12-02T21:39:40.8337316+02:00"
+    "Amount": 5000.0,
+    "Title": "dsdsds",
+    "Category": "Food\r",
+    "Date": "2020-12-03T18:29:43.8047841+02:00"
   }
 ]
