@@ -1,25 +1,4 @@
 ﻿[
-    /*{
-        "Id": "0",
-        "Link": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10"
-    },
-    {
-        "Id": "1",
-        "Link": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10"
-    },
-    {
-        "Id": "2",
-        "Link": "https://finnhub.io/api/v1/quote?symbol=AAPL&token=bugqnnf48v6vml4hvrj0",
-        "Headers": { "exmpl": "lol" }
-    },
-    {
-        "Id": "3",
-        "Link": "https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL,GBP,EUR",
-        "Headers": {
-            "x-rapidapi-key": "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f",
-            "x-rapidapi-host": "live-metal-prices.p.rapidapi.com"
-        }
-    }*/
   {
     "Id": "Bitcoin",
     "Link": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10",
@@ -43,6 +22,4 @@
   //    "x-rapidapi-key": "410e812211mshd681ea22e78bcf3p1a126cjsnccc3512e2d1f",
   //    "x-rapidapi-host": "live-metal-prices.p.rapidapi.com"
   //  }
-  //}
-
 ]

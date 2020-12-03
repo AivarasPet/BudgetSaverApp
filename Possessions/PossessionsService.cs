@@ -44,7 +44,7 @@ namespace BudgetSaverApp.Possessions
             // {
             //     Item = item,
             //     Api = api
-            // });
+            // });          
             var completeList =
                 from a in apiList
                 join l in list
@@ -54,7 +54,7 @@ namespace BudgetSaverApp.Possessions
             List<Possession> list1 = new List<Possession>();
 
             foreach(var item in completeList)
-            {
+            {              
                 Possession possession = item.Item;
                 possession.Type = item.Type;
                 ApiLink apiLink = new ApiLink
@@ -62,7 +62,7 @@ namespace BudgetSaverApp.Possessions
                     Headers = item.Headers,
                     Link = item.Link,
                     Type = item.Type
-                };
+                };                
                 APIFetcher.AddDownloadEntity(apiLink, (IApiCallback) item.Item);
             }
 
@@ -74,8 +74,18 @@ namespace BudgetSaverApp.Possessions
 
             foreach (var item in completeList2)
             {
+
                 Possession possession = item.Item;
-                possession.LinkOfImage = item.Api.First().link;               
+
+                try
+                {
+                    possession.LinkOfImage = item.Api.First().link;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("API was not found for Possession: " + possession.Name);
+                }                
+
                 list1.Add(possession);
             }
 
