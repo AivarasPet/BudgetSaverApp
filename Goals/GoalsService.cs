@@ -6,19 +6,19 @@ namespace BudgetSaverApp.Portfolio
 {
     class GoalsService : IGoalsService
     {
-        IStatisticsService StatisticsService;
+        ITransactionService _transactionService;
         string _MainGoalName;
         float _MainGoalPrice;
 
-        public  GoalsService(IStatisticsService StatisticsService )
+        public  GoalsService(ITransactionService transactionService )
         {
-            this.StatisticsService = StatisticsService;
+            this._transactionService = transactionService;
             
         }
 
         public float GetProfitMonthly()
         {
-            Stats StatsRecent30Days = this.StatisticsService.GetStatistic(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now);
+            Stats StatsRecent30Days = new Stats(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now, _transactionService);
             return StatsRecent30Days.TotalIncome - StatsRecent30Days.TotalExpenses;
         }
 

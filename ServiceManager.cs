@@ -25,7 +25,7 @@ namespace BudgetSaverApp
             transactionService = TransactionsFactory.GetTransactionService();
             posessionsService = PossessionFactory.GetPossessionsService();
             statisticsService = StatisticsFactory.GetStatisticsService(transactionService);
-            goalsService = GoalsFactory.GetGoalsService(statisticsService);
+            goalsService = GoalsFactory.GetGoalsService(transactionService);
             userDataService = UserDataFactory.GetStatisticsService(goalsService);
             categoryService = CategoryFactory.GetStatisticsService();
         }

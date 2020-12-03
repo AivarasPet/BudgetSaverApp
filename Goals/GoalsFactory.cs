@@ -5,9 +5,9 @@ namespace BudgetSaverApp.Goals
 {
     class GoalsFactory
     { 
-        public static IGoalsService GetGoalsService(IStatisticsService statisticsService)
+        public static IGoalsService GetGoalsService(ITransactionService transactionService)
         {
-            return new GoalsService(statisticsService);
+            return new GoalsService(transactionService);
         }
     }
 }

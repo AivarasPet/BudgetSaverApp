@@ -33,10 +33,9 @@ namespace my_new_app.Controllers
         [HttpPost]
         public ActionResult<Transaction> PostAddTransaction([FromBody] Transaction values)
         {
-            ITransactionService transactionService = Session.serviceManager.transactionService;
             try
             {
-                transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
+                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
                 
             }catch (BadCategoryException ex)
             {
