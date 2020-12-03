@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -11,13 +12,18 @@ namespace BudgetSaverApp.Possessions
             var price = jObject["c"];
 
             this.ValueInDollars = Amount * float.Parse(price.ToString());
-            if (this.ValueInDollarsWhenBought != 0) this.PercentageChangeInValue = percentageChange (this.ValueInDollars, this.ValueInDollarsWhenBought);
-            //if (this.ValueInDollarsWhenBought != 0) this.PercentageChangeInValue = (this.ValueInDollars - this.ValueInDollarsWhenBought) / this.ValueInDollarsWhenBought * 100;
+            //if (this.ValueInDollarsWhenBought != 0) this.PercentageChangeInValue = percentageChange (this.ValueInDollars, this.ValueInDollarsWhenBought);
+            if (Compare<float>(this.ValueInDollarsWhenBought) == false) this.PercentageChangeInValue = percentageChange (this.ValueInDollars, this.ValueInDollarsWhenBought);
             else this.PercentageChangeInValue = 0;
+            Console.WriteLine(this.PercentageChangeInValue);
         }
 
         Func<float, float, float> percentageChange = (valueInDollars, valueInDollarsBought) => (valueInDollars + valueInDollarsBought) / valueInDollarsBought * 100;
 
+        public bool Compare<T>(T x)
+        {
+            return EqualityComparer<T>.Default.Equals(x, default(T));
+        }
     }
 }
 
