@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Transactions.css';
 import AddTransaction from './AddTransaction.js'
 
+
 export class Transactions extends Component {
     static displayName = Transactions.name;
 
@@ -53,6 +54,7 @@ export class Transactions extends Component {
                 <h1 id="tabelLabel" >Transaction list</h1>
                 <p>This table shows total list of all transactions.</p>
                 {contents}
+                
             </div>
         );
         

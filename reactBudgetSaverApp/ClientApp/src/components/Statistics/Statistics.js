@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./Statistics.css"
+import Feedback from "./Feedback.js"
+
 
 export class Statistics extends Component {
     static displayName = Statistics.name;
@@ -125,6 +127,8 @@ export class Statistics extends Component {
                     <p></p>
                 </div>
                 {contents}
+                <h1>Feedback</h1>
+                <Feedback />
             </div>
         );
     }
