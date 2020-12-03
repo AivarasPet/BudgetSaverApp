@@ -292,5 +292,12 @@
     "Title": "dwdwd",
     "Category": "Household",
     "Date": "2020-12-02T21:39:40.8337316+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 10.0,
+    "Title": "d",
+    "Category": "Food",
+    "Date": "2020-12-03T19:53:42.7951358+02:00"
   }
 ]

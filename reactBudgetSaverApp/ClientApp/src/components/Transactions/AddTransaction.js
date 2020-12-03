@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import Popup from 'react-popup';
+//import Popup from 'react-popup';
 
 export default class AddTransaction extends Component {
     static displayName = AddTransaction.name;
