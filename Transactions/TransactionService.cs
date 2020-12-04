@@ -117,11 +117,11 @@ class TransactionService : ITransactionService
             return List.Where(oh => oh.Date.Date.CompareTo(date.Date) == 0).ToList(); 
         }
 
-        public delegate float Converter(Transaction element);
+        public delegate T Converter<T>(Transaction element);
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples()
         {
-            Converter convertAmount = delegate (Transaction element)
+            Converter<float> convertAmount = delegate (Transaction element)
             {
                 return (element.TransactType == Transaction.TransactionType.EXPENSES) ? -element.Amount : element.Amount;
             };
