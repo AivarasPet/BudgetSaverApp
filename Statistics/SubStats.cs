@@ -12,4 +12,6 @@ namespace BudgetSaverApp.Statistics
         public float Expenses { get; set; }
         public float Income { get; set; }
     }
+
+
 }

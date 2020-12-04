@@ -13,6 +13,9 @@ namespace BudgetSaverApp
         public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A");
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples();
+         
+        public delegate void TransactionAddedEventHandler(object source, Transaction args);
+        public event TransactionAddedEventHandler TransactionAdded;
         List<Transaction> this[DateTime index] { get;}
         public string CheckPopularTransaction(string value);
     }

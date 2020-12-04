@@ -109,49 +109,49 @@
     "Amount": 100.0,
     "Title": "Gift",
     "Category": "Others\r",
-    "Date": "2020-10-05T21:45:54.6897123+02:00"
+    "Date": "2020-10-05T22:45:54.6897123+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 400.0,
     "Title": "Salary",
     "Category": "Work\r",
-    "Date": "2020-10-14T21:45:54.6897123+02:00"
+    "Date": "2020-10-14T22:45:54.6897123+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 500.0,
     "Title": "TevoSaibos",
     "Category": "Lottery\r",
-    "Date": "2020-10-19T20:28:39.4901421+02:00"
+    "Date": "2020-10-19T21:28:39.4901421+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 433.0,
     "Title": "ManoSaibos",
     "Category": "Food\r",
-    "Date": "2020-10-19T20:34:56.4784511+02:00"
+    "Date": "2020-10-19T21:34:56.4784511+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 343.0,
     "Title": "Musu saibos",
     "Category": "Household\r",
-    "Date": "2020-10-19T20:41:47.5747979+02:00"
+    "Date": "2020-10-19T21:41:47.5747979+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 600.0,
     "Title": "Visu Saibos",
     "Category": "Household\r",
-    "Date": "2020-10-19T20:42:43.7589126+02:00"
+    "Date": "2020-10-19T21:42:43.7589126+03:00"
   },
   {
     "TransactType": 0,
     "Amount": 69.0,
     "Title": "Mociutes Saibos",
     "Category": "Shopping\r",
-    "Date": "2020-10-19T20:47:11.2085687+02:00"
+    "Date": "2020-10-19T21:47:11.2085687+03:00"
   },
   {
     "TransactType": 0,
@@ -271,5 +271,12 @@
     "Title": "dsdsds",
     "Category": "Food\r",
     "Date": "2020-12-03T18:29:43.8047841+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 5.0,
+    "Title": "test",
+    "Category": "Household",
+    "Date": "2020-12-04T01:35:15.4531304+02:00"
   }
 ]

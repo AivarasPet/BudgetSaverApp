@@ -8,8 +8,14 @@ using System.Configuration;
 
 namespace BudgetSaverApp.Transactions
 {
-    class TransactionService : ITransactionService
+    public class TransactionAddedEventArgs : EventArgs
     {
+        public Transaction transaction{ get; set; }
+    }
+class TransactionService : ITransactionService
+    {
+
+
         private List<Transaction> List = new List<Transaction>();
 
         public List<Transaction> this[DateTime index] {
@@ -22,6 +28,20 @@ namespace BudgetSaverApp.Transactions
             LoadTransactionsListFromTextFile();
         }
 
+        private event ITransactionService.TransactionAddedEventHandler TransactionAdded;
+
+        event ITransactionService.TransactionAddedEventHandler ITransactionService.TransactionAdded
+        {
+            add
+            {
+                TransactionAdded += value;
+            }
+
+            remove
+            {
+                TransactionAdded -= value;
+            }
+        }
 
         public List<Transaction> GetListWithTitleFiltered(string filter)
         {
@@ -87,6 +107,7 @@ namespace BudgetSaverApp.Transactions
                 Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
 
                 List.Add(newTransaction);
+                OnTransactionAdded(newTransaction);
                 SerializeTransactionList();
             }
         }
@@ -128,10 +149,13 @@ namespace BudgetSaverApp.Transactions
             return tuples;
         }
 
-        public string CheckPopularTransaction(string value)
+
+        protected virtual void OnTransactionAdded(Transaction transaction)
         {
-            string key = ConfigurationManager.AppSettings["APIKeyInflation"];
-            if (value == key) return "true"; else return "false";
+
+            if (TransactionAdded != null)
+                TransactionAdded(this, transaction);
+
         }
     }
 }

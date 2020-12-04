@@ -8,26 +8,28 @@ namespace BudgetSaverApp.Statistics
 {
     class StatisticsService : IStatisticsService
     {
+   
         ITransactionService transactionService;
         List<Stats> StatsPastYearMonthly;
-        Stats StatsLastMonth, StatsPastYear;
+        Lazy<Stats> StatsLastMonth;
+        Lazy<Stats> StatsPastYear;
 
 
         public StatisticsService(ITransactionService transactionService)
         {
             this.transactionService = transactionService;
-
+            transactionService.TransactionAdded += OnTransactionAdded;
 
             DateTime date = DateTime.Now;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            StatsLastMonth = GetStatistic(firstDayOfMonth, lastDayOfMonth);
-            StatsPastYearMonthly = new List<Stats>();
-            StatsPastYear = GetStatistic(firstDayOfMonth.AddYears(-1), lastDayOfMonth);
+            StatsLastMonth = new Lazy<Stats>( () => new Stats(new DateTime(date.Year, date.Month, 1), new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1), transactionService));
+            StatsPastYear = new Lazy<Stats>( () => new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService));
 
+            StatsPastYearMonthly = new List<Stats>();
             for (int x = 0; x < 12; x++)
             {
-                Stats stat = GetStatistic(firstDayOfMonth, lastDayOfMonth);
+                Stats stat = new Stats(firstDayOfMonth, lastDayOfMonth, transactionService);
                 StatsPastYearMonthly.Add(stat);
                 firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
                 lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
@@ -39,61 +41,23 @@ namespace BudgetSaverApp.Statistics
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <returns></returns>
-        public Stats GetStatistic(DateTime startDate, DateTime endDate)
+
+        void OnTransactionAdded(object sender, Transaction added)
         {
-            Stats stats = new Stats();
-            int amount = 0;
-            float income = 0;
-            float expenses = 0;
-
-            List<Transaction> list = transactionService.GetTransactionsList();
-
-            foreach (Transaction t in list)
-            {
-                if (t == null) continue;
-
-                if (t.Date >= startDate && t.Date <= endDate)
-                {
-                    amount++;
-
-                    if (stats.SubStatsMap.TryGetValue(t.Category, out SubStats subStats))
-                    {
-                        subStats.Count++;
-                        ProcessSubStats(subStats, t, ref income, ref expenses);
-                    }
-                    else
-                    {
-                        SubStats newSubStats = new SubStats { Count = 1 };
-                        stats.SubStatsMap.Add(t.Category, newSubStats);
-                        ProcessSubStats(newSubStats, t, ref income, ref expenses);
-                    }
-                }
-            }
-
-            stats.TransactionAmount = amount;
-            stats.TotalIncome = income;
-            stats.TotalExpenses = expenses;
-            //if(result.Count != 0)
-            //    stats.FrequentCategory = result.OrderByDescending(category => category.Value).First().Key;
-
-            return stats;
-        }
-
-        private void ProcessSubStats(SubStats subStats, Transaction transaction, ref float totalIncome, ref float totalExpenses)
-        {
-            if (transaction.TransactType == Transaction.TransactionType.INCOME)
-            {
-                subStats.Income += transaction.Amount;
-                totalIncome += transaction.Amount;
-            }
+            StatsLastMonth.Value.TransactionAmount++;
+            bool isExpense = added.TransactType == Transaction.TransactionType.EXPENSES;
+            if (isExpense)
+                StatsLastMonth.Value.TotalExpenses += added.Amount;
             else
+                StatsLastMonth.Value.TotalIncome += added.Amount;
+            if (StatsLastMonth.Value.SubStatsMap.TryGetValue(added.Category, out SubStats value))
             {
-                subStats.Expenses += transaction.Amount;
-                totalExpenses += transaction.Amount;
+                value.Count++;
+                if (isExpense) value.Expenses += added.Amount;
+                else value.Income += added.Amount;
             }
+            else StatsLastMonth.Value.SubStatsMap.Add(added.Category, value);
         }
-
-
 
         public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared)
         {
@@ -164,14 +128,16 @@ namespace BudgetSaverApp.Statistics
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo)
         {
-            Stats statsThatAreCompared = StatsLastMonth;
+            StatsLastMonth.Value.TotalIncome += 0;
+            Stats statsThatAreCompared = StatsLastMonth.Value;
+            while (StatsLastMonth.Value == null) { }
             List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
             var firstDayOfComparedMonth = new DateTime(monthComparedTo.Year, monthComparedTo.Month, 1);
             var lastDayOfComparedMonth = firstDayOfComparedMonth.AddMonths(1).AddDays(-1);
-            Stats statsThatAreComparedTo = this.GetStatistic(firstDayOfComparedMonth, lastDayOfComparedMonth);
+            Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, transactionService);
             float oldExpenses, newExpenses;
 
-            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
+            foreach (string key in StatsLastMonth.Value.SubStatsMap.Keys)
             {
                 if (statsThatAreComparedTo.SubStatsMap.TryGetValue(key, out SubStats value))
                 {
@@ -207,7 +173,8 @@ namespace BudgetSaverApp.Statistics
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryAdvanced()
         {
-            Stats statsThatAreCompared = StatsLastMonth;
+            Stats statsThatAreCompared = StatsLastMonth.Value;
+            while(StatsLastMonth.Value == null) { }
             List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
             Dictionary<string, Stats> dictLowestExpenses = LowestYearlyExpenesByCategory(statsThatAreCompared);
             Dictionary<string, Stats> dictHighestIncome = HighestYearlyIncomeByCategory(statsThatAreCompared);

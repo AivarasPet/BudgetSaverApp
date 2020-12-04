@@ -261,7 +261,7 @@ namespace BudgetSaverApp
         #region Stats
         private void SetDefaultStatsInfo()
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now), "This Week's ");
+            SetStatsInfo(new Stats(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday), DateTime.Now, transactionService), "This Week's ");
             ButtonStatsThisWeek.BackColor = Color.Black;
             ButtonStatsThisWeek.FlatAppearance.BorderColor = Color.Black;
         }
@@ -290,7 +290,7 @@ namespace BudgetSaverApp
 
         private void ButtonStatsLastWeek_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6), DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1)), "Last Week's ");
+            SetStatsInfo(new Stats(DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek - 6), DateTime.Today.Date.AddDays(-(int)DateTime.Today.DayOfWeek + 1), transactionService), "Last Week's ");
             ClearButtonSelection();
             ButtonStatsLastWeek.BackColor = Color.Black;
             ButtonStatsLastWeek.FlatAppearance.BorderColor = Color.Black;
@@ -298,7 +298,7 @@ namespace BudgetSaverApp
 
         private void ButtonStatsThisMonth_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now), "This Month's ");
+            SetStatsInfo(new Stats(DateTime.Today.Date.AddDays(1 - DateTime.Today.Day), DateTime.Now, transactionService), "This Month's ");
             ClearButtonSelection();
             ButtonStatsThisMonth.BackColor = Color.Black;
             ButtonStatsThisMonth.FlatAppearance.BorderColor = Color.Black;
@@ -310,7 +310,7 @@ namespace BudgetSaverApp
             var month = new DateTime(today.Year, today.Month, 1);
             var first = month.AddMonths(-1);
             var last = month.AddDays(-1);
-            SetStatsInfo(statisticsService.GetStatistic(first, last), "Last Month's ");
+            SetStatsInfo(new Stats(first, last, transactionService), "Last Month's ");
             ClearButtonSelection();
             ButtonStatsLastMonth.BackColor = Color.Black;
             ButtonStatsLastMonth.FlatAppearance.BorderColor = Color.Black;
@@ -338,7 +338,7 @@ namespace BudgetSaverApp
 
         private void ButtonStatsAdvancedStats_Click(object sender, EventArgs e)
         {
-            SetStatsInfo(statisticsService.GetStatistic(DateTimePickerStatsStart.Value, DateTimePickerStatsEnd.Value), "Set Range's ");
+            SetStatsInfo(new Stats(DateTimePickerStatsStart.Value, DateTimePickerStatsEnd.Value, transactionService), "Set Range's ");
             ClearButtonSelection();
         }
 
