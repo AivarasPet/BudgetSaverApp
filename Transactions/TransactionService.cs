@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using static BudgetSaverApp.Transactions.Transaction;
+using System.Configuration;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -154,6 +155,7 @@ class TransactionService : ITransactionService
 
             if (TransactionAdded != null)
                 TransactionAdded(this, transaction);
+
         }
     }
 }

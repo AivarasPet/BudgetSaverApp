@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import Popup from 'react-popup';
+//import Popup from 'react-popup';
 
 export default class AddTransaction extends Component {
     static displayName = AddTransaction.name;
@@ -75,7 +75,6 @@ export default class AddTransaction extends Component {
         };
 
 
-
         fetch('Transaction/PostAddTransaction', message)
             .then(response => {
                 if (response.ok) {
@@ -125,12 +124,10 @@ export default class AddTransaction extends Component {
                         <Select placeholder="Category" options={this.categories} onChange={this.handleCategoryChange} />
                         <input type="submit" value="Add" style={{ width: "140px", height: 37 }} />
                     </form>
-                )}
+                )}               
             </div>
 
         );
         
-    }
-
-    
+    }  
 }

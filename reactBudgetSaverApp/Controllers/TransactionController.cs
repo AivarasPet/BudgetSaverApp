@@ -8,6 +8,7 @@ using BudgetSaverApp.Transactions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Configuration;
 
 namespace my_new_app.Controllers
 {
@@ -47,6 +48,21 @@ namespace my_new_app.Controllers
                 return BadRequest(ex.Message);
             }
             return values;
-        }        
+        }
+
+        public ActionResult<IEnumerable<Tuple<Transaction,int>>> PostPopularTransactions()
+        {
+            return _transactionService.GetPopularTransactionTuples().ToArray();
+        }
+
+        [HttpPost]
+        public ActionResult<string> PostCheckPopularTransaction([FromBody] string value)
+        {
+            ITransactionService transactionService = Session.serviceManager.transactionService;
+            transactionService.CheckPopularTransaction(value);
+            //ConfigurationManager.AppSettings["PopularTransaction"];
+            //ConfigurationManager
+            return value;
+        }
     }
 }

@@ -23,7 +23,7 @@ export class Goals extends Component {
             <ul>
                 <p></p>
                 <div>
-                    <li>Goal name: {goals}</li>
+                    <li>Days until goal is reached: {goals}</li>
                 </div>
             </ul>
         );

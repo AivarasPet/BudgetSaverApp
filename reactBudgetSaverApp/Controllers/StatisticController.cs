@@ -46,11 +46,13 @@ namespace my_new_app.Controllers
         {
 
             return new Stats(startDate, endDate, _transactionService);
+
         }
 
 
         public ActionResult<IEnumerable<FinancialFeedbackByCategory>> GetPreviousMonthFeedback()
         {
+
              List<FinancialFeedbackByCategory> sss  = _statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
             return sss;
         }

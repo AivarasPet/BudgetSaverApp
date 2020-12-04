@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
@@ -10,11 +10,9 @@ import './custom.css'
 
 export default class App extends Component {
   static displayName = App.name;
-
-  render () {
-      return (
-
-        <Layout>
+  render() {
+    return (         
+      <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/transactions' component={Transactions} />
         <Route path='/statistics' component={Statistics} />
@@ -22,9 +20,10 @@ export default class App extends Component {
         <Route path='/goals' component={Goals} />
       </Layout>
     );
-    }
+  }
 
     componentDidMount() {
         document.title = 'Smart saver';
     }
+
 }
