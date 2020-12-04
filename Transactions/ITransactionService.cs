@@ -17,6 +17,5 @@ namespace BudgetSaverApp
         public delegate void TransactionAddedEventHandler(object source, Transaction args);
         public event TransactionAddedEventHandler TransactionAdded;
         List<Transaction> this[DateTime index] { get;}
-        public string CheckPopularTransaction(string value);
     }
 }

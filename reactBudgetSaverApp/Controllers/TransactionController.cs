@@ -59,7 +59,7 @@ namespace my_new_app.Controllers
         public ActionResult<string> PostCheckPopularTransaction([FromBody] string value)
         {
             ITransactionService transactionService = Session.serviceManager.transactionService;
-            transactionService.CheckPopularTransaction(value);
+            //transactionService.CheckPopularTransaction(value);
             //ConfigurationManager.AppSettings["PopularTransaction"];
             //ConfigurationManager
             return value;
