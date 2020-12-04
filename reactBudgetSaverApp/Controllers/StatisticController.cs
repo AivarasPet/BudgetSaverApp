@@ -43,13 +43,13 @@ namespace my_new_app.Controllers
         public ActionResult<Stats> Advanced(DateTime startDate,DateTime endDate)
         {
             
-            return statisticsService.GetStatistic(startDate, endDate);
+            return _statisticsService.GetStatistic(startDate, endDate);
         }
 
 
         public ActionResult<IEnumerable<FinancialFeedbackByCategory>> GetPreviousMonthFeedback()
         {
-            return statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
+            return _statisticsService.GetFinancialFeedackByCategoryPreviousMonth();
         }
 
     }

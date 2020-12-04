@@ -14,5 +14,6 @@ namespace BudgetSaverApp
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples();
         List<Transaction> this[DateTime index] { get;}
+        public string CheckPopularTransaction(string value);
     }
 }

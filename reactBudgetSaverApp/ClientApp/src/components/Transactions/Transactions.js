@@ -9,8 +9,9 @@ export class Transactions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            transactions: [],
-            loading: true,
+            transactions: [],           
+            loading: 0,
+            popularTransactions: [],
         };
     }
 
@@ -44,20 +45,51 @@ export class Transactions extends Component {
 
 
     render() {
-        let contents = this.state.loading
-            ? <p><em>Loading...</em></p>
-            : Transactions.renderTransactionsTable(this.state.transactions);
-        return (
-            <div>
+        let contents;
+            switch (this.state.loading) {
 
-                <AddTransaction onUpdate={this.onUpdate.bind(this)}/>
-                <h1 id="tabelLabel" >Transaction list</h1>
-                <p>This table shows total list of all transactions.</p>
-                {contents}
-                
-            </div>
-        );
+                case 1: return (
+                    <div>
+                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
+                        <h1 id="tabelLabel" >Transaction list</h1>
+                        <p>This table shows total list of all transactions.</p>
+                        <button onClick={this.populateTransactionData}>Standart transactions</button>
+                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
+
+                        {Transactions.renderTransactionsTable(this.state.transactions)}
+
+                    </div>
+                );
+
+                case 2: return (
+                    <div>
+                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
+                        <h1 id="tabelLabel" >Transaction list</h1>
+                        <p>This table shows total list of all transactions.</p>
+                        <button onClick={this.populateTransactionData}>Standart transactions</button>
+                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
+
+                        {Transactions.renderPopularTransactionsTable(this.state.popularTransactions)}
+
+                    </div>
+                );
+
+                default: return (
+                    <div>
+                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
+                        <h1 id="tabelLabel" >Transaction list</h1>
+                        <p>This table shows total list of all transactions.</p>
+                        <button onClick={this.populateTransactionData}>Standart transactions</button>
+                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
+
+                        {< p > <em>Loading...</em></p>}
+
+                    </div>
+                );
+            }
+       
         
+
     }
 
     onUpdate(data) {
@@ -66,12 +98,65 @@ export class Transactions extends Component {
         this.setState({ transactions: transactions });
     }
 
-    async populateTransactionData() {
+    populateTransactionData = async() => {
         const response = await fetch('transaction');
         const data = await response.json();
         console.log(data);
-        this.setState({ transactions: data, loading: false });
+        this.setState({ transactions: data, loading: 1 });
     }
 
-    
+    populatePopularTransactions = async () => {
+        const response = await fetch('Transaction/PostPopularTransactions');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ popularTransactions: data,  loading: 2 });
+    }
+
+    //handlePopularTransaction = (event) => {
+        /*event.preventDefault();
+        var data = 'true';
+        const x = this.state.isOn ? false : true;
+
+        const message = {
+            method: 'post',
+            body: { isOn: x }
+        };
+
+        fetch('Transaction/PostCheckPopularTransaction', message)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+                    return null;
+                }
+            }).then(data => {
+                if (data !== null) {
+                    this.props.populatePopularTransactions();
+                }
+
+            });*/
+    //}
+
+    static renderPopularTransactionsTable(popularTransactions) {
+
+        return (
+            <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel" sortable="true">
+                <thead className="thead-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {popularTransactions.map((popularTransactions, index) =>
+                        <tr key={index} typeforcss={popularTransactions.item1.transactType}>
+                            <td>{popularTransactions.item1.title}</td>
+                            <td>{popularTransactions.item2}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        );
+    }
 }

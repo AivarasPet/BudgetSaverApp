@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using static BudgetSaverApp.Transactions.Transaction;
+using System.Configuration;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -125,6 +126,12 @@ namespace BudgetSaverApp.Transactions
                 if(count > 1) tuples.Add(tuple);
             }
             return tuples;
+        }
+
+        public string CheckPopularTransaction(string value)
+        {
+            string key = ConfigurationManager.AppSettings["APIKeyInflation"];
+            if (value == key) return "true"; else return "false";
         }
     }
 }
