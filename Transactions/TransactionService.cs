@@ -100,7 +100,7 @@ class TransactionService : ITransactionService
                 }
                 if (!exists)
                 {
-                    throw new BadCategoryException("Category not found");
+                    throw new BadCategoryException("Category not found: ",category);
                 }
                 
 

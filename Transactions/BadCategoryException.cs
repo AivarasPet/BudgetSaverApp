@@ -9,7 +9,7 @@ namespace System
         {
         }
 
-        public BadCategoryException(string message) : base(message)
+        public BadCategoryException(string message, string category) : base(message + " : " + category)
         {
         }
 

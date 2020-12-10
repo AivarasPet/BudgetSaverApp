@@ -3,6 +3,7 @@ using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace BudgetSaverApp
@@ -15,10 +16,12 @@ namespace BudgetSaverApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            DataAccess db = new DataAccess();
+            List<Transaction> hehe = db.GetTransactions(); 
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             ServiceManager serviceManager = new ServiceManager();
-            Application.Run(new MainUI(serviceManager));           
+            //Application.Run(new MainUI(serviceManager));           
         }
     }
 }
