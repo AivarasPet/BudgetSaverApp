@@ -6,37 +6,42 @@ export class Goals extends Component {
   constructor(props) {
     super(props);
       this.state = {
-          goals: {}, loading: true
+          loading: true,
+          goalValue: []
       };
-      this.getProfitMonthly = this.getProfitMonthly.bind(this);
+      this.GoalValues = this.GoalValues.bind(this);
     }
 
-    async getProfitMonthly() {
-        const response = await fetch('goals/GetProfitMonthly');
+    async GoalValues() {
+        const response = await fetch('goals/GoalValues');
         const data = await response.json();
-        console.log(data);
-        this.setState({ goals: data, loading: false });
+        console.log(data.item1);
+        this.setState({ goalValue: data, loading: false });
     }
 
-    static renderGoal(goals) {
+    static renderGoal(goalValue) {
         return (
             <ul>
                 <p></p>
                 <div>
-                    <li>Days until goal is reached: {goals}</li>
+                    <li>Main goal: {goalValue.item1}</li>
+                    <li>Main goal price: {goalValue.item2}</li>
+                    <li>Days until goal is reached: {goalValue.item5}</li>
+                    <li>Monthly salary: {goalValue.item3}</li>
+                    <li>Total savings: {goalValue.item4}</li>
                 </div>
             </ul>
         );
     } 
 
     componentDidMount() {
-        this.getProfitMonthly();
+        this.GoalValues();
     }
 
     render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : Goals.renderGoal(this.state.goals);
+            : Goals.renderGoal(this.state.goalValue);
         return (
             <div>
                 <h1>Goals</h1>

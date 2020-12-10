@@ -1,5 +1,6 @@
 ﻿using BudgetSaverApp.Goals;
 using BudgetSaverApp.Statistics;
+using BudgetSaverApp.UserData;
 using System;
 
 namespace BudgetSaverApp.Portfolio
@@ -7,13 +8,16 @@ namespace BudgetSaverApp.Portfolio
     class GoalsService : IGoalsService
     {
         ITransactionService _transactionService;
-        string _MainGoalName;
-        float _MainGoalPrice;
-
-        public  GoalsService(ITransactionService transactionService )
+        //string _MainGoalName;
+        //float _MainGoalPrice;
+        public float GoalItemPrice { get; set; }
+        public float CurrentSavings { get; set; }
+        public float MonthlySalary { get; set; }
+        public string GoalItemName { get; set; }
+        public  GoalsService(ITransactionService transactionService)
         {
             this._transactionService = transactionService;
-            
+            ReadFromFile();
         }
 
         public float GetProfitMonthly()
@@ -24,31 +28,60 @@ namespace BudgetSaverApp.Portfolio
 
         public int GetGoalDaysLeft()
         {
-            return (int) getGoalDays(_MainGoalPrice, GetProfitMonthly().Daily());
-            //return (int)(_MainGoalPrice / GetProfitMonthly().Daily());
+            return (int) getGoalDays(GoalItemPrice, GetProfitMonthly().Daily());
         }
 
         Func<float, float, float> getGoalDays = (a, b) => a / b;
 
-        public string MainGoalName()
-        {
-            return _MainGoalName;
+        public Tuple<string, float, float, float, int> GetGoals()
+        {           
+            string goalName = GetGoalItemName();
+            float goalPrice = GetGoalItemPrice();
+            float saving = GetMonthlySalary();
+            float salary = GetCurrentSavings();
+            int goalLeftDays = GetGoalDaysLeft();
+            return new Tuple<string, float, float, float, int>(goalName, goalPrice, saving, salary, goalLeftDays);
         }
 
-        public float MainGoalPrice()
+        public float GetGoalItemPrice()
         {
-            return _MainGoalPrice;
+            return GoalItemPrice;
         }
 
+        public float GetCurrentSavings()
+        {
+            return CurrentSavings;
+        }
+
+        public float GetMonthlySalary()
+        {
+            return MonthlySalary;
+        }
+
+        public string GetGoalItemName()
+        {
+            return GoalItemName;
+        }
 
         public void SetMainGoalName(string name)
         {
-            _MainGoalName = name;
+            GoalItemName = name;
         }
 
         public void SetMainGoalPrice(float price)
         {
-            _MainGoalPrice = price;
+            GoalItemPrice = price;
+        }
+
+        public void ReadFromFile()
+        {
+            TextFileReader textFileReader = new TextFileReader();
+            string[] data = textFileReader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\UserData.txt");
+
+            CurrentSavings = float.Parse(data[0]);
+            MonthlySalary = float.Parse(data[1]);
+            GoalItemName = data[2];
+            GoalItemPrice = float.Parse(data[3]);
         }
     }
 }
