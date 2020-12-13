@@ -121,14 +121,22 @@ class TransactionService : ITransactionService
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples()
         {
-            Converter<float> convertAmount = delegate (Transaction element)
+            var tuples = List.GroupBy(l => l.Title)
+            .Select(cl => new Tuple<Transaction, int>(cl.First(), cl.Count()))
+            .Where(kk => kk.Item2 > 1)
+            .OrderBy(oo => oo.Item2)
+            .ToList();
+
+            /*Converter<float> convertAmount = delegate (Transaction element)
             {
                 return (element.TransactType == Transaction.TransactionType.EXPENSES) ? -element.Amount : element.Amount;
             };
 
             List<Tuple<Transaction, int>> tuples = new List<Tuple<Transaction, int>>();
             IList<Transaction> copyOfTransactions = List.Clone();
-            for(int x = 0; x < copyOfTransactions.Count; x++)
+            
+            
+            for (int x = 0; x < copyOfTransactions.Count; x++)
             {
                 int count = 1;
                 float amount = convertAmount(copyOfTransactions.ElementAt(x));
@@ -146,6 +154,8 @@ class TransactionService : ITransactionService
                 Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(transaction, count);
                 if(count > 1) tuples.Add(tuple);
             }
+            */
+
             return tuples;
         }
 

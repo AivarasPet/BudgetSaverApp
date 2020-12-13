@@ -33,7 +33,7 @@ namespace BudgetSaverApp.Possessions
             if (json == null) return;
 
             list = JsonConvert.DeserializeObject<List<Possession>>(json);
-
+            
             string apiJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\APILinks.json");
             string imageJson = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\ImageLinks.json");
 
