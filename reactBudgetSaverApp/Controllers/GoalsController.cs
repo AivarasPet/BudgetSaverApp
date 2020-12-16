@@ -22,7 +22,13 @@ namespace my_new_app.Controllers
         {
             _goalsService = goalsService;
         }
-        public ActionResult<float> GetProfitMonthly() => _goalsService.GetProfitMonthly();
+        public ActionResult<int> GetGoalDaysLeft() => _goalsService.GetGoalDaysLeft();
+        public ActionResult<string> MainGoalName() => _goalsService.GetGoalItemName();
+        public ActionResult<float> MainGoalPrice() => _goalsService.GetGoalItemPrice();
 
+        public ActionResult<Tuple<string, float, float, float, int>> GoalValues()
+        {
+           return _goalsService.GetGoals();
+        }
     }
 }

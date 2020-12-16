@@ -278,5 +278,12 @@
     "Title": "test",
     "Category": "Household",
     "Date": "2020-12-04T01:35:15.4531304+02:00"
+  },
+  {
+    "TransactType": 0,
+    "Amount": 400.0,
+    "Title": "Salary",
+    "Category": "Work",
+    "Date": "2020-12-04T08:26:02.6098624+02:00"
   }
 ]

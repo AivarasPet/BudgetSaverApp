@@ -141,7 +141,7 @@ export class Transactions extends Component {
     static renderPopularTransactionsTable(popularTransactions) {
 
         return (
-            <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel" sortable="true">
+            <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel1" sortable="true">
                 <thead className="thead-dark">
                     <tr>
                         <th>Category</th>
@@ -150,7 +150,7 @@ export class Transactions extends Component {
                 </thead>
                 <tbody>
                     {popularTransactions.map((popularTransactions, index) =>
-                        <tr key={index} typeforcss={popularTransactions.item1.transactType}>
+                        <tr>
                             <td>{popularTransactions.item1.title}</td>
                             <td>{popularTransactions.item2}</td>
                         </tr>
