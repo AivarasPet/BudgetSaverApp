@@ -184,30 +184,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
+    <Compile Include="Migrations\202012171535246_CreateTransactions.cs" />
+    <Compile Include="Migrations\202012171535246_CreateTransactions.designer.cs">
+      <DependentUpon>202012171535246_CreateTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
-    <Compile Include="ModelsToBeFetched\Transaction.cs">
-      <DependentUpon>TransactionModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelsToBeFetched\TransactionModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransactionModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelsToBeFetched\TransactionModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransactionModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelsToBeFetched\TransactionModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransactionModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Other\CategoryFactory.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
     <Compile Include="Transactions\BadCategoryException.cs" />
+    <Compile Include="Transactions\DboTransaction.cs" />
+    <Compile Include="Transactions\DboTransactionContext.cs" />
+    <Compile Include="Transactions\DboTransactionRepository.cs" />
     <Compile Include="UI\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +280,9 @@
     <Compile Include="UserData\IUserDataService.cs" />
     <Compile Include="UserData\UserDataService.cs" />
     <Compile Include="UserData\UserDataFactory.cs" />
+    <EmbeddedResource Include="Migrations\202012171535246_CreateTransactions.resx">
+      <DependentUpon>202012171535246_CreateTransactions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,13 +321,6 @@
     <None Include="Data\APILinks.json" />
     <None Include="Data\ImageLinks.json" />
     <None Include="Data\TransactionsJson.json" />
-    <EntityDeploy Include="ModelsToBeFetched\TransactionModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TransactionModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelsToBeFetched\TransactionModel.edmx.diagram">
-      <DependentUpon>TransactionModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -364,16 +350,6 @@
   <ItemGroup>
     <Content Include="Data\Categories.txt" />
     <Content Include="Data\ImageLinks.txt" />
-    <Content Include="ModelsToBeFetched\TransactionModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TransactionModel.edmx</DependentUpon>
-      <LastGenOutput>TransactionModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelsToBeFetched\TransactionModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TransactionModel.edmx</DependentUpon>
-      <LastGenOutput>TransactionModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\Webp.net-resizeimage %284%29.png" />
     <None Include="Data\Possessions.json" />
     <Content Include="Data\UserData.txt" />

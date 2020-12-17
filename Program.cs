@@ -1,7 +1,7 @@
 ﻿using BudgetSaverApp.Goals;
-using BudgetSaverApp.ModelsToBeFetched;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
+using BudgetSaverApp.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -19,9 +19,19 @@ namespace BudgetSaverApp
             //DataAccess db = new DataAccess();
             //List<Transaction> hehe = db.GetTransactions();
 
-
-            var context = new BudgetSaverDBEntities().Transactions;
-            foreach (Transaction transaction in context) Console.WriteLine(transaction.Title);
+            //using (var context = new dbotransactioncontext())
+            //{
+            //    dbotransaction dbotransaction = new dbotransaction
+            //    {
+            //        transacttype = transaction.transactiontype.income,
+            //        title = "alga",
+            //        category = "darbas",
+            //        date = datetime.now,
+            //        amount = 5000
+            //    };
+            //    context.transactions.add(dbotransaction);
+            //    context.savechanges();
+            //}
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

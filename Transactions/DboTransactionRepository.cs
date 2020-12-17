@@ -8,10 +8,11 @@ namespace BudgetSaverApp.Transactions
 {
     public class DboTransactionsRepository
     {
-        public List<DboTransaction> GetTransactions() 
+        public List<DboTransaction> GetTransactions()
         {
-            DboTransactionsContext transactionsContext = new DboTransactionsContext();
-            return transactionsContext.DboTransactions.ToList();
+            //DboTransactContext transactionsContext = new DboTransactionsContext();
+            //return transactionsContext.DboTransactions.ToList();
+            return null;
         }
     }
 }
