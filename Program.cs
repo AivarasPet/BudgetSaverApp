@@ -1,7 +1,4 @@
-﻿using BudgetSaverApp.Goals;
-using BudgetSaverApp.Possessions;
-using BudgetSaverApp.Statistics;
-using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -18,25 +15,34 @@ namespace BudgetSaverApp
         {
             //DataAccess db = new DataAccess();
             //List<Transaction> hehe = db.GetTransactions();
+            ServiceManager serviceManager = new ServiceManager();
 
-            //using (var context = new dbotransactioncontext())
+            //List<Transaction> transactionList = serviceManager.transactionService.GetTransactionsList();
+
+            //using (var context = new DboTransactionContext())
             //{
-            //    dbotransaction dbotransaction = new dbotransaction
+            //    transactionList.ForEach((transaction) =>
             //    {
-            //        transacttype = transaction.transactiontype.income,
-            //        title = "alga",
-            //        category = "darbas",
-            //        date = datetime.now,
-            //        amount = 5000
-            //    };
-            //    context.transactions.add(dbotransaction);
-            //    context.savechanges();
+            //        DboTransaction dbotransaction = new DboTransaction
+            //        {
+            //            TransactType = transaction.TransactType,
+            //            Title = transaction.Title,
+            //            Category = transaction.Category,
+            //            Date = transaction.Date,
+            //            Amount = transaction.Amount
+            //        };
+            //        context.Transactions.Add(dbotransaction);
+            //    });
+                
+                
+            //    context.SaveChanges();
             //}
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ServiceManager serviceManager = new ServiceManager();
-            Application.Run(new MainUI(serviceManager));           
+
+            Application.Run(new MainUI(serviceManager));
+
         }
     }
 }

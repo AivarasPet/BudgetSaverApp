@@ -54,7 +54,7 @@ namespace my_new_app.Controllers
         [HttpPost]
         public ActionResult<string> PostCheckPopularTransaction([FromBody] string value)
         {
-            ITransactionService transactionService = Session.serviceManager.transactionService;
+            ITransactionService transactionService = _transactionService;
             //transactionService.CheckPopularTransaction(value);
             //ConfigurationManager.AppSettings["PopularTransaction"];
             //ConfigurationManager

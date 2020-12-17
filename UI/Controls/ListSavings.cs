@@ -18,7 +18,7 @@ namespace BudgetSaverApp
             LabelAmountInput.Text = _amount;
             LabelValueInput.Text = _value;
             PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            PictureBoxLogo.LoadAsync(_imageUrl);
+            //PictureBoxLogo.LoadAsync(_imageUrl);
         }
 
         [Category("Custom Props")]

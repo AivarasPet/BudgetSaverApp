@@ -184,9 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
-    <Compile Include="Migrations\202012171535246_CreateTransactions.cs" />
-    <Compile Include="Migrations\202012171535246_CreateTransactions.designer.cs">
-      <DependentUpon>202012171535246_CreateTransactions.cs</DependentUpon>
+    <Compile Include="Migrations\202012171712293_QuickFix.cs" />
+    <Compile Include="Migrations\202012171712293_QuickFix.designer.cs">
+      <DependentUpon>202012171712293_QuickFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
@@ -280,8 +280,8 @@
     <Compile Include="UserData\IUserDataService.cs" />
     <Compile Include="UserData\UserDataService.cs" />
     <Compile Include="UserData\UserDataFactory.cs" />
-    <EmbeddedResource Include="Migrations\202012171535246_CreateTransactions.resx">
-      <DependentUpon>202012171535246_CreateTransactions.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012171712293_QuickFix.resx">
+      <DependentUpon>202012171712293_QuickFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
@@ -317,6 +317,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Data\api.json" />
     <None Include="Data\APILinks.json" />
     <None Include="Data\ImageLinks.json" />
@@ -331,9 +332,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

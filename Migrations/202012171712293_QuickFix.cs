@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateTransactions : DbMigration
+    public partial class QuickFix : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@
                 "dbo.DboTransaction",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true), 
+                        Id = c.Int(nullable: false, identity: true),
                         TransactType = c.Int(nullable: false),
                         Amount = c.Single(nullable: false),
                         Title = c.String(),

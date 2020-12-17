@@ -7,13 +7,13 @@ namespace BudgetSaverApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CreateTransactions : IMigrationMetadata
+    public sealed partial class QuickFix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateTransactions));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(QuickFix));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012171535246_CreateTransactions"; }
+            get { return "202012171712293_QuickFix"; }
         }
         
         string IMigrationMetadata.Source

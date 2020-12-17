@@ -11,7 +11,7 @@ namespace BudgetSaverApp.Transactions
     public class DboTransactionContext : DbContext
     {
 
-        public DbSet<DboTransaction> transactions { get; set; }
+        public DbSet<DboTransaction> Transactions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

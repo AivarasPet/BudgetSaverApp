@@ -25,7 +25,8 @@ class TransactionService : ITransactionService
         public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
-            LoadTransactionsListFromTextFile();
+            LoadTransactionsListFromDatabase();
+            //LoadTransactionsListFromTextFile();
         }
 
         private event ITransactionService.TransactionAddedEventHandler TransactionAdded;
@@ -57,6 +58,24 @@ class TransactionService : ITransactionService
             string json = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\TransactionsJson.json");
             if (json == null) return;
             List = JsonConvert.DeserializeObject<List<Transaction>>(json);
+            OnTransactionServiceLoaded(null, EventArgs.Empty);
+        }
+
+
+        public void LoadTransactionsListFromDatabase()
+        {
+            List.Clear();
+            using (var context = new DboTransactionContext())
+            {
+                var query = from transaction in context.Transactions
+                            orderby transaction.Date
+                            select transaction;
+                foreach(var dboTransaction in query)
+                {
+                    Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+                    List.Add(transaction);
+                }
+            }
             OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
 
