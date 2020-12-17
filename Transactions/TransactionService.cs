@@ -5,6 +5,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using static BudgetSaverApp.Transactions.Transaction;
 using System.Configuration;
+using AutoMapper;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -70,11 +71,11 @@ class TransactionService : ITransactionService
                 var query = from transaction in context.Transactions
                             orderby transaction.Date
                             select transaction;
-                foreach(var dboTransaction in query)
-                {
-                    Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
-                    List.Add(transaction);
-                }
+
+                //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
+                var mapper = new Mapper(config);
+                List = mapper.Map<List<Transaction>>(query);
             }
             OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
@@ -121,12 +122,24 @@ class TransactionService : ITransactionService
                 {
                     throw new BadCategoryException("Category not found: ",category);
                 }
-                
 
                 Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
 
                 List.Add(newTransaction);
                 OnTransactionAdded(newTransaction);
+                using (var context = new DboTransactionContext())
+                {
+                    DboTransaction dbotransaction = new DboTransaction
+                    {
+                        TransactType = transactType,
+                        Title = transactionName,
+                        Category = category,
+                        Date = DateTime.Now,
+                        Amount = transAmount
+                    };
+                    context.Transactions.Add(dbotransaction);
+                    context.SaveChanges();
+                };
                 SerializeTransactionList();
             }
         }

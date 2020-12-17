@@ -1,17 +1,17 @@
 ﻿[
   {
     "Id": "Bitcoin",
-    "Link": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10",
+    "Url": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=10",
     "Type": "Crypto"
   },
   {
     "Id": "Ethereum",
-    "Link": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10",
+    "Url": "https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=10",
     "Type": "Crypto"
   },
   {
     "Id": "Apple",
-    "Link": "https://finnhub.io/api/v1/quote?symbol=AAPL&token=bugqnnf48v6vml4hvrj0",
+    "Url": "https://finnhub.io/api/v1/quote?symbol=AAPL&token=bugqnnf48v6vml4hvrj0",
     "Type": "Stock",
     "Headers": { "exmpl": "lol" }
   }//,

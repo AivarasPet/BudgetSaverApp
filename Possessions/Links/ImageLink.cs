@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Possessions.Links
 {
-    struct ImageLink
+    class ImageLink
     {
         public string id { get; set; }
         public string link { get; set; }

@@ -13,7 +13,7 @@ namespace BudgetSaverApp
 
         private static float inflation = 0;
 
-        public static float InflationInARecentYear()
+        public static float InflationInARecentYear() //possessionPrice = PossessionPrice* ( inflation* daysLeft/365)
         {
             if (inflation != 0) return inflation;
 
@@ -21,7 +21,7 @@ namespace BudgetSaverApp
             if (link == null) return 0;
             ApiLink api = new ApiLink
             {
-                Link = link
+                Url = link
             };
             HttpRequest httpRequest = new HttpRequest();
             string result = httpRequest.StartHttpRequest(api);

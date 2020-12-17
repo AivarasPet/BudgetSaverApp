@@ -53,6 +53,9 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -192,6 +195,8 @@
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
     <Compile Include="Other\CategoryFactory.cs" />
     <Compile Include="Other\ICategoryService.cs" />
+    <Compile Include="Possessions\DboPossession.cs" />
+    <Compile Include="Possessions\DboPossessionContext.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
     <Compile Include="Transactions\BadCategoryException.cs" />

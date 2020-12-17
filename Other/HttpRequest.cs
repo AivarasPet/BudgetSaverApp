@@ -18,7 +18,7 @@ namespace BudgetSaverApp
 
         public String StartHttpRequest(ApiLink apiLink)
         {
-            var client = new RestClient(apiLink.Link);
+            var client = new RestClient(apiLink.Url);
             var request = new RestRequest(Method.GET);
             if (apiLink.Headers != null)
             {

@@ -13,36 +13,38 @@ namespace BudgetSaverApp
         [STAThread]
         static void Main()
         {
-            //DataAccess db = new DataAccess();
-            //List<Transaction> hehe = db.GetTransactions();
-            ServiceManager serviceManager = new ServiceManager();
-
-            //List<Transaction> transactionList = serviceManager.transactionService.GetTransactionsList();
-
-            //using (var context = new DboTransactionContext())
-            //{
-            //    transactionList.ForEach((transaction) =>
-            //    {
-            //        DboTransaction dbotransaction = new DboTransaction
-            //        {
-            //            TransactType = transaction.TransactType,
-            //            Title = transaction.Title,
-            //            Category = transaction.Category,
-            //            Date = transaction.Date,
-            //            Amount = transaction.Amount
-            //        };
-            //        context.Transactions.Add(dbotransaction);
-            //    });
-                
-                
-            //    context.SaveChanges();
-            //}
-            
+            ServiceManager serviceManager = new ServiceManager();    
+            //LoadOldTransactions(serviceManager);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             Application.Run(new MainUI(serviceManager));
 
         }
+
+        static void LoadOldTransactions(ServiceManager serviceManager)
+        {
+
+            List<Transaction> transactionList = serviceManager.transactionService.GetTransactionsList();
+
+            using (var context = new DboTransactionContext())
+            {
+                transactionList.ForEach((transaction) =>
+                {
+                    DboTransaction dbotransaction = new DboTransaction
+                    {
+                        TransactType = transaction.TransactType,
+                        Title = transaction.Title,
+                        Category = transaction.Category,
+                        Date = transaction.Date,
+                        Amount = transaction.Amount
+                    };
+                    context.Transactions.Add(dbotransaction);
+                });
+
+
+                context.SaveChanges();
+            }
+        }
+
     }
 }

@@ -211,7 +211,7 @@ namespace BudgetSaverApp
                     Title = p.Name,
                     Amount = p.Amount.ToString(),
                     Value = p.ValueInDollars + " $",
-                    ImageUrl = p.LinkOfImage
+                    ImageUrl = p.LinkOfImageID
                 };
                 item.MouseDown += OnSavingsTileClicked;
                 FlowLayoutPanelSavings.Controls.Add(item);
@@ -391,7 +391,7 @@ namespace BudgetSaverApp
                     LabelDate.Visible = false;
                     PictureBoxLogo.Visible = true;
                     PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-                    PictureBoxLogo.LoadAsync(list[i].LinkOfImage);
+                    PictureBoxLogo.LoadAsync(list[i].LinkOfImageID);
                 }
                 i++;
             }
