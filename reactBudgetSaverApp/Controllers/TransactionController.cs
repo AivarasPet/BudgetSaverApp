@@ -21,7 +21,7 @@ namespace my_new_app.Controllers
         }
 
         public ActionResult<IEnumerable<Transaction>> Index()
-        {
+        { 
             return _transactionService.GetTransactionsList().ToArray();
         }
 

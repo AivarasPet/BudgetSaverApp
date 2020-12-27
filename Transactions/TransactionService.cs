@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using static BudgetSaverApp.Transactions.Transaction;
 using System.Configuration;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -15,7 +16,12 @@ namespace BudgetSaverApp.Transactions
     }
 public class TransactionService : ITransactionService
     {
-
+        private DboTransactionContext _dboTransactionContext;
+        public TransactionService(DboTransactionContext dboTransactionContext)
+        {
+            _dboTransactionContext = dboTransactionContext;
+            LoadTransactionsListFromDatabase();
+        }
         
         private List<Transaction> List = new List<Transaction>();
 
@@ -26,7 +32,7 @@ public class TransactionService : ITransactionService
         public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
-            LoadTransactionsListFromDatabase();
+            
             //LoadTransactionsListFromTextFile();
         }
 
@@ -65,20 +71,19 @@ public class TransactionService : ITransactionService
 
         public void LoadTransactionsListFromDatabase()
         {
-            //List.Clear();
-            //using (var context = new DboTransactionContext())
-            //{
-            //    var query = from transaction in context.Transactions
-            //                orderby transaction.Date
-            //                select transaction;
+            List.Clear();
+            
+            var query = from transaction in _dboTransactionContext.Transactions
+                        orderby transaction.Date
+                        select transaction;
+            //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
+            var mapper = new Mapper(config);
+            List = mapper.Map<List<Transaction>>(query);
 
-            //    //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
-            //    var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
-            //    var mapper = new Mapper(config);
-            //    List = mapper.Map<List<Transaction>>(query);
-            //}
-            //OnTransactionServiceLoaded(null, EventArgs.Empty);
-        }
+            OnTransactionServiceLoaded(null, EventArgs.Empty);
+        
+    } 
 
         public void SerializeTransactionList()
         {

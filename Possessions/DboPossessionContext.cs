@@ -14,5 +14,9 @@ namespace BudgetSaverApp.Possessions
         public DbSet<ApiLink> ApiLinks { get; set; }
         public DbSet<ImageLink> ImageLinks { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseSqlServer("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;");
+        }
     }
 }
