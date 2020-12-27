@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +11,9 @@ namespace BudgetSaverApp.Transactions
     {
 
         public DbSet<DboTransaction> Transactions { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public DboTransactionContext(DbContextOptions options) : base(options)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
         }
     }
 }

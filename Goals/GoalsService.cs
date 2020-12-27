@@ -4,7 +4,7 @@ using System;
 
 namespace BudgetSaverApp.Portfolio
 {
-    class GoalsService : IGoalsService
+    public class GoalsService : IGoalsService
     {
         ITransactionService _transactionService;
         string _MainGoalName;

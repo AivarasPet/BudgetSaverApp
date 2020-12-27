@@ -13,10 +13,10 @@ namespace BudgetSaverApp.Transactions
     {
         public Transaction transaction{ get; set; }
     }
-class TransactionService : ITransactionService
+public class TransactionService : ITransactionService
     {
 
-
+        
         private List<Transaction> List = new List<Transaction>();
 
         public List<Transaction> this[DateTime index] {
@@ -65,19 +65,19 @@ class TransactionService : ITransactionService
 
         public void LoadTransactionsListFromDatabase()
         {
-            List.Clear();
-            using (var context = new DboTransactionContext())
-            {
-                var query = from transaction in context.Transactions
-                            orderby transaction.Date
-                            select transaction;
+            //List.Clear();
+            //using (var context = new DboTransactionContext())
+            //{
+            //    var query = from transaction in context.Transactions
+            //                orderby transaction.Date
+            //                select transaction;
 
-                //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
-                var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
-                var mapper = new Mapper(config);
-                List = mapper.Map<List<Transaction>>(query);
-            }
-            OnTransactionServiceLoaded(null, EventArgs.Empty);
+            //    //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+            //    var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
+            //    var mapper = new Mapper(config);
+            //    List = mapper.Map<List<Transaction>>(query);
+            //}
+            //OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
 
         public void SerializeTransactionList()
@@ -127,19 +127,19 @@ class TransactionService : ITransactionService
 
                 List.Add(newTransaction);
                 OnTransactionAdded(newTransaction);
-                using (var context = new DboTransactionContext())
-                {
-                    DboTransaction dbotransaction = new DboTransaction
-                    {
-                        TransactType = transactType,
-                        Title = transactionName,
-                        Category = category,
-                        Date = DateTime.Now,
-                        Amount = transAmount
-                    };
-                    context.Transactions.Add(dbotransaction);
-                    context.SaveChanges();
-                };
+                //using (var context = new DboTransactionContext())
+                //{
+                //    DboTransaction dbotransaction = new DboTransaction
+                //    {
+                //        TransactType = transactType,
+                //        Title = transactionName,
+                //        Category = category,
+                //        Date = DateTime.Now,
+                //        Amount = transAmount
+                //    };
+                //    context.Transactions.Add(dbotransaction);
+                //    context.SaveChanges();
+                //};
                 SerializeTransactionList();
             }
         }

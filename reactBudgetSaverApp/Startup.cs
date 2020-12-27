@@ -1,10 +1,14 @@
 using BudgetSaverApp;
 using BudgetSaverApp.Goals;
+using BudgetSaverApp.Portfolio;
+using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
+using BudgetSaverApp.Transactions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,12 +27,12 @@ namespace my_new_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ServiceManager serviceManager = new ServiceManager();
-            services.AddSingleton<ITransactionService>(serviceManager.transactionService);
-            services.AddSingleton<IPossessionsService>(serviceManager.posessionsService);
-            services.AddSingleton<IStatisticsService>(serviceManager.statisticsService);
-            services.AddSingleton<ICategoryService>(serviceManager.categoryService);
-            services.AddSingleton<IGoalsService>(serviceManager.goalsService);
+            services.AddDbContext<DboTransactionContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<ITransactionService, TransactionService>();
+            services.AddScoped<IPossessionsService, PossessionsService>();
+            services.AddScoped<IStatisticsService, StatisticsService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IGoalsService, GoalsService>();
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

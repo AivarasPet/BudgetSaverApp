@@ -2,7 +2,7 @@
 
 namespace BudgetSaverApp
 {
-    class CategoryService: ICategoryService
+    public class CategoryService: ICategoryService
     {
 
   

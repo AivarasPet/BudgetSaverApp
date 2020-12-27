@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.Possessions.Links
 {
-    class ImageLink
+    public class ImageLink
     {
         public string id { get; set; }
         public string link { get; set; }
