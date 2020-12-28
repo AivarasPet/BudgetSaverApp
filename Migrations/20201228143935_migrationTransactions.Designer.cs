@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetSaverApp.Migrations
 {
     [DbContext(typeof(DboTransactionContext))]
-    [Migration("20201227200714_migrationTransactions")]
+    [Migration("20201228143935_migrationTransactions")]
     partial class migrationTransactions
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

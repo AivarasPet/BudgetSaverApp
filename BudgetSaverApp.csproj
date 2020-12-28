@@ -258,9 +258,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20201227200714_migrationTransactions.cs" />
-    <Compile Include="Migrations\20201227200714_migrationTransactions.designer.cs">
-      <DependentUpon>20201227200714_migrationTransactions.cs</DependentUpon>
+    <Compile Include="Migrations\20201228143935_migrationTransactions.cs" />
+    <Compile Include="Migrations\20201228143935_migrationTransactions.designer.cs">
+      <DependentUpon>20201228143935_migrationTransactions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.cs" />
     <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.designer.cs">
