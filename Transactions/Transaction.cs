@@ -5,8 +5,6 @@ namespace BudgetSaverApp.Transactions
 {
     public class Transaction : IComparable<Transaction>, IEquatable<Transaction>, ICloneable
     {
-
-        [Flags]
         public enum TransactionType
         {
             INCOME = 0,
@@ -17,11 +15,6 @@ namespace BudgetSaverApp.Transactions
         public string Title { get; set; }
         public string Category { get; set; }
         public DateTime Date { get; set; }
-
-        public Transaction()
-        {
-
-        }
 
         public Transaction(TransactionType transactType, float amount, string title, string category)
         {

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BudgetSaverApp.Statistics
 {
-    class StatisticsService : IStatisticsService
+    public class StatisticsService : IStatisticsService
     {
    
         ITransactionService transactionService;

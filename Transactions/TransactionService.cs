@@ -5,6 +5,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using static BudgetSaverApp.Transactions.Transaction;
 using System.Configuration;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -12,10 +14,15 @@ namespace BudgetSaverApp.Transactions
     {
         public Transaction transaction{ get; set; }
     }
-class TransactionService : ITransactionService
+public class TransactionService : ITransactionService
     {
-
-
+        private DboTransactionContext _dboTransactionContext;
+        public TransactionService(DboTransactionContext dboTransactionContext)
+        {
+            _dboTransactionContext = dboTransactionContext;
+            LoadTransactionsListFromDatabase();
+        }
+        
         private List<Transaction> List = new List<Transaction>();
 
         public List<Transaction> this[DateTime index] {
@@ -25,7 +32,8 @@ class TransactionService : ITransactionService
         public event EventHandler OnTransactionServiceLoaded = delegate { }; 
         public TransactionService()
         {
-            LoadTransactionsListFromTextFile();
+            
+            //LoadTransactionsListFromTextFile();
         }
 
         private event ITransactionService.TransactionAddedEventHandler TransactionAdded;
@@ -59,6 +67,23 @@ class TransactionService : ITransactionService
             List = JsonConvert.DeserializeObject<List<Transaction>>(json);
             OnTransactionServiceLoaded(null, EventArgs.Empty);
         }
+
+
+        public void LoadTransactionsListFromDatabase()
+        {
+            List.Clear();
+            
+            var query = from transaction in _dboTransactionContext.Transactions
+                        orderby transaction.Date
+                        select transaction;
+            //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
+            var mapper = new Mapper(config);
+            List = mapper.Map<List<Transaction>>(query);
+
+            OnTransactionServiceLoaded(null, EventArgs.Empty);
+        
+    } 
 
         public void SerializeTransactionList()
         {
@@ -102,12 +127,23 @@ class TransactionService : ITransactionService
                 {
                     throw new BadCategoryException("Category not found: ",category);
                 }
-                
 
                 Transaction newTransaction = new Transaction(transactType, transAmount, transactionName, category, DateTime.Now);
 
                 List.Add(newTransaction);
                 OnTransactionAdded(newTransaction);
+
+                DboTransaction dbotransaction = new DboTransaction
+                {
+                    TransactType = transactType,
+                    Title = transactionName,
+                    Category = category,
+                    Date = DateTime.Now,
+                    Amount = transAmount
+                };
+                _dboTransactionContext.Transactions.Add(dbotransaction);
+                _dboTransactionContext.SaveChanges();
+                
                 SerializeTransactionList();
             }
         }
@@ -121,14 +157,22 @@ class TransactionService : ITransactionService
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples()
         {
-            Converter<float> convertAmount = delegate (Transaction element)
+            var tuples = List.GroupBy(l => l.Title)
+            .Select(cl => new Tuple<Transaction, int>(cl.First(), cl.Count()))
+            .Where(kk => kk.Item2 > 1)
+            .OrderBy(oo => oo.Item2)
+            .ToList();
+
+            /*Converter<float> convertAmount = delegate (Transaction element)
             {
                 return (element.TransactType == Transaction.TransactionType.EXPENSES) ? -element.Amount : element.Amount;
             };
 
             List<Tuple<Transaction, int>> tuples = new List<Tuple<Transaction, int>>();
             IList<Transaction> copyOfTransactions = List.Clone();
-            for(int x = 0; x < copyOfTransactions.Count; x++)
+            
+            
+            for (int x = 0; x < copyOfTransactions.Count; x++)
             {
                 int count = 1;
                 float amount = convertAmount(copyOfTransactions.ElementAt(x));
@@ -146,6 +190,8 @@ class TransactionService : ITransactionService
                 Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(transaction, count);
                 if(count > 1) tuples.Add(tuple);
             }
+            */
+
             return tuples;
         }
 

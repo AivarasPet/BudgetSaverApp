@@ -18,17 +18,18 @@ namespace BudgetSaverApp
 
         public String StartHttpRequest(ApiLink apiLink)
         {
-            var client = new RestClient(apiLink.Link);
-            var request = new RestRequest(Method.GET);
-            if (apiLink.Headers != null)
-            {
-                foreach (KeyValuePair<string, string> entry in apiLink.Headers)
-                {
-                    request.AddHeader(entry.Key, entry.Value);
-                }
-            }
-            IRestResponse response = client.Execute(request);
-            return response.Content;
+            //var client = new RestClient(apiLink.Url);
+            //var request = new RestRequest(Method.GET);
+            //if (apiLink.Headers != null)
+            //{
+            //    foreach (KeyValuePair<string, string> entry in apiLink.Headers)
+            //    {
+            //        request.AddHeader(entry.Key, entry.Value);
+            //    }
+            //}
+            //IRestResponse response = client.Execute(request);
+            //return response.Content;
+            return null;
         }
 
     }

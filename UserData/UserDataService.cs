@@ -5,7 +5,7 @@ using System.IO;
 
 namespace BudgetSaverApp
 {
-    class UserDataService : IUserDataService
+    public class UserDataService : IUserDataService
     {
         public float GoalItemPrice { get; set; }
         public float CurrentSavings { get; set; }

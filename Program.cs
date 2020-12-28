@@ -1,7 +1,4 @@
-﻿using BudgetSaverApp.Goals;
-using BudgetSaverApp.Possessions;
-using BudgetSaverApp.Statistics;
-using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -16,12 +13,38 @@ namespace BudgetSaverApp
         [STAThread]
         static void Main()
         {
-            DataAccess db = new DataAccess();
-            List<Transaction> hehe = db.GetTransactions(); 
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            ServiceManager serviceManager = new ServiceManager();
-            //Application.Run(new MainUI(serviceManager));           
+           
+            //LoadOldTransactions(serviceManager);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run();
+
         }
+
+        static void LoadOldTransactions()
+        {
+
+            //List<Transaction> transactionList = serviceManager.transactionService.GetTransactionsList();
+
+            //using (var context = new DboTransactionContext())
+            //{
+            //    transactionList.ForEach((transaction) =>
+            //    {
+            //        DboTransaction dbotransaction = new DboTransaction
+            //        {
+            //            TransactType = transaction.TransactType,
+            //            Title = transaction.Title,
+            //            Category = transaction.Category,
+            //            Date = transaction.Date,
+            //            Amount = transaction.Amount
+            //        };
+            //        context.Transactions.Add(dbotransaction);
+            //    });
+
+
+            //    context.SaveChanges();
+            //}
+        }
+
     }
 }

@@ -2,14 +2,10 @@
 
 namespace BudgetSaverApp
 {
-    class CategoryService: ICategoryService
+    public class CategoryService: ICategoryService
     {
 
-        public CategoryService()
-        {
-            
-        }
-
+  
         /// <summary>
         /// Returns a string array of transaction categories from Data\Categories.txt.
         /// </summary>
