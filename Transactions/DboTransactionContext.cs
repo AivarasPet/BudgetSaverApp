@@ -11,14 +11,14 @@ namespace BudgetSaverApp.Transactions
     {
 
         public DbSet<DboTransaction> Transactions { get; set; }
-        public DboTransactionContext(DbContextOptions options) : base(options)
+        public DboTransactionContext(DbContextOptions<DboTransactionContext> options) : base(options)
         {
 
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-           //builder.UseSqlServer("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;");
+           builder.UseSqlServer("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;");
         }
     }
 }
