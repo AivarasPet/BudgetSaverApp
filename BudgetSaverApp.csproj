@@ -262,6 +262,11 @@
     <Compile Include="Migrations\20201227200714_migrationTransactions.designer.cs">
       <DependentUpon>20201227200714_migrationTransactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.cs" />
+    <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.designer.cs">
+      <DependentUpon>20201228140034_migrationPossessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DboPossession\DboPossessionContextModelSnapshot.cs" />
     <Compile Include="Migrations\DboTransactionContextModelSnapshot.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
     <Compile Include="Other\ICategoryService.cs" />

@@ -28,6 +28,7 @@ namespace my_new_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DboTransactionContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DboPossessionContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPossessionsService, PossessionsService>();
             services.AddScoped<IStatisticsService, StatisticsService>();

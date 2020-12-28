@@ -132,19 +132,18 @@ public class TransactionService : ITransactionService
 
                 List.Add(newTransaction);
                 OnTransactionAdded(newTransaction);
-                //using (var context = new DboTransactionContext())
-                //{
-                //    DboTransaction dbotransaction = new DboTransaction
-                //    {
-                //        TransactType = transactType,
-                //        Title = transactionName,
-                //        Category = category,
-                //        Date = DateTime.Now,
-                //        Amount = transAmount
-                //    };
-                //    context.Transactions.Add(dbotransaction);
-                //    context.SaveChanges();
-                //};
+
+                DboTransaction dbotransaction = new DboTransaction
+                {
+                    TransactType = transactType,
+                    Title = transactionName,
+                    Category = category,
+                    Date = DateTime.Now,
+                    Amount = transAmount
+                };
+                _dboTransactionContext.Transactions.Add(dbotransaction);
+                _dboTransactionContext.SaveChanges();
+                
                 SerializeTransactionList();
             }
         }

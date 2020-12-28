@@ -8,7 +8,7 @@ namespace BudgetSaverApp.Possessions.Links
 {
     public class ImageLink
     {
-        public string id { get; set; }
+        public int ID { get; set; }
         public string link { get; set; }
     }
 }

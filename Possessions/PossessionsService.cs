@@ -43,7 +43,7 @@ namespace BudgetSaverApp.Possessions
             var completeList =
                 from a in apiList
                 join l in List
-                on a.Id equals l.ApiLinkID
+                on a.ID equals l.ApiLinkID
                 select new {Item = l, Link = a.Url, Type = a.Type, Headers = a.Headers};
 
             List<Possession> list1 = new List<Possession>();
@@ -61,7 +61,7 @@ namespace BudgetSaverApp.Possessions
                 APIFetcher.AddDownloadEntity(apiLink, (IApiCallback) item.Item);
             }
 
-            var completeList2 = List.GroupJoin(imageList, a => a.LinkOfImageID, b => b.id, (item, api) => new
+            var completeList2 = List.GroupJoin(imageList, a => a.ApiLinkID, b => b.ID, (item, api) => new
             {
                 Item = item,
                 Api = api
@@ -72,7 +72,7 @@ namespace BudgetSaverApp.Possessions
                 Possession possession = item.Item;
                 try
                 {
-                    possession.LinkOfImageID = item.Api.First().link;
+                    possession.ImageUrl = item.Api.First().link;
                 }
                 catch (Exception e)
                 {
