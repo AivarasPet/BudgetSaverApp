@@ -7,6 +7,7 @@ using static BudgetSaverApp.Transactions.Transaction;
 using System.Configuration;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using BudgetSaverApp.Other;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -16,10 +17,10 @@ namespace BudgetSaverApp.Transactions
     }
 public class TransactionService : ITransactionService
     {
-        private DboTransactionContext _dboTransactionContext;
-        public TransactionService(DboTransactionContext dboTransactionContext)
+        private DboContext _dboContext;
+        public TransactionService(DboContext dboContext)
         {
-            _dboTransactionContext = dboTransactionContext;
+            _dboContext = dboContext;
             LoadTransactionsListFromDatabase();
         }
         
@@ -30,11 +31,6 @@ public class TransactionService : ITransactionService
         }
 
         public event EventHandler OnTransactionServiceLoaded = delegate { }; 
-        public TransactionService()
-        {
-            
-            //LoadTransactionsListFromTextFile();
-        }
 
         private event ITransactionService.TransactionAddedEventHandler TransactionAdded;
 
@@ -73,7 +69,7 @@ public class TransactionService : ITransactionService
         {
             List.Clear();
             
-            var query = from transaction in _dboTransactionContext.Transactions
+            var query = from transaction in _dboContext.Transactions
                         orderby transaction.Date
                         select transaction;
             //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
@@ -141,8 +137,8 @@ public class TransactionService : ITransactionService
                     Date = DateTime.Now,
                     Amount = transAmount
                 };
-                _dboTransactionContext.Transactions.Add(dbotransaction);
-                _dboTransactionContext.SaveChanges();
+                _dboContext.Transactions.Add(dbotransaction);
+                _dboContext.SaveChanges();
                 
                 SerializeTransactionList();
             }
@@ -162,35 +158,6 @@ public class TransactionService : ITransactionService
             .Where(kk => kk.Item2 > 1)
             .OrderBy(oo => oo.Item2)
             .ToList();
-
-            /*Converter<float> convertAmount = delegate (Transaction element)
-            {
-                return (element.TransactType == Transaction.TransactionType.EXPENSES) ? -element.Amount : element.Amount;
-            };
-
-            List<Tuple<Transaction, int>> tuples = new List<Tuple<Transaction, int>>();
-            IList<Transaction> copyOfTransactions = List.Clone();
-            
-            
-            for (int x = 0; x < copyOfTransactions.Count; x++)
-            {
-                int count = 1;
-                float amount = convertAmount(copyOfTransactions.ElementAt(x));
-                for (int y = x+1; y < copyOfTransactions.Count; y++)
-                {
-                    if (copyOfTransactions.ElementAt(x).Equals(copyOfTransactions.ElementAt(y)))
-                    {
-                        count++;
-                        amount += convertAmount(copyOfTransactions.ElementAt(y));
-                        copyOfTransactions.RemoveAt(y);
-                    }
-                }
-                TransactionType type = (amount >= 0) ? (Transaction.TransactionType.INCOME) : (Transaction.TransactionType.EXPENSES);
-                Transaction transaction = new Transaction(type, Math.Abs(amount), copyOfTransactions.ElementAt(x).Title, copyOfTransactions.ElementAt(x).Category, copyOfTransactions.ElementAt(x).Date);
-                Tuple<Transaction, int> tuple = new Tuple<Transaction, int>(transaction, count);
-                if(count > 1) tuples.Add(tuple);
-            }
-            */
 
             return tuples;
         }

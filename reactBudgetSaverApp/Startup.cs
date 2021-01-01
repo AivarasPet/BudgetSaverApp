@@ -1,5 +1,6 @@
 using BudgetSaverApp;
 using BudgetSaverApp.Goals;
+using BudgetSaverApp.Other;
 using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
@@ -27,8 +28,7 @@ namespace my_new_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DboTransactionContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<DboPossessionContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DboContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPossessionsService, PossessionsService>();
             services.AddScoped<IStatisticsService, StatisticsService>();
