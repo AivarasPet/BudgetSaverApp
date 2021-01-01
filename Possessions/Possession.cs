@@ -5,7 +5,7 @@ using System;
 namespace BudgetSaverApp.Possessions
 {
     [JsonConverter(typeof(BaseConverter))]
-    public class Possession {
+    public class Possession{
 
         public string Type { get; set; }
         public string Name { get; set; }

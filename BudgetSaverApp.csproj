@@ -258,20 +258,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20201228143935_migrationTransactions.cs" />
-    <Compile Include="Migrations\20201228143935_migrationTransactions.designer.cs">
-      <DependentUpon>20201228143935_migrationTransactions.cs</DependentUpon>
+    <Compile Include="Migrations\20210101221829_migrationDboContext.cs" />
+    <Compile Include="Migrations\20210101221829_migrationDboContext.designer.cs">
+      <DependentUpon>20210101221829_migrationDboContext.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.cs" />
-    <Compile Include="Migrations\DboPossession\20201228140034_migrationPossessions.designer.cs">
-      <DependentUpon>20201228140034_migrationPossessions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\DboPossession\DboPossessionContextModelSnapshot.cs" />
-    <Compile Include="Migrations\DboTransactionContextModelSnapshot.cs" />
+    <Compile Include="Migrations\DboContextModelSnapshot.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
+    <Compile Include="Other\DboContext.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="Possessions\DboPossession.cs" />
     <Compile Include="Possessions\DboPossessionContext.cs" />
+    <Compile Include="Possessions\Links\PossessionAPILink.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
     <Compile Include="Transactions\BadCategoryException.cs" />

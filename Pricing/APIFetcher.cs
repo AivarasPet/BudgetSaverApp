@@ -14,20 +14,20 @@ namespace BudgetSaverApp.Pricing
         struct ApiTaskEntity
         {
             public ApiLink apiLink { set; get; }
-            public IApiCallback ocjectThatNeedApiCallback;
+            public IApiCallback objectThatNeedApiCallback;
         }
 
-        private static List<ApiTaskEntity> taskEntities = new List<ApiTaskEntity>();
-        private static List<Task> tasks = new List<Task>();
+        private List<ApiTaskEntity> taskEntities = new List<ApiTaskEntity>();
+        private List<Task> tasks = new List<Task>();
 
         private static void DownloadAPIAsync(ApiTaskEntity taskEntity)
         {
             HttpRequest request = new HttpRequest();
             string response = request.StartHttpRequest(taskEntity.apiLink);
-            taskEntity.ocjectThatNeedApiCallback.OnAPIDownload(response);
+            taskEntity.objectThatNeedApiCallback.OnAPIDownload(response);
         }
 
-        public static async Task RunAllDownloadsAsync()
+        public async Task RunAllDownloadsAsync()
         {
             foreach(ApiTaskEntity e in taskEntities)
             {
@@ -38,19 +38,13 @@ namespace BudgetSaverApp.Pricing
             AllAPIsDownloaded(null, EventArgs.Empty);
         }
 
-        public static void AddDownloadEntity(ApiLink apiLink, IApiCallback callback)
+        public void AddDownloadEntity(ApiLink apiLink, IApiCallback callback)
         {
             taskEntities.Add(new ApiTaskEntity
             {
                 apiLink = apiLink,
-                ocjectThatNeedApiCallback = callback
+                objectThatNeedApiCallback = callback
             });
         }
-
-        private static void OnCryptoPricingDownloaded(object sender, MyEventArgs e)
-        {
-            Console.WriteLine(e.data);
-        }
-
     }
 }
