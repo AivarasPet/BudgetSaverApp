@@ -26,26 +26,26 @@ export class Statistics extends Component {
     thisWeek = async () => {
         const response = await fetch('statistic/thisweek');
         const data = await response.json();
-        this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
+        this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     lastWeek = async () => {
         const response = await fetch('statistic/lastweek');
         const data = await response.json();
-        this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
+        this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     thisMonth = async () => {
         const response = await fetch('statistic/thismonth');
         const data = await response.json();
-        this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
+        this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     lastMonth = async () => {
         const response = await fetch('statistic/lastmonth');
         const data = await response.json();
         console.log(data);
-        this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
+        this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     advanced = async (event) => {
@@ -55,7 +55,7 @@ export class Statistics extends Component {
         url.searchParams.append("endDate", this.endDate.current.value);
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({ statistic: data, subStatistics: data.subStatsMap, loading: false });
+        this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
 
@@ -66,17 +66,15 @@ export class Statistics extends Component {
                     <tr>
                         <th data-field="id" >Category</th>
                         <th>Amount </th>
-                        <th>Income</th>
-                        <th>Expenses</th>
+                        <th>IsExpense</th>
                     </tr>
-                </thead>
+                </thead> 
                 <tbody>
-                    {Object.keys(subStatistics).map((key, index) => 
+                    {subStatistics.map((SubStat, index) => 
                         <tr key={index}>
-                            <td>{key}</td>
-                            <td>{subStatistics[key].count}</td>
-                            <td>{subStatistics[key].income}</td>
-                            <td>{subStatistics[key].expenses}</td>
+                            <td>{SubStat.category}</td>
+                            <td>{SubStat.amount}</td>
+                            <td>{SubStat.isIncome}</td>
                         </tr>
                     )}
                 </tbody>

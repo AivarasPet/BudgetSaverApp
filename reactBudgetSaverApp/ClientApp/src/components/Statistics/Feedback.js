@@ -42,7 +42,7 @@ export default class Feedback extends Component {
                             <tr key={index}>
                                 <td>{item.category}</td>
                                 <td>{item.difference}</td>
-                                <td>{item.percentageDifference}</td>
+                                <td>{Number((item.percentageDifference).toFixed(2))}</td>
                                 {item.isFeedbackPositive == true ? <td>{"Yes IT's GOOD"}</td> : <td>{"NO IT's BAD"}</td>}
                             </tr>
                         )}

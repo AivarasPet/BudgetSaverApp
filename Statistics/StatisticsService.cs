@@ -23,7 +23,7 @@ namespace BudgetSaverApp.Statistics
             DateTime date = DateTime.Now;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            StatsLastMonth = new Lazy<Stats>( () => new Stats(new DateTime(date.Year, date.Month, 1), new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1), transactionService));
+            StatsLastMonth = new Lazy<Stats>( () => new Stats(new DateTime(date.Year, date.Month, 1).AddMonths(-1), new DateTime(date.Year, date.Month, 1).AddDays(-1), transactionService));
             StatsPastYear = new Lazy<Stats>( () => new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService));
 
             StatsPastYearMonthly = new List<Stats>();
@@ -35,94 +35,58 @@ namespace BudgetSaverApp.Statistics
                 lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             }
         }
-        /// <summary>
-        /// Returns an instance of Stats with statistics.
-        /// </summary>
-        /// <param name="startDate"></param>
-        /// <param name="endDate"></param>
-        /// <returns></returns>
+
 
         void OnTransactionAdded(object sender, Transaction added)
         {
-            StatsLastMonth.Value.TransactionAmount++;
-            bool isExpense = added.TransactType == Transaction.TransactionType.EXPENSES;
-            if (isExpense)
-                StatsLastMonth.Value.TotalExpenses += added.Amount;
-            else
-                StatsLastMonth.Value.TotalIncome += added.Amount;
-            if (StatsLastMonth.Value.SubStatsMap.TryGetValue(added.Category, out SubStats value))
-            {
-                value.Count++;
-                if (isExpense) value.Expenses += added.Amount;
-                else value.Income += added.Amount;
-            }
-            else StatsLastMonth.Value.SubStatsMap.Add(added.Category, value);
+            //StatsLastMonth.Value.TransactionAmount++;
+            //bool isExpense = added.TransactType == Transaction.TransactionType.EXPENSES;
+            //if (isExpense)
+            //    StatsLastMonth.Value.TotalExpenses += added.Amount;
+            //else
+            //    StatsLastMonth.Value.TotalIncome += added.Amount;
+            //if (StatsLastMonth.Value.SubStatsMap.Contains(added.Category, out SubStats value))
+            //{
+            //    value.Count++;
+            //    if (isExpense) value.Expenses += added.Amount;
+            //    else value.Income += added.Amount;
+            //}
+            //else StatsLastMonth.Value.SubStatsMap.Add(added.Category, value);
         }
 
-        public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared)
-        {
-            if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
-            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-            foreach (string key in statsToBeCompared.SubStatsMap.Keys)
-            {
-                var query = (from c in StatsPastYearMonthly
-                             where c.SubStatsMap.ContainsKey(key)
-                             orderby c.SubStatsMap[key].Expenses ascending
-                             select c
-                            ).Take(1);
-                dict.Add(key, query.ElementAt(0));
-            }
+        //public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared)
+        //{
+        //    if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
+        //    Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+        //    foreach (string key in statsToBeCompared.SubStatsList.Select(x => x.Category))
+        //    {
+        //        var query = (from c in StatsPastYearMonthly.SubStatsList.Where(x => x.Category == key)
+        //                     orderby c.SubStatsMap[key].Expenses ascending
+        //                     select c
+        //                    ).Take(1);
+        //        dict.Add(key, query.ElementAt(0));
+        //    }
 
-            return dict;
-        }
+        //    return dict;
+        //}
 
-        public Dictionary<string, Stats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
-        {
-            Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-            if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
-            foreach (string key in statsToBeCompared.SubStatsMap.Keys)
-            {
-                var query = (from c in StatsPastYearMonthly
-                             where c.SubStatsMap.ContainsKey(key)
-                             orderby c.SubStatsMap[key].Income descending
-                             select c
-                            ).Take(1);
-                dict.Add(key, query.ElementAt(0));
-            }
+        //public Dictionary<string, Stats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
+        //{
+        //    Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
+        //    if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
+        //    foreach (string key in statsToBeCompared.SubStatsMap.Keys)
+        //    {
+        //        var query = (from c in StatsPastYearMonthly
+        //                     where c.SubStatsMap.ContainsKey(key)
+        //                     orderby c.SubStatsMap[key].Income descending
+        //                     select c
+        //                    ).Take(1);
+        //        dict.Add(key, query.ElementAt(0));
+        //    }
 
-            return dict;
-        }
+        //    return dict;
+        //}
 
-
-        private FinancialFeedbackByCategory FinancialFeedbackBuilder(bool isIncome, float oldNumber, float newNumber, DateTime dateCompared, DateTime dateComparedTo, string categpry)
-        {
-            float difference, percentage;
-            bool isPositiveFeedback;
-
-            if(oldNumber < newNumber)
-            {
-                difference = newNumber - oldNumber;
-                percentage = difference / (oldNumber + difference) * 100;
-                isPositiveFeedback = !isIncome;
-            }
-            else
-            {
-                difference = oldNumber - newNumber;
-                percentage = difference / (newNumber + difference) * 100;
-                isPositiveFeedback = isIncome;
-            }
-
-            return new FinancialFeedbackByCategory
-            {
-                category = categpry,
-                IsExpenses = !isIncome,
-                IsFeedbackPositive = isPositiveFeedback,
-                DateCompared = dateCompared,
-                DateComparedTo = dateComparedTo,
-                Difference = difference,
-                PercentageDifference = percentage
-            };
-        }
 
  
 
@@ -137,70 +101,55 @@ namespace BudgetSaverApp.Statistics
             Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, transactionService);
             float oldExpenses, newExpenses;
 
-            foreach (string key in StatsLastMonth.Value.SubStatsMap.Keys)
-            {
-                if (statsThatAreComparedTo.SubStatsMap.TryGetValue(key, out SubStats value))
-                {
-                    oldExpenses = value.Expenses;
-                    newExpenses = statsThatAreCompared.SubStatsMap[key].Expenses;
-                }
-                else
-                {
-                    oldExpenses = 0;
-                    newExpenses = 0;
-                }
-                   
-                if (oldExpenses != newExpenses) toReturn.Add(FinancialFeedbackBuilder(false, oldExpenses, newExpenses, statsThatAreCompared.StartDateTime, firstDayOfComparedMonth, key));
-            }
-            float oldIncome =0, newIncome =0;
-            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
-            {
-                if (statsThatAreComparedTo.SubStatsMap.TryGetValue(key, out SubStats value))
-                {
-                    oldIncome = value.Income;
-                    newIncome = statsThatAreCompared.SubStatsMap[key].Income;
-                }
-                else
-                {
-                    oldExpenses = 0;
-                    newExpenses = 0;
-                }
-                if (oldIncome != newIncome) toReturn.Add(FinancialFeedbackBuilder(true, oldIncome, newIncome, statsThatAreCompared.StartDateTime, firstDayOfComparedMonth, key));
-            }
 
-            return toReturn;
+            List<FinancialFeedbackByCategory> list =
+                (from sc in statsThatAreCompared.SubStatsList
+                 join sct in statsThatAreComparedTo.SubStatsList
+                 on sc.Category equals sct.Category
+                 select new FinancialFeedbackByCategory
+                 {
+                     Category = sc.Category,
+                     IsExpenses = !sc.IsIncome,
+                     DateCompared = statsThatAreCompared.StartDateTime,
+                     DateComparedTo = statsThatAreComparedTo.StartDateTime,
+                     Difference = Math.Abs(sc.Amount - sct.Amount) ,
+                     PercentageDifference = Math.Abs((sct.Amount - sc.Amount) / (sct.Amount) * 100),
+                     IsFeedbackPositive = (sc.Amount >= sct.Amount && sc.IsIncome || sc.Amount < sct.Amount && !sc.IsIncome)
+                 }).ToList();
+
+            return list;
         }
 
-        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryAdvanced()
-        {
-            Stats statsThatAreCompared = StatsLastMonth.Value;
-            while(StatsLastMonth.Value == null) { }
-            List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
-            Dictionary<string, Stats> dictLowestExpenses = LowestYearlyExpenesByCategory(statsThatAreCompared);
-            Dictionary<string, Stats> dictHighestIncome = HighestYearlyIncomeByCategory(statsThatAreCompared);
+        //public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryAdvanced()
+        //{
+        //    Stats statsThatAreCompared = StatsLastMonth.Value;
+        //    while(StatsLastMonth.Value == null) { }
+        //    List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
+        //    Dictionary<string, Stats> dictLowestExpenses = LowestYearlyExpenesByCategory(statsThatAreCompared);
+        //    Dictionary<string, Stats> dictHighestIncome = HighestYearlyIncomeByCategory(statsThatAreCompared);
 
-            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
-            {
-                if (dictLowestExpenses.TryGetValue(key, out Stats value))
-                {
-                    float oldExpenses = value.SubStatsMap[key].Expenses;
-                    float newExpenses = statsThatAreCompared.SubStatsMap[key].Expenses;
-                    if (oldExpenses != newExpenses) toReturn.Add(FinancialFeedbackBuilder(false, oldExpenses, newExpenses, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
-                }
-            }
+        //    foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
+        //    {
+        //        if (dictLowestExpenses.TryGetValue(key, out Stats value))
+        //        {
+        //            float oldExpenses = value.SubStatsMap[key].Expenses;
+        //            float newExpenses = statsThatAreCompared.SubStatsMap[key].Expenses;
+        //            if (oldExpenses != newExpenses) toReturn.Add(FinancialFeedbackBuilder(false, oldExpenses, newExpenses, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
+        //        }
+        //    }
 
-            foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
-            {
-                if (dictLowestExpenses.TryGetValue(key, out Stats value))
-                {
-                    float oldIncome = value.SubStatsMap[key].Income;
-                    float newIncome = statsThatAreCompared.SubStatsMap[key].Income;
-                    if (oldIncome != newIncome) toReturn.Add(FinancialFeedbackBuilder(true, oldIncome, newIncome, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
-                }
-            }
+        //    foreach (string key in statsThatAreCompared.SubStatsMap.Keys)
+        //    {
+        //        if (dictLowestExpenses.TryGetValue(key, out Stats value))
+        //        {
+        //            float oldIncome = value.SubStatsMap[key].Income;
+        //            float newIncome = statsThatAreCompared.SubStatsMap[key].Income;
+        //            if (oldIncome != newIncome) toReturn.Add(FinancialFeedbackBuilder(true, oldIncome, newIncome, statsThatAreCompared.StartDateTime, value.StartDateTime, key));
+        //        }
+        //    }
 
-            return toReturn;
-        }
+        //    return toReturn;
+        //}
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth()
         {

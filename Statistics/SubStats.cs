@@ -8,9 +8,10 @@ namespace BudgetSaverApp.Statistics
 {
     public class SubStats
     {
+        public string Category { get; set; }
         public int Count { get; set; }
-        public float Expenses { get; set; }
-        public float Income { get; set; }
+        public float Amount { get; set; }
+        public bool IsIncome { get; set; }
     }
 
 

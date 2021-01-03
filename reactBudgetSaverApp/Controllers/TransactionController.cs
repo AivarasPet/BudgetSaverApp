@@ -18,6 +18,7 @@ namespace my_new_app.Controllers
         public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
+
         }
 
         public ActionResult<IEnumerable<Transaction>> Index()
