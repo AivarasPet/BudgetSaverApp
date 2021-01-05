@@ -46,9 +46,15 @@ export class Transactions extends Component {
 
     render() {
         let contents;
-            switch (this.state.loading) {
-
-                case 1: return (
+        switch (this.state.loading) {
+            case 1: contents = Transactions.renderTransactionsTable(this.state.transactions);
+                break;
+            case 2: contents = Transactions.renderPopularTransactionsTable(this.state.popularTransactions);
+                break;
+            default: contents = < p > <em>Loading...</em></p >;
+                break;
+        };
+        return (
                     <div>
                         <AddTransaction onUpdate={this.onUpdate.bind(this)} />
                         <h1 id="tabelLabel" >Transaction list</h1>
@@ -56,39 +62,9 @@ export class Transactions extends Component {
                         <button onClick={this.populateTransactionData}>Standart transactions</button>
                         <button onClick={this.populatePopularTransactions}>Popular transactions</button>
 
-                        {Transactions.renderTransactionsTable(this.state.transactions)}
-
+                        {contents}
                     </div>
-                );
-
-                case 2: return (
-                    <div>
-                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
-                        <h1 id="tabelLabel" >Transaction list</h1>
-                        <p>This table shows total list of all transactions.</p>
-                        <button onClick={this.populateTransactionData}>Standart transactions</button>
-                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
-
-                        {Transactions.renderPopularTransactionsTable(this.state.popularTransactions)}
-
-                    </div>
-                );
-
-                default: return (
-                    <div>
-                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
-                        <h1 id="tabelLabel" >Transaction list</h1>
-                        <p>This table shows total list of all transactions.</p>
-                        <button onClick={this.populateTransactionData}>Standart transactions</button>
-                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
-
-                        {< p > <em>Loading...</em></p>}
-
-                    </div>
-                );
-            }
-       
-        
+        );
 
     }
 

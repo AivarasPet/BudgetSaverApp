@@ -2,6 +2,8 @@
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.UserData;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BudgetSaverApp.Portfolio
 {
@@ -14,10 +16,40 @@ namespace BudgetSaverApp.Portfolio
         public float CurrentSavings { get; set; }
         public float MonthlySalary { get; set; }
         public string GoalItemName { get; set; }
-        public  GoalsService(ITransactionService transactionService)
+        public GoalsService(ITransactionService transactionService)
         {
             this._transactionService = transactionService;
             ReadFromFile();
+        }
+
+        public DataTable GetGoalTable(int userId)
+        {
+            using (SqlConnection con = new SqlConnection("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True; "))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Goals WHERE UserId = @userId", con);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                con.Close();
+                return dt;
+            }
+            
+        }
+
+
+        public void ReadFromFile()
+        {
+
+            TextFileReader textFileReader = new TextFileReader();
+            string[] data = textFileReader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\UserData.txt");
+
+            CurrentSavings = float.Parse(data[0]);
+            MonthlySalary = float.Parse(data[1]);
+            GoalItemName = data[2];
+            GoalItemPrice = float.Parse(data[3]);
         }
 
         public float GetProfitMonthly()
@@ -73,15 +105,6 @@ namespace BudgetSaverApp.Portfolio
             GoalItemPrice = price;
         }
 
-        public void ReadFromFile()
-        {
-            TextFileReader textFileReader = new TextFileReader();
-            string[] data = textFileReader.FetchStringArrayByLocation(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Data\UserData.txt");
-
-            CurrentSavings = float.Parse(data[0]);
-            MonthlySalary = float.Parse(data[1]);
-            GoalItemName = data[2];
-            GoalItemPrice = float.Parse(data[3]);
-        }
+        
     }
 }

@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import AddGoal from './AddGoal.js'
+
 
 export class Goals extends Component {
     static displayName = Goals.name;
@@ -15,24 +17,33 @@ export class Goals extends Component {
     async GoalValues() {
         const response = await fetch('goals/GoalValues');
         const data = await response.json();
-        console.log(data.item1);
+        console.log(data);
         this.setState({ goalValue: data, loading: false });
     }
 
     static renderGoal(goalValue) {
         return (
             <ul>
-                <p></p>
-                <div>
-                    <li>Main goal: {goalValue.item1}</li>
-                    <li>Main goal price: {goalValue.item2}</li>
-                    <li>Days until goal is reached: {goalValue.item5}</li>
-                    <li>Monthly salary: {goalValue.item3}</li>
-                    <li>Total savings: {goalValue.item4}</li>
-                </div>
+                <AddGoal />
+                {goalValue.map((goal, index) =>
+                    <div key={index}>
+                        <li>Goal: {goal.goalItemName}</li>
+                        <li>Goal price: {goal.goalItemPrice}</li>
+                        <li>Goal description: {goal.goalDescription}</li>
+                        <li>Days until goal is reached: 0</li>
+                        <li>Monthly salary: 0</li>
+                        <li>Total savings: 0</li>
+                        <p></p>
+                    </div>
+                    
+                )}
             </ul>
         );
     } 
+
+    onUpdate(data) {
+        console.log("Labas");
+    }
 
     componentDidMount() {
         this.GoalValues();

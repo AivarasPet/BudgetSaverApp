@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetSaverApp.Migrations
 {
     [DbContext(typeof(DboContext))]
-    [Migration("20210101221829_migrationDboContext")]
+    [Migration("20210105202733_migrationDboContext")]
     partial class migrationDboContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,51 @@ namespace BudgetSaverApp.Migrations
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("BudgetSaverApp.Goals.DboGoal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GoalDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GoalItemName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("GoalItemPrice")
+                        .HasColumnType("real");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Goals");
+                });
+
+            modelBuilder.Entity("BudgetSaverApp.Other.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
 
             modelBuilder.Entity("BudgetSaverApp.Possessions.DboPossession", b =>
                 {

@@ -1,4 +1,5 @@
-﻿using BudgetSaverApp.Possessions;
+﻿using BudgetSaverApp.Goals;
+using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Possessions.Links;
 using BudgetSaverApp.Transactions;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ namespace BudgetSaverApp.Other
         public DbSet<PossessionAPILink> PossessionsApiLinks { get; set; }
         public DbSet<ImageLink> ImageLinks { get; set; }
         public DbSet<DboTransaction> Transactions { get; set; }
+        public DbSet<DboGoal> Goals { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
