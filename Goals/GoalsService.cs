@@ -38,13 +38,6 @@ namespace BudgetSaverApp.Portfolio
         }
 
 
-
-
-
-
-
-
-
         public void ReadFromFile()
         {
 

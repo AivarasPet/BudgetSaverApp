@@ -11,6 +11,7 @@ namespace BudgetSaverApp.Goals
         public string GoalItemName { get; set; }
         public float GoalItemPrice { get; set; }
         public string GoalDescription { get; set; }
+        public int GoalUserId { get; set; }
         
     }
 }
