@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using BudgetSaverApp;
@@ -28,7 +30,22 @@ namespace my_new_app.Controllers
 
         public ActionResult<Tuple<string, float, float, float, int>> GoalValues()
         {
-           return _goalsService.GetGoals();
+            List<Goal> goals = new List<Goal>();
+            List<string> hehe = new List<string>();
+            DataTable goalTable = _goalsService.GetGoalTable(1);
+            foreach (DataRow goal in goalTable.Rows)
+            {
+                goals.Add(new Goal()
+                {
+                    GoalItemName = goal["Name"].ToString(),
+                    GoalItemPrice = float.Parse(goal["Price"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
+                    GoalDescription = goal["Description"].ToString()
+                });
+
+            }
+
+
+            return _goalsService.GetGoals();
         }
     }
 }

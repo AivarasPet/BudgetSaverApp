@@ -77,6 +77,7 @@ public class TransactionService : ITransactionService
                         orderby transaction.Date
                         select transaction;
             //Transaction transaction = new Transaction(dboTransaction.TransactType,dboTransaction.Amount,dboTransaction.Title,dboTransaction.Category,dboTransaction.Date);
+
             var config = new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>());
             var mapper = new Mapper(config);
             List = mapper.Map<List<Transaction>>(query);
