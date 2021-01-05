@@ -261,6 +261,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Goals\Goal.cs" />
     <Compile Include="Migrations\20210101221829_migrationDboContext.cs" />
     <Compile Include="Migrations\20210101221829_migrationDboContext.designer.cs">
       <DependentUpon>20210101221829_migrationDboContext.cs</DependentUpon>
