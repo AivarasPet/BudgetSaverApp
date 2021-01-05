@@ -85,7 +85,7 @@ export default class AddTransaction extends Component {
                 }
             }).then(data => {
                 if (data !== null) {
-                    this.props.onUpdate(data);;
+                    this.props.onUpdate(data);
                 }
                     
             });

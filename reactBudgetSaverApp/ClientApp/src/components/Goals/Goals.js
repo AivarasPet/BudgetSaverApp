@@ -24,20 +24,25 @@ export class Goals extends Component {
     static renderGoal(goalValue) {
         return (
             <ul>
-                <AddGoal onUpdate={this.onUpdate.bind(this)} />
-                <div>
-                    <li>Main goal: {goalValue.item1}</li>
-                    <li>Main goal price: {goalValue.item2}</li>
-                    <li>Days until goal is reached: {goalValue.item5}</li>
-                    <li>Monthly salary: {goalValue.item3}</li>
-                    <li>Total savings: {goalValue.item4}</li>
-                </div>
+                <AddGoal />
+                {goalValue.map((goal, index) =>
+                    <div key={index}>
+                        <li>Goal: {goal.goalItemName}</li>
+                        <li>Goal price: {goal.goalItemPrice}</li>
+                        <li>Goal description: {goal.goalDescription}</li>
+                        <li>Days until goal is reached: 0</li>
+                        <li>Monthly salary: 0</li>
+                        <li>Total savings: 0</li>
+                        <p></p>
+                    </div>
+                    
+                )}
             </ul>
         );
     } 
 
     onUpdate(data) {
-        Console.Log("Labas");
+        console.log("Labas");
     }
 
     componentDidMount() {

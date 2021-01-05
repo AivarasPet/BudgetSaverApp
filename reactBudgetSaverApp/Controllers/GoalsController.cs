@@ -28,24 +28,23 @@ namespace my_new_app.Controllers
         public ActionResult<string> MainGoalName() => _goalsService.GetGoalItemName();
         public ActionResult<float> MainGoalPrice() => _goalsService.GetGoalItemPrice();
 
-        public ActionResult<Tuple<string, float, float, float, int>> GoalValues()
+        public IEnumerable<Goal> GoalValues()
         {
             List<Goal> goals = new List<Goal>();
-            List<string> hehe = new List<string>();
             DataTable goalTable = _goalsService.GetGoalTable(1);
             foreach (DataRow goal in goalTable.Rows)
             {
                 goals.Add(new Goal()
                 {
-                    GoalItemName = goal["Name"].ToString(),
-                    GoalItemPrice = float.Parse(goal["Price"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
-                    GoalDescription = goal["Description"].ToString()
+                    GoalItemName = goal["GoalItemName"].ToString(),
+                    GoalItemPrice = float.Parse(goal["GoalItemPrice"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
+                    GoalDescription = goal["GoalDescription"].ToString()
                 });
 
             }
 
 
-            return _goalsService.GetGoals();
+            return goals.ToArray();
         }
     }
 }

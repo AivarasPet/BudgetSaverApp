@@ -30,7 +30,7 @@ export class Possessions extends Component {
                             <td><img src={possession.imageUrl} className = "image" /></td>
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
-                            <td>{possession.valueInDollars}</td>
+                            <td>{possession.valueInDollarsWhenBought}</td>
                         </tr>
                     )}
                 </tbody>

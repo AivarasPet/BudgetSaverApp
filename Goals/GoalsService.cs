@@ -27,11 +27,13 @@ namespace BudgetSaverApp.Portfolio
             using (SqlConnection con = new SqlConnection("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True; "))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Goals", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Goals WHERE UserId = @userId", con);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-
+                con.Close();
                 return dt;
             }
             
