@@ -15,10 +15,5 @@ namespace BudgetSaverApp.Transactions
         {
 
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder builder)
-        {
-           //builder.UseSqlServer("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;");
-        }
     }
 }

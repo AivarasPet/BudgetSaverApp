@@ -17,7 +17,7 @@ export class Goals extends Component {
     async GoalValues() {
         const response = await fetch('goals/GoalValues');
         const data = await response.json();
-        console.log(data.item1);
+        console.log(data);
         this.setState({ goalValue: data, loading: false });
     }
 
