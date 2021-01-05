@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import AddGoal from './AddGoal.js'
+
 
 export class Goals extends Component {
     static displayName = Goals.name;
@@ -22,7 +24,7 @@ export class Goals extends Component {
     static renderGoal(goalValue) {
         return (
             <ul>
-                <p></p>
+                <AddGoal onUpdate={this.onUpdate.bind(this)} />
                 <div>
                     <li>Main goal: {goalValue.item1}</li>
                     <li>Main goal price: {goalValue.item2}</li>
@@ -33,6 +35,10 @@ export class Goals extends Component {
             </ul>
         );
     } 
+
+    onUpdate(data) {
+        Console.Log("Labas");
+    }
 
     componentDidMount() {
         this.GoalValues();

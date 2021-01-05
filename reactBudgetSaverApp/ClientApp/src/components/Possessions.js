@@ -16,7 +16,7 @@ export class Possessions extends Component {
     static renderPossessionsTable(possessions) {
         return (
             <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel">
-                <thead class="thead-dark">
+                <thead className="thead-dark">
                     <tr>
                         <th style={{ width: '4%' }}>Logo</th>
                         <th>Title</th>
@@ -26,8 +26,8 @@ export class Possessions extends Component {
                 </thead>
                 <tbody>
                     {possessions.map((possession, index) =>
-                        <tr>
-                            <img src={possession.linkOfImage} className = "image" />
+                        <tr key={index}>
+                            <td><img src={possession.imageUrl} className = "image" /></td>
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
                             <td>{possession.valueInDollars}</td>
@@ -53,7 +53,7 @@ export class Possessions extends Component {
     }
 
     async populatePossessionData() {
-        const response = await fetch('possessions');
+        const response = await fetch('possession');
         const data = await response.json();
         console.log(data);
 

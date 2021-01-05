@@ -12,10 +12,10 @@ using Microsoft.Extensions.Logging;
 namespace my_new_app.Controllers
 {
 
-    public class PossessionsController : ControllerBase
+    public class PossessionController : ControllerBase
     {
         private IPossessionsService _possessionsService;
-        public  PossessionsController(IPossessionsService possessionsService)
+        public  PossessionController(IPossessionsService possessionsService)
         {
             _possessionsService = possessionsService;
         }
