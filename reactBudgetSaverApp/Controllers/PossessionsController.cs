@@ -22,6 +22,16 @@ namespace my_new_app.Controllers
         public ActionResult<IEnumerable<Possession>> Index()
         {
             return _possessionsService.GetPossessionsList().ToArray();
-        }      
+        }
+
+        public ActionResult<float> TotalPossessionValue()
+        {
+            return _possessionsService.TotalPossessionValue();
+        }
+
+        public ActionResult<float> PossessioninflationValue()
+        {
+            return _possessionsService.TotalPossessionInflation();
+        }
     }
 }

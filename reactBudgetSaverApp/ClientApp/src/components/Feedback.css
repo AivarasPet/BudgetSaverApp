@@ -1,0 +1,31 @@
+﻿table.feedbackTable tr[typeforcss="00"] td:nth-child(2) {
+    color: #06A806;
+}
+
+table.feedbackTable tr[typeforcss="00"] td:nth-child(4) {
+    color: #06A806;
+}
+
+table.feedbackTable tr[typeforcss="11"] td:nth-child(2) {
+    color: #BA0C2E;
+}
+
+table.feedbackTable tr[typeforcss="11"] td:nth-child(4) {
+    color: #BA0C2E;
+}
+
+table.feedbackTable tr[typeforcss="01"] td:nth-child(2) {
+    color: #BA0C2E;
+}
+
+table.feedbackTable tr[typeforcss="01"] td:nth-child(4) {
+    color: #06A806;
+}
+
+table.feedbackTable tr[typeforcss="10"] td:nth-child(2) {
+    color: #06A806;
+}
+
+table.feedbackTable tr[typeforcss="10"] td:nth-child(4) {
+    color: #BA0C2E;
+}

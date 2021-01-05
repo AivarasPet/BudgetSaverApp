@@ -18,17 +18,18 @@ namespace my_new_app.Controllers
     public class GoalsController : Controller
     {
         private IGoalsService _goalsService;
-        public GoalsController(IGoalsService goalsService)
+        private IPossessionsService _possessionsService;
+        public GoalsController(IGoalsService goalsService, IPossessionsService possessionsService)
         {
             _goalsService = goalsService;
+            _possessionsService = possessionsService;
         }
         public ActionResult<int> GetGoalDaysLeft() => _goalsService.GetGoalDaysLeft();
-        public ActionResult<string> MainGoalName() => _goalsService.GetGoalItemName();
-        public ActionResult<float> MainGoalPrice() => _goalsService.GetGoalItemPrice();
 
-        public ActionResult<Tuple<string, float, float, float, int>> GoalValues()
+        public ActionResult<Tuple<string, float, float, float, float>> GoalValues()
         {
            return _goalsService.GetGoals();
         }
+
     }
 }

@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import Possessions from "./Possessions.js"
+import { Statistics } from './Statistics/Statistics.js';
 
 export class Goals extends Component {
     static displayName = Goals.name;
@@ -7,7 +9,17 @@ export class Goals extends Component {
     super(props);
       this.state = {
           loading: true,
-          goalValue: []
+          goalValue: [],
+          checkboxSavings: false,
+          checkboxPossessions: false,
+          checkboxInflation: false,
+          dailyProfit: [],
+          possessions: [],
+          statistic: [],
+          slider: 50,
+          inflation: [],
+          disablePossession: false,
+          inflationVisibility: false,
       };
       this.GoalValues = this.GoalValues.bind(this);
     }
@@ -16,19 +28,95 @@ export class Goals extends Component {
         const response = await fetch('goals/GoalValues');
         const data = await response.json();
         console.log(data.item1);
-        this.setState({ goalValue: data, loading: false });
+        this.setState({ goalValue: data, dailyProfit: data.item5, loading: false });
     }
 
-    static renderGoal(goalValue) {
+    async TotalPossessionsValues() {
+        const response = await fetch('goals/PossessionsValues');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ possessions: data, loading: false });
+    }
+
+    changeSavingsHandle = event => {
+        if (this.state.checkboxSavings)
+            this.setState({
+                checkboxSavings: event.target.checked,
+                dailyProfit: (this.state.dailyProfit - this.state.goalValue.item4)
+            })
+        else
+            this.setState({
+                checkboxSavings: event.target.checked,
+                dailyProfit: (this.state.dailyProfit + this.state.goalValue.item4)
+            })
+    }
+    changePossessionsHandle = event => {
+        if (this.state.checkboxPossessions)
+            this.setState({
+                checkboxPossessions: event.target.checked,
+                inflationVisibility: !this.state.inflationVisibility,
+                dailyProfit: (this.state.dailyProfit - this.state.possessions)
+            })
+        else
+            this.setState({
+                checkboxPossessions: event.target.checked,
+                inflationVisibility: !this.state.inflationVisibility,
+                dailyProfit: (this.state.dailyProfit + this.state.possessions)
+            })
+    }
+    changeInflationHandle = event => {
+        if (this.state.checkboxInflation)
+            this.setState({
+                checkboxInflation: event.target.checked,
+                disablePossession: false,
+                dailyProfit: (this.state.dailyProfit - (this.state.possessions * this.state.inflation / 365))
+            })
+        else
+            this.setState({
+                checkboxInflation: event.target.checked,
+                disablePossession: true,
+                dailyProfit: (this.state.dailyProfit + (this.state.possessions * this.state.inflation / 365))
+            })
+    }
+    sliderChange = event => {
+        this.setState({
+            slider: event.target.value,
+            dailyProfit: (((this.state.statistic.totalIncome - this.state.statistic.totalExpenses) / 30) * (this.state.slider * 100))
+        })
+    }
+
+    async totalValue() {
+        const response = await fetch('possessions/TotalPossessionValue');
+        const data = await response.json();
+        console.log(data);
+
+        this.setState({ possessions: data, loading: false });
+    }
+
+    lastMonth = async () => {
+        const response = await fetch('statistic/lastmonth');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ statistic: data, loading: false, dailyProfit: (((data.totalIncome - data.totalExpenses) / 30) * (this.state.slider * 100)) });
+    }
+
+    async percentageValue() {
+        const response = await fetch('possessions/PossessioninflationValue');
+        const data = await response.json();
+        console.log(data);
+        this.setState({ inflation: data, loading: false });
+    }
+
+    static renderGoal(goalValue, dailyProfit) {
         return (
             <ul>
                 <p></p>
                 <div>
+                    <li><b>Days until goal is reached: {Math.round(goalValue.item2 / dailyProfit)}</b></li>
                     <li>Main goal: {goalValue.item1}</li>
-                    <li>Main goal price: {goalValue.item2}</li>
-                    <li>Days until goal is reached: {goalValue.item5}</li>
-                    <li>Monthly salary: {goalValue.item3}</li>
-                    <li>Total savings: {goalValue.item4}</li>
+                    <li>Main goal price: {goalValue.item2 + ' \u20AC'}</li>
+                    <li>Monthly salary: {goalValue.item3 + ' \u20AC'}</li>
+                    <li>Total savings: {goalValue.item4 + ' \u20AC'}</li>
                 </div>
             </ul>
         );
@@ -36,16 +124,29 @@ export class Goals extends Component {
 
     componentDidMount() {
         this.GoalValues();
+        this.lastMonth();
+        this.totalValue();
+        this.percentageValue();
     }
 
     render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : Goals.renderGoal(this.state.goalValue);
+            : Goals.renderGoal(this.state.goalValue, this.state.dailyProfit);
         return (
             <div>
                 <h1>Goals</h1>
-                {contents}                
+                <label> Percentage from profits: </label>
+                <p> Selected value: {this.state.slider} %</p>
+                <p><input type="range" value={this.state.slider} onChange={this.sliderChange} min="0" style={{ width: "50%" }} /></p>
+                <label> Will use savings: </label><input type="checkbox" checked={this.state.checkboxSavings} onChange={this.changeSavingsHandle} style={{ marginLeft: "10px", marginRight: "10px" }}/>
+                <label> Will use possessions: </label><input type="checkbox" disabled={this.state.disablePossession} checked={this.state.checkboxPossessions} onChange={this.changePossessionsHandle} style={{ marginLeft: "10px", marginRight: "10px" }} />
+                {this.state.inflationVisibility && (
+                    <label>
+                        <label> Apply inflation to possessions: </label><input type="checkbox" checked={this.state.checkboxInflation} onChange={this.changeInflationHandle} style={{ marginLeft: "10px", marginRight: "10px" }} />
+                    </label>
+                )}  
+                {contents}     
             </div>
         );
     }

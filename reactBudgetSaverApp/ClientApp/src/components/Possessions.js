@@ -6,7 +6,7 @@ export class Possessions extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { possessions: [], loading: true };
+        this.state = { possessions: [], loading: true};
     }
 
     componentDidMount() {
@@ -21,7 +21,7 @@ export class Possessions extends Component {
                         <th style={{ width: '4%' }}>Logo</th>
                         <th>Title</th>
                         <th>Amount</th>
-                        <th>Value {'\u0024'}</th>
+                        <th>Value</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +30,7 @@ export class Possessions extends Component {
                             <img src={possession.linkOfImage} className = "image" />
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
-                            <td>{possession.valueInDollars}</td>
+                            <td>{possession.valueInDollars + ' \u0024'}</td>
                         </tr>
                     )}
                 </tbody>
@@ -59,4 +59,6 @@ export class Possessions extends Component {
 
         this.setState({ possessions: data, loading: false });
     }
+
+    
 }

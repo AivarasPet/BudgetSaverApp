@@ -93,5 +93,22 @@ namespace BudgetSaverApp.Possessions
 
             APIFetcher.RunAllDownloadsAsync();
         }
+        public float TotalPossessionValue()
+        {
+            float value = 0;
+            foreach (Possession p in list)
+            {
+                value += p.ValueInDollars;
+            }
+            return value;
+        }
+
+        public float TotalPossessionInflation()
+        {
+            float value = TotalPossessionValue();
+            float percentage = PublicValues.InflationInARecentYear();
+            float price = value * percentage;
+            return price;
+        }
     }
 }

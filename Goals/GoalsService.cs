@@ -8,8 +8,6 @@ namespace BudgetSaverApp.Portfolio
     class GoalsService : IGoalsService
     {
         ITransactionService _transactionService;
-        //string _MainGoalName;
-        //float _MainGoalPrice;
         public float GoalItemPrice { get; set; }
         public float CurrentSavings { get; set; }
         public float MonthlySalary { get; set; }
@@ -33,14 +31,14 @@ namespace BudgetSaverApp.Portfolio
 
         Func<float, float, float> getGoalDays = (a, b) => a / b;
 
-        public Tuple<string, float, float, float, int> GetGoals()
+        public Tuple<string, float, float, float, float> GetGoals()
         {           
             string goalName = GetGoalItemName();
             float goalPrice = GetGoalItemPrice();
             float saving = GetMonthlySalary();
             float salary = GetCurrentSavings();
-            int goalLeftDays = GetGoalDaysLeft();
-            return new Tuple<string, float, float, float, int>(goalName, goalPrice, saving, salary, goalLeftDays);
+            float monthlyProfit = GetProfitMonthly().Daily();
+            return new Tuple<string, float, float, float, float>(goalName, goalPrice, saving, salary, monthlyProfit);
         }
 
         public float GetGoalItemPrice()

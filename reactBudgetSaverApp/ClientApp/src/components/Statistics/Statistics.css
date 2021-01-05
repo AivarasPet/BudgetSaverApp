@@ -6,3 +6,11 @@
     border-radius: 0.25rem;
     border-color: #0F569D
 }
+
+table.statiticsTable td:nth-child(3) {
+    color: #06A806;
+}
+
+table.statiticsTable td:nth-child(4) {
+    color: #BA0C2E;
+}

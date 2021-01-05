@@ -7,5 +7,7 @@ namespace BudgetSaverApp
     {
         public List<Possession> GetPossessionsList();
         public void LoadPossessionsList();
+        public float TotalPossessionValue();
+        public float TotalPossessionInflation();
     }
 }

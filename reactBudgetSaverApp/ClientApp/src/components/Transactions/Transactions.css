@@ -1,35 +1,13 @@
-﻿tr[typeforcss="0"] {
+﻿table.transactionsTable tr[typeforcss="0"] td:nth-child(2) {
     color: #06A806;
 }
 
-.table tbody tr[typeforcss="0"]:hover td, .table tbody tr[typeforcss="0"]:hover th {
-    background-color: #8F8D8D;
-    color: #19701F
-}
-
-tr[typeforcss="1"] {
+table.transactionsTable tr[typeforcss="1"] td:nth-child(2) {
     color: #BA0C2E;
-}
-
-.table tbody tr[typeforcss="1"]:hover td, .table tbody tr[typeforcss="1"]:hover th {
-    background-color: #8F8D8D;
-    color: #BA0C2E
-}
-
-td:nth-child(1){
-    color: black
-}
-
-td:nth-child(3) {
-    color: black
 }
 
 .table-bordered td, .table-bordered th {
     border: 1px solid black;
-}
-
-.table {
-    color: black;
 }
 
 input {

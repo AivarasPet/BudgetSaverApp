@@ -8,7 +8,7 @@ namespace BudgetSaverApp.Goals
 {
     public interface IGoalsService
     {
-        public Tuple<string, float, float, float, int> GetGoals();
+        public Tuple<string, float, float, float, float> GetGoals();
         public float GetGoalItemPrice();
         public float GetCurrentSavings();
         public float GetMonthlySalary();

@@ -111,6 +111,8 @@ namespace BudgetSaverApp.Statistics
                 percentage = difference / (newNumber + difference) * 100;
                 isPositiveFeedback = isIncome;
             }
+            String date1 = dateComparedTo.ToString("yyyy-MM-dd");
+            String date2 = dateCompared.ToString("yyyy-MM-dd");
 
             return new FinancialFeedbackByCategory
             {
@@ -120,11 +122,11 @@ namespace BudgetSaverApp.Statistics
                 DateCompared = dateCompared,
                 DateComparedTo = dateComparedTo,
                 Difference = difference,
-                PercentageDifference = percentage
+                PercentageDifference = percentage,
+                FormatedDateTo = date1,
+                FormatedDate = date2
             };
         }
-
- 
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo)
         {
@@ -204,7 +206,8 @@ namespace BudgetSaverApp.Statistics
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth()
         {
-            DateTime date = DateTime.Now;
+            //DateTime date = DateTime.Now;
+            DateTime date = new DateTime(2020,12,25);
             var prev = date.AddMonths(-2);
             return GetFinancialFeedackByCategory(prev);
         }

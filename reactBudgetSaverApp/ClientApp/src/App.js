@@ -5,7 +5,7 @@ import { Home } from './components/Home';
 import { Transactions } from './components/Transactions/Transactions';
 import { Possessions } from './components/Possessions';
 import { Statistics } from './components/Statistics/Statistics';
-import { Goals } from './components/Goals';
+import { Goals }  from './components/Goals';
 import './custom.css'
 
 export default class App extends Component {

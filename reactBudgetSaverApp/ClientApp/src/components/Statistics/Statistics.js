@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Statistics.css"
-import Feedback from "./Feedback.js"
+import Feedback from ".././Feedback.js"
 
 
 export class Statistics extends Component {
@@ -61,11 +61,11 @@ export class Statistics extends Component {
 
     renderSubStatistics(subStatistics) {
         return (
-            <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel" sortable="true">
+            <table className='table table-bordered table-sm table-hover table-striped statiticsTable' aria-labelledby="tabelLabel" sortable="true">
                 <thead className="thead-dark">
                     <tr>
                         <th data-field="id" >Category</th>
-                        <th>Amount </th>
+                        <th>Amount</th>
                         <th>Income</th>
                         <th>Expenses</th>
                     </tr>
@@ -75,8 +75,8 @@ export class Statistics extends Component {
                         <tr key={index}>
                             <td>{key}</td>
                             <td>{subStatistics[key].count}</td>
-                            <td>{subStatistics[key].income}</td>
-                            <td>{subStatistics[key].expenses}</td>
+                            <td>{subStatistics[key].income + ' \u20AC'}</td>
+                            <td>{subStatistics[key].expenses + ' \u20AC'}</td>
                         </tr>
                     )}
                 </tbody>
@@ -92,8 +92,8 @@ export class Statistics extends Component {
                 <p></p>
                 <div>
                     <li>Transaction amount: {statistics.transactionAmount}</li>
-                    <li>Income: + {statistics.totalIncome} {'\u20AC'}</li>
-                    <li>Expenses: - {statistics.totalExpenses} {'\u20AC'}</li>
+                    {statistics.totalIncome > 0 ? <li>{"Income: " + '+ ' + statistics.totalIncome + ' \u20AC'}</li> : <li>{"Income: " + statistics.totalIncome + ' \u20AC'}</li>}
+                    {statistics.totalExpenses > 0 ? <li>{"Expenses: " + '- ' + statistics.totalExpenses + ' \u20AC'}</li> : <li>{"Expenses: " + statistics.totalExpenses + ' \u20AC'}</li>}
                     <li>Balance: {statistics.totalIncome - statistics.totalExpenses} {'\u20AC'}</li>
                 </div>
                 <p></p>
