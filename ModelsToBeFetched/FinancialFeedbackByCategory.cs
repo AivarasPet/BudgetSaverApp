@@ -14,5 +14,7 @@ namespace my_new_app.ModelsToBeFetched
         public string Category { get; set; }
         public DateTime DateComparedTo { get; set; }
         public DateTime DateCompared { get; set; }
+        public String FormatedDateTo { get; set; }
+        public String FormatedDate { get; set; }
     }
 }

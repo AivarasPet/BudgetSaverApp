@@ -38,8 +38,6 @@ namespace BudgetSaverApp.Portfolio
             }
             
         }
-
-
         public void ReadFromFile()
         {
 
@@ -65,14 +63,15 @@ namespace BudgetSaverApp.Portfolio
 
         Func<float, float, float> getGoalDays = (a, b) => a / b;
 
-        public Tuple<string, float, float, float, int> GetGoals()
+        public Tuple<string, float, float, float, int, float> GetGoals()
         {           
             string goalName = GetGoalItemName();
             float goalPrice = GetGoalItemPrice();
             float saving = GetMonthlySalary();
             float salary = GetCurrentSavings();
             int goalLeftDays = GetGoalDaysLeft();
-            return new Tuple<string, float, float, float, int>(goalName, goalPrice, saving, salary, goalLeftDays);
+            float monthlyProfit = GetProfitMonthly().Daily();
+            return new Tuple<string, float, float, float, int, float>(goalName, goalPrice, saving, salary, goalLeftDays, monthlyProfit);
         }
 
         public float GetGoalItemPrice()

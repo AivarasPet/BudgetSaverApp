@@ -62,10 +62,7 @@ export default class AddTransaction extends Component {
         }
 
         var data = { transactType: this.state.inputType, amount: parseFloat(this.state.inputAmount), title: this.state.inputTitle, category: this.state.inputCategory };
-
-
         console.log(data);
-
         this.clearAdd();
 
         const message = {
@@ -73,7 +70,6 @@ export default class AddTransaction extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
-
 
         fetch('Transaction/PostAddTransaction', message)
             .then(response => {
@@ -89,8 +85,6 @@ export default class AddTransaction extends Component {
                 }
                     
             });
-
-
     }
 
     toggleVisilibity = () => {
@@ -113,8 +107,7 @@ export default class AddTransaction extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div>           
                 <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Transaction</button>
                 {this.state.addNewTransactionVisibility && (
                     <form onSubmit={this.handleNewTransaction}>{"\n"}
