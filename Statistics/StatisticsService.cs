@@ -101,8 +101,6 @@ namespace BudgetSaverApp.Statistics
             Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, transactionService);
             float oldExpenses, newExpenses;
 
-            String date1 = statsThatAreComparedTo.StartDateTime.ToString("yyyy-MM-dd");
-            String date2 = statsThatAreCompared.StartDateTime.ToString("yyyy-MM-dd");
 
             List<FinancialFeedbackByCategory> list =
                 (from sc in statsThatAreCompared.SubStatsList
@@ -116,9 +114,7 @@ namespace BudgetSaverApp.Statistics
                      DateComparedTo = statsThatAreComparedTo.StartDateTime,
                      Difference = Math.Abs(sc.Amount - sct.Amount) ,
                      PercentageDifference = Math.Abs((sct.Amount - sc.Amount) / (sct.Amount) * 100),
-                     IsFeedbackPositive = (sc.Amount >= sct.Amount && sc.IsIncome || sc.Amount < sct.Amount && !sc.IsIncome),
-                     FormatedDateTo = date1,
-                     FormatedDate = date2
+                     IsFeedbackPositive = (sc.Amount >= sct.Amount && sc.IsIncome || sc.Amount < sct.Amount && !sc.IsIncome)
                  }).ToList();
 
             return list;

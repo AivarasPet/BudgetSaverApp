@@ -60,7 +60,7 @@ export default class AddGoal extends Component {
         return (
             <div>
 
-                
+                Labas
             </div>
 
         );
