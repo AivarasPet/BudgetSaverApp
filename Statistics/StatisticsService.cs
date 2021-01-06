@@ -54,7 +54,7 @@ namespace BudgetSaverApp.Statistics
             //else StatsLastMonth.Value.SubStatsMap.Add(added.Category, value);
         }
 
-        //public Dictionary<string, Stats> LowestYearlyExpenesByCategory(Stats statsToBeCompared)
+        //public List<SubStats>  LowestYearlyExpenesByCategory(Stats statsToBeCompared)
         //{
         //    if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
         //    Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
@@ -70,7 +70,7 @@ namespace BudgetSaverApp.Statistics
         //    return dict;
         //}
 
-        //public Dictionary<string, Stats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
+        //public List<SubStats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
         //{
         //    Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
         //    if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
@@ -88,7 +88,7 @@ namespace BudgetSaverApp.Statistics
         //}
 
 
- 
+
 
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo)
         {

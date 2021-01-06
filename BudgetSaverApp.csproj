@@ -284,7 +284,7 @@
     <Compile Include="Other\ImageFetcher.cs" />
     <Compile Include="Possessions\CustomJsonConverter.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
-    <Compile Include="Possessions\Links\ApiLink.cs" />
+    <Compile Include="Other\ApiLink.cs" />
     <Compile Include="Possessions\Links\ImageLink.cs" />
     <Compile Include="Statistics\IStatisticsService.cs" />
     <Compile Include="Transactions\ITransactionService.cs" />

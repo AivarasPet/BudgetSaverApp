@@ -28,7 +28,7 @@ namespace BudgetSaverApp.Statistics
                                Category = t.Key.Category,
                                Count = t.Count(),
                                Amount = t.Sum(ta => ta.Amount),
-                               IsIncome = (t.Key.TransactType == Transaction.TransactionType.INCOME) ? true : false
+                               IsIncome = (t.Key.TransactType == Transaction.TransactionType.INCOME)
                            }).ToList();
 
             TransactionAmount = SubStatsList.Count;
