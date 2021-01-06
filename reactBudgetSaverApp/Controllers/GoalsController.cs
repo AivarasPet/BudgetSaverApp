@@ -42,6 +42,8 @@ namespace my_new_app.Controllers
                 });
 
             }
+
+
             return goals.ToArray();
         }
     }
