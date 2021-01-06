@@ -38,6 +38,23 @@ namespace BudgetSaverApp.Portfolio
             }
             
         }
+
+        public DataRow GetUserData(int userId)
+        {
+            using (SqlConnection con = new SqlConnection("Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True; "))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CurrentSavings, MonthlySalary FROM dbo.Users WHERE Id = @userId", con);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                con.Close();
+                return dt.Rows[0];
+            }
+        }
+
         public void ReadFromFile()
         {
 
@@ -46,8 +63,6 @@ namespace BudgetSaverApp.Portfolio
 
             CurrentSavings = float.Parse(data[0]);
             MonthlySalary = float.Parse(data[1]);
-            GoalItemName = data[2];
-            GoalItemPrice = float.Parse(data[3]);
         }
 
         public float GetProfitMonthly()
@@ -63,25 +78,9 @@ namespace BudgetSaverApp.Portfolio
 
         Func<float, float, float> getGoalDays = (a, b) => a / b;
 
-        public Tuple<string, float, float, float, int, float> GetGoals()
-        {           
-            string goalName = GetGoalItemName();
-            float goalPrice = GetGoalItemPrice();
-            float saving = GetMonthlySalary();
-            float salary = GetCurrentSavings();
-            int goalLeftDays = GetGoalDaysLeft();
-            float monthlyProfit = GetProfitMonthly().Daily();
-            return new Tuple<string, float, float, float, int, float>(goalName, goalPrice, saving, salary, goalLeftDays, monthlyProfit);
-        }
-
         public float GetGoalItemPrice()
         {
             return GoalItemPrice;
-        }
-
-        public float GetCurrentSavings()
-        {
-            return CurrentSavings;
         }
 
         public float GetMonthlySalary()

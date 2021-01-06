@@ -13,10 +13,6 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-    class floatObject
-    {
-        public float profit { get; set; }
-    }
     public class GoalsController : Controller
     {
         private IGoalsService _goalsService;
@@ -43,6 +39,13 @@ namespace my_new_app.Controllers
 
             }
             return goals.ToArray();
+        }
+
+        public ActionResult<float> UserData()
+        {
+            DataRow userDataRow = _goalsService.GetUserData(1);
+            float currentSavings = float.Parse(userDataRow["CurrentSavings"].ToString(), CultureInfo.InvariantCulture.NumberFormat);
+            return currentSavings;
         }
     }
 }

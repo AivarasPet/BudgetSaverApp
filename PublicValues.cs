@@ -17,7 +17,7 @@ namespace BudgetSaverApp
         {
             if (inflation != 0) return inflation;
 
-            string link = ConfigurationManager.AppSettings["APIKeyInflation"];
+            string link = "https://www.quandl.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=4SykxztoStAkUxdKf7Xd";
             if (link == null) return 0;
             ApiLink api = new ApiLink
             {

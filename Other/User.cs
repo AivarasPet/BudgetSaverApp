@@ -12,5 +12,7 @@ namespace BudgetSaverApp.Other
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public float CurrentSavings { get; set; }
+        public float MonthlySalary { get; set; }
     }
 }

@@ -10,9 +10,8 @@ namespace BudgetSaverApp.Goals
     public interface IGoalsService
     {
         public DataTable GetGoalTable(int userId);
-        public Tuple<string, float, float, float, int, float> GetGoals();
+        public DataRow GetUserData(int userId);
         public float GetGoalItemPrice();
-        public float GetCurrentSavings();
         public float GetMonthlySalary();
         public string GetGoalItemName();
         public float GetProfitMonthly();

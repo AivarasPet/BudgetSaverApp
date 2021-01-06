@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import Chart from 'chart.js'
+//import Chart from 'chart.js'
 
 export class Home extends Component {
-  static displayName = Home.name;
+    static displayName = Home.name;
+
     constructor(props) {
         super(props);
         this.state = {
             labels: [],
             dataValues: [],
-            loading: true,
+            loading: true
         };
     }
-
+    /*
     async getFeedback() {
         const response = await fetch('statistic/getpreviousmonthfeedback');
         const data = await response.json();
@@ -73,5 +74,14 @@ export class Home extends Component {
                 <canvas width='800' height='300' ref={ctx => (this.ctx = ctx)} />
             </div>
         );
+    } */
+
+    render() {
+        return (
+            <div>
+                Labas
+            </div>
+            
+            )
     }
 }
