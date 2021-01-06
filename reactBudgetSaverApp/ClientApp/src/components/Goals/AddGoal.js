@@ -7,9 +7,8 @@ export default class AddGoal extends Component {
         super(props);
         this.state = {
             addNewGoalVisibility: false,
-            inputType: "",
-            inputCategory: "",
-            inputTitle: "",
+            inputName: "",
+            inputDescription: "",
             inputAmount: NaN
         };
 
@@ -56,16 +55,34 @@ export default class AddGoal extends Component {
 */
     }
 
+    handleAmountChange = (event) => {
+        this.setState({ inputAmount: event.target.value });
+    }
+
+    handleNameChange = (event) => {
+        this.setState({ inputName: event.target.value });
+    }
+
+    handleDescriptionChange = (event) => {
+        this.setState({ inputDescription: event.value });
+    }
+
     render() {
         return (
             <div>
-
-                
+                <button className="btn btn-primary" onClick={this.toggleVisilibity}>Add Goal</button>
+                {this.state.addNewGoalVisibility && (
+                    <form onSubmit={this.handleNewTransaction}>{"\n"}
+                        <input type="text" placeholder="  Name" onChange={this.handleNameChange} style={{ width: "100%", height: 37 }} />
+                        <input type="number" min="0" step="any" placeholder="  Amount" onChange={this.handleAmountChange} style={{ width: "100%", height: 37 }} />
+                        <input type="text" placeholder="  Description" onChange={this.handleDescriptionChange} style={{ width: "100%", height: 37 }} />
+                        <input type="submit" value="Add" style={{ width: "140px", height: 37 }} />
+                    </form>
+                )}
             </div>
 
         );
-
-    }  
+    }   
 
     toggleVisilibity = () => {
         this.setState({

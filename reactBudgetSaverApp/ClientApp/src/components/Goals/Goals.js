@@ -63,13 +63,12 @@ export class Goals extends Component {
     }
 
     changeInflationHandle = event => {
-        console.log(this.state.possessionInflated);
         this.setState({checkboxInflation: event.target.checked, disablePossession: !this.state.checkboxInflation});
     }
+
     sliderChange = event => {
         this.setState({ slider: event.target.value });
         this.setState({ dailyProfit: (((this.state.statistic.totalIncome - this.state.statistic.totalExpenses) / 30) * (event.target.value / 100)) });
-        console.log(event.target.value);
     }
 
     async totalValue() {
@@ -148,7 +147,8 @@ export class Goals extends Component {
                         <label> Apply inflation to possessions: </label><input type="checkbox" checked={this.state.checkboxInflation} onChange={this.changeInflationHandle} style={{ marginLeft: "10px", marginRight: "10px" }} />
                     </label>
                 )}
-                {contents}               
+                {contents}
+                <AddGoal />
             </div>
         );
     }
