@@ -269,6 +269,7 @@
     </Compile>
     <Compile Include="Migrations\DboContextModelSnapshot.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
+    <Compile Include="Other\ConnectionStringHelper.cs" />
     <Compile Include="Other\DboContext.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="Other\User.cs" />

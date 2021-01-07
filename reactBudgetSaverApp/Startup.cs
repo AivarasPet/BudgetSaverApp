@@ -34,6 +34,7 @@ namespace my_new_app
             services.AddScoped<IStatisticsService, StatisticsService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IGoalsService, GoalsService>();
+            services.AddSingleton(new ConnectionStringHelper { ConnectionString = Configuration.GetConnectionString("DefaultConnection") });
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

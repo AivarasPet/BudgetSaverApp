@@ -11,6 +11,9 @@ namespace BudgetSaverApp.Goals
     {
         public DataTable GetGoalTable(int userId);
         public DataRow GetUserData(int userId);
+        public void UpdateGoal(string inputName, float inputAmount, string inputDescription, int goalId, int userId);
+        public void AddNewGoal(string inputName, float inputAmount, string inputDescription, int userId);
+        public void DeleteGoal(int goalId,int userId);
         public float GetGoalItemPrice();
         public float GetMonthlySalary();
         public string GetGoalItemName();

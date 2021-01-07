@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
-import AddGoal from './AddGoal.js'
+import AddGoal from './AddGoal.js';
+import './Goals.css';
 
 
 export class Goals extends Component {
@@ -21,8 +22,11 @@ export class Goals extends Component {
           possessionInflated: [],
           disablePossession: false,
           inflationVisibility: false,
-          savings: 0
+          savings: 0,
+          openedGoal: -1
       };
+
+      this.editMode = React.createRef();
     }
 
     componentDidMount() {
@@ -92,30 +96,60 @@ export class Goals extends Component {
         this.setState({ possessionInflated: data, loading: false });
     }
 
-    static renderGoal(goalValue, dailyProfit, savings, possessions) {
-        console.log(dailyProfit);
+    goalChangeWindow = (event) => {
+        var id = event.currentTarget.attributes.id.value;
+        if (id == this.state.openedGoal) {
+            this.setState({ openedGoal: -1 });
+            this.editMode.current.fillFields(this.state.goalValue[id], false, -1);
+        } else if (this.state.openedGoal !== -1) {
+            this.editMode.current.fillFields(this.state.goalValue[id], true, id);
+            this.setState({ openedGoal: id });
+        } else {
+            this.editMode.current.fillFields(this.state.goalValue[id], true, id);
+            this.setState({ openedGoal: id });
+        }
+    }
+
+
+    renderGoal(goalValue, dailyProfit, savings, possessions) {
         return (
             <ul>
-                <AddGoal />
                 {goalValue.map((goal, index) =>
-                    <div key={index}>
+                    <div key={index} className="goalDiv" id={index} onClick={this.goalChangeWindow}>
                         <li><b>Days until goal is reached: {Math.round((goal.goalItemPrice - savings - possessions) / dailyProfit)}</b></li>
                         <li>Goal: {goal.goalItemName}</li>
                         <li>Goal price: {goal.goalItemPrice + ' \u20AC'}</li>
                         <li>Goal description: {goal.goalDescription}</li>
                         <p></p>
                     </div>
-                    
                 )}
             </ul>
         );
     } 
 
-    onUpdate(data) {
-        //console.log("Labas");
+    onUpdate(data, update) {
+        var goals = this.state.goalValue;
+        if (update) {
+            console.log(data);
+            if (typeof data == "number") {
+                goals.splice(data, 1);
+                
+            } else {
+                var temp = { goalItemName: data.inputName, goalItemPrice: data.inputAmount, goalDescription: data.inputDescription };
+                console.log(temp);
+                goals[data.goalId] = temp;
+                console.log(goals);
+            }
+            this.setState({ goalValue: goals });
+            
+            
+        } else {
+            goals.push(data);
+            this.setState({ goalValue: goals });
+        }
+        this.setState({ openedGoal: -1 });
+        
     }
-
-    
 
     render() {
         let savings = this.state.checkboxSavings
@@ -132,7 +166,7 @@ export class Goals extends Component {
 
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : Goals.renderGoal(this.state.goalValue, this.state.dailyProfit, savings, possessions);
+            : this.renderGoal(this.state.goalValue, this.state.dailyProfit, savings, possessions);
         return (
             <div>
                 <h1>Goals</h1>
@@ -148,7 +182,7 @@ export class Goals extends Component {
                     </label>
                 )}
                 {contents}
-                <AddGoal />
+                <AddGoal ref={this.editMode} onUpdate={this.onUpdate.bind(this)}/>
             </div>
         );
     }
