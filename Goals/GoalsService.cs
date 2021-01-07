@@ -145,6 +145,21 @@ namespace BudgetSaverApp.Portfolio
                 sda.Fill(dt);
                 string hehe = dt.Rows[goalId]["Id"].ToString();
 
+                sda.UpdateCommand = new SqlCommand("UPDATE dbo.Goals SET GoalItemName = @goalItemName, GoalItemPrice = @goalItemPrice, GoalDescription = @goalDescription WHERE Id = @goalId", con);
+
+                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalId", hehe));
+                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalItemName", inputName));
+                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalDescription", inputDescription));
+                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalItemPrice", inputAmount));
+
+                DataRow goalRow = dt.Rows[goalId];
+                goalRow["GoalItemName"] = inputName;
+                goalRow["GoalItemPrice"] = inputAmount;
+                goalRow["GoalDescription"] = inputDescription;
+
+                sda.Update(dt);
+
+                /*
                 SqlCommand updateCmd = new SqlCommand("UPDATE dbo.Goals SET GoalItemName = @goalItemName, GoalItemPrice = @goalItemPrice, GoalDescription = @goalDescription WHERE Id = @goalId", con);
                 updateCmd.Parameters.Add(new SqlParameter("@goalId", hehe));
                 updateCmd.Parameters.Add(new SqlParameter("@goalItemName", inputName));
@@ -158,7 +173,7 @@ namespace BudgetSaverApp.Portfolio
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                }
+                }*/
                 con.Close();
             }
         }
