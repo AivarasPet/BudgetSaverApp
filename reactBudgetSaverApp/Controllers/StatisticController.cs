@@ -8,6 +8,7 @@ using BudgetSaverApp.Statistics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_new_app.ModelsToBeFetched;
+using BudgetSaverApp.ModelsToBeFetched;
 
 namespace my_new_app.Controllers
 {
@@ -47,6 +48,13 @@ namespace my_new_app.Controllers
 
             return new Stats(startDate, endDate, _transactionService);
 
+        }
+
+
+        public ActionResult<string> GetTopEarnings()
+        {
+            string sss = _statisticsService.getTopEarnings();
+            return sss;
         }
 
 
