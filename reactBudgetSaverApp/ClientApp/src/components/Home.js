@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Chart from 'chart.js'
+import Chart from 'chart.js';
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -9,38 +9,41 @@ export class Home extends Component {
         this.state = {
             labels: [],
             dataValues: [],
-            loading: true
-        };
+            loading: true,
+        };       
     }
-    /*
-    async getFeedback() {
-        const response = await fetch('statistic/getpreviousmonthfeedback');
+   
+    thisMonth = async () => {
+        const response = await fetch('statistic/thismonth');
         const data = await response.json();
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-            var joined1 = this.state.labels.concat(data[i].category);
-            var joined2 = this.state.dataValues.concat(data[i].percentageDifference);
+        console.log(data.subStatsList);
+        for (var i = 0; i < data.subStatsList.length; i++) {
+            var joined1 = this.state.labels.concat(data.subStatsList[i].category);
+            if (data.subStatsList[i].isIncome) { var joined2 = this.state.dataValues.concat(data.subStatsList[i].amount); }
+            else { var joined2 = this.state.dataValues.concat((data.subStatsList[i].amount)*-1); }
             this.setState({ labels: joined1, dataValues: joined2 })
         }
         this.setState({ loading: false });
-    }
-    componentDidMount() {
-        this.getFeedback();
-    }
-    componentDidUpdate() {
         this.buildChart(this.state.labels, this.state.dataValues);
+    }
+ 
+    componentDidMount() {
+        this.thisMonth();
     }
 
     buildChart = (labels, dataValues) => {
-        const ctx = this.ctx;
-        console.log(dataValues);
-        new Chart(ctx, {
+        var myChart;
+        if (myChart) {
+            window.myChart.destroy();
+        }
+        var ctx = this.ctx;
+        myChart = new Chart(ctx, {
             type: "bar",
             data: {
                 labels: labels,
                 datasets: [
                     {
-                        label: "% difference",
+                        label: "ammount, \u20AC",
                         data: dataValues,
                         backgroundColor: [
                             "rgba(255, 99, 132, 0.2)",
@@ -66,12 +69,15 @@ export class Home extends Component {
             }
         });
     }
-
-    render() {
+    
+    render() {   
         return (
             <div>
-                <h1>Feedback</h1>
-                <canvas width='800' height='300' ref={ctx => (this.ctx = ctx)} />
+                <h1>Home</h1>
+                <p>This month's statistics</p>
+                <div>
+                    <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
+                </div>
             </div>
         );
     } */
@@ -85,3 +91,4 @@ export class Home extends Component {
             )
     }
 }
+//                    <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
