@@ -8,7 +8,6 @@ using BudgetSaverApp.Statistics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_new_app.ModelsToBeFetched;
-using BudgetSaverApp.ModelsToBeFetched;
 
 namespace my_new_app.Controllers
 {

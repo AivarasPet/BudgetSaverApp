@@ -1,5 +1,4 @@
-﻿using BudgetSaverApp.ModelsToBeFetched;
-using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.Transactions;
 using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;
@@ -84,7 +83,7 @@ namespace BudgetSaverApp.Statistics
 
   
 
-        public List<TopEarningsMonthlyByCategory> HighestMonthlyIncomeByCategory()
+        /*public List<TopEarningsMonthlyByCategory> HighestMonthlyIncomeByCategory()
         {
             List<List<SubStatsWithDate>> list = new List<List<SubStatsWithDate>>();
             StatsPastYearMonthly.ForEach(x => list.Add(getSub(x, x.StartDateTime)));
@@ -101,7 +100,7 @@ namespace BudgetSaverApp.Statistics
            });
 
             return query.Take(3).Select(x => new TopEarningsMonthlyByCategory { Amount = x.Sub.Amount, Category = x.Sub.Category, Month = x.Date.Month.ToString("MMMM") }).ToList();
-        }
+        }*/
 
 
         public string getTopEarnings() {

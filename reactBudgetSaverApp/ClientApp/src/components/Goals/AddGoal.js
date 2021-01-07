@@ -144,7 +144,9 @@ export default class AddGoal extends Component {
                         <input type="text" placeholder="  Name" value={this.state.inputName} onChange={this.handleNameChange} style={{ width: "100%", height: 37 }} />
                         <input type="number" min="0" step="any" placeholder="  Amount" value={this.state.inputAmount} onChange={this.handleAmountChange} style={{ width: "100%", height: 37 }} />
                         <input type="text" placeholder="  Description" value={this.state.inputDescription} onChange={this.handleDescriptionChange} style={{ width: "100%", height: 37 }} />
-                        <input type="submit" value={this.state.buttonText} style={{ width: "140px", height: 37 }} />
+                        <div style={{ marginTop: 10 }}>
+                            <input type="submit" value={this.state.buttonText} style={{ width: "140px", height: 37 }} />
+                        </div>
                         {this.state.editMode && (
                             <input className="btn btn-danger" type="submit" value="Delete" onClick={this.changeDeleteMode} style={{ width: "140px", height: 37 }} />
                         )}
