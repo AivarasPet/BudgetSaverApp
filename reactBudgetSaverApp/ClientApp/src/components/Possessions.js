@@ -21,6 +21,7 @@ export class Possessions extends Component {
 
     componentDidMount() {
         this.populatePossessionData();
+        this.populatePossessionNames();
     }
 
 
@@ -41,14 +42,82 @@ export class Possessions extends Component {
     };
 
 
-    updatePossession = (possessionNumber, newAmount) => {
-        console.log(possessionNumber + ' ' + newAmount);
+    updatePossession = (possessionName, amount) => {
+        if (possessionName === "" || amount === NaN) {
+            return;
+        }
+        this.hideModals();
+
+        var data = { PossessionName: possessionName, Amount: parseFloat(amount) };
+
+        const message = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+
+
+        fetch('possession/PostUpdatePossession', message)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+                    return null;
+                }
+            }).then(data => {
+                if (data !== null) {
+                   // this.setState({possessions: data});
+                }
+                });
+        
     }
-    insertPossession = (possessionNumber, amount) => {
-        //console.log(possessionNumber + ' ' + newAmount);
+    insertPossession = (possessionName, amount) => {
+        
+        /*//verification
+        if (possessionName === "" || amount === NaN) {
+            return;
+        }
+
+        this.hideModals();
+
+        var data = { PossessionName: possessionName, Amount: parseFloat(amount) };
+
+
+        console.log(data);
+
+        const message = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+
+
+        fetch('possession/PostAddPossession', message)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+                    return null;
+                }
+            }).then(data => {
+                if (data !== null) {
+            });
+            
+        */
     }
-    deletePossession = (possessionNumber) => { //name ateina
-        //this.editState({ selectedPossession: event.value });
+    deletePossession = async(possessionName) => { //name ateina
+
+        if (possessionName === "") {
+            return;
+        }
+
+        this.hideModals();
+
+        const response = await fetch('possession/DeletePossession?possessionName=' + possessionName);
+        const data = await response;
+        //this.setState({ possessions: data });
     }
 
 
@@ -120,6 +189,19 @@ export class Possessions extends Component {
         );
     }
 
+    async populatePossessionNames() {
+        const response = await fetch('possession/names');
+        const data = await response.json();
+        console.log(data);
+
+        var tempCategories = [];
+        data.forEach(function (element) {
+            tempCategories.push({ label: element, value: element })
+        });
+
+        this.setState({possessionNames: tempCategories });
+    }
+
     async populatePossessionData() {
         const response = await fetch('possession');
         const data = await response.json();
@@ -134,13 +216,3 @@ export class Possessions extends Component {
         this.setState({ possessions: data, loading: false, possessionNames: tempCategories });
     }
 }
-
-
-
-
-
-
-
-
-
-

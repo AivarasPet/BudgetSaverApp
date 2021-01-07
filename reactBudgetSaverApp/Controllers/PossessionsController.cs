@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using BudgetSaverApp;
+using BudgetSaverApp.Other;
 using BudgetSaverApp.Possessions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,14 @@ using Microsoft.Extensions.Logging;
 namespace my_new_app.Controllers
 {
 
-    public class PossessionController : Controller
+
+    public class PossessionInfo
+    {
+        public string PossessionName { get; set; }
+        public float Amount { get; set; }
+    }
+
+    public class PossessionController : ControllerBase
     {
         private IPossessionsService _possessionsService;
         public PossessionController(IPossessionsService possessionsService)
@@ -24,6 +32,7 @@ namespace my_new_app.Controllers
             return _possessionsService.GetPossessionsList().ToArray();
         }
 
+
         public ActionResult<float> TotalPossessionValue()
         {
             return _possessionsService.TotalPossessionValue();
@@ -33,5 +42,38 @@ namespace my_new_app.Controllers
         {
             return _possessionsService.TotalPossessionInflation();
         }
+
+        public IEnumerable<string> Names()
+        {
+            return _possessionsService.GetAllPossessionNames();
+        }
+
+        [HttpPost]
+        public ActionResult<Possession> PostAddPossession([FromBody] PossessionInfo possession)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public ActionResult<IEnumerable<Possession>> PostUpdatePossession([FromBody] PossessionInfo possession)
+        {
+            _possessionsService.UpdatePossession(possession.PossessionName, possession.Amount, 0);
+            return _possessionsService.GetPossessionsList().ToArray();
+        }
+
+        public ActionResult<IEnumerable<Possession>> DeletePossession(string possessionName)
+        {
+            try
+            {
+                _possessionsService.DeletePossession(possessionName, 0);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+            return _possessionsService.GetPossessionsList().ToArray();
+        }
+
     }
 }

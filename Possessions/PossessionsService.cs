@@ -8,6 +8,9 @@ using BudgetSaverApp.Possessions.Links;
 using System.Linq;
 using AutoMapper;
 using BudgetSaverApp.Other;
+using System.Data.SqlClient;
+using System.Data;
+using System.Threading;
 
 namespace BudgetSaverApp.Possessions
 {
@@ -16,11 +19,66 @@ namespace BudgetSaverApp.Possessions
     {
         List<Possession> List = new List<Possession>();
         private DboContext _DboPossessionContext;
+        private string connectionString;
 
-        public PossessionsService(DboContext dboContext)
+        public PossessionsService(DboContext dboContext, ConnectionStringHelper connectionStringHelper)
         {
+            connectionString = connectionStringHelper.ConnectionString;
             _DboPossessionContext = dboContext;
             LoadPossessionsList();
+        }
+
+        public void DeletePossession(string possessionName, int userId)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Possessions WHERE UserId = @userId AND ApiLinkID = (SELECT ID FROM dbo.PossessionsApiLinks WHERE name = @possessionName)", con);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+                cmd.Parameters.Add(new SqlParameter("@possessionName", possessionName));
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                con.Close();
+            }
+        }
+
+        public void UpdatePossession(string possessionName, float amount, int userId)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.Possessions SET Amount = @amount FROM dbo.Possessions WHERE UserId = @userId AND ApiLinkID = (SELECT ID FROM dbo.PossessionsApiLinks WHERE name = @possessionName)", con);
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+                cmd.Parameters.Add(new SqlParameter("@possessionName", possessionName));
+                cmd.Parameters.Add(new SqlParameter("@amount", amount));
+
+                
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
+                con.Close();
+            }
+            
+        }
+
+        public List<string> GetAllPossessionNames()
+        {
+            return _DboPossessionContext.PossessionsApiLinks.Select(x => x.Name).ToList();
         }
 
         public List<Possession> GetPossessionsList()
@@ -44,8 +102,10 @@ namespace BudgetSaverApp.Possessions
         //naudot viena context, 
         //Atskirt headers nuo ApiLink
         //ToList() Uzkrauna ramus, too many sql queries
+
         public void LoadPossessionsList()
         {
+            List = new List<Possession>();
             APIFetcher apiFetcher = new APIFetcher();
 
             var completeList =
