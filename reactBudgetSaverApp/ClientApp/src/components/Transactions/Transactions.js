@@ -22,11 +22,11 @@ export class Transactions extends Component {
     static renderTransactionsTable(transactions) {
 
         return (
-            <table className='table table-bordered table-sm table-hover table-striped' aria-labelledby="tabelLabel" sortable="true">
+            <table className='table table-bordered table-sm table-hover table-striped transactionsTable' aria-labelledby="tabelLabel" sortable="true">
                 <thead className="thead-dark">
                     <tr>
                         <th data-field="id" data-sortable="true">Title</th>
-                        <th data-field="id" data-sortable="true">Amount {'\u20AC'}</th>
+                        <th data-field="id" data-sortable="true">Amount</th>
                         <th>Category</th>
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@ export class Transactions extends Component {
                     {transactions.map((transaction, index) =>
                         <tr key={index} typeforcss={transaction.transactType}>
                             <td>{transaction.title}</td>
-                            {transaction.transactType === 0 ? <td>{'+ ' + transaction.amount}</td> : <td>{'- ' + transaction.amount}</td>}
+                            {transaction.transactType === 0 ? <td>{'+ ' + transaction.amount + ' \u20AC'}</td> : <td>{'- ' + transaction.amount + ' \u20AC'}</td>}
                             <td>{transaction.category}</td>
                         </tr>
                     )}

@@ -6,3 +6,10 @@
     border-radius: 0.25rem;
     border-color: #0F569D
 }
+table.statisticsTable tr[typeforcss="0"] td:nth-child(2) {
+    color: #06A806;
+}
+
+table.statisticsTable tr[typeforcss="1"] td:nth-child(2) {
+    color: #BA0C2E;
+}
