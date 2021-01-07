@@ -72,7 +72,7 @@ export class Home extends Component {
     render() {   
         return (
             <div>
-                <h1>Statistics</h1>
+                <h1>Homa</h1>
                 <p>This month's statistics</p>
                 <div>
                     <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
@@ -81,3 +81,4 @@ export class Home extends Component {
         );
     }
 }
+//                    <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
