@@ -1,4 +1,5 @@
-﻿using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.ModelsToBeFetched;
+using BudgetSaverApp.Transactions;
 using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;
@@ -69,24 +70,49 @@ namespace BudgetSaverApp.Statistics
 
         //    return dict;
         //}
+        public struct SubStatsWithDate {
+            public DateTime Date;
+            public SubStats Sub;
+        }
 
-        //public List<SubStats> HighestYearlyIncomeByCategory(Stats statsToBeCompared)
-        //{
-        //    Dictionary<string, Stats> dict = new Dictionary<string, Stats>();
-        //    if (StatsPastYearMonthly.Contains(statsToBeCompared)) StatsPastYearMonthly.Remove(statsToBeCompared);
-        //    foreach (string key in statsToBeCompared.SubStatsMap.Keys)
-        //    {
-        //        var query = (from c in StatsPastYearMonthly
-        //                     where c.SubStatsMap.ContainsKey(key)
-        //                     orderby c.SubStatsMap[key].Income descending
-        //                     select c
-        //                    ).Take(3).select.aggregate;
-        //        dict.Add(key, query.ElementAt(0));
-        //    }
+        List<SubStatsWithDate> getSub(Stats stats, DateTime time)
+        {
+            List<SubStatsWithDate> subStatsList = new List<SubStatsWithDate>();
+            stats.SubStatsList.Where(x => x.IsIncome).ToList().ForEach(x => subStatsList.Add(new SubStatsWithDate { Sub = x, Date = time }));
+            return subStatsList;
+        }
 
-        //    return dict;
-        //}
+  
 
+        public List<TopEarningsMonthlyByCategory> HighestMonthlyIncomeByCategory()
+        {
+            List<List<SubStatsWithDate>> list = new List<List<SubStatsWithDate>>();
+            StatsPastYearMonthly.ForEach(x => list.Add(getSub(x, x.StartDateTime)));
+
+            var query = list.Aggregate((before, next) => {
+                var x = from sc in before
+                        join sct in next
+                        on sc.Sub.Category equals sct.Sub.Category
+                        orderby sc.Sub.Amount descending
+                        select new SubStatsWithDate{Sub = new SubStats{Category = sc.Sub.Category, Amount = Math.Max(sc.Sub.Amount, sct.Sub.Amount) },
+                        Date = (sc.Sub.Amount>sct.Sub.Amount) ? sc.Date : sct.Date
+                        };
+                return x.ToList();
+           });
+
+            return query.Take(3).Select(x => new TopEarningsMonthlyByCategory { Amount = x.Sub.Amount, Category = x.Sub.Category, Month = x.Date.Month.ToString("MMMM") }).ToList();
+        }
+
+
+        public string getTopEarnings() {
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            Stats stats = new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService);
+            var xx = stats.SubStatsList.Where(s => s.IsIncome).OrderBy(x => x.Amount).Select(x => x.Category).Take(3);
+            var x = stats.SubStatsList.Where(s => s.IsIncome).OrderBy(x => x.Amount).Select(x => x.Category).Take(3).Aggregate("", (x, y) => { return x + ", " + y; }).Skip(1);
+            return string.Concat(x);
+        }
 
 
 
