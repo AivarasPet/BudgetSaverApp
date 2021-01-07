@@ -16,7 +16,6 @@ export class Possessions extends Component {
         this.editState = {
             selectedPossession: 0
         }
-
     }
 
     componentDidMount() {

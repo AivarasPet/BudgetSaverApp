@@ -57,16 +57,9 @@
   },
   {
     "TransactType": 0,
-    "Amount": 50.0,
-    "Title": "Hello",
-    "Category": "Food",
-    "Date": "2021-01-07T22:55:59.3194025"
-  },
-  {
-    "TransactType": 1,
-    "Amount": 800.0,
-    "Title": "Laidotuves",
+    "Amount": 100.0,
+    "Title": "Depozitas",
     "Category": "Household",
-    "Date": "2021-01-07T23:01:44.0613303+02:00"
+    "Date": "2021-01-08T00:33:26.0455026+02:00"
   }
 ]
