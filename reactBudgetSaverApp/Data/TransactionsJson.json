@@ -56,17 +56,17 @@
     "Date": "2020-12-18T10:34:09"
   },
   {
-    "TransactType": 0,
-    "Amount": 50.0,
-    "Title": "Hello",
+    "TransactType": 1,
+    "Amount": 5.0,
+    "Title": "Saldainiai",
     "Category": "Food",
-    "Date": "2021-01-07T22:55:59.3194025"
+    "Date": "2021-01-08T00:46:25.949633"
   },
   {
-    "TransactType": 1,
-    "Amount": 800.0,
-    "Title": "Laidotuves",
-    "Category": "Household",
-    "Date": "2021-01-07T23:01:44.0613303+02:00"
+    "TransactType": 0,
+    "Amount": 500.0,
+    "Title": "DARBAS SUNKUS",
+    "Category": "Work",
+    "Date": "2021-01-08T00:46:53.5828733+02:00"
   }
 ]
