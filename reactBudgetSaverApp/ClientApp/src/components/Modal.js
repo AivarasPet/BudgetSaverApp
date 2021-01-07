@@ -14,8 +14,10 @@ const Modal = ({ handleClose, handleAction, show, actionName, selectArray, input
     return (
         <div className={showHideClassName}>
             <form className="modal-main">
-                <Select placeholder="Possession" options={selectArray} onChange={(event) => { selectedPossession = event.value }} > </Select>
-                {inputField ? <div><input type="number" placeholder="  Amount" onChange={({ target }) => { amount = target.value }} style={{ width: "50%"}}/> </div> : <p></p>}
+                <div style={{ marginLeft: 20, marginTop: 20, width: '86%' }}>
+                    <Select placeholder="Possession" options={selectArray} onChange={(event) => { selectedPossession = event.value }}> </Select>
+                </div>
+                {inputField ? <div><input type="number" placeholder="  Amount" onChange={({ target }) => { amount = target.value }} style={{ marginLeft: 20, width: "86%"}}/> </div> : <p></p>}
                 <button style={{ marginTop: 20, marginRight: 10, float: 'right' }} type="button" onClick={handleClose}>
                     Close
                 </button>
