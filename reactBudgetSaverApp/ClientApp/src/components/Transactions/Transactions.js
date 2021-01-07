@@ -55,15 +55,15 @@ export class Transactions extends Component {
                 break;
         };
         return (
-                    <div>
-                        <AddTransaction onUpdate={this.onUpdate.bind(this)} />
-                        <h1 id="tabelLabel" >Transaction list</h1>
-                        <p>This table shows total list of all transactions.</p>
-                        <button onClick={this.populateTransactionData}>Standart transactions</button>
-                        <button onClick={this.populatePopularTransactions}>Popular transactions</button>
+            <div>
+                <AddTransaction onUpdate={this.onUpdate.bind(this)} />
+                <h1 id="tabelLabel" >Transaction list</h1>
+                <p>This table shows total list of all transactions.</p>
+                <button onClick={this.populateTransactionData} style={{ marginRight: 10 }}>Standart transactions</button>
+                <button onClick={this.populatePopularTransactions}>Popular transactions</button>
 
-                        {contents}
-                    </div>
+                {contents}
+            </div>
         );
 
     }
