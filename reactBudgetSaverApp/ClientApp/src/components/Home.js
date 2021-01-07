@@ -62,7 +62,8 @@ export class Home extends Component {
                     yAxes: [{
                         display: true,
                         ticks: {
-                            suggestedMin: 0
+                            suggestedMin: 0,
+                            suggestedMax: 500
                         }
                     }]
                 }
@@ -80,15 +81,5 @@ export class Home extends Component {
                 </div>
             </div>
         );
-    } */
-
-    render() {
-        return (
-            <div>
-                Labas
-            </div>
-            
-            )
-    }
+    } 
 }
-//                    <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
