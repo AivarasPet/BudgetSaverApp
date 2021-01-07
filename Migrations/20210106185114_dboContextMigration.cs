@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BudgetSaverApp.Migrations
 {
-    public partial class migrationDboContext : Migration
+    public partial class dboContextMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,7 +96,9 @@ namespace BudgetSaverApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    CurrentSavings = table.Column<float>(nullable: false),
+                    MonthlySalary = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {

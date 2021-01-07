@@ -263,12 +263,13 @@
   <ItemGroup>
     <Compile Include="Goals\DboGoal.cs" />
     <Compile Include="Goals\Goal.cs" />
-    <Compile Include="Migrations\20210105202733_migrationDboContext.cs" />
-    <Compile Include="Migrations\20210105202733_migrationDboContext.designer.cs">
-      <DependentUpon>20210105202733_migrationDboContext.cs</DependentUpon>
+    <Compile Include="Migrations\20210106185114_dboContextMigration.cs" />
+    <Compile Include="Migrations\20210106185114_dboContextMigration.designer.cs">
+      <DependentUpon>20210106185114_dboContextMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DboContextModelSnapshot.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
+    <Compile Include="Other\ConnectionStringHelper.cs" />
     <Compile Include="Other\DboContext.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="Other\User.cs" />

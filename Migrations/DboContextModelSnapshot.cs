@@ -50,8 +50,14 @@ namespace BudgetSaverApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<float>("CurrentSavings")
+                        .HasColumnType("real");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("MonthlySalary")
+                        .HasColumnType("real");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");

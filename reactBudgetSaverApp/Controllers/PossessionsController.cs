@@ -12,16 +12,26 @@ using Microsoft.Extensions.Logging;
 namespace my_new_app.Controllers
 {
 
-    public class PossessionController : ControllerBase
+    public class PossessionController : Controller
     {
         private IPossessionsService _possessionsService;
-        public  PossessionController(IPossessionsService possessionsService)
+        public PossessionController(IPossessionsService possessionsService)
         {
             _possessionsService = possessionsService;
         }
-        public ActionResult<IEnumerable<Possession>> Index()
+        public IEnumerable<Possession> Index()
         {
             return _possessionsService.GetPossessionsList().ToArray();
-        }      
+        }
+
+        public ActionResult<float> TotalPossessionValue()
+        {
+            return _possessionsService.TotalPossessionValue();
+        }
+
+        public ActionResult<float> PossessionInflationValue()
+        {
+            return _possessionsService.TotalPossessionInflation();
+        }
     }
 }
