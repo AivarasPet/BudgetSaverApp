@@ -62,7 +62,8 @@ export class Home extends Component {
                     yAxes: [{
                         display: true,
                         ticks: {
-                            suggestedMin: 0
+                            suggestedMin: 0,
+                            suggestedMax: 500
                         }
                     }]
                 }
@@ -81,5 +82,4 @@ export class Home extends Component {
             </div>
         );
     }
-
-}
+    */
