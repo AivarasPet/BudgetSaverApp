@@ -57,23 +57,16 @@
   },
   {
     "TransactType": 0,
-    "Amount": 10.0,
-    "Title": "Depozitas",
-    "Category": "Household",
-    "Date": "2021-01-05T23:42:54.9600091"
+    "Amount": 50.0,
+    "Title": "Hello",
+    "Category": "Food",
+    "Date": "2021-01-07T22:55:59.3194025"
   },
   {
-    "TransactType": 0,
-    "Amount": 100.0,
-    "Title": "Depozitas",
+    "TransactType": 1,
+    "Amount": 800.0,
+    "Title": "Laidotuves",
     "Category": "Household",
-    "Date": "2021-01-06T16:25:49.4600613"
-  },
-  {
-    "TransactType": 0,
-    "Amount": 400.0,
-    "Title": "Salary",
-    "Category": "Work",
-    "Date": "2021-01-07T18:23:30.3492423+02:00"
+    "Date": "2021-01-07T23:01:44.0613303+02:00"
   }
 ]

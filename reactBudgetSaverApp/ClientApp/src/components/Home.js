@@ -80,15 +80,6 @@ export class Home extends Component {
                 </div>
             </div>
         );
-    } */
-
-    render() {
-        return (
-            <div>
-                Labas
-            </div>
-            
-            )
     }
+
 }
-//                    <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
