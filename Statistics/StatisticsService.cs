@@ -80,7 +80,7 @@ namespace BudgetSaverApp.Statistics
         //                     where c.SubStatsMap.ContainsKey(key)
         //                     orderby c.SubStatsMap[key].Income descending
         //                     select c
-        //                    ).Take(1);
+        //                    ).Take(3).select.aggregate;
         //        dict.Add(key, query.ElementAt(0));
         //    }
 
