@@ -48,24 +48,30 @@ namespace my_new_app.Controllers
             return _possessionsService.GetAllPossessionNames();
         }
 
-        [HttpPost]
-        public ActionResult<Possession> PostAddPossession([FromBody] PossessionInfo possession)
+        public IEnumerable<string> OwnedPossessionNames()
         {
-            return Ok();
+            return _possessionsService.GetOwnedPossessionNames();
+        }
+
+
+        [HttpPost]
+        public ActionResult<IEnumerable<Possession>> PostAddPossession([FromBody] PossessionInfo possession)
+        {
+            _possessionsService.InsertPossession(possession.PossessionName, possession.Amount, 1);
+            return _possessionsService.GetPossessionsList().ToArray();
         }
 
         [HttpPost]
         public ActionResult<IEnumerable<Possession>> PostUpdatePossession([FromBody] PossessionInfo possession)
         {
-            _possessionsService.UpdatePossession(possession.PossessionName, possession.Amount, 0);
+            _possessionsService.UpdatePossession(possession.PossessionName, possession.Amount, 1);
             return _possessionsService.GetPossessionsList().ToArray();
         }
-
         public ActionResult<IEnumerable<Possession>> DeletePossession(string possessionName)
         {
             try
             {
-                _possessionsService.DeletePossession(possessionName, 0);
+                _possessionsService.DeletePossession(possessionName, 1);
             }
             catch (Exception ex)
             {

@@ -277,6 +277,7 @@
     <Compile Include="Possessions\Links\PossessionAPILink.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
+    <Compile Include="Statistics\TopEarningsMonthlyByCategory.cs" />
     <Compile Include="Transactions\BadCategoryException.cs" />
     <Compile Include="Transactions\DboTransaction.cs" />
     <Compile Include="ExtensionMethod.cs" />

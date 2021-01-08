@@ -1,4 +1,4 @@
-﻿using BudgetSaverApp.ModelsToBeFetched;
+﻿
 using BudgetSaverApp.Transactions;
 using my_new_app.ModelsToBeFetched;
 using System;
@@ -84,24 +84,24 @@ namespace BudgetSaverApp.Statistics
 
   
 
-        public List<TopEarningsMonthlyByCategory> HighestMonthlyIncomeByCategory()
-        {
-            List<List<SubStatsWithDate>> list = new List<List<SubStatsWithDate>>();
-            StatsPastYearMonthly.ForEach(x => list.Add(getSub(x, x.StartDateTime)));
+        //public List<TopEarningsMonthlyByCategory> HighestMonthlyIncomeByCategory()
+        //{
+        //    List<List<SubStatsWithDate>> list = new List<List<SubStatsWithDate>>();
+        //    StatsPastYearMonthly.ForEach(x => list.Add(getSub(x, x.StartDateTime)));
 
-            var query = list.Aggregate((before, next) => {
-                var x = from sc in before
-                        join sct in next
-                        on sc.Sub.Category equals sct.Sub.Category
-                        orderby sc.Sub.Amount descending
-                        select new SubStatsWithDate{Sub = new SubStats{Category = sc.Sub.Category, Amount = Math.Max(sc.Sub.Amount, sct.Sub.Amount) },
-                        Date = (sc.Sub.Amount>sct.Sub.Amount) ? sc.Date : sct.Date
-                        };
-                return x.ToList();
-           });
+        //    var query = list.Aggregate((before, next) => {
+        //        var x = from sc in before
+        //                join sct in next
+        //                on sc.Sub.Category equals sct.Sub.Category
+        //                orderby sc.Sub.Amount descending
+        //                select new SubStatsWithDate{Sub = new SubStats{Category = sc.Sub.Category, Amount = Math.Max(sc.Sub.Amount, sct.Sub.Amount) },
+        //                Date = (sc.Sub.Amount>sct.Sub.Amount) ? sc.Date : sct.Date
+        //                };
+        //        return x.ToList();
+        //   });
 
-            return query.Take(3).Select(x => new TopEarningsMonthlyByCategory { Amount = x.Sub.Amount, Category = x.Sub.Category, Month = x.Date.Month.ToString("MMMM") }).ToList();
-        }
+        //    return query.Take(3).Select(x => new TopEarningsMonthlyByCategory { Amount = x.Sub.Amount, Category = x.Sub.Category, Month = x.Date.Month.ToString("MMMM") }).ToList();
+        //}
 
 
         public string getTopEarnings() {

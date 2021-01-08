@@ -7,7 +7,7 @@ export class Possessions extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { possessions: [], loading: true, doShowUpdateModal: false, doShowDeleteModal: false, doShowInsertModal: false, possessionNames: [] };
+        this.state = { possessions: [], loading: true, doShowUpdateModal: false, doShowDeleteModal: false, doShowInsertModal: false, possessionNamesinSelect: [], possessionNames: [], ownedPossessionNames: [] };
         this.showInsertModal = this.showInsertModal.bind(this);
         this.showUpdateModal = this.showUpdateModal.bind(this);
         this.showDeleteModal = this.showDeleteModal.bind(this);
@@ -22,17 +22,21 @@ export class Possessions extends Component {
     componentDidMount() {
         this.populatePossessionData();
         this.populatePossessionNames();
+        this.populateOwnedPossessionNames();
     }
 
 
     showInsertModal = () => {
-        this.setState({ doShowInsertModal: true });
+        let varia = this.state.possessionNames;
+        this.setState({ doShowInsertModal: true, possessionNamesinSelect: varia });
     };
     showUpdateModal = () => {
-        this.setState({ doShowUpdateModal: true });
+        let varia = this.state.ownedPossessionNames;
+        this.setState({ doShowUpdateModal: true, possessionNamesinSelect: varia  });
     };
     showDeleteModal = () => {
-        this.setState({ doShowDeleteModal: true });
+    let varia = this.state.ownedPossessionNames;
+        this.setState({ doShowDeleteModal: true, possessionNamesinSelect: varia });
     };
 
     hideModals = () => {
@@ -74,7 +78,7 @@ export class Possessions extends Component {
     }
     insertPossession = (possessionName, amount) => {
         
-        /*//verification
+
         if (possessionName === "" || amount === NaN) {
             return;
         }
@@ -94,18 +98,20 @@ export class Possessions extends Component {
 
 
         fetch('possession/PostAddPossession', message)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
-                    return null;
-                }
-            }).then(data => {
-                if (data !== null) {
-            });
+        .then(response => {
+          if (response.ok) {
+              return response.json();
+          } else {
+              response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+              return null;
+          }
+      }).then(data => {
+          if (data !== null) {
+             // this.setState({possessions: data});
+          }
+          });
             
-        */
+        
     }
     deletePossession = async(possessionName) => { //name ateina
 
@@ -158,7 +164,7 @@ export class Possessions extends Component {
                     handleClose = {this.hideModals}
                     actionName = "Edit"
                     handleAction = {this.insertPossession}
-                    selectArray = {this.state.possessionNames}
+                    selectArray = {this.state.possessionNamesinSelect}
                     inputField = {true}
                 >
                 </Modal>
@@ -166,7 +172,7 @@ export class Possessions extends Component {
                     handleClose = {this.hideModals}
                     actionName = "Update"
                     handleAction = {this.updatePossession}
-                    selectArray = {this.state.possessionNames}
+                    selectArray = {this.state.possessionNamesinSelect}
                     inputField = {true}
                 >
                 </Modal>
@@ -174,7 +180,7 @@ export class Possessions extends Component {
                     handleClose = {this.hideModals}
                     actionName = "Delete"
                     handleAction = {this.deletePossession}
-                    selectArray = {this.state.possessionNames}
+                    selectArray = {this.state.possessionNamesinSelect}
                     inputField = {false}
                 >
                 </Modal>
@@ -200,6 +206,19 @@ export class Possessions extends Component {
         });
 
         this.setState({possessionNames: tempCategories });
+    }
+
+    async populateOwnedPossessionNames() {
+        const response = await fetch('possession/OwnedPossessionNames');
+        const data = await response.json();
+        console.log(data);
+
+        var tempCategories = [];
+        data.forEach(function (element) {
+            tempCategories.push({ label: element, value: element })
+        });
+
+        this.setState({ownedPossessionNames: tempCategories });
     }
 
     async populatePossessionData() {

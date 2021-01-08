@@ -78,7 +78,16 @@ namespace BudgetSaverApp.Possessions
 
         public List<string> GetAllPossessionNames()
         {
-            return _DboPossessionContext.PossessionsApiLinks.Select(x => x.Name).ToList();
+            var arr = _DboPossessionContext.PossessionsApiLinks.Select(x => x.ID).Except(_DboPossessionContext.Possessions.Select(y => y.ApiLinkID)).ToList();
+            return _DboPossessionContext.PossessionsApiLinks.Where(x => arr.Contains(x.ID)).Select(x => x.Name).ToList();
+        }
+        public List<string> GetOwnedPossessionNames()
+        {
+            var arr = from L in _DboPossessionContext.PossessionsApiLinks
+                      join P in _DboPossessionContext.Possessions
+                      on L.ID equals P.ApiLinkID
+                      select L.Name;
+            return arr.ToList();
         }
 
         public List<Possession> GetPossessionsList()
@@ -147,6 +156,54 @@ namespace BudgetSaverApp.Possessions
             }
 
             apiFetcher.RunAllDownloadsAsync();
+        }
+
+        public void InsertPossession(float amount, int possessionLinkID, int imageLinkID, float valueInDollarsWhenBought, int userId)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Possessions([Amount],[ApiLinkID],[LinkOfImageID],[ValueInDollarsWhenBought],[UserID]) VALUES (@amount, @apiLinkID@, linkOfImageID, @valueInDollarsWhenBought, @userId)", con);
+                cmd.Parameters.Add(new SqlParameter("@amount", amount));
+                cmd.Parameters.Add(new SqlParameter("@apiLinkID", possessionLinkID));
+                cmd.Parameters.Add(new SqlParameter("@linkOfImageID", imageLinkID));
+                cmd.Parameters.Add(new SqlParameter("@valueInDollarsWhenBought", valueInDollarsWhenBought));
+                cmd.Parameters.Add(new SqlParameter("@userId", userId)); 
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                con.Close();
+            }
+        }
+
+        public void InsertPossession(string name, float amount, int userId)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("  INSERT INTO dbo.Possessions([Amount],[ApiLinkID],[LinkOfImageID],[ValueInDollarsWhenBought], [LastEdited],[UserID]) VALUES (@amount, (SELECT MAX(ID) FROM dbo.PossessionsAPILinks WHERE NAME = @name), 2, 0,'10-10-2013', @userId)", con);
+                cmd.Parameters.Add(new SqlParameter("@amount", amount));
+                cmd.Parameters.Add(new SqlParameter("@name", name));
+                cmd.Parameters.Add(new SqlParameter("@userId", userId));
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                con.Close();
+            }
         }
     }
 }
