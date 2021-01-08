@@ -1,5 +1,4 @@
-﻿
-using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.Transactions;
 using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;

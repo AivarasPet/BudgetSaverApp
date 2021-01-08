@@ -9,6 +9,7 @@ export class Home extends Component {
         this.state = {
             labels: [],
             dataValues: [],
+            topEarning: [],
             loading: true,
         };       
     }
@@ -26,9 +27,17 @@ export class Home extends Component {
         this.setState({ loading: false });
         this.buildChart(this.state.labels, this.state.dataValues);
     }
+
+    async topEarnings() {
+        const response = await fetch('statistic/getTopEarnings');
+        const data = await response.text();
+        console.log(data); 
+        this.setState({ topEarning: data, loading: false });
+    }
  
     componentDidMount() {
         this.thisMonth();
+        this.topEarnings();
     }
 
     buildChart = (labels, dataValues) => {
@@ -75,10 +84,11 @@ export class Home extends Component {
         return (
             <div>
                 <h1>Home</h1>
-                <p>This month's statistics</p>
+                <p>This year's top earning categories: {this.state.topEarning}</p>
+                <p>This month's statistics:</p>
                 <div>
                     <canvas width='700' height='200' ref={ctx => (this.ctx = ctx)} />
-                </div>
+                </div>             
             </div>
         );
     }

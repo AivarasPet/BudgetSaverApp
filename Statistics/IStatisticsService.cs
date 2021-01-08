@@ -1,5 +1,4 @@
-﻿
-using my_new_app.ModelsToBeFetched;
+﻿using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;
 using static BudgetSaverApp.Statistics.StatisticsService;
