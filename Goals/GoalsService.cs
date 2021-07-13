@@ -19,9 +19,9 @@ namespace BudgetSaverApp.Portfolio
         public float CurrentSavings { get; set; }
         public float MonthlySalary { get; set; }
         public string GoalItemName { get; set; }
-        public GoalsService(ITransactionService transactionService, DboContext dboContext, ConnectionStringHelper connectionStringHelper)
+        public GoalsService(ITransactionService transactionService, DboContext dboContext) //, ConnectionStringHelper connectionStringHelper
         {
-            connectionString = connectionStringHelper.ConnectionString;
+            connectionString = "Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;";
             _dboContext = dboContext;
             this._transactionService = transactionService;
             ReadFromFile();

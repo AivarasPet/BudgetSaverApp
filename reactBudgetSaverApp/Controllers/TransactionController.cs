@@ -9,21 +9,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Configuration;
+using Microsoft.AspNetCore.Authorization;
+using BudgetSaverApp.UserData;
 
 namespace my_new_app.Controllers
 {
+    [Authorize]
     public class TransactionController : ControllerBase
     {
         ITransactionService _transactionService;
-        public TransactionController(ITransactionService transactionService)
+        IUserDataService _userDataService;
+        
+        public TransactionController(ITransactionService transactionService, IUserDataService userDataService)
         {
             _transactionService = transactionService;
-
+            _userDataService = userDataService;
+            //_httpContextAccessor = httpContextAccessor;
+            //_userDataService = this._userDataService;
         }
+
 
         public ActionResult<IEnumerable<Transaction>> Index()
         { 
-            return _transactionService.GetTransactionsList().ToArray();
+            return _transactionService.GetTransactionsList(_userDataService.GetUserID()).ToArray();
         }
 
         public ActionResult Test()
@@ -37,7 +45,7 @@ namespace my_new_app.Controllers
         {
             try
             {
-                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Category);
+                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), _userDataService.GetUserID(), values.Category);
                 
             }catch (Exception ex)
             {
@@ -49,7 +57,7 @@ namespace my_new_app.Controllers
 
         public ActionResult<IEnumerable<Tuple<Transaction,int>>> PostPopularTransactions()
         {
-            return _transactionService.GetPopularTransactionTuples().ToArray();
+            return _transactionService.GetPopularTransactionTuples(_userDataService.GetUserID()).ToArray();
         }
 
         [HttpPost]

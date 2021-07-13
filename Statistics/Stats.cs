@@ -20,7 +20,7 @@ namespace BudgetSaverApp.Statistics
             StartDateTime = startDate;
             EndDateTime = endDate;
 
-            SubStatsList = transactionService.GetTransactionsList()
+            SubStatsList = transactionService.GetTransactionsList(1)
                            .Where(t => t.Date.Date >= startDate.Date && t.Date.Date <= endDate.Date)
                            .GroupBy(t => new { t.Category, t.TransactType })
                            .Select(t => new SubStats

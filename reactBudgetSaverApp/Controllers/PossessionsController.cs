@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BudgetSaverApp;
 using BudgetSaverApp.Other;
 using BudgetSaverApp.Possessions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,7 +20,7 @@ namespace my_new_app.Controllers
         public string PossessionName { get; set; }
         public float Amount { get; set; }
     }
-
+    [Authorize]
     public class PossessionController : ControllerBase
     {
         private IPossessionsService _possessionsService;

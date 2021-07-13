@@ -5,14 +5,19 @@ using BudgetSaverApp.Portfolio;
 using BudgetSaverApp.Possessions;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.Transactions;
+using BudgetSaverApp.UserData;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace my_new_app
 {
@@ -28,13 +33,33 @@ namespace my_new_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<DboContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IUserDataService, UserDataService>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPossessionsService, PossessionsService>();
             services.AddScoped<IStatisticsService, StatisticsService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IGoalsService, GoalsService>();
-            services.AddSingleton(new ConnectionStringHelper { ConnectionString = Configuration.GetConnectionString("DefaultConnection") });
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; 
+            }).AddJwtBearer(y => {
+                y.RequireHttpsMetadata = false;
+                y.SaveToken = true;
+                y.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.ASCII.GetBytes(Configuration.GetValue<string>("JwtTokenKey:Key"))),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+             });
+            //services.AddSingleton<AuthTokenStringHolder>(new AuthTokenStringHolder { tokenKey = Configuration.GetValue<string>("JwtTokenKey:Key") });
+            services.AddScoped<IJwtAuthenticationManager, JwtAuthenticationManager>();
+            //services.AddSingleton(new ConnectionStringHelper { ConnectionString = Configuration.GetConnectionString("DefaultConnection") });
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
@@ -63,6 +88,8 @@ namespace my_new_app
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

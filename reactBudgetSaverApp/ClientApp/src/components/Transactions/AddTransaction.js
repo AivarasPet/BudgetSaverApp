@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import * as axios from 'axios';
+import * as AuthService from './../UserAuthentication/AuthService' 
 //import Popup from 'react-popup';
+
+var axiosInstance = axios.create({
+    baseURL: 'https://localhost:5001/Tramsaction',
+    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+})
+
 
 export default class AddTransaction extends Component {
     static displayName = AddTransaction.name;
@@ -22,6 +30,7 @@ export default class AddTransaction extends Component {
 
         this.categories = [];
     }
+
 
     componentDidMount() {
         this.populateCategories();
@@ -52,7 +61,7 @@ export default class AddTransaction extends Component {
         this.inputTitle = "";
     }
 
-    handleNewTransaction = (event) => {
+    handleNewTransaction = async (event) => {
         // Simple POST request with a JSON body using fetch
         event.preventDefault();
 
@@ -68,27 +77,37 @@ export default class AddTransaction extends Component {
 
         this.clearAdd();
 
+        console.log("JWT TOken " + AuthService.getToken());
+
         const message = {
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken()},
             body: JSON.stringify(data)
         };
 
 
-        fetch('Transaction/PostAddTransaction', message)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
-                    return null;
-                }
-            }).then(data => {
-                if (data !== null) {
-                    this.props.onUpdate(data);
-                }
+        // try {
+        //     await axiosInstance.post('/PostAddTransaction', data);
+        // } catch {
+        //     console.log("bybiene");
+        // }
+
+
+
+         fetch('Transaction/PostAddTransaction', message)
+             .then(response => {
+                 if (response.ok) {
+                     return response.json();
+                 } else {
+                     response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+                     return null;
+                 }
+             }).then(data => {
+                 if (data !== null) {
+                     this.props.onUpdate(data);
+                 }
                     
-            });
+             });
 
 
     }

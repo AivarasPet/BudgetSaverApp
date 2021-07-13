@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import './Transactions.css';
 import AddTransaction from './AddTransaction.js'
+import * as AuthService from './../UserAuthentication/AuthService' 
 
+const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
+    //body: JSON.stringify({ title: 'React POST Request Example' })
+};
 
 export class Transactions extends Component {
     static displayName = Transactions.name;
@@ -14,6 +20,8 @@ export class Transactions extends Component {
             popularTransactions: [],
         };
     }
+
+
 
     componentDidMount() {
         this.populateTransactionData();
@@ -75,14 +83,14 @@ export class Transactions extends Component {
     }
 
     populateTransactionData = async() => {
-        const response = await fetch('transaction');
+        const response = await fetch('transaction', requestOptions);
         const data = await response.json();
         console.log(data);
         this.setState({ transactions: data, loading: 1 });
     }
 
     populatePopularTransactions = async () => {
-        const response = await fetch('Transaction/PostPopularTransactions');
+        const response = await fetch('Transaction/PostPopularTransactions', requestOptions);
         const data = await response.json();
         console.log(data);
         this.setState({ popularTransactions: data,  loading: 2 });

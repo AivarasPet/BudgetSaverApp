@@ -7,15 +7,15 @@ namespace BudgetSaverApp
 {
     public interface ITransactionService
     {
-        public List<Transaction> GetListWithTitleFiltered(string filter);
+        public List<Transaction> GetListWithTitleFiltered(string filter, int userID);
         public void LoadTransactionsListFromTextFile();
         
         public void LoadTransactionsListFromDatabase();
-        public List<Transaction> GetTransactionsList();
+        public List<Transaction> GetTransactionsList(int userID);
         
-        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, string category = "N/A");
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, int userID, string category = "N/A");
 
-        public List<Tuple<Transaction, int>> GetPopularTransactionTuples();
+        public List<Tuple<Transaction, int>> GetPopularTransactionTuples(int userID);
          
         public delegate void TransactionAddedEventHandler(object source, Transaction args);
         public event TransactionAddedEventHandler TransactionAdded;

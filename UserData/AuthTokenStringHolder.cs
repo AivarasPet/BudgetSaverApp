@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.UserData
 {
-    public interface IUserDataService
+    public class AuthTokenStringHolder
     {
-        public int GetUserID();
-
+        public string tokenKey { get; set; }
     }
 }

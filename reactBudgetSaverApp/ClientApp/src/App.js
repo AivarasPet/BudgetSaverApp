@@ -6,6 +6,7 @@ import { Transactions } from './components/Transactions/Transactions';
 import { Possessions } from './components/Possessions';
 import { Statistics } from './components/Statistics/Statistics';
 import { Goals } from './components/Goals/Goals';
+import {Login} from './components/UserAuthentication/Login';
 import './custom.css'
 
 export default class App extends Component {
@@ -13,7 +14,8 @@ export default class App extends Component {
   render() {
     return (         
       <Layout>
-        <Route exact path='/' component={Home} />
+        
+        <Route path='/' component={Home} />
         <Route path='/transactions' component={Transactions} />
         <Route path='/statistics' component={Statistics} />
         <Route path='/possessions' component={Possessions} />

@@ -21,9 +21,9 @@ namespace BudgetSaverApp.Possessions
         private DboContext _DboPossessionContext;
         private string connectionString;
 
-        public PossessionsService(DboContext dboContext, ConnectionStringHelper connectionStringHelper)
+        public PossessionsService(DboContext dboContext) //, ConnectionStringHelper connectionStringHelper
         {
-            connectionString = connectionStringHelper.ConnectionString;
+            connectionString = "Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;";// connectionStringHelper.ConnectionString;
             _DboPossessionContext = dboContext;
             LoadPossessionsList();
         }

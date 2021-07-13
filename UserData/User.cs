@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.UserData
 {
-    public interface IUserDataService
+    public class User
     {
-        public int GetUserID();
-
+        public int ID { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
     }
 }

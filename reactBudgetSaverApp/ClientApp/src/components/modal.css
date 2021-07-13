@@ -17,6 +17,15 @@
     left:50%;
     transform: translate(-50%,-50%);
   }
+
+  .blackButton {
+    background-color: rgba(36, 41, 44, 0.9);
+    border: none;
+    width: 49.1%;
+    padding: 14px;
+    border-radius: 4px;
+    color: white
+    }
   
   .display-block {
     display: block;

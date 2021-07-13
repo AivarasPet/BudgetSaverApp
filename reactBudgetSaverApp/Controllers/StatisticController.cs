@@ -8,11 +8,11 @@ using BudgetSaverApp.Statistics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_new_app.ModelsToBeFetched;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace my_new_app.Controllers
 {
-
+    [Authorize]
     public class StatisticController : Controller
     {
         private IStatisticsService _statisticsService;

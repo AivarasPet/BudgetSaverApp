@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using BudgetSaverApp;
 using BudgetSaverApp.Goals;
 using BudgetSaverApp.Statistics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 
 namespace my_new_app.Controllers
 {
-
+    [Authorize]
     public class InputGoal
     {
         public string inputName { get; set; }

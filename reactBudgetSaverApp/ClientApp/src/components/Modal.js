@@ -10,7 +10,7 @@ const Modal = ({ handleClose, handleAction, show, actionName, selectArray, input
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     let amount = 0, selectedPossession = "";
-
+    
     return (
         <div className={showHideClassName}>
             <form className="modal-main">
