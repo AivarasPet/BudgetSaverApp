@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoginSub from './LoginSub.js';
 import './UserAuth.css';
 import * as AuthService from './AuthService'
 import RegistrationModal from './RegistrationModal'
@@ -16,6 +15,8 @@ export class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            email:"",
+            password:"",
             loading: true,
             doShowRegistrationModal : false
         };       
@@ -68,9 +69,10 @@ export class Login extends Component {
         );
     }
 
-    LogInPressed = async (email, password) => {
+    LogInPressed = async (event) => {
         console.log("vyksta");
-        let data = await AuthService.Login(email, password);
+        let data = await AuthService.Login(this.state.email, this.state.password);
+        console.log(data)
         if(data !== null) this.props.LogInSuccesful();
         this.setState({loading:false})
     }

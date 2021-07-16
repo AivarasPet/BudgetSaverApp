@@ -18,19 +18,28 @@ namespace my_new_app.Controllers
 
     public class UserController : ControllerBase
     {
-        private IJwtAuthenticationManager JwtAuthenticationManager;
-        public UserController(IJwtAuthenticationManager JwtAuthenticationManager)
+        private IUserManager _UserManager;
+        public UserController(IUserManager userManager)
         {
-            this.JwtAuthenticationManager = JwtAuthenticationManager;
+            _UserManager = userManager;
         }
         [HttpPost]
         [AllowAnonymous]
         public IActionResult LoginAttempt([FromBody] UserLoginData values)
         {
-            var token = JwtAuthenticationManager.AuthenticateUser(values.email, values.password);
+            var token = _UserManager.AuthenticateUser(values.email, values.password);
             if (token == null) 
                 return Unauthorized();
             return Ok(token);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult RegisterAttempt([FromBody] UserLoginData values)
+        {
+            if(_UserManager.RegisterUser(values.email, values.password))
+                return Ok();
+            return Unauthorized();
         }
     }
 }

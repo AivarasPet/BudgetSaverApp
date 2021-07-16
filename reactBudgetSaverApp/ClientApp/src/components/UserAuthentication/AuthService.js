@@ -6,43 +6,47 @@ const tokenKey = "token";
 
    export async function Login (email, password) {
     
+    
     var user = { email: email, password: password };
+    console.log(user);
     const message = {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
     var whatToRet = null;
-
-    await fetch('User/LoginAttempt', message)
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        } else {
-            response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
-            return null;
-        }
-    }).then(data => {
-        if (data !== null) {
-          setToken(data);
-          whatToRet = data;
-        }
-          
-    });
-    return whatToRet;
-
-
-    // const respone = await fetch('User/LoginAttempt', message);
-    //     if (!respone.ok) {
-    //       console.log("Failure to Login")
-    //       return null;
+    // console.log("hahhaha");
+    // await fetch('User/LoginAttempt', message)
+    // .then(response => {
+    //     if (response.ok) {
+    //         return response.text();
+    //     } else {
+    //         response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
+    //         return null;
     //     }
-    // const answer = await response.json(); 
-    //  console.log(answer);
-    // //if(whatToReturn === null) return null;
+    // }).then(data => {
+    //     if (data !== null) {
+    //       setToken(data);
+    //       whatToRet = data;
+    //     }
+          
+    // });
+    // return whatToRet;
+
+
+    const response = await fetch('https://localhost:5001/User/LoginAttempt', message);
+         if (!response.ok) {
+          console.log("Failure to Login")
+          return null;
+         }
+    const answer = await response.text(); 
+    setToken(answer);
+    console.log(answer);
+    return answer;
+    //if(whatToReturn === null) return null;
     
-    // //this.setToken(whatToReturn);
-    // //return whatToReturn
+    //this.setToken(whatToReturn);
+    //return whatToReturn
     // return answer;            //response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
       
   }

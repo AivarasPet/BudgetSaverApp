@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
+import * as AuthService from './UserAuthentication/AuthService' 
+
+const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
+    //body: JSON.stringify({ title: 'React POST Request Example' })
+};
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -15,7 +22,7 @@ export class Home extends Component {
     }
    
     thisMonth = async () => {
-        const response = await fetch('statistic/thismonth');
+        const response = await fetch('statistic/thismonth', requestOptions);
         const data = await response.json();
         console.log(data.subStatsList);
         for (var i = 0; i < data.subStatsList.length; i++) {
@@ -29,7 +36,7 @@ export class Home extends Component {
     }
 
     async topEarnings() {
-        const response = await fetch('statistic/getTopEarnings');
+        const response = await fetch('statistic/getTopEarnings', requestOptions);
         const data = await response.text();
         console.log(data); 
         this.setState({ topEarning: data, loading: false });

@@ -1,4 +1,5 @@
 ﻿using BudgetSaverApp.Transactions;
+using BudgetSaverApp.UserData;
 using my_new_app.ModelsToBeFetched;
 using System;
 using System.Collections.Generic;
@@ -9,31 +10,33 @@ namespace BudgetSaverApp.Statistics
     public class StatisticsService : IStatisticsService
     {
    
-        ITransactionService transactionService;
+        ITransactionService _TransactionService;
+        IUserIDService _UserIDService;
         List<Stats> StatsPastYearMonthly;
         Lazy<Stats> StatsLastMonth;
         Lazy<Stats> StatsPastYear;
 
 
-        public StatisticsService(ITransactionService transactionService)
+        public StatisticsService(ITransactionService transactionService, IUserIDService userIDService)
         {
-            this.transactionService = transactionService;
-            transactionService.TransactionAdded += OnTransactionAdded;
+            _TransactionService = transactionService;
+            _UserIDService = userIDService;
+            //transactionService.TransactionAdded += OnTransactionAdded;
+            //int userID = userIDService.GetUserID();
+            //DateTime date = DateTime.Now;
+            //var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            //var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            ////StatsLastMonth = new Lazy<Stats>( () => new Stats(new DateTime(date.Year, date.Month, 1).AddMonths(-1), new DateTime(date.Year, date.Month, 1).AddDays(-1), transactionService, userID));
+            //StatsPastYear = new Lazy<Stats>( () => new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService, userID));
 
-            DateTime date = DateTime.Now;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            StatsLastMonth = new Lazy<Stats>( () => new Stats(new DateTime(date.Year, date.Month, 1).AddMonths(-1), new DateTime(date.Year, date.Month, 1).AddDays(-1), transactionService));
-            StatsPastYear = new Lazy<Stats>( () => new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService));
-
-            StatsPastYearMonthly = new List<Stats>();
-            for (int x = 0; x < 12; x++)
-            {
-                Stats stat = new Stats(firstDayOfMonth, lastDayOfMonth, transactionService);
-                StatsPastYearMonthly.Add(stat);
-                firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
-                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            }
+            //StatsPastYearMonthly = new List<Stats>();
+            //for (int x = 0; x < 12; x++)
+            //{
+            //    Stats stat = new Stats(firstDayOfMonth, lastDayOfMonth, transactionService, userID);
+            //    StatsPastYearMonthly.Add(stat);
+            //    firstDayOfMonth = firstDayOfMonth.AddMonths(-1);
+            //    lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            //}
         }
 
 
@@ -103,11 +106,11 @@ namespace BudgetSaverApp.Statistics
         //}
 
 
-        public string getTopEarnings() {
+        public string getTopEarnings(int userID) {
             DateTime date = DateTime.Now;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            Stats stats = new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, transactionService);
+            Stats stats = new Stats(firstDayOfMonth.AddYears(-1), lastDayOfMonth, _TransactionService, userID);
             var xx = stats.SubStatsList.Where(s => s.IsIncome).OrderBy(x => x.Amount).Select(x => x.Category).Take(3);
             var x = stats.SubStatsList.Where(s => s.IsIncome).OrderBy(x => x.Amount).Select(x => x.Category).Take(3).Aggregate("", (x, y) => { return x + ", " + y; }).Skip(1);
             return string.Concat(x);
@@ -115,15 +118,16 @@ namespace BudgetSaverApp.Statistics
 
 
 
-        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo)
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo, int userID)
         {
-            StatsLastMonth.Value.TotalIncome += 0;
-            Stats statsThatAreCompared = StatsLastMonth.Value;
-            while (StatsLastMonth.Value == null) { }
+            DateTime date = DateTime.Now;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            Stats statsThatAreCompared = new Stats(new DateTime(date.Year, date.Month, 1).AddMonths(-1), new DateTime(date.Year, date.Month, 1).AddDays(-1), _TransactionService, userID);
             List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
             var firstDayOfComparedMonth = new DateTime(monthComparedTo.Year, monthComparedTo.Month, 1);
             var lastDayOfComparedMonth = firstDayOfComparedMonth.AddMonths(1).AddDays(-1);
-            Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, transactionService);
+            Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, _TransactionService, userID);
             float oldExpenses, newExpenses;
 
 
@@ -176,11 +180,11 @@ namespace BudgetSaverApp.Statistics
         //    return toReturn;
         //}
 
-        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth()
+        public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth(int userID)
         {
             DateTime date = DateTime.Now;
             var prev = date.AddMonths(-2);
-            return GetFinancialFeedackByCategory(prev);
+            return GetFinancialFeedackByCategory(prev, userID);
         }
     }
 }

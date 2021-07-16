@@ -18,12 +18,12 @@ namespace my_new_app.Controllers
     public class TransactionController : ControllerBase
     {
         ITransactionService _transactionService;
-        IUserDataService _userDataService;
+        IUserIDService _UserIDService;
         
-        public TransactionController(ITransactionService transactionService, IUserDataService userDataService)
+        public TransactionController(ITransactionService transactionService, IUserIDService userIDService)
         {
             _transactionService = transactionService;
-            _userDataService = userDataService;
+            _UserIDService = userIDService;
             //_httpContextAccessor = httpContextAccessor;
             //_userDataService = this._userDataService;
         }
@@ -31,7 +31,7 @@ namespace my_new_app.Controllers
 
         public ActionResult<IEnumerable<Transaction>> Index()
         { 
-            return _transactionService.GetTransactionsList(_userDataService.GetUserID()).ToArray();
+            return _transactionService.GetTransactionsList(_UserIDService.GetUserID()).ToArray();
         }
 
         public ActionResult Test()
@@ -45,7 +45,7 @@ namespace my_new_app.Controllers
         {
             try
             {
-                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), _userDataService.GetUserID(), values.Category);
+                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), _UserIDService.GetUserID(), values.Category);
                 
             }catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace my_new_app.Controllers
 
         public ActionResult<IEnumerable<Tuple<Transaction,int>>> PostPopularTransactions()
         {
-            return _transactionService.GetPopularTransactionTuples(_userDataService.GetUserID()).ToArray();
+            return _transactionService.GetPopularTransactionTuples(_UserIDService.GetUserID()).ToArray();
         }
 
         [HttpPost]

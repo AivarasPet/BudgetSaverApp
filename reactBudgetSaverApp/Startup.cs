@@ -35,7 +35,7 @@ namespace my_new_app
         {
 
             services.AddDbContext<DboContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IUserDataService, UserDataService>();
+            services.AddScoped<IUserIDService, UserDataService>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPossessionsService, PossessionsService>();
             services.AddScoped<IStatisticsService, StatisticsService>();
@@ -58,7 +58,7 @@ namespace my_new_app
                 };
              });
             //services.AddSingleton<AuthTokenStringHolder>(new AuthTokenStringHolder { tokenKey = Configuration.GetValue<string>("JwtTokenKey:Key") });
-            services.AddScoped<IJwtAuthenticationManager, JwtAuthenticationManager>();
+            services.AddScoped<IUserManager, UserManager>();
             //services.AddSingleton(new ConnectionStringHelper { ConnectionString = Configuration.GetConnectionString("DefaultConnection") });
             services.AddControllersWithViews();
 

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.UserData
 {
-    public interface IUserDataService
+    public interface IUserManager
     {
-        public int GetUserID();
+        public string AuthenticateUser(string email, string password);
+        public bool RegisterUser(string email, string password);
 
     }
 }

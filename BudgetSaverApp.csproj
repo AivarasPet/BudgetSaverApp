@@ -333,11 +333,11 @@
     <Compile Include="Transactions\Transaction.cs" />
     <Compile Include="Transactions\TransactionService.cs" />
     <Compile Include="UserData\AuthTokenStringHolder.cs" />
-    <Compile Include="UserData\IJwtAuthenticationManager.cs" />
-    <Compile Include="UserData\IUserDataService.cs" />
-    <Compile Include="UserData\JwtAuthenticationManager.cs" />
+    <Compile Include="UserData\IUserIDService.cs" />
+    <Compile Include="UserData\IUserManager.cs" />
+    <Compile Include="UserData\UserManager.cs" />
     <Compile Include="UserData\User.cs" />
-    <Compile Include="UserData\UserDataService.cs" />
+    <Compile Include="UserData\UserIDService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -70,15 +70,15 @@ namespace BudgetSaverApp.Portfolio
             MonthlySalary = float.Parse(data[1]);
         }
 
-        public float GetProfitMonthly()
+        public float GetProfitMonthly(int userID)
         {
-            Stats StatsRecent30Days = new Stats(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now, _transactionService);
+            Stats StatsRecent30Days = new Stats(DateTime.Now - TimeSpan.FromDays(30), DateTime.Now, _transactionService, userID);
             return StatsRecent30Days.TotalIncome - StatsRecent30Days.TotalExpenses;
         }
 
-        public int GetGoalDaysLeft()
+        public int GetGoalDaysLeft(int userID)
         {
-            return (int) getGoalDays(GoalItemPrice, GetProfitMonthly().Daily());
+            return (int) getGoalDays(GoalItemPrice, GetProfitMonthly(userID).Daily());
         }
 
         Func<float, float, float> getGoalDays = (a, b) => a / b;
@@ -203,6 +203,11 @@ namespace BudgetSaverApp.Portfolio
                 Console.WriteLine(ex.Message);
             }
             
+        }
+
+        public int GetGoalDaysLeft()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BudgetSaverApp.UserData
 {
-    public interface IJwtAuthenticationManager
+    public interface IUserIDService
     {
-        public string AuthenticateUser(string email, string password);
         public int GetUserID();
+
     }
 }

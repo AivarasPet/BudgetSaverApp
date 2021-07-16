@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace BudgetSaverApp
 {
-    public class UserDataService : IUserDataService
+    public class UserDataService : IUserIDService
     {
 
         private readonly IHttpContextAccessor _httpContextAccessor;

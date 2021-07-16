@@ -22,12 +22,12 @@ export class Layout extends Component {
 
   LogInSuccesful = (data) => {
     this.setState({loggedIn: true, JwtToken: data});
-    window.alert(data);
+ 
   }
 
   render () {
     let contents;
-    if(false ) {//this.state.loggedIn
+    if(this.state.loggedIn ) {//
       contents = <div>
       <NavMenu />
       <Container>

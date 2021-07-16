@@ -12,14 +12,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace BudgetSaverApp.UserData
 {
-    public class JwtAuthenticationManager : IJwtAuthenticationManager
+    public class UserManager : IUserManager
     {
 
         private readonly string key;
         private DboContext DboContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public JwtAuthenticationManager(DboContext dboContext, IHttpContextAccessor httpContextAccessor) //, AuthTokenStringHolder authTokenStringHolder
+        public UserManager(DboContext dboContext, IHttpContextAccessor httpContextAccessor) //, AuthTokenStringHolder authTokenStringHolder
         {
             this.key = "aaaa[aa]aa[aa]aa";
             DboContext = dboContext;
@@ -27,13 +27,12 @@ namespace BudgetSaverApp.UserData
         }
         public string AuthenticateUser(string email, string password)
         {
-            //if (!DboContext.Users.Any(u => u.email == email && password == u.password)) return null;
-            User user = DboContext.Users.Where(x => x.email.ToLower() == email.ToLower()).FirstOrDefault();
-            if (user == null) return null; 
+            int userID = GetUserIDFromDatabase(email, password);
+            if (userID == 0) return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.ASCII.GetBytes(key);
-            Claim[] claims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()) };
+            Claim[] claims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, userID.ToString()) };
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
@@ -43,14 +42,20 @@ namespace BudgetSaverApp.UserData
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
-            
-
         }
 
-        public int GetUserID()
+        public bool RegisterUser(string email, string password)
         {
-            return int.Parse(_httpContextAccessor.HttpContext.User.Claims
-                .FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            if (GetUserIDFromDatabase(email, password) != 0) return false;
+            DboContext.Users.Add(new User() { email = email, password = password });
+            return true;
+        }
+
+        private int GetUserIDFromDatabase(string email, string password)
+        {
+            if (!DboContext.Users.Any(u => u.email == email && password == u.password)) return 0;
+            User user = DboContext.Users.Where(x => x.email.ToLower() == email.ToLower()).FirstOrDefault();
+            return user.ID;
         }
     }
 }

@@ -14,13 +14,13 @@ namespace BudgetSaverApp.Statistics
         public DateTime EndDateTime { get; set; }
         public List<SubStats> SubStatsList { get; set; }
 
-        public Stats(DateTime startDate, DateTime endDate, ITransactionService transactionService)
+        public Stats(DateTime startDate, DateTime endDate, ITransactionService transactionService, int userID)
         {
             SubStatsList = new List<SubStats>();
             StartDateTime = startDate;
             EndDateTime = endDate;
 
-            SubStatsList = transactionService.GetTransactionsList(1)
+            SubStatsList = transactionService.GetTransactionsList(userID)
                            .Where(t => t.Date.Date >= startDate.Date && t.Date.Date <= endDate.Date)
                            .GroupBy(t => new { t.Category, t.TransactType })
                            .Select(t => new SubStats

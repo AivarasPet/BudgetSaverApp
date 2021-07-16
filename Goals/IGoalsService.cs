@@ -17,7 +17,7 @@ namespace BudgetSaverApp.Goals
         public float GetGoalItemPrice();
         public float GetMonthlySalary();
         public string GetGoalItemName();
-        public float GetProfitMonthly();
+        public float GetProfitMonthly(int userID);
         public int GetGoalDaysLeft();
         public void SetMainGoalName(string name);
         public void SetMainGoalPrice(float price);

@@ -129,7 +129,7 @@ public class TransactionService : ITransactionService
 
         }
 
-        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, int userID = 0, string category = "N/A")
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, int userID, string category = "N/A")
         {
 
             if (transactionName != "" && transactionAmount != "")
@@ -172,7 +172,8 @@ public class TransactionService : ITransactionService
                     Title = transactionName,
                     Category = category,
                     Date = DateTime.Now,
-                    Amount = transAmount
+                    Amount = transAmount,
+                    UserId = userID
                 };
                 _dboContext.Transactions.Add(dbotransaction);
                 _dboContext.SaveChanges();

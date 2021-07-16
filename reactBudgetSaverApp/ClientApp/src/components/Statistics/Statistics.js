@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import "./Statistics.css"
 import Feedback from "./Feedback.js"
+import * as AuthService from './../UserAuthentication/AuthService' 
 
+const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
+    //body: JSON.stringify({ title: 'React POST Request Example' })
+};
 
 export class Statistics extends Component {
     static displayName = Statistics.name;
@@ -24,25 +30,25 @@ export class Statistics extends Component {
   }
 
     thisWeek = async () => {
-        const response = await fetch('statistic/thisweek');
+        const response = await fetch('statistic/thisweek', requestOptions);
         const data = await response.json();
         this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     lastWeek = async () => {
-        const response = await fetch('statistic/lastweek');
+        const response = await fetch('statistic/lastweek', requestOptions);
         const data = await response.json();
         this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     thisMonth = async () => {
-        const response = await fetch('statistic/thismonth');
+        const response = await fetch('statistic/thismonth', requestOptions);
         const data = await response.json();
         this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
 
     lastMonth = async () => {
-        const response = await fetch('statistic/lastmonth');
+        const response = await fetch('statistic/lastmonth', requestOptions);
         const data = await response.json();
         console.log(data);
         this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
@@ -53,7 +59,7 @@ export class Statistics extends Component {
         var url = new URL(window.location.origin+'/statistic/advanced');
         url.searchParams.append("startDate", this.startDate.current.value);
         url.searchParams.append("endDate", this.endDate.current.value);
-        const response = await fetch(url);
+        const response = await fetch(url, requestOptions);
         const data = await response.json();
         this.setState({ statistic: data, subStatistics: data.subStatsList, loading: false });
     }
