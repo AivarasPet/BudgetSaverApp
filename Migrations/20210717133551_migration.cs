@@ -24,27 +24,13 @@ namespace BudgetSaverApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ImageLinks",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    link = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ImageLinks", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Possessions",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Amount = table.Column<float>(nullable: false),
-                    ApiLinkID = table.Column<int>(nullable: false),
-                    LinkOfImageID = table.Column<int>(nullable: false),
+                    PossessionDataID = table.Column<int>(nullable: false),
                     LastEdited = table.Column<DateTime>(nullable: false),
                     ValueInDollarsWhenBought = table.Column<float>(nullable: false),
                     UserID = table.Column<int>(nullable: false)
@@ -55,19 +41,20 @@ namespace BudgetSaverApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PossessionsApiLinks",
+                name: "PossessionsData",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
-                    Url = table.Column<string>(nullable: true),
+                    UrlAPI = table.Column<string>(nullable: true),
+                    UrlImage = table.Column<string>(nullable: true),
                     Headers = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PossessionsApiLinks", x => x.ID);
+                    table.PrimaryKey("PK_PossessionsData", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -109,13 +96,10 @@ namespace BudgetSaverApp.Migrations
                 name: "Goals");
 
             migrationBuilder.DropTable(
-                name: "ImageLinks");
-
-            migrationBuilder.DropTable(
                 name: "Possessions");
 
             migrationBuilder.DropTable(
-                name: "PossessionsApiLinks");
+                name: "PossessionsData");
 
             migrationBuilder.DropTable(
                 name: "Transactions");

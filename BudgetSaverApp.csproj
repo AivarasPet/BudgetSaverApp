@@ -290,9 +290,9 @@
   <ItemGroup>
     <Compile Include="Goals\DboGoal.cs" />
     <Compile Include="Goals\Goal.cs" />
-    <Compile Include="Migrations\20210705151138_migration.cs" />
-    <Compile Include="Migrations\20210705151138_migration.designer.cs">
-      <DependentUpon>20210705151138_migration.cs</DependentUpon>
+    <Compile Include="Migrations\20210717133551_migration.cs" />
+    <Compile Include="Migrations\20210717133551_migration.designer.cs">
+      <DependentUpon>20210717133551_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DboContextModelSnapshot.cs" />
     <Compile Include="ModelsToBeFetched\FinancialFeedbackByCategory.cs" />
@@ -300,7 +300,10 @@
     <Compile Include="Other\DboContext.cs" />
     <Compile Include="Other\ICategoryService.cs" />
     <Compile Include="Possessions\DboPossession.cs" />
-    <Compile Include="Possessions\Links\PossessionAPILink.cs" />
+    <Compile Include="Possessions\IPossessionDataHolder.cs" />
+    <Compile Include="Possessions\Links\DboPossessionData.cs" />
+    <Compile Include="Possessions\PossessionBackup.cs" />
+    <Compile Include="Possessions\PossessionDataHolder.cs" />
     <Compile Include="PublicValues.cs" />
     <Compile Include="Statistics\SubStats.cs" />
     <Compile Include="Statistics\TopEarningsMonthlyByCategory.cs" />
@@ -313,7 +316,6 @@
     <Compile Include="Possessions\CustomJsonConverter.cs" />
     <Compile Include="Possessions\IPossessionsService.cs" />
     <Compile Include="Other\ApiLink.cs" />
-    <Compile Include="Possessions\Links\ImageLink.cs" />
     <Compile Include="Statistics\IStatisticsService.cs" />
     <Compile Include="Transactions\ITransactionService.cs" />
     <Compile Include="Other\HttpRequest.cs" />

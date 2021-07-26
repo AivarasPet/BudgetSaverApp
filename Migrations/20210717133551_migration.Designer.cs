@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetSaverApp.Migrations
 {
     [DbContext(typeof(DboContext))]
-    [Migration("20210705151138_migration")]
+    [Migration("20210717133551_migration")]
     partial class migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,13 +55,10 @@ namespace BudgetSaverApp.Migrations
                     b.Property<float>("Amount")
                         .HasColumnType("real");
 
-                    b.Property<int>("ApiLinkID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("LastEdited")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LinkOfImageID")
+                    b.Property<int>("PossessionDataID")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
@@ -75,22 +72,7 @@ namespace BudgetSaverApp.Migrations
                     b.ToTable("Possessions");
                 });
 
-            modelBuilder.Entity("BudgetSaverApp.Possessions.Links.ImageLink", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("ImageLinks");
-                });
-
-            modelBuilder.Entity("BudgetSaverApp.Possessions.Links.PossessionAPILink", b =>
+            modelBuilder.Entity("BudgetSaverApp.Possessions.Links.DboPossessionData", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -106,12 +88,15 @@ namespace BudgetSaverApp.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
+                    b.Property<string>("UrlAPI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.ToTable("PossessionsApiLinks");
+                    b.ToTable("PossessionsData");
                 });
 
             modelBuilder.Entity("BudgetSaverApp.Transactions.DboTransaction", b =>

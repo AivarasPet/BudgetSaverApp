@@ -10,6 +10,7 @@ namespace BudgetSaverApp.Possessions
         public void OnAPIDownload(string APIData)
         {
             JObject jObject = JObject.Parse(APIData);
+            if (jObject["Response"].ToString().ToLower() == "error") { this.ValueInDollars = 0; this.PercentageChangeInValue = 0; return;}
             var price = jObject["Data"]["Data"][10]["open"];
 
             this.ValueInDollars = Amount * float.Parse(price.ToString());

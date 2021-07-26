@@ -3,15 +3,17 @@ using BudgetSaverApp.Other;
 using BudgetSaverApp.Statistics;
 using BudgetSaverApp.UserData;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace BudgetSaverApp.Portfolio
 {
     public class GoalsService : IGoalsService
     {
         ITransactionService _transactionService;
-        private DboContext _dboContext;
+        private DboContext _DboContext;
         private string connectionString;
         //string _MainGoalName;
         //float _MainGoalPrice;
@@ -22,7 +24,7 @@ namespace BudgetSaverApp.Portfolio
         public GoalsService(ITransactionService transactionService, DboContext dboContext) //, ConnectionStringHelper connectionStringHelper
         {
             connectionString = "Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;";
-            _dboContext = dboContext;
+            _DboContext = dboContext;
             this._transactionService = transactionService;
             ReadFromFile();
         }
@@ -126,88 +128,38 @@ namespace BudgetSaverApp.Portfolio
                     GoalDescription = inputDescription,
                     UserId = userId
                 };
-                _dboContext.Goals.Add(dboGoal);
-                _dboContext.SaveChanges();
+                _DboContext.Goals.Add(dboGoal);
+                _DboContext.SaveChanges();
 
             }
         }
 
         public void UpdateGoal(string inputName, float inputAmount, string inputDescription, int goalId, int userId)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Goals WHERE UserId = @userId", con);
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                string hehe = dt.Rows[goalId]["Id"].ToString();
-
-                sda.UpdateCommand = new SqlCommand("UPDATE dbo.Goals SET GoalItemName = @goalItemName, GoalItemPrice = @goalItemPrice, GoalDescription = @goalDescription WHERE Id = @goalId", con);
-
-                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalId", hehe));
-                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalItemName", inputName));
-                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalDescription", inputDescription));
-                sda.UpdateCommand.Parameters.Add(new SqlParameter("@goalItemPrice", inputAmount));
-
-                DataRow goalRow = dt.Rows[goalId];
-                goalRow["GoalItemName"] = inputName;
-                goalRow["GoalItemPrice"] = inputAmount;
-                goalRow["GoalDescription"] = inputDescription;
-
-                sda.Update(dt);
-
-                /*
-                SqlCommand updateCmd = new SqlCommand("UPDATE dbo.Goals SET GoalItemName = @goalItemName, GoalItemPrice = @goalItemPrice, GoalDescription = @goalDescription WHERE Id = @goalId", con);
-                updateCmd.Parameters.Add(new SqlParameter("@goalId", hehe));
-                updateCmd.Parameters.Add(new SqlParameter("@goalItemName", inputName));
-                updateCmd.Parameters.Add(new SqlParameter("@goalDescription", inputDescription));
-                updateCmd.Parameters.Add(new SqlParameter("@goalItemPrice", inputAmount));
-
-                try
-                {
-                    updateCmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }*/
-                con.Close();
-            }
+            var x = _DboContext.Goals.Where(x => x.UserId == userId && x.Id == goalId).FirstOrDefault();
+            x.GoalItemName = inputName;
+            x.GoalItemPrice = inputAmount;
+            x.GoalDescription = inputDescription;
+            _DboContext.SaveChanges();
         }
 
         public void DeleteGoal(int goalId, int userId)
         {
-            string hehe;
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Goals WHERE UserId = @userId", con);
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                hehe = dt.Rows[goalId]["Id"].ToString();
-            }
-
-            try
-            {
-                _dboContext.Goals.Remove(_dboContext.Goals.Find(Int32.Parse(hehe)));
-                _dboContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            
+            var x = _DboContext.Goals.Where(x => x.UserId == userId && x.Id == goalId).FirstOrDefault();
+            if (x == null) return;
+            _DboContext.Goals.Remove(_DboContext.Goals.Find(goalId));
+            _DboContext.SaveChanges();            
         }
 
         public int GetGoalDaysLeft()
         {
             throw new NotImplementedException();
+        }
+
+        public List<DboGoal> GetUserGoals(int userId)
+        {
+            List<DboGoal> list = _DboContext.Goals.Where(x => x.UserId == userId).OrderByDescending(y => y.GoalItemPrice).ToList();
+            return list;
         }
     }
 }

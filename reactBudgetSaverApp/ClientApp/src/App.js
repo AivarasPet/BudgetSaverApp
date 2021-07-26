@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { Transactions } from './components/Transactions/Transactions';
-import { Possessions } from './components/Possessions';
+import { Possessions } from './components/Possessions/Possessions';
 import { Statistics } from './components/Statistics/Statistics';
 import { Goals } from './components/Goals/Goals';
 import {Login} from './components/UserAuthentication/Login';

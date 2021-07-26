@@ -1,4 +1,10 @@
 ﻿import React, { Component } from 'react';
+import * as AuthService from './../UserAuthentication/AuthService';
+
+const requestOptions = {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
+};
 
 export default class AddGoal extends Component {
     static displayName = AddGoal.name;
@@ -7,6 +13,7 @@ export default class AddGoal extends Component {
         super(props);
         this.state = {
             addNewGoalVisibility: false,
+            goalID: 0,
             inputName: "",
             inputDescription: "",
             inputAmount: "",
@@ -29,14 +36,14 @@ export default class AddGoal extends Component {
     }
 
     handleUpdateGoal = (goal) => {
-        goal["goalId"] = parseInt(this.state.editingId);
+        //goal["goalId"] = parseInt(this.state.editingId);
 
         console.log(goal);
         this.clearAdd(true);
 
         const message = {
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': 'Bearer ' + AuthService.getToken() },
             body: JSON.stringify(goal)
         };
 
@@ -50,15 +57,14 @@ export default class AddGoal extends Component {
                 }
             }).then(data => {
                 if (data !== null) {
-                    this.props.onUpdate(data,true);
+                    this.props.onUpdate(goal,true);
                 }
             });
 
     }
 
-    handleDeleteGoal = async () => {
-        console.log(parseInt(this.state.editingId));
-        const response = await fetch('Goals/DeleteGoal?id=' + parseInt(this.state.editingId));
+    handleDeleteGoal = async (goal) => {
+        const response = await fetch('Goals/DeleteGoal?id=' + parseInt(goal.id), requestOptions);
         const data = await response;
         this.clearAdd(true);
         this.props.onUpdate(parseInt(this.state.editingId), true);
@@ -77,13 +83,13 @@ export default class AddGoal extends Component {
             return;
         }
 
-        var data = { inputName: this.state.inputName, inputAmount: parseFloat(this.state.inputAmount), inputDescription: this.state.inputDescription };
-
+        var data = { id: this.state.goalID, inputName: this.state.inputName, inputAmount: parseFloat(this.state.inputAmount), inputDescription: this.state.inputDescription };
+        console.log("finalcheck " + data.id);
         if (this.state.deleteMode) {
 
-
+            console.log("deletina");
             this.setState({ deleteMode: false });
-            this.handleDeleteGoal();
+            this.handleDeleteGoal(data);
             
 
 
@@ -95,7 +101,7 @@ export default class AddGoal extends Component {
 
             const message = {
                 method: 'post',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
                 body: JSON.stringify(data)
             };
         
@@ -160,12 +166,14 @@ export default class AddGoal extends Component {
     }   
 
     fillFields = (goal, visibility, id) => {
+        this.setState({goalID:goal.id});
         if (!visibility) {
             this.setState({
                 addNewGoalVisibility: false,
             });
             this.clearAdd(false);
         } else {
+            console.log("IDDD " + goal.id);
             this.setState({
                 addNewGoalVisibility: true,
                 inputName: goal.goalItemName,
@@ -175,6 +183,7 @@ export default class AddGoal extends Component {
                 buttonText: "Update",
                 editingId: id
             });
+            console.log("goal ID : " + goal.id);
         }
         
     }

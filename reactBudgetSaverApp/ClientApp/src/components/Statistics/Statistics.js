@@ -109,6 +109,10 @@ export class Statistics extends Component {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
             : this.renderStatistic(this.state.statistic);
+
+        let showFeedback = (this.state.Feedback == [])
+        ? <Feedback></Feedback>
+        : null;
         return (
             <div>
                 <h1>Statistics</h1>
@@ -129,8 +133,7 @@ export class Statistics extends Component {
                     <p></p>
                 </div>
                 {contents}
-                <h1>Feedback</h1>
-                <Feedback />
+                {showFeedback}
             </div>
         );
     }

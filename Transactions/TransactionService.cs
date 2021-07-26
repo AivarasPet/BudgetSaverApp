@@ -95,7 +95,7 @@ public class TransactionService : ITransactionService
 
         public List<Transaction> GetTransactionsList(int userID)
         {
-            var query = _dboContext.Transactions.Where(x => x.UserId == userID).ToList();
+            var query = _dboContext.Transactions.Where(x => x.UserId == userID).OrderByDescending(x => x.Date).ToList();
             return mapper.Map<List<Transaction>>(query);
         }
 

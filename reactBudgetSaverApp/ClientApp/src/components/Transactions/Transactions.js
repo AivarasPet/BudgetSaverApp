@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Transactions.css';
 import AddTransaction from './AddTransaction.js'
 import * as AuthService from './../UserAuthentication/AuthService' 
+import dateFormat from 'dateformat';
 
 const requestOptions = {
     method: 'GET',
@@ -36,6 +37,7 @@ export class Transactions extends Component {
                         <th data-field="id" data-sortable="true">Title</th>
                         <th data-field="id" data-sortable="true">Amount</th>
                         <th>Category</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +46,7 @@ export class Transactions extends Component {
                             <td>{transaction.title}</td>
                             {transaction.transactType === 0 ? <td>{'+ ' + transaction.amount + ' \u20AC'}</td> : <td>{'- ' + transaction.amount + ' \u20AC'}</td>}
                             <td>{transaction.category}</td>
+                            <td>{dateFormat(transaction.date, "yyyy-mm-dd")}</td>
                         </tr>
                     )}
                 </tbody>

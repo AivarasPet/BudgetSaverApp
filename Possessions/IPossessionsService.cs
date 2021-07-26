@@ -3,16 +3,19 @@ using System.Collections.Generic;
 
 namespace BudgetSaverApp
 {
+    public class FloatObj
+    {
+        public float Float { get; set; }
+    }
     public interface IPossessionsService 
     {
-        public List<string> GetAllPossessionNames();
-        public List<string> GetOwnedPossessionNames();
-        public List<Possession> GetPossessionsList();
-        public void LoadPossessionsList();
-        public void DeletePossession(string possessionName, int userId);
-        public void UpdatePossession(string possessionName, float amount, int userId);
-        public void InsertPossession(string name, float amount, int userId);//
-        public float TotalPossessionValue();
-        public float TotalPossessionInflation();
+        public List<string> GetAllPossessionNames(int userId);
+        public List<string> GetOwnedPossessionNames(int userId);
+        public List<Possession> GetPossessionsList(int userID);
+        public void DeletePossession(int possessionId, int userId);
+        public void UpdatePossession(int possessionId, float amount, int userId);
+        public void InsertPossession(int possessionId, float amount, int userId);//
+        public FloatObj TotalPossessionValue(int userId);
+        public float TotalPossessionInflation(int userId);
     }
 }

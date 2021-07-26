@@ -29,6 +29,7 @@ export default class Feedback extends Component {
     render() {
         return (
             <div>
+                <h1>Feedback</h1>
                 <table className='table table-bordered table-sm table-hover table-striped feedbackTable' aria-labelledby="tabelLabel" sortable="true">
                     <thead className="thead-dark">
                         <tr>

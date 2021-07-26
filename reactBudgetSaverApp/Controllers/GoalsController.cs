@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BudgetSaverApp;
 using BudgetSaverApp.Goals;
 using BudgetSaverApp.Statistics;
+using BudgetSaverApp.UserData;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,7 +15,6 @@ using Microsoft.Extensions.Logging;
 
 namespace my_new_app.Controllers
 {
-    [Authorize]
     public class InputGoal
     {
         public string inputName { get; set; }
@@ -24,14 +24,17 @@ namespace my_new_app.Controllers
 
     public class UpdateGoal : InputGoal
     {
-        public int goalId { get; set; }
+        public int Id { get; set; }
     }
+    [Authorize]
     public class GoalsController : ControllerBase
     {
         private IGoalsService _goalsService;
-        public GoalsController(IGoalsService goalsService)
+        private IUserIDService _UserIDService;
+        public GoalsController(IGoalsService goalsService, IUserIDService userIDService)
         {
             _goalsService = goalsService;
+            _UserIDService = userIDService;
         }
         public ActionResult<int> GetGoalDaysLeft() => _goalsService.GetGoalDaysLeft();
         public ActionResult<string> MainGoalName() => _goalsService.GetGoalItemName();
@@ -39,30 +42,18 @@ namespace my_new_app.Controllers
 
 
 
-        public ActionResult<IEnumerable<Goal>> GoalValues()
+        public ActionResult<List<DboGoal>> GoalValues()
         {
-            List<Goal> goals = new List<Goal>();
-            DataTable goalTable = _goalsService.GetGoalTable(1);
-            foreach (DataRow goal in goalTable.Rows)
-            {
-                goals.Add(new Goal()
-                {
-                    GoalItemName = goal["GoalItemName"].ToString(),
-                    GoalItemPrice = float.Parse(goal["GoalItemPrice"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
-                    GoalDescription = goal["GoalDescription"].ToString()
-                });
-
-            }
-
-
-            return goals.ToArray();
+            List<DboGoal> goals = _goalsService.GetUserGoals(_UserIDService.GetUserID());
+            return goals;
         }
 
         public ActionResult<float> UserData()
         {
-            DataRow userDataRow = _goalsService.GetUserData(1);
-            float currentSavings = float.Parse(userDataRow["CurrentSavings"].ToString(), CultureInfo.InvariantCulture.NumberFormat);
-            return currentSavings;
+            //DataRow userDataRow = _goalsService.GetUserData(1);
+            //float currentSavings = float.Parse(userDataRow["CurrentSavings"].ToString(), CultureInfo.InvariantCulture.NumberFormat);
+            //return currentSavings;
+            return 1000;
         }
 
         [HttpPost]
@@ -70,7 +61,7 @@ namespace my_new_app.Controllers
         {
             try
             {
-                _goalsService.AddNewGoal(values.inputName, values.inputAmount, values.inputDescription, 1);
+                _goalsService.AddNewGoal(values.inputName, values.inputAmount, values.inputDescription, _UserIDService.GetUserID());
 
             }
             catch (Exception ex)
@@ -86,7 +77,7 @@ namespace my_new_app.Controllers
         {
             try
             {
-                _goalsService.UpdateGoal(values.inputName, values.inputAmount, values.inputDescription, values.goalId ,1);
+                _goalsService.UpdateGoal(values.inputName, values.inputAmount, values.inputDescription, values.Id , _UserIDService.GetUserID());
 
             }
             catch (Exception ex)
@@ -102,7 +93,7 @@ namespace my_new_app.Controllers
 
             try
             {
-                _goalsService.DeleteGoal(id, 1);
+                _goalsService.DeleteGoal(id, _UserIDService.GetUserID());
             }
             catch(Exception ex)
             {

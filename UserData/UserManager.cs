@@ -48,6 +48,7 @@ namespace BudgetSaverApp.UserData
         {
             if (GetUserIDFromDatabase(email, password) != 0) return false;
             DboContext.Users.Add(new User() { email = email, password = password });
+            DboContext.SaveChangesAsync();
             return true;
         }
 

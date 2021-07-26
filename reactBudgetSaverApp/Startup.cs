@@ -35,6 +35,7 @@ namespace my_new_app
         {
 
             services.AddDbContext<DboContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<PossessionDataHolder>();
             services.AddScoped<IUserIDService, UserDataService>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IPossessionsService, PossessionsService>();

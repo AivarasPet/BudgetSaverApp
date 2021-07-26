@@ -1,6 +1,12 @@
 import React, { Children, Component } from 'react';
 import './Possessions.css';
-import Modal from './Modal.js';
+import Modal from '../Modal.js';
+import * as AuthService from '../UserAuthentication/AuthService' 
+
+const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + AuthService.getToken() },
+};
 
 export class Possessions extends Component {
     static displayName = Possessions.name;
@@ -46,17 +52,17 @@ export class Possessions extends Component {
     };
 
 
-    updatePossession = (possessionName, amount) => {
-        if (possessionName === "" || amount === NaN) {
+    updatePossession = (PossessionId, amount) => {
+        if (PossessionId === 0 || amount === NaN) {
             return;
         }
         this.hideModals();
 
-        var data = { PossessionName: possessionName, Amount: parseFloat(amount) };
+        var data = { PossessionId: PossessionId, Amount: parseFloat(amount) };
 
         const message = {
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': 'Bearer ' + AuthService.getToken()},
             body: JSON.stringify(data)
         };
 
@@ -71,28 +77,28 @@ export class Possessions extends Component {
                 }
             }).then(data => {
                 if (data !== null) {
-                   // this.setState({possessions: data});
+                   this.setState({possessions: data});
                 }
                 });
         
     }
-    insertPossession = (possessionName, amount) => {
+    insertPossession = (PossessionId, amount) => {
         
 
-        if (possessionName === "" || amount === NaN) {
+        if (PossessionId === 0 || amount === NaN) {
             return;
         }
 
         this.hideModals();
 
-        var data = { PossessionName: possessionName, Amount: parseFloat(amount) };
+        var data = { PossessionId: PossessionId, Amount: parseFloat(amount) };
 
 
         console.log(data);
 
         const message = {
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',  'Authorization': 'Bearer ' + AuthService.getToken()},
             body: JSON.stringify(data)
         };
 
@@ -107,23 +113,23 @@ export class Possessions extends Component {
           }
       }).then(data => {
           if (data !== null) {
-             // this.setState({possessions: data});
+            this.setState({possessions: data});
           }
           });
             
         
     }
-    deletePossession = async(possessionName) => { //name ateina
+    deletePossession = async(PossessionId) => { //ID ateina
 
-        if (possessionName === "") {
+        if (PossessionId === 0) {
             return;
         }
 
         this.hideModals();
 
-        const response = await fetch('possession/DeletePossession?possessionName=' + possessionName);
+        const response = await fetch('possession/DeletePossession?possessioniD=' + PossessionId, requestOptions);
         const data = await response;
-        //this.setState({ possessions: data });
+        this.setState({ possessions: data });
     }
 
 
@@ -136,15 +142,17 @@ export class Possessions extends Component {
                         <th>Title</th>
                         <th>Amount</th>
                         <th>Value {'\u0024'}</th>
+                        <th>Change %</th>
                     </tr>
                 </thead>
                 <tbody>
                     {possessions.map((possession, index) =>
                         <tr key={index}>
-                            <td><img src={possession.imageUrl} className="image" /></td>
+                            <td><img src={possession.urlImage} className="image" /></td>
                             <td>{possession.name}</td>
                             <td>{possession.amount}</td>
-                            <td>{possession.valueInDollarsWhenBought}</td>
+                            <td>{Math.round(possession.valueInDollars*possession.amount * 100)/100}</td>
+                            <td>{Math.round(possession.percentageChangeInValue*100)/100} %</td>
                         </tr>
                     )}
                 </tbody>
@@ -196,7 +204,7 @@ export class Possessions extends Component {
     }
 
     async populatePossessionNames() {
-        const response = await fetch('possession/names');
+        const response = await fetch('possession/names', requestOptions);
         const data = await response.json();
         console.log(data);
 
@@ -209,7 +217,7 @@ export class Possessions extends Component {
     }
 
     async populateOwnedPossessionNames() {
-        const response = await fetch('possession/OwnedPossessionNames');
+        const response = await fetch('possession/OwnedPossessionNames', requestOptions);
         const data = await response.json();
         console.log(data);
 
@@ -222,7 +230,7 @@ export class Possessions extends Component {
     }
 
     async populatePossessionData() {
-        const response = await fetch('possession');
+        const response = await fetch('possession', requestOptions);
         const data = await response.json();
         console.log(data);
 

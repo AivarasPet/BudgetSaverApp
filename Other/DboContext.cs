@@ -17,8 +17,7 @@ namespace BudgetSaverApp.Other
     {
         public DboContext(DbContextOptions options) : base(options) { }
         public DbSet<DboPossession> Possessions { get; set; }
-        public DbSet<PossessionAPILink> PossessionsApiLinks { get; set; }
-        public DbSet<ImageLink> ImageLinks { get; set; }
+        public DbSet<DboPossessionData> PossessionsData { get; set; }
         public DbSet<DboTransaction> Transactions { get; set; }
         public DbSet<DboGoal> Goals { get; set; }
         public DbSet<User> Users { get; set; }
@@ -26,7 +25,7 @@ namespace BudgetSaverApp.Other
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<PossessionAPILink>().Property(e => e.Headers).HasConversion(
+            modelBuilder.Entity<DboPossessionData>().Property(e => e.Headers).HasConversion(
                 v => JsonConvert.SerializeObject(v),
                 v => JsonConvert.DeserializeObject<Dictionary<string, string>>(v));
         }

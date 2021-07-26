@@ -3,11 +3,14 @@ import './UserAuth.css';
 import * as AuthService from './AuthService'
 import RegistrationModal from './RegistrationModal'
 
+
 const styles = {
     form: {
       textAlign: 'center'
     }
-  }
+}
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export class Login extends Component {
     static displayName = Login.name;
@@ -18,7 +21,8 @@ export class Login extends Component {
             email:"",
             password:"",
             loading: true,
-            doShowRegistrationModal : false
+            doShowRegistrationModal : false,
+            postRegistrationState: 0
         };       
     }
 
@@ -28,12 +32,24 @@ export class Login extends Component {
     }
     openTheRegistrationModal = event => {
         event.preventDefault();
-        this.setState({loading: false,doShowRegistrationModal : true})
+        this.setState({loading: false,doShowRegistrationModal : true, postRegistrationState: 0})
         
     }
 
-    registerNewUser = () => {
-        //this.setState({loading:false})
+    registerNewUser = async (email, password) => {       
+        var user = { email: email, password: password };
+        const message = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        }; 
+        const response = await fetch('User/RegisterAttempt', message);
+        if (!response.ok) {
+            this.setState({postRegistrationState: 2}); //fail
+        }
+        else this.setState({postRegistrationState: 1});
+        await sleep(1000);
+        this.setState({doShowRegistrationModal: false});
     }
 
     componentDidMount() {
@@ -63,14 +79,13 @@ export class Login extends Component {
                 <RegistrationModal show = {this.state.doShowRegistrationModal}
                     handleClose = {this.closeTheRegistrationModal}
                     handleAction = {this.registerNewUser}
-
+                    postRegistrationState = {this.state.postRegistrationState}
                 ></RegistrationModal>         
             </div>
         );
     }
 
     LogInPressed = async (event) => {
-        console.log("vyksta");
         let data = await AuthService.Login(this.state.email, this.state.password);
         console.log(data)
         if(data !== null) this.props.LogInSuccesful();

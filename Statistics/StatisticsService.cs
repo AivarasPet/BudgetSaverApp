@@ -1,4 +1,5 @@
-﻿using BudgetSaverApp.Transactions;
+﻿using BudgetSaverApp.Possessions;
+using BudgetSaverApp.Transactions;
 using BudgetSaverApp.UserData;
 using my_new_app.ModelsToBeFetched;
 using System;
@@ -17,10 +18,11 @@ namespace BudgetSaverApp.Statistics
         Lazy<Stats> StatsPastYear;
 
 
-        public StatisticsService(ITransactionService transactionService, IUserIDService userIDService)
+        public StatisticsService(ITransactionService transactionService, IUserIDService userIDService, PossessionDataHolder possessionDataHolder)
         {
             _TransactionService = transactionService;
             _UserIDService = userIDService;
+            //possessionDataHolder.Activate();
             //transactionService.TransactionAdded += OnTransactionAdded;
             //int userID = userIDService.GetUserID();
             //DateTime date = DateTime.Now;
@@ -106,7 +108,7 @@ namespace BudgetSaverApp.Statistics
         //}
 
 
-        public string getTopEarnings(int userID) {
+        public string GetTopEarnings(int userID) {
             DateTime date = DateTime.Now;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
@@ -185,6 +187,16 @@ namespace BudgetSaverApp.Statistics
             DateTime date = DateTime.Now;
             var prev = date.AddMonths(-2);
             return GetFinancialFeedackByCategory(prev, userID);
+        }
+
+        public float DailyProfit(int userID)
+        {
+            List<Transaction> transactions= _TransactionService.GetTransactionsList(userID);
+            DateTime date1 = transactions.OrderBy(x => x.Date).FirstOrDefault().Date;
+            DateTime date2 = transactions.OrderByDescending(x => x.Date).FirstOrDefault().Date;
+            double daysDiff = date2.Subtract(date1).TotalDays;
+            Stats stats = new Stats(date1, date2, _TransactionService, userID);
+            return ((stats.TotalIncome-stats.TotalExpenses)/(float)daysDiff);
         }
     }
 }

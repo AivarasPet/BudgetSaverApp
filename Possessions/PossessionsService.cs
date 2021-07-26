@@ -15,195 +15,106 @@ using System.Threading;
 namespace BudgetSaverApp.Possessions
 {
     
+
     public class PossessionsService : IPossessionsService
     {
-        List<Possession> List = new List<Possession>();
-        private DboContext _DboPossessionContext;
-        private string connectionString;
+        //List<PossessionBackup> Backups = new List<PossessionBackup>();
+        private DboContext _DboContext;
+        PossessionDataHolder _PossessionDataHolder;
 
-        public PossessionsService(DboContext dboContext) //, ConnectionStringHelper connectionStringHelper
+        public PossessionsService(DboContext dboContext, PossessionDataHolder possessionDataHolder) 
         {
-            connectionString = "Server =.\\SQLEXPRESS; Database = BudgetSaverDatabase; Trusted_Connection = True;";// connectionStringHelper.ConnectionString;
-            _DboPossessionContext = dboContext;
-            LoadPossessionsList();
+            _DboContext = dboContext;
+            _PossessionDataHolder = possessionDataHolder;
+            //LoadPossessionsBackupList();
         }
 
-        public void DeletePossession(string possessionName, int userId)
+
+
+
+        public void DeletePossession(int possessionID, int userId)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Possessions WHERE UserId = @userId AND ApiLinkID = (SELECT ID FROM dbo.PossessionsApiLinks WHERE name = @possessionName)", con);
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-                cmd.Parameters.Add(new SqlParameter("@possessionName", possessionName));
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                con.Close();
-            }
+            var toDelete = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionID).FirstOrDefault();
+            _DboContext.Remove(toDelete);
+            _DboContext.SaveChangesAsync();
         }
 
-        public void UpdatePossession(string possessionName, float amount, int userId)
+        public void UpdatePossession(int possessionID, float amount, int userId)
         {
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE dbo.Possessions SET Amount = @amount FROM dbo.Possessions WHERE UserId = @userId AND ApiLinkID = (SELECT ID FROM dbo.PossessionsApiLinks WHERE name = @possessionName)", con);
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-                cmd.Parameters.Add(new SqlParameter("@possessionName", possessionName));
-                cmd.Parameters.Add(new SqlParameter("@amount", amount));
-
-                
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                
-                con.Close();
-            }
-            
+            var toUpdate = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionID).FirstOrDefault();
+            toUpdate.Amount = amount;
+            _DboContext.SaveChangesAsync();
         }
 
-        public List<string> GetAllPossessionNames()
+        public List<string> GetAllPossessionNames(int userId)
         {
-            var arr = _DboPossessionContext.PossessionsApiLinks.Select(x => x.ID).Except(_DboPossessionContext.Possessions.Select(y => y.ApiLinkID)).ToList();
-            return _DboPossessionContext.PossessionsApiLinks.Where(x => arr.Contains(x.ID)).Select(x => x.Name).ToList();
+            var arr = _DboContext.PossessionsData.Select(x => x.ID).Except(_DboContext.Possessions.Select(y => y.PossessionDataID)).ToList();
+            return _DboContext.PossessionsData.Where(x => arr.Contains(x.ID)).Select(x => x.Name).ToList();
         }
-        public List<string> GetOwnedPossessionNames()
+        public List<string> GetOwnedPossessionNames(int userId)
         {
-            var arr = from L in _DboPossessionContext.PossessionsApiLinks
-                      join P in _DboPossessionContext.Possessions
-                      on L.ID equals P.ApiLinkID
-                      select L.Name;
+            var arr = from B in _PossessionDataHolder.PossessionBackups
+                      join P in _DboContext.Possessions
+                      on B.ID equals P.PossessionDataID
+                      where P.UserID == userId
+                      select B.Name;
             return arr.ToList();
         }
 
-        public List<Possession> GetPossessionsList()
+        public List<Possession> GetPossessionsList(int userID)
         {
-            return List ?? null;
+            var filtered = _DboContext.Possessions.Where(x => x.UserID == userID).ToList();
+            var arr = (from P in filtered
+                      join B in _PossessionDataHolder.PossessionBackups
+                      on P.PossessionDataID equals B.ID
+                      select new Possession
+                      {
+                          Type = B.Type
+                      ,
+                          Amount = P.Amount
+                      ,
+                          Name = B.Name
+                      ,
+                          UrlImage = B.UrlImage
+                      ,
+                          LastEdited = P.LastEdited
+                      ,
+                          ValueInDollars = B.Price
+                      ,
+                          ValueInDollarsWhenBought = P.ValueInDollarsWhenBought
+                      ,
+                          PercentageChangeInValue = B.Price / P.ValueInDollarsWhenBought * 100
+                      }).ToList();
+            return arr;
         }
 
-        public float TotalPossessionValue()
+        public FloatObj TotalPossessionValue(int userID)
         {
-            return List.Aggregate(new float(), (sum, next) => sum + next.ValueInDollarsWhenBought);
+            return new FloatObj { Float = GetPossessionsList(userID).Aggregate(new float(), (sum, next) => sum + next.ValueInDollarsWhenBought) };
         }
 
-        public float TotalPossessionInflation()
+        public float TotalPossessionInflation(int userID)
         {
-            float value = TotalPossessionValue();
+            FloatObj value = TotalPossessionValue(userID);
             float percentage = PublicValues.InflationInARecentYear();
-            float price = value * percentage;
+            float price = value.Float * percentage;
             return price;
         }
 
-        //naudot viena context, 
-        //Atskirt headers nuo ApiLink
-        //ToList() Uzkrauna ramus, too many sql queries
 
-        public void LoadPossessionsList()
+        public void InsertPossession(int possessionID, float amount, int userId)
         {
-            List = new List<Possession>();
-            APIFetcher apiFetcher = new APIFetcher();
-
-            var completeList =
-            from a in _DboPossessionContext.PossessionsApiLinks
-            join p in _DboPossessionContext.Possessions
-            on a.ID equals p.ApiLinkID
-            join i in _DboPossessionContext.ImageLinks
-            on p.LinkOfImageID equals i.ID
-            select new { dboPossession = p, apiLink = a, imageUrl = i.link };
-
-            List<Possession> list1 = new List<Possession>();
-
-            foreach (var item in completeList)
+            var y = _PossessionDataHolder.PossessionBackups.Find(x => x.ID == possessionID).Price;
+            var x = new DboPossession
             {
-                Possession possession = (item.apiLink.Type) switch
-                {
-                    "Crypto"    => new Crypto(),
-                    "Stock"     => new Stock(),
-                    "Commodity" => new Commodity(),
-                    _           => throw new NotImplementedException(),
-                };
-
-                possession.Name = item.apiLink.Name;
-                possession.ImageUrl = item.imageUrl;
-                possession.LastEdited = item.dboPossession.LastEdited;
-                possession.Amount = item.dboPossession.Amount;
-                possession.Type = item.apiLink.Type;
-                possession.ValueInDollarsWhenBought = item.dboPossession.ValueInDollarsWhenBought;
-
-                ApiLink apiLink = new ApiLink
-                {
-                    Headers = item.apiLink.Headers,
-                    Url = item.apiLink.Url,
-                    Type = item.apiLink.Type
-                };
-
-                apiFetcher.AddDownloadEntity(apiLink, (IApiCallback)possession);
-                List.Add(possession);
-            }
-
-            apiFetcher.RunAllDownloadsAsync();
-        }
-
-        public void InsertPossession(float amount, int possessionLinkID, int imageLinkID, float valueInDollarsWhenBought, int userId)
-        {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Possessions([Amount],[ApiLinkID],[LinkOfImageID],[ValueInDollarsWhenBought],[UserID]) VALUES (@amount, @apiLinkID@, linkOfImageID, @valueInDollarsWhenBought, @userId)", con);
-                cmd.Parameters.Add(new SqlParameter("@amount", amount));
-                cmd.Parameters.Add(new SqlParameter("@apiLinkID", possessionLinkID));
-                cmd.Parameters.Add(new SqlParameter("@linkOfImageID", imageLinkID));
-                cmd.Parameters.Add(new SqlParameter("@valueInDollarsWhenBought", valueInDollarsWhenBought));
-                cmd.Parameters.Add(new SqlParameter("@userId", userId)); 
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                con.Close();
-            }
-        }
-
-        public void InsertPossession(string name, float amount, int userId)
-        {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("  INSERT INTO dbo.Possessions([Amount],[ApiLinkID],[LinkOfImageID],[ValueInDollarsWhenBought], [LastEdited],[UserID]) VALUES (@amount, (SELECT MAX(ID) FROM dbo.PossessionsAPILinks WHERE NAME = @name), 2, 0,'10-10-2013', @userId)", con);
-                cmd.Parameters.Add(new SqlParameter("@amount", amount));
-                cmd.Parameters.Add(new SqlParameter("@name", name));
-                cmd.Parameters.Add(new SqlParameter("@userId", userId));
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                con.Close();
-            }
+                Amount = amount,
+                LastEdited = DateTime.Now,
+                PossessionDataID = possessionID,
+                UserID = userId,
+                ValueInDollarsWhenBought = amount * y
+            };
+            _DboContext.Possessions.Add(x);
+            _DboContext.SaveChangesAsync();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace BudgetSaverApp.Goals
 {
     public interface IGoalsService
     {
-        public DataTable GetGoalTable(int userId);
+        public List<DboGoal> GetUserGoals(int userId);
         public DataRow GetUserData(int userId);
         public void UpdateGoal(string inputName, float inputAmount, string inputDescription, int goalId, int userId);
         public void AddNewGoal(string inputName, float inputAmount, string inputDescription, int userId);

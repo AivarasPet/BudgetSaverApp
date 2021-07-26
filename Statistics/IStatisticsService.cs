@@ -7,7 +7,8 @@ namespace BudgetSaverApp.Statistics
 {
     public interface IStatisticsService
     {
-        public string getTopEarnings(int userID);
+        public float DailyProfit(int userID);
+        public string GetTopEarnings(int userID);
         //public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryAdvanced();
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo, int userID);
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth(int userID);

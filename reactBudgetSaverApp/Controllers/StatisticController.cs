@@ -57,10 +57,14 @@ namespace my_new_app.Controllers
 
         }
 
+        public ActionResult<float> GetProfit()
+        {
+            return _statisticsService.DailyProfit(_UserIDService.GetUserID());
+        }
 
         public ActionResult<string> GetTopEarnings()
         {
-            string sss = _statisticsService.getTopEarnings(_UserIDService.GetUserID());
+            string sss = _statisticsService.GetTopEarnings(_UserIDService.GetUserID());
             return sss;
         }
 
