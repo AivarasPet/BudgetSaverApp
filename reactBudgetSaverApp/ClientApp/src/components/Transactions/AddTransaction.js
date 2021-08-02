@@ -28,7 +28,9 @@ export default class AddTransaction extends Component {
             { value: 1, label: 'Expenses' }
         ];
 
-        this.categories = [];
+        this.expensesCategories = [];
+        this.incomeCategories = [];
+        this.date = React.createRef();
     }
 
 
@@ -45,12 +47,17 @@ export default class AddTransaction extends Component {
     }
 
     handleTypeChange = (event) => {
+        console.log(event.value + " ok ");
         this.setState({ inputType: event.value });
     }
 
     handleCategoryChange = (event) => {
         this.setState({ inputCategory: event.value });
     }
+    handleDateChange = (event) => {
+        this.setState({ inputDate: event.value });
+    }
+
 
 
 
@@ -66,11 +73,11 @@ export default class AddTransaction extends Component {
         event.preventDefault();
 
         //verification
-        if (this.state.inputType === "" || this.state.inputAmount === NaN || this.state.inputTitle === "" || this.state.inputCategory === "") {
+        if (this.state.inputType === "" || this.state.inputAmount === NaN || this.state.inputTitle === "" || this.state.inputCategory === "" || this.date.current.value === undefined) {
             return;
         }
 
-        var data = { transactType: this.state.inputType, amount: parseFloat(this.state.inputAmount), title: this.state.inputTitle, category: this.state.inputCategory };
+        var data = { transactType: this.state.inputType, amount: parseFloat(this.state.inputAmount), title: this.state.inputTitle, category: this.state.inputCategory, date:  this.date.current.value };
 
 
         console.log(data);
@@ -119,18 +126,29 @@ export default class AddTransaction extends Component {
     }
 
     async populateCategories() {
-        const response = await fetch('categories/getcategories');
+        const response = await fetch('categories/getTransactionCategories');
         const data = await response.json();
         console.log(data);
         var tempCategories = [];
-        data.forEach(function (element) {
-            tempCategories.push({ label: element.name, value: element.name })
+        var temp = [];
+        tempCategories = data.expensesCategories;
+        tempCategories.forEach(function (element) {
+            temp.push({ label: element.name, value: element.name })
         });
-
-        this.categories = tempCategories;
+        this.expensesCategories = temp;
+        temp = [];
+        tempCategories = data.incomeCategories;
+        tempCategories.forEach(function (element) {
+            temp.push({ label: element.name, value: element.name })
+        });
+        this.incomeCategories = temp;
+        // data.expensesCategories.forEach(function (element) {
+        //     this.expensesCategories.push({ label: element.name, value: element.name })
+        // });
     }
 
     render() {
+        let categories = (this.state.inputType === 0) ? (this.incomeCategories) : (this.expensesCategories);
         return (
             <div>
                 
@@ -140,7 +158,8 @@ export default class AddTransaction extends Component {
                         <Select type="type" options={this.type} onChange={this.handleTypeChange} />
                         <input type="text" placeholder="  Title" onChange={this.handleTitleChange} style={{ width: "100%", height: 37 }} />
                         <input type="number" min="0" step="any" placeholder="  Amount" onChange={this.handleAmountChange} style={{ width: "100%", height: 37 }} />
-                        <Select placeholder="Category" options={this.categories} onChange={this.handleCategoryChange} />
+                        <Select placeholder="Category" options={categories} onChange={this.handleCategoryChange} />
+                        <input type="date"  className="form-control" ref={this.endDate} ref={this.date} style={{ width: "100%", height: 37}}></input>
                         <input type="submit" value="Add" style={{ width: "140px", height: 37 }} />
                     </form>
                 )}               

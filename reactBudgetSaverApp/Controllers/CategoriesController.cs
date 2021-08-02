@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BudgetSaverApp;
+using BudgetSaverApp.Categories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using static BudgetSaverApp.CategoryService;
 
 namespace my_new_app.Controllers
 {
-    [ApiController]
-    
 
-    public class Category
-    {
-        public string Name { get; set; }
-    }
+    
     public class CategoriesController : ControllerBase
     {
         private ICategoryService _categoryService;
@@ -23,19 +21,11 @@ namespace my_new_app.Controllers
             _categoryService = categoryService;
         }
         
-        public List<Category> CategoryConvert (string[] firstArray)
-        {
-            List<Category> data = new List<Category>();
-            for (int i = 0; i < firstArray.Length; i++)
-            {
-                data.Add(new Category { Name = firstArray[i] });
-            }
-            return data;
-        }
 
-        public ActionResult<IEnumerable<Category>> GetCategories()
+        public ActionResult<TransactionCategoriesMeshed> GetTransactionCategories()
         {
-            return CategoryConvert(_categoryService.GetCategories());
+            var x = _categoryService.GetTransactionCategories();
+            return x;
         } 
     }
 }

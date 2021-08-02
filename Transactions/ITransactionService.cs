@@ -13,7 +13,7 @@ namespace BudgetSaverApp
         public void LoadTransactionsListFromDatabase();
         public List<Transaction> GetTransactionsList(int userID);
         
-        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, int userID, string category = "N/A");
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, DateTime date, int userID, string category = "N/A");
 
         public List<Tuple<Transaction, int>> GetPopularTransactionTuples(int userID);
          

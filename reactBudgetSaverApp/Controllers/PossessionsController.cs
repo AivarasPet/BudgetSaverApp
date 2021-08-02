@@ -18,7 +18,7 @@ namespace my_new_app.Controllers
 
     public class PossessionInfo
     {
-        public int PossessionId { get; set; }
+        public string PossessionName { get; set; }
         public float Amount { get; set; }
     }
     [Authorize]
@@ -33,7 +33,9 @@ namespace my_new_app.Controllers
         }
         public IEnumerable<Possession> Index()
         {
-            return _possessionsService.GetPossessionsList(_UserIDService.GetUserID()).ToArray();
+            var x =
+             _possessionsService.GetPossessionsList(_UserIDService.GetUserID()).ToList();
+            return x;
         }
 
 
@@ -62,30 +64,29 @@ namespace my_new_app.Controllers
         [HttpPost]
         public ActionResult<IEnumerable<Possession>> PostAddPossession([FromBody] PossessionInfo possession)
         {
-            _possessionsService.InsertPossession(possession.PossessionId, possession.Amount, _UserIDService.GetUserID());
-            return _possessionsService.GetPossessionsList(_UserIDService.GetUserID()).ToArray();
+            _possessionsService.InsertPossession(possession.PossessionName, possession.Amount, _UserIDService.GetUserID());
+            var x = _possessionsService.GetPossessionsList(_UserIDService.GetUserID()).ToArray();
+            return x;
         }
 
         [HttpPost]
         public ActionResult<IEnumerable<Possession>> PostUpdatePossession([FromBody] PossessionInfo possession)
         {
-            return null;
-            _possessionsService.UpdatePossession(possession.PossessionId, possession.Amount, _UserIDService.GetUserID());
+            _possessionsService.UpdatePossession(possession.PossessionName, possession.Amount, _UserIDService.GetUserID());
             return _possessionsService.GetPossessionsList(_UserIDService.GetUserID()).ToArray();
         }
-        public ActionResult<IEnumerable<Possession>> DeletePossession(int possessionId)
+        public ActionResult<IEnumerable<Possession>> DeletePossession(string possessionName)
         {
             try
             {
-                _possessionsService.DeletePossession(possessionId, _UserIDService.GetUserID());
+                _possessionsService.DeletePossession(possessionName, _UserIDService.GetUserID());
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
                 return BadRequest(ex.Message);
             }
-            //return _possessionsService.GetPossessionsList().ToArray();
-            return null;
+            return _possessionsService.GetPossessionsList(_UserIDService.GetUserID());
         }
 
     }

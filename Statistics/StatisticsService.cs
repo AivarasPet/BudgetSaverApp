@@ -123,16 +123,18 @@ namespace BudgetSaverApp.Statistics
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategory(DateTime monthComparedTo, int userID)
         {
             DateTime date = DateTime.Now;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-            Stats statsThatAreCompared = new Stats(new DateTime(date.Year, date.Month, 1).AddMonths(-1), new DateTime(date.Year, date.Month, 1).AddDays(-1), _TransactionService, userID);
-            List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
+            Stats statsThatAreCompared = new Stats(
+                 new DateTime(date.Year, date.Month, 1)
+                ,new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1)
+                ,_TransactionService
+                , userID
+            );
             var firstDayOfComparedMonth = new DateTime(monthComparedTo.Year, monthComparedTo.Month, 1);
             var lastDayOfComparedMonth = firstDayOfComparedMonth.AddMonths(1).AddDays(-1);
             Stats statsThatAreComparedTo = new Stats(firstDayOfComparedMonth, lastDayOfComparedMonth, _TransactionService, userID);
-            float oldExpenses, newExpenses;
 
 
+            List<FinancialFeedbackByCategory> toReturn = new List<FinancialFeedbackByCategory>();
             List<FinancialFeedbackByCategory> list =
                 (from sc in statsThatAreCompared.SubStatsList
                  join sct in statsThatAreComparedTo.SubStatsList
@@ -185,13 +187,14 @@ namespace BudgetSaverApp.Statistics
         public List<FinancialFeedbackByCategory> GetFinancialFeedackByCategoryPreviousMonth(int userID)
         {
             DateTime date = DateTime.Now;
-            var prev = date.AddMonths(-2);
+            var prev = new DateTime(date.Year, date.Month-1, 1);
             return GetFinancialFeedackByCategory(prev, userID);
         }
 
         public float DailyProfit(int userID)
         {
             List<Transaction> transactions= _TransactionService.GetTransactionsList(userID);
+            if (transactions.Count < 1) return 0;
             DateTime date1 = transactions.OrderBy(x => x.Date).FirstOrDefault().Date;
             DateTime date2 = transactions.OrderByDescending(x => x.Date).FirstOrDefault().Date;
             double daysDiff = date2.Subtract(date1).TotalDays;

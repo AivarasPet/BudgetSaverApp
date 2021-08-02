@@ -15,21 +15,15 @@ export default class Feedback extends Component {
 
     }
 
-    componentDidMount() {
-        this.getFeedback();
-    }
 
-    async getFeedback() {
-        const response = await fetch('statistic/getpreviousmonthfeedback');
-        const data = await response.json();
-        console.log(data);
-        this.setState({ feedback: data, loading: false });
-    }
+
 
     render() {
+        var array = this.props.feedbackData;
         return (
             <div>
-                <h1>Feedback</h1>
+                <h1>Feedback</h1> 
+                <h4>Last Month vs Current Month</h4>
                 <table className='table table-bordered table-sm table-hover table-striped feedbackTable' aria-labelledby="tabelLabel" sortable="true">
                     <thead className="thead-dark">
                         <tr>
@@ -40,7 +34,7 @@ export default class Feedback extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.feedback.map((item, index) =>
+                        {array.map((item, index) =>
                             <tr key={index} typeforcss={(item.isFeedbackPositive == true ? "0" : "1")}>
                                 <td>{item.category}</td>
                                 {item.isFeedbackPositive == true ? <td>{'+ ' + item.difference + ' \u20AC'}</td> : <td>{'- ' + item.difference + ' \u20AC'}</td>}

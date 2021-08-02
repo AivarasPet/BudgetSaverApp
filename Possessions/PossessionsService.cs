@@ -32,18 +32,20 @@ namespace BudgetSaverApp.Possessions
 
 
 
-        public void DeletePossession(int possessionID, int userId)
+        public void DeletePossession(string possessionName, int userId)
         {
-            var toDelete = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionID).FirstOrDefault();
+            int possessionId = _DboContext.PossessionsData.First(u => u.Name == possessionName).ID;
+            var toDelete = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionId).FirstOrDefault();
             _DboContext.Remove(toDelete);
-            _DboContext.SaveChangesAsync();
+            _DboContext.SaveChanges();
         }
 
-        public void UpdatePossession(int possessionID, float amount, int userId)
+        public void UpdatePossession(string possessionName, float amount, int userId)
         {
-            var toUpdate = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionID).FirstOrDefault();
+            int possessionId = _DboContext.PossessionsData.First(u => u.Name == possessionName).ID;
+            var toUpdate = _DboContext.Possessions.Where(x => x.UserID == userId && x.PossessionDataID == possessionId).FirstOrDefault();
             toUpdate.Amount = amount;
-            _DboContext.SaveChangesAsync();
+            _DboContext.SaveChanges();
         }
 
         public List<string> GetAllPossessionNames(int userId)
@@ -53,12 +55,12 @@ namespace BudgetSaverApp.Possessions
         }
         public List<string> GetOwnedPossessionNames(int userId)
         {
-            var arr = from B in _PossessionDataHolder.PossessionBackups
+            var arr = (from B in _PossessionDataHolder.PossessionBackups
                       join P in _DboContext.Possessions
                       on B.ID equals P.PossessionDataID
                       where P.UserID == userId
-                      select B.Name;
-            return arr.ToList();
+                      select B.Name).ToList();
+            return arr;
         }
 
         public List<Possession> GetPossessionsList(int userID)
@@ -83,7 +85,7 @@ namespace BudgetSaverApp.Possessions
                       ,
                           ValueInDollarsWhenBought = P.ValueInDollarsWhenBought
                       ,
-                          PercentageChangeInValue = B.Price / P.ValueInDollarsWhenBought * 100
+                          PercentageChangeInValue = (P.ValueInDollarsWhenBought != 0) ? (B.Price / P.ValueInDollarsWhenBought-1) * 100 : 0
                       }).ToList();
             return arr;
         }
@@ -102,19 +104,20 @@ namespace BudgetSaverApp.Possessions
         }
 
 
-        public void InsertPossession(int possessionID, float amount, int userId)
+        public void InsertPossession(string possessionName, float amount, int userId)
         {
-            var y = _PossessionDataHolder.PossessionBackups.Find(x => x.ID == possessionID).Price;
+            int possessionId = _DboContext.PossessionsData.First(u => u.Name == possessionName).ID;
+            var y = _PossessionDataHolder.PossessionBackups.Find(x => x.ID == possessionId).Price;
             var x = new DboPossession
             {
                 Amount = amount,
                 LastEdited = DateTime.Now,
-                PossessionDataID = possessionID,
+                PossessionDataID = possessionId,
                 UserID = userId,
-                ValueInDollarsWhenBought = amount * y
+                ValueInDollarsWhenBought = y
             };
             _DboContext.Possessions.Add(x);
-            _DboContext.SaveChangesAsync();
+            _DboContext.SaveChanges();
         }
     }
 }

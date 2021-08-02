@@ -58,6 +58,21 @@ namespace BudgetSaverApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TransactionCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryType = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    UserID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TransactionCategories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Transactions",
                 columns: table => new
                 {
@@ -100,6 +115,9 @@ namespace BudgetSaverApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "PossessionsData");
+
+            migrationBuilder.DropTable(
+                name: "TransactionCategories");
 
             migrationBuilder.DropTable(
                 name: "Transactions");

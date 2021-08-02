@@ -45,7 +45,7 @@ namespace my_new_app.Controllers
         {
             try
             {
-                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), _UserIDService.GetUserID(), values.Category);
+                _transactionService.AddNewTransaction(values.TransactType, values.Title, values.Amount.ToString(), values.Date, _UserIDService.GetUserID(), values.Category);
                 
             }catch (Exception ex)
             {

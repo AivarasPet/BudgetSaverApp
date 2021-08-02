@@ -41,7 +41,7 @@ export class Possessions extends Component {
         this.setState({ doShowUpdateModal: true, possessionNamesinSelect: varia  });
     };
     showDeleteModal = () => {
-    let varia = this.state.ownedPossessionNames;
+        let varia = this.state.ownedPossessionNames;
         this.setState({ doShowDeleteModal: true, possessionNamesinSelect: varia });
     };
 
@@ -52,14 +52,14 @@ export class Possessions extends Component {
     };
 
 
-    updatePossession = (PossessionId, amount) => {
-        if (PossessionId === 0 || amount === NaN) {
+    updatePossession = (PossessionName, amount) => {
+        if (PossessionName === NaN || amount === NaN) {
             return;
         }
         this.hideModals();
 
-        var data = { PossessionId: PossessionId, Amount: parseFloat(amount) };
-
+        var data = { PossessionName: PossessionName, Amount: parseFloat(amount) };
+        console.log("Data: "+data.PossessionId);
         const message = {
             method: 'post',
             headers: { 'Content-Type': 'application/json',  'Authorization': 'Bearer ' + AuthService.getToken()},
@@ -82,16 +82,16 @@ export class Possessions extends Component {
                 });
         
     }
-    insertPossession = (PossessionId, amount) => {
+    insertPossession = (PossessionName, amount) => {
         
 
-        if (PossessionId === 0 || amount === NaN) {
+        if (PossessionName === NaN || amount === 0) {
             return;
         }
-
         this.hideModals();
 
-        var data = { PossessionId: PossessionId, Amount: parseFloat(amount) };
+
+        var data = { PossessionName: PossessionName, Amount: parseFloat(amount) };
 
 
         console.log(data);
@@ -111,25 +111,26 @@ export class Possessions extends Component {
               response.text().then((s) => window.alert(s));//cia reiks fixint kad butu reactinis solutionas
               return null;
           }
-      }).then(data => {
+        }).then(data => {
           if (data !== null) {
             this.setState({possessions: data});
+            this.populateOwnedPossessionNames();
           }
           });
-            
-        
-    }
-    deletePossession = async(PossessionId) => { //ID ateina
 
-        if (PossessionId === 0) {
+
+    }
+    deletePossession = async(PossessionName, empty) => { //ID ateina
+
+        if (PossessionName === NaN) {
             return;
         }
-
         this.hideModals();
 
-        const response = await fetch('possession/DeletePossession?possessioniD=' + PossessionId, requestOptions);
-        const data = await response;
+        const response = await fetch('possession/DeletePossession?possessionName=' + PossessionName, requestOptions);
+        const data = await response.json();
         this.setState({ possessions: data });
+        this.populateOwnedPossessionNames();
     }
 
 
@@ -170,7 +171,7 @@ export class Possessions extends Component {
                 <h1 id="tableLabel" >Possesion list</h1>
                 <Modal show = {this.state.doShowInsertModal}
                     handleClose = {this.hideModals}
-                    actionName = "Edit"
+                    actionName = "Insert"
                     handleAction = {this.insertPossession}
                     selectArray = {this.state.possessionNamesinSelect}
                     inputField = {true}

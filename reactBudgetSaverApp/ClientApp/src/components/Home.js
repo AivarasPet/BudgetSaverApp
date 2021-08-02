@@ -59,7 +59,7 @@ export class Home extends Component {
                 labels: labels,
                 datasets: [
                     {
-                        label: "ammount, \u20AC",
+                        //label: "ammount, \u20AC",
                         data: dataValues,
                         backgroundColor: [
                             "rgba(255, 99, 132, 0.2)",

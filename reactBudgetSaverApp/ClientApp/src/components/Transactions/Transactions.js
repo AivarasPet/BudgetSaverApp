@@ -81,8 +81,7 @@ export class Transactions extends Component {
 
     onUpdate(data) {
         var transactions = this.state.transactions;
-        transactions.push(data);
-        this.setState({ transactions: transactions });
+        this.setState({ transactions: [data].concat(transactions) });
     }
 
     populateTransactionData = async() => {

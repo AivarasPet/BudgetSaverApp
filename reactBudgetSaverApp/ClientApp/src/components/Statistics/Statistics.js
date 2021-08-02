@@ -18,7 +18,9 @@ export class Statistics extends Component {
           currentCount: 0,
           statistic: {},
           loading: true,
+          feedback: [],
           setStatisticsDateVisibility: false,
+
           subStatistics: {}
       };
       this.thisWeek();
@@ -28,6 +30,10 @@ export class Statistics extends Component {
       this.startDate = React.createRef();
       this.endDate = React.createRef();
   }
+
+    componentDidMount() {
+        this.getFeedback();
+    }
 
     thisWeek = async () => {
         const response = await fetch('statistic/thisweek', requestOptions);
@@ -86,6 +92,13 @@ export class Statistics extends Component {
         );
     }
 
+    async getFeedback() {
+        const response = await fetch('statistic/getpreviousmonthfeedback', requestOptions);
+        const data = await response.json();
+        console.log(data);
+        this.setState({ feedback: data});
+    }
+
 
     renderStatistic(statistics) {
         let contents = this.renderSubStatistics(this.state.subStatistics);
@@ -110,8 +123,8 @@ export class Statistics extends Component {
             ? <p><em>Loading...</em></p>
             : this.renderStatistic(this.state.statistic);
 
-        let showFeedback = (this.state.Feedback == [])
-        ? <Feedback></Feedback>
+        let showFeedback = (this.state.feedback !== [])
+        ? <Feedback feedbackData = {this.state.feedback}></Feedback>
         : null;
         return (
             <div>

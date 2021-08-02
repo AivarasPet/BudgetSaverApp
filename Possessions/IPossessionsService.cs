@@ -12,9 +12,9 @@ namespace BudgetSaverApp
         public List<string> GetAllPossessionNames(int userId);
         public List<string> GetOwnedPossessionNames(int userId);
         public List<Possession> GetPossessionsList(int userID);
-        public void DeletePossession(int possessionId, int userId);
-        public void UpdatePossession(int possessionId, float amount, int userId);
-        public void InsertPossession(int possessionId, float amount, int userId);//
+        public void DeletePossession(string possessionName, int userId);
+        public void UpdatePossession(string possessionName, float amount, int userId);
+        public void InsertPossession(string possessionName, float amount, int userId);//
         public FloatObj TotalPossessionValue(int userId);
         public float TotalPossessionInflation(int userId);
     }

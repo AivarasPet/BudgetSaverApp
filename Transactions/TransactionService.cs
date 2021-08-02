@@ -8,6 +8,7 @@ using System.Configuration;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using BudgetSaverApp.Other;
+using BudgetSaverApp.Categories;
 
 namespace BudgetSaverApp.Transactions
 {
@@ -18,14 +19,16 @@ namespace BudgetSaverApp.Transactions
 public class TransactionService : ITransactionService
     {
         private DboContext _dboContext;
+        private ICategoryService _CategoryService;
         //private UserDataService _userDataService;
         Mapper mapper = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<DboTransaction, Transaction>()));
 
         public List<Transaction> this[DateTime index] => throw new NotImplementedException();
 
-        public TransactionService(DboContext dboContext) //, UserDataService userDataService
+        public TransactionService(DboContext dboContext, ICategoryService categoryService) //, UserDataService userDataService
         {
             _dboContext = dboContext;
+            _CategoryService = categoryService;
             //_userDataService = userDataService;
             LoadTransactionsListFromDatabase();
         }
@@ -129,7 +132,7 @@ public class TransactionService : ITransactionService
 
         }
 
-        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, int userID, string category = "N/A")
+        public void AddNewTransaction(TransactionType transactType, string transactionName, string transactionAmount, DateTime date, int userID, string category = "N/A")
         {
 
             if (transactionName != "" && transactionAmount != "")
@@ -145,18 +148,8 @@ public class TransactionService : ITransactionService
 
                 // Check if category exists
 
-                ICategoryService categoryService = new CategoryService();
-                string[] categories = categoryService.GetCategories();
-                bool exists = false;
-                foreach (string cat in categories)
-                {
-                    if (category == cat)
-                    {
-                        exists = true;
-                        break;
-                    }
-                }
-                if (!exists)
+                TransactionCategoriesMeshed categories = _CategoryService.GetTransactionCategories();
+                if (!categories.IncomeCategories.Exists(x => x.Name == category) && !categories.ExpensesCategories.Exists(x => x.Name == category))
                 {
                     throw new BadCategoryException("Category not found: ", category);
                 }
@@ -171,7 +164,7 @@ public class TransactionService : ITransactionService
                     TransactType = transactType,
                     Title = transactionName,
                     Category = category,
-                    Date = DateTime.Now,
+                    Date = (date == null) ? DateTime.Now : date,
                     Amount = transAmount,
                     UserId = userID
                 };
