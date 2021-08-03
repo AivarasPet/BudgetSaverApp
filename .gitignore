@@ -340,3 +340,7 @@ ASALocalRun/
 healthchecksdb
 /TabviewCustom.cs
 /MSSQL/MSSQL15.SQLEXPRESS/MSSQL
+
+
+# API Keys
+.appsettings.json
